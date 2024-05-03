@@ -1,0 +1,54 @@
+[
+  {
+    "id": 0,
+    "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+    "assignment": {
+      "instructional_detail": {
+        "label": "Instructional Detail and Clarity",
+        "value": "Low",
+        "explanation": "The narration provides a straightforward list of steps without diving into detailed explanations or techniques behind each action. While it mentions a useful tip about coating chocolate chips in flour to prevent sinking, it lacks the depth seen in more detailed narrations."
+      },
+      "personalization_and_engagement": {
+        "label": "Personalization and Viewer Engagement",
+        "value": "Low",
+        "explanation": "There is no personal introduction or direct engagement with the audience beyond the procedural instructions. The narrator does not invite interaction such as sharing, liking, or subscribing, which limits the level of engagement."
+      },
+      "visual_and_auditory_cues": {
+        "label": "Use of Visual and Auditory Cues",
+        "value": "Minimal",
+        "explanation": "Given the brevity and straightforward nature of the instructions, there's an implication of minimal reliance on visual and auditory cues to support the instructional content. The narration does not specify using visual demonstrations or auditory enhancements to guide the viewer."
+      },
+      "utility_for_navigation": {
+        "label": "Utility for Navigation Across Videos",
+        "value": "Medium",
+        "explanation": "While the instructions are concise, which can theoretically make it easier to navigate to specific steps if the video is segmented accordingly, the lack of detailed navigation cues or chapter markers as implied by the narration style could make finding specific information moderately challenging."
+      }
+    }
+  },
+  {
+    "id": 1,
+    "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+    "assignment": {
+      "instructional_detail": {
+        "label": "Instructional Detail and Clarity",
+        "value": "High",
+        "explanation": "The narration provides a detailed walkthrough of the muffin-making process, including specific ingredient measurements and the rationale behind key steps, such as coating blueberries in flour to prevent them from sinking. Additionally, the step-by-step guidance on mixing and batter preparation is well elaborated, indicating a high level of instructional detail."
+      },
+      "personalization_and_engagement": {
+        "label": "Personalization and Viewer Engagement",
+        "value": "High",
+        "explanation": "The narrator introduces themselves at the beginning, creating a personal connection with the audience. There are multiple calls to action, including requests for viewers to share, like, and subscribe, as well as a direct farewell message, enhancing viewer engagement and interaction."
+      },
+      "visual_and_auditory_cues": {
+        "label": "Use of Visual and Auditory Cues",
+        "value": "Extensive",
+        "explanation": "While the transcript does not directly mention visual cues, the detailed descriptions of actions such as whisking eggs until fluffy, folding in blueberries with a spatula, and creating a streusel topping suggest that the video likely includes extensive visual demonstrations of these techniques."
+      },
+      "utility_for_navigation": {
+        "label": "Utility for Navigation Across Videos",
+        "value": "High",
+        "explanation": "The narration's detailed breakdown of the recipe into distinct steps and segments, coupled with personal engagement elements, likely makes it easier for viewers to navigate through the video. Viewers can revisit specific parts of the process without much difficulty due to the clear structure and detailed explanations."
+      }
+    }
+  }
+]

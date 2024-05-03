@@ -1,0 +1,36 @@
+[
+  {
+    "DetailLevel": {
+      "label": "Level of Detail",
+      "value": "Low",
+      "explanation": "The given narration provides a very concise instruction without going into any specifics about technique, quantities, or the reason behind the instruction."
+    },
+    "ExplanationPresence": {
+      "label": "Presence of Explanation",
+      "value": "Absent",
+      "explanation": "The narration lacks any form of rationale or explanation as to why the wet ingredients need to be folded into the mix, rather than mixed in another manner."
+    },
+    "PersonalizationLevel": {
+      "label": "Level of Personalization",
+      "value": "Generic",
+      "explanation": "There's a total absence of personal anecdotes, preferences, or any form of personal touch that might make the narration feel tailored or engaging on a personal level."
+    }
+  },
+  {
+    "DetailLevel": {
+      "label": "Level of Detail",
+      "value": "High",
+      "explanation": "The narration provides detailed instructions on how to integrate dry ingredients into the mix, including the use of a sifter and the incremental addition of the flour mixture. This detailed guidance supports a high value in the level of detail dimension."
+    },
+    "ExplanationPresence": {
+      "label": "Presence of Explanation",
+      "value": "Implicit",
+      "explanation": "While the narration suggests a specific technique (adding flour in parts with mixing in between), it does not explicitly explain the rationale behind this method (e.g., to prevent clumping or ensure even mixing). Therefore, the explanation is considered implicit."
+    },
+    "PersonalizationLevel": {
+      "label": "Level of Personalization",
+      "value": "Moderate",
+      "explanation": "The directive to 'get a sifter out' and add 'about a third of that flour mixture at a time' adds a touch of personalization, suggesting a conversational tone and a step-by-step guided approach. However, without personal anecdotes or a highly conversational style, it remains at a moderate level of personalization."
+    }
+  }
+]

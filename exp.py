@@ -1,6 +1,6 @@
 import os
 
-import hf_olmo
+# import hf_olmo
 import torch
 
 import json
@@ -10,14 +10,18 @@ import webvtt
 
 import whisper
 
+import re
 
-from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from openai import OpenAI
 
 from yt_dlp import YoutubeDL
 
-DATABASE = "database"
+DATABASE = "static/database"
+
+OUTPUT_FOLDER = "_data"
 
 EXAMPLE_COOKING_VIDOES = [
     "https://www.youtube.com/shorts/-OE6LhxsTNA", # short
@@ -32,8 +36,8 @@ INVESTIGATION_VIDEOS = [
     #"https://www.youtube.com/watch?v=_0-o5Cw4mjQ", # no verbal
     "https://www.youtube.com/watch?v=aEFvNsBDCWs", # has verbal
     "https://www.youtube.com/shorts/fWp5z_YM07Q", # short
-    "https://www.youtube.com/watch?v=cZ2KJPGVwNU", # has verbal
     "https://www.youtube.com/watch?v=gN-orgrgvU8", # has verbal
+    "https://www.youtube.com/watch?v=cZ2KJPGVwNU", # has verbal
     "https://www.youtube.com/shorts/B-XGIGS4Ipw", # short
     #"https://www.youtube.com/watch?v=Q-w2c6PHKN0", # no verbal
     # old
@@ -45,16 +49,54 @@ INVESTIGATION_VIDEOS = [
     #"https://youtu.be/aP0FzpzD6nU?si=a6qKkj1IploPIteJ",
 ]
 
+EMBEDDING_VIDEOS = [
+    "https://www.youtube.com/watch?v=yJQShkjNn08",
+    "https://www.youtube.com/watch?v=yweUoYP1v_o",
+    "https://www.youtube.com/watch?v=Ehntsffsx08",
+    "https://www.youtube.com/watch?v=tdk9_Xs_CC0",
+    "https://www.youtube.com/watch?v=dkhy4vn9HcY",
+    "https://www.youtube.com/watch?v=QECo58lV-bE",
+    "https://www.youtube.com/watch?v=SMh2sjuEwxM",
+    "https://www.youtube.com/watch?v=DaEzhwLFPi8",
+    "https://www.youtube.com/watch?v=J_5scvrv0LU",
+    "https://www.youtube.com/watch?v=umbBEHlpTfo",
+    "https://www.youtube.com/watch?v=pq_INi_4IBI",
+    "https://www.youtube.com/watch?v=pYOQutHfCDo",
+]
 
-olmo = AutoModelForCausalLM.from_pretrained("allenai/OLMo-7B", torch_dtype=torch.float16)
-olmo = olmo.to('cuda')
-tokenizer = AutoTokenizer.from_pretrained("allenai/OLMo-7B")
+
+# olmo = AutoModelForCausalLM.from_pretrained("allenai/OLMo-7B", torch_dtype=torch.float16)
+# olmo = olmo.to('cuda')
+# tokenizer = AutoTokenizer.from_pretrained("allenai/OLMo-7B")
+
+# def run_olmo(messages):
+#     messages = [message["content"] for message in messages]
+
+#     inputs = tokenizer(messages, return_tensors='pt', return_token_type_ids=False).to('cuda')
+#     response = olmo.generate(**inputs, max_new_tokens=300, do_sample=True, top_p=0.6)
+#     return tokenizer.batch_decode(response, skip_special_tokens=True)[0]
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-print(OPENAI_API_KEY)
 client = OpenAI(
     api_key=OPENAI_API_KEY,
 )
+
+def run_openai(messages):
+    
+    response = client.chat.completions.create(
+        #model="gpt-3.5-turbo",
+        model="gpt-4-0125-preview",
+        messages=messages,
+        temperature=0.7,
+    )
+
+    return [{
+        "role": response.choices[0].message.role,
+        "content": response.choices[0].message.content,
+    }]
+
+def run_llm(messages):
+    return run_openai(messages)
 
 video_library = {}
 
@@ -171,18 +213,20 @@ def extract_transcript(subtitles_path, audio_path):
     return transcript
 
 def process_video(video_link):
-    metadata = download_video(video_link)
+    # metadata = download_video(video_link)
     
-    video_title = metadata.get('id')
-    print(f"'{video_title}'")
+    # video_title = metadata.get('id')
+    # print(f"'{video_title}'")
 
-    video_library[video_title] = metadata
+    # video_library[video_title] = metadata
+    video_title = re.split(r"[/=]", video_link)[-1]
 
     video_path = os.path.join(DATABASE, f'{video_title}.mp4')
     subtitles_path = os.path.join(DATABASE, f'{video_title}.en.vtt')
     audio_path = os.path.join(DATABASE, f'{video_title}.mp3')
 
-    video_frames = extract_frames(video_path)
+    #video_frames = extract_frames(video_path)
+    video_frames = []
     subtitles = extract_transcript(subtitles_path, audio_path)
 
     return video_frames, subtitles
@@ -193,31 +237,6 @@ def tokenize_video(video_link):
     return {
         "subtitles": subtitles,
     }
-
-def run_olmo(messages):
-    messages = [message["content"] for message in messages]
-
-    inputs = tokenizer(messages, return_tensors='pt', return_token_type_ids=False).to('cuda')
-    response = olmo.generate(**inputs, max_new_tokens=300, do_sample=True, top_p=0.6)
-    return tokenizer.batch_decode(response, skip_special_tokens=True)[0]
-
-def run_openai(messages):
-    
-    response = client.chat.completions.create(
-        #model="gpt-3.5-turbo",
-        model="gpt-4-0125-preview",
-        messages=messages,
-    )
-
-    return [{
-        "role": response.choices[0].message.role,
-        "content": response.choices[0].message.content,
-    }]
-
-def run_llm(messages):
-    return run_openai(messages)
-    
-
 
 def test_1():
     messages = [
@@ -452,9 +471,376 @@ def classify_videos():
         # for message in response:
         #     print(f"{message['role']}: {message['content']}")
 
+def combine_messages(system_message, user_messages, assistant_messages):
+    messages = [{
+        "role": "system",
+        "content": system_message,
+    }]
+    last_message = min(len(user_messages), len(assistant_messages))
+    for i in range(last_message):
+        messages.append({
+            "role": "user",
+            "content": user_messages[i],
+        })
+        messages.append({
+            "role": "assistant",
+            "content": assistant_messages[i],
+        })
+    
+    if last_message < len(user_messages):
+        messages.append({
+            "role": "user",
+            "content": user_messages[last_message],
+        })
+    return messages
+
+def common_steps_messages_generate(narrations):
+    system_message = """
+You are an assistant that identifies the common steps in the narrated content across different cooking videos, generates comprehensive steps that occur in each narration, and segments each narration into identified steps.
+----------------------------------------
+    """
+    user_messages = []
+    user_messages.append("")
+    
+    for narration in narrations:
+        id = narration["id"]
+        content = narration["content"]
+        user_messages[-1] += f"""
+Narration {id}: {content}
+----------------------------------------
+        """
+
+    user_messages[-1] += """
+Given the above narration transcripts, identify the common steps in the narrated content across different cooking videos. Consider the recurring actions, instructions, or procedures that are essential to the cooking process and are consistently present in each narration. If needed, include unique steps that are specific to certain videos to comprehensivly cover each video.
+
+Let's do it step-by-step.
+----------------------------------------
+    """
+
+    ### Step 1: Describe the steps in each narration comprehensively focusing on commonalities and unqiueness
+    user_messages[-1] += """
+1. Describe the steps in each narration comprehensively, focusing on commonalities and uniqueness. Identify the recurring actions, instructions, or procedures that are essential to the cooking process and are consistently present in each narration. Include unique steps that are specific to certain videos to comprehensively cover each video.
+----------------------------------------
+    """
+
+    ### Step 2: Define the list of steps that covera all the narrations
+    user_messages.append("""
+2. Define the list of steps that cover all the narrations. Make sure that the steps are comprehensive, distinct, and reflect the commonalities and uniqueness of the narrated content.                         
+Follow the JSON format below and surround your JSON output with <result></result> tags:
+<result>
+{
+    <step>: {
+        "label": <label of the step>,
+        "description": <description of the step>,
+        "examples": <examples of the step>
+    }
+}
+</result>
+----------------------------------------
+    """)
+
+    ### segment each narration into identified steps
+    return system_message, user_messages
+
+
+def generate_common_steps(narrations):
+    ### return if file already exists
+    if os.path.exists(f"{OUTPUT_FOLDER}/narrations_per_step.json"):
+        with open(f"{OUTPUT_FOLDER}/narrations_per_step.json", "r") as f:
+            return json.load(f)
+        
+
+
+    system_message, user_messages = common_steps_messages_generate(narrations)
+    
+    assistant_messages = []
+    messages = combine_messages(system_message, user_messages, assistant_messages)
+
+    ### Step 1: Describe the steps in each narration comprehensively focusing on commonalities and unqiueness
+    response = run_llm(messages)
+    assistant_messages.append(response[-1]["content"])
+    
+    ### Step 2: Define the list of steps that covera all the narrations
+    messages = combine_messages(system_message, user_messages, assistant_messages)
+    response = run_llm(messages)
+    assistant_messages.append(response[-1]["content"])
+
+    ### extract list of steps
+    # common_steps = json.loads(response[-1]["content"])
+
+    ### Step 3: Segment each narration into identified steps
+    
+    assign_user_message = """
+3. Segment each narration into identified steps based on the defined list of steps. For each step, output the corresponding narration segment that align with the step. If there is no narration segment that aligns with a step, leave it empty.
+
+Ensure that the segmentation is accurate, comprehensive, and reflects the commonalities and uniqueness of the narrated content. Briefly explain the segementation for each step.
+
+Follow the JSON format below and surround your JSON output with <result></result> tags:
+<result>
+{
+    <step>: {
+        "label": <label of the step>,
+        "narration": <segment of narration transcript>,
+        "explanation": <explanation of the segmentation>
+    }
+}
+</result>
+----------------------------------------
+"""
+
+    segmentations = []
+    for narration in narrations:
+        id = narration["id"]
+        content = narration["content"]
+        user_message = f"""
+Narration: {content}
+----------------------------------------
+{assign_user_message}
+        """
+        messages = combine_messages(system_message, user_messages + [user_message], assistant_messages)
+        response = run_llm(messages)
+
+        segmentations.append({
+            "id": id,
+            "content": content,
+            "segmentation": response[-1]["content"]
+        })
+    combine_messages(system_message, user_messages, assistant_messages)
+    ### Print all prev. messages
+    for message in messages:
+        print(f"{message['role']}: {message['content']}")
+
+    ### Print the final segmentations
+    for segmentation in segmentations:
+        print(f"Narration {segmentation['id']}: {segmentation['content']}")
+        print(f"Segementation: {segmentation['segmentation']}")
+        print("--------------------------------------------------")
+
+    narrations_per_step = {}
+    for segmentation in segmentations:
+        json_string = segmentation["segmentation"].split('<result>')[1].split('</result>')[0]
+        json_object = json.loads(json_string.strip())
+        for step, segment in json_object.items():
+            if step not in narrations_per_step:
+                narrations_per_step[step] = []
+            narrations_per_step[step].append({
+                "id": segmentation["id"],
+                "content": segment["narration"],
+                "label": segment["label"],
+                "explanation": segment["explanation"]
+            })
+
+
+    ### dump the narrations per step
+    with open(f"{OUTPUT_FOLDER}/narrations_per_step.json", "w") as f:
+        json.dump(narrations_per_step, f, indent=2)
+
+    return narrations_per_step
+
+def variability_messages_generate(narrations):
+    system_message = """
+You are an assistant that identifies the variability in the narrated content across different cooking videos, defines variability dimensions, and assigns dimension values for each narration transcript.
+----------------------------------------
+    """
+    user_messages = []
+    user_messages.append("")
+    
+    for narration in narrations:
+        id = narration["id"]
+        content = narration["content"]
+        user_messages[-1] += f"""
+Narration {id}: {content}
+----------------------------------------
+        """
+
+    user_messages[-1] += """
+Given the above narration transcripts, identify the variability in the narrated content across different cooking videos. Consider the differences in the level of detail, explanation, and personalization in the narration, and how these variations impact the viewer's understanding and engagement with the content.
+
+Let's do it step-by-step.
+----------------------------------------
+    """
+
+    ### Step 1: Generate summary of differences
+    user_messages[-1] += """
+1. Povide a summary of the observed differences, highlighting the key distinctions, their implications for the overall viewing experience, and 
+their utility for navigation accross videos.
+----------------------------------------
+    """
+
+    ### Step 2: Define variability dimensions
+    user_messages.append("""
+2. Define variability dimensions that capture the differences identified earlier. Make sure that the dimensions are comprehensive, distinct, and relect the implications on overall viewing experience, and utility for navigation across videos.
+Follow the JSON format below and surround your JSON output with <result></result> tags:
+<result>
+{
+    <dimension>: {
+        "label": <label of the dimension>,
+        "description": <description of the dimension>,
+        "values": <values of the dimension>,
+        "examples": <examples of the dimension>
+    }
+}
+</result>
+----------------------------------------
+    """)
+
+    ### assign dimension values for each narration
+    # message generated for each narration
+
+    return system_message, user_messages
+
+def generate_variability(narrations):
+    system_message, user_messages = variability_messages_generate(narrations)
+    
+    assistant_messages = []
+    messages = combine_messages(system_message, user_messages, assistant_messages)
+
+    ### Step 1: Generate summary of differences
+    response = run_llm(messages)
+    assistant_messages.append(response[-1]["content"])
+    
+    ### Step 2: Define variability dimensions
+    messages = combine_messages(system_message, user_messages, assistant_messages)
+    response = run_llm(messages)
+    assistant_messages.append(response[-1]["content"])
+
+    ### extract list of variability dimensions
+    json_string = response[-1]["content"].split('<result>')[1].split('</result>')[0]
+    variability_dimensions = json.loads(json_string.strip())
+
+    ### save the variability dimensions
+    with open(f"{OUTPUT_FOLDER}/variability_dimensions.json", "w") as f:
+        json.dump(variability_dimensions, f, indent=2)
+
+    ### Step 3: Assign dimension values
+    
+    assign_user_message = """
+3. Assign dimension values for the given narration transcript based on the defined variability dimensions. For each variability dimensions, identify the most appropriate value of variability and provide a brief explanation why the value is appropriate.
+Follow the JSON format below and surround your JSON output with <result></result> tags:
+<result>
+{
+    <dimension>: {
+        "label": <label of the dimension>,
+        "value": <value of the dimension>,
+        "explanation": <explanation/reasoning of the value>
+    }
+}
+</result>
+----------------------------------------
+"""
+
+    assignments = []
+    for narration in narrations:
+        id = narration["id"]
+        content = narration["content"]
+        user_message = f"""
+Narration: {content}
+----------------------------------------
+{assign_user_message}
+        """
+        messages = combine_messages(system_message, user_messages + [user_message], assistant_messages)
+        response = run_llm(messages)
+
+        assignments.append({
+            "id": id,
+            "content": content,
+            "assignment": response[-1]["content"]
+        })
+    combine_messages(system_message, user_messages, assistant_messages)
+    ### Print all prev. messages
+    for message in messages:
+        print(f"{message['role']}: {message['content']}")
+
+    ### Print the final assignments
+    for assignment in assignments:
+        print(f"Narration {assignment['id']}: {assignment['content']}")
+        print(f"Assignment: {assignment['assignment']}")
+        print("--------------------------------------------------")
+
+    parsed_assignments = []
+    for assignment in assignments:
+        json_string = assignment["assignment"].split('<result>')[1].split('</result>')[0]
+        json_object = json.loads(json_string.strip())
+        parsed_assignments.append({
+            "id": assignment["id"],
+            "content": assignment["content"],
+            "assignment": json_object
+        })
+    
+    return parsed_assignments
+    
+
+def simple_pipeline():
+    narrations = []
+
+    for video_link in EMBEDDING_VIDEOS:
+        result = tokenize_video(video_link)
+        combined_subtitles = ""
+        for subtitle in result["subtitles"]:
+            combined_subtitles += f"{subtitle['text']}\n"
+        combined_subtitles = combined_subtitles.replace("  ", " ").replace("\n\n", "\n").replace("\n", " ")
+        narrations.append({
+            "id": len(narrations),
+            "content": combined_subtitles,
+        })
+
+    narrations_per_step = generate_common_steps(narrations)
+
+
+
+    all_assignments = {}
+
+
+    # for step in narrations_per_step:
+    #     print(f"Step: {step}")
+    #     new_narrations = []
+    #     for narration in narrations_per_step[step]:
+    #         new_narrations.append({
+    #             "id": narration["id"],
+    #             "content": narration["content"],
+    #         })
+    #     assigment = generate_variability(new_narrations)
+    #     # update  
+    #     all_assignments.append({
+    #         "step": step,
+    #         "assignments": assigment
+    #     })
+    #     ### dump the assignments
+    #     with open(f"{OUTPUT_FOLDER}/{step}_variability_assignments.json", "w") as f:
+    #         json.dump(assigment, f, indent=2)
+
+    all_narrations = []
+    for step in narrations_per_step:
+        for narration in narrations_per_step[step]:
+            unique_id = f"{step}_{narration['id']}"
+            if narration["content"] == "":
+                continue
+            all_narrations.append({
+                "id": unique_id,
+                "content": narration["content"],
+            })
+
+    variability_assignments = generate_variability(all_narrations)
+
+    for assignment in variability_assignments:
+        unique_id = assignment["id"]
+        step_id, narration_id = unique_id.split("_")
+        narration_id = int(narration_id)
+        if narration_id not in all_assignments:
+            all_assignments[narration_id] = {}
+        all_assignments[narration_id][step_id] = {
+            "content": assignment["content"],
+            "assignment": assignment["assignment"]
+        }
+
+    ### dump all assignments
+    with open(f"{OUTPUT_FOLDER}/all_variability_assignments.json", "w") as f:
+        json.dump(all_assignments, f, indent=2)
+
 def main():
     # annotate_videos()
-    classify_videos()
+    # classify_videos()
+    simple_pipeline()
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,94 @@
+{
+  "DetailLevel": {
+    "label": "Level of Detail",
+    "description": "Indicates the amount of detail provided in the cooking video, including the specificity of instructions and the granularity of steps described.",
+    "values": [
+      "High Detail",
+      "Moderate Detail",
+      "Low Detail"
+    ],
+    "examples": {
+      "High Detail": [
+        "step1_0: Describes how to prepare mushrooms in detail, including removing stems and oiling.",
+        "step4_11: Detailed description of adding filling to mushrooms and baking instructions."
+      ],
+      "Moderate Detail": [
+        "step2_1: Provides a brief overview of ingredients mixed together without extensive background explanation.",
+        "step3_4: Mentions ingredients added to a base but does not elaborate on quantities or alternatives."
+      ],
+      "Low Detail": [
+        "step1_7: Briefly mentions cleaning mushrooms without detailing the process.",
+        "step2_7: Simple instructions for adding ingredients without specifics."
+      ]
+    }
+  },
+  "ExplanationDepth": {
+    "label": "Explanation Depth",
+    "description": "Reflects the extent to which the narration provides background information, rationale, or the 'why' behind certain cooking decisions and techniques.",
+    "values": [
+      "Detailed Explanation",
+      "Basic Explanation",
+      "No Explanation"
+    ],
+    "examples": {
+      "Detailed Explanation": [
+        "step2_3: Explains why onions and salami are saut\u00e9ed gently.",
+        "step3_6: Describes the purpose of each ingredient in the mixture."
+      ],
+      "Basic Explanation": [
+        "step4_2: Mentions covering with foil to prevent drying without further reasoning.",
+        "step5_2: Advises letting the stuffing sit to retain moisture with minimal rationale."
+      ],
+      "No Explanation": [
+        "step1_7: States to clean mushrooms without explaining why or how.",
+        "step4_7: Instructions to add breadcrumbs and cheese without reasoning."
+      ]
+    }
+  },
+  "Personalization": {
+    "label": "Personalization",
+    "description": "Captures the degree to which the cook infuses the narration with personal anecdotes, preferences, alternatives, or unique presentation styles.",
+    "values": [
+      "High Personalization",
+      "Moderate Personalization",
+      "Low Personalization"
+    ],
+    "examples": {
+      "High Personalization": [
+        "step1_10: Shares specific choices for ingredients and decorations, inviting viewers into the cooking process.",
+        "step1_11: Laura Vitale shares her unique recipe and suggests serving options, creating a personal connection."
+      ],
+      "Moderate Personalization": [
+        "step4_8: Offers a choice of cheese, including vegan options, allowing for some viewer customization.",
+        "step2_4: Suggests alternative herbs, providing a moderate level of personal touch."
+      ],
+      "Low Personalization": [
+        "step2_0: Straightforward instructions for preparing ingredients with no personal anecdotes or preferences.",
+        "step4_2: Generic instructions for baking with no personal input."
+      ]
+    }
+  },
+  "ViewingExperience": {
+    "label": "Viewing Experience",
+    "description": "Describes the overall feel and engagement level of the video, influenced by factors such as pacing, storytelling, and visual presentation.",
+    "values": [
+      "Engaging and Dynamic",
+      "Informative and Focused",
+      "Brief and To-the-Point"
+    ],
+    "examples": {
+      "Engaging and Dynamic": [
+        "step1_11: Engages viewers with a personal story and detailed, lively descriptions.",
+        "step3_11: Uses humor and excitement to enhance viewing enjoyment."
+      ],
+      "Informative and Focused": [
+        "step2_3: Focuses on delivering cooking information in a clear, concise manner.",
+        "step3_4: Provides a thorough explanation of the cooking process, prioritizing information delivery."
+      ],
+      "Brief and To-the-Point": [
+        "step1_7: Quickly covers the necessary steps with minimal elaboration.",
+        "step2_0: Directly lists the steps without additional commentary or engagement."
+      ]
+    }
+  }
+}

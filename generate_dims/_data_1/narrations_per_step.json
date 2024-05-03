@@ -1,0 +1,110 @@
+{
+  "step1": [
+    {
+      "narration_idx": 0,
+      "narration": "in another bowl add the flour cocoa powder and caster sugar and whisk these together",
+      "explanation": "This part of the narration aligns with preparing and combining the dry ingredients, which include flour, cocoa powder, and caster sugar."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together",
+      "explanation": "This segment specifically details the process of combining and whisking together the dry ingredients, which aligns with the description of Step 1."
+    }
+  ],
+  "step2": [
+    {
+      "narration_idx": 0,
+      "narration": "add all the wet ingredients to a bowl and whisk until combined",
+      "explanation": "This segment describes the process of combining the wet ingredients in a separate bowl, which is the initial step in the muffin-making process."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar. You'll want to keep beating those eggs for about three more minutes. Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice. Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream",
+      "explanation": "This segment describes the process of combining the wet ingredients, which includes the eggs, granulated sugar, vanilla extract, and heavy cream, matching the criteria for Step 2."
+    }
+  ],
+  "step3": [
+    {
+      "narration_idx": 0,
+      "narration": "then add your chocolate chips coating them in the flour help stop them from sinking",
+      "explanation": "The segment specifies adding chocolate chips and coating them in flour, which is aimed at preventing the chips from sinking during the baking process."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries",
+      "explanation": "This segment depicts the process of coating the blueberries with a reserved flour mixture, which is a specific action to prevent them from sinking, aligning with Step 3."
+    }
+  ],
+  "step4": [
+    {
+      "narration_idx": 0,
+      "narration": "fold the wet ingredients into the mix",
+      "explanation": "This part of the narration corresponds to the action of combining the previously prepared wet and dry ingredients by folding them together."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between",
+      "explanation": "This part of the narration describes adding the dry ingredients to the wet mixture in intervals, which falls under the process of combining wet and dry ingredients as detailed in Step 4."
+    }
+  ],
+  "step5": [
+    {
+      "narration_idx": 0,
+      "narration": "then refrigerate for at least one hour this helps them rise without overflowing",
+      "explanation": "This portion highlights the unique step of refrigerating the batter to aid in the rising process and prevent overflow, which is specific to this recipe."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "",
+      "explanation": "This step was not mentioned in the narration as it's not applicable for this blueberry muffins recipe."
+    }
+  ],
+  "step6": [
+    {
+      "narration_idx": 0,
+      "narration": "",
+      "explanation": "There is no specific step in the narration that involves preparing additional components like streusel or icing, therefore this step remains empty."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them",
+      "explanation": "This segment describes the preparation of the streusel topping, which is an additional component for the muffins, thus aligning with Step 6."
+    }
+  ],
+  "step7": [
+    {
+      "narration_idx": 0,
+      "narration": "scoop the batter into muffin cases then top with a mix of chocolate chips",
+      "explanation": "This segment describes filling the muffin tins or cases with batter and then adding an extra layer of chocolate chips as topping."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top",
+      "explanation": "This part involves lining the muffin tins and scooping the batter, as well as adding extra blueberries on top, which aligns with filling muffin tins and applying toppings as described in Step 7."
+    }
+  ],
+  "step8": [
+    {
+      "narration_idx": 0,
+      "narration": "follow these bacon instructions",
+      "explanation": "While the exact baking instructions are not detailed in this segment, it implies a transition to the baking process, suggesting to 'follow these bacon instructions' possibly indicates a typographical error and meant 'baking instructions'."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes",
+      "explanation": "This segment describes the baking process at a specified temperature for a set duration, thereby aligning directly with Step 8."
+    }
+  ],
+  "step9": [
+    {
+      "narration_idx": 0,
+      "narration": "and that's it enjoy",
+      "explanation": "The conclusion of the narration indicates that once the previously described steps are completed, the muffins are ready to be enjoyed."
+    },
+    {
+      "narration_idx": 1,
+      "narration": "I hope you guys enjoyed watching",
+      "explanation": "Though not explicitly detailed in the steps of cooling, the conclusion hints at the enjoyment following the completion of baking, which correlates to the sentiment of Step 9."
+    }
+  ]
+}

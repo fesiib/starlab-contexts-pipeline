@@ -1,0 +1,478 @@
+[
+  {
+    "step": "1",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "InstructionalDepth": {
+            "label": "Instructional Depth",
+            "value": "Basic",
+            "explanation": "The narration provides a straightforward, step-by-step guide to making muffins without delving into detailed explanations or background information. It focuses on quick, essential steps required to make the recipe."
+          },
+          "PersonalEngagement": {
+            "label": "Personal Engagement",
+            "value": "Minimal",
+            "explanation": "Apart from a brief introductory statement, the narration lacks direct engagement with the audience. It does not include personal anecdotes, encouragement, or calls to action that would create a more personal connection."
+          },
+          "ConcisenessVsDetail": {
+            "label": "Conciseness vs. Detail",
+            "value": "Concise",
+            "explanation": "The narration is succinct, emphasizing conciseness over detailed breakdowns. It provides just enough information to follow the recipe without additional commentary or explanations."
+          },
+          "ViewerExperienceEnhancement": {
+            "label": "Viewer Experience Enhancement",
+            "value": "Basic",
+            "explanation": "Given the straightforward, brief nature of this narration, the enhancement of the viewer's experience is minimal. It fulfills the basic requirement of imparting a recipe but does not enrich the viewing experience with additional educational content or entertainment value."
+          },
+          "NavigationalUtility": {
+            "label": "Navigational Utility",
+            "value": "Moderate",
+            "explanation": "While the narration's concise nature might make it easily digestible for viewers looking for quick, straightforward recipes, its lack of distinctive style or detailed content may affect its memorability, thus providing moderate navigational utility."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "InstructionalDepth": {
+            "label": "Instructional Depth",
+            "value": "Detailed",
+            "explanation": "This narration provides a comprehensive step-by-step guide, including explanations of techniques such as coating blueberries in flour to prevent them from sinking. The detailed process of combining ingredients and the reason behind each step offer deep instructional value."
+          },
+          "PersonalEngagement": {
+            "label": "Personal Engagement",
+            "value": "High",
+            "explanation": "Dina introduces herself and her website, encourages viewer interaction through sharing, liking, and subscribing, and adds personal tips, making the content more engaging and personalized."
+          },
+          "ConcisenessVsDetail": {
+            "label": "Conciseness vs. Detail",
+            "value": "Detailed",
+            "explanation": "The narration opts for thorough explanations over conciseness, providing viewers with a very detailed and comprehensive guide to making blueberry muffins, including the significance of steps such as the reason for beating eggs to achieve fluffiness."
+          },
+          "ViewerExperienceEnhancement": {
+            "label": "Viewer Experience Enhancement",
+            "value": "Enhanced",
+            "explanation": "The detailed instructions, combined with personal engagement and baking tips, significantly enhance the viewing experience by making it both educational and engaging."
+          },
+          "NavigationalUtility": {
+            "label": "Navigational Utility",
+            "value": "High",
+            "explanation": "The detailed description and personal engagement provided by Dina make the video easily distinguishable and memorable for viewers, enhancing its utility for navigation among other recipe videos."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "2",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "DetailOrientation": {
+            "label": "Detail Orientation",
+            "value": "Low",
+            "explanation": "The narration provides a high-level overview of the recipe with minimal specifics about measurements or detailed techniques, focusing instead on a simple sequence of steps."
+          },
+          "PersonalEngagement": {
+            "label": "Personal Engagement",
+            "value": "Low",
+            "explanation": "While the narration begins with a brief personal note about learning to make muffins, it lacks further personal anecdotes, direct audience engagement, or encouragement for viewer interaction beyond the recipe itself."
+          },
+          "InstructionalApproach": {
+            "label": "Instructional Approach",
+            "value": "Basic",
+            "explanation": "The instructional approach is straightforward, providing a basic list of steps without explaining the rationale behind the steps or offering tips to enhance understanding or skills."
+          },
+          "ViewerInteraction": {
+            "label": "Viewer Interaction",
+            "value": "None",
+            "explanation": "The narration does not contain any calls to action such as asking viewers to subscribe, like, or share the video, nor does it invite comments or further engagement."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "DetailOrientation": {
+            "label": "Detail Orientation",
+            "value": "High",
+            "explanation": "The narration provides in-depth detail, including precise measurements, specific techniques (such as whisking eggs to a certain texture), and explanations for actions, such as preventing blueberries from sinking in the batter by coating them in flour."
+          },
+          "PersonalEngagement": {
+            "label": "Personal Engagement",
+            "value": "High",
+            "explanation": "The narrator introduces themselves by name and mentions their website, creating a personal connection with the audience. The narration is delivered in a friendly and inviting tone, further enhancing personal engagement."
+          },
+          "InstructionalApproach": {
+            "label": "Instructional Approach",
+            "value": "In-depth",
+            "explanation": "The video adopts an educational and comprehensive instructional approach, explaining both the how and the why behind each step. Techniques are elaborated upon, such as the importance of well-beaten eggs for muffin fluffiness."
+          },
+          "ViewerInteraction": {
+            "label": "Viewer Interaction",
+            "value": "Active",
+            "explanation": "The narrator actively encourages viewer interaction by inviting them to share, like, and subscribe to the channel, fostering a sense of community and ongoing engagement."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "3",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "Detail_Level": {
+            "label": "Detail Level",
+            "value": "Low",
+            "explanation": "The narration provides a straightforward list of steps and ingredients without going into specific quantities or detailed technique explanations, making it a concise guide rather than an in-depth tutorial."
+          },
+          "Explanation_Depth": {
+            "label": "Explanation Depth",
+            "value": "Minimal",
+            "explanation": "The narration offers limited reasoning behind the steps taken. For instance, it mentions refrigerating the batter to prevent overflow but does not explain how or why this technique works, thus offering minimal explanation."
+          },
+          "Personalization": {
+            "label": "Personalization",
+            "value": "Impersonal",
+            "explanation": "While there is a brief introductory statement reflecting a personal achievement, the overall narration lacks personal anecdotes, engagement, or a distinctive voice that connects with the audience on a personal level."
+          },
+          "Navigational_Utility": {
+            "label": "Navigational Utility",
+            "value": "Medium",
+            "explanation": "Due to its concise format, a viewer can likely navigate through the steps without much difficulty. However, the lack of detailed explanations and distinct markers for each part of the process might make it harder for viewers to locate specific information if needed."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "Detail_Level": {
+            "label": "Detail Level",
+            "value": "High",
+            "explanation": "The narration provides a thorough breakdown of ingredients and steps, such as specifying the amounts, detailing the process of combining ingredients, and explaining the purpose behind certain techniques like coating blueberries in flour to prevent sinking."
+          },
+          "Explanation_Depth": {
+            "label": "Explanation Depth",
+            "value": "Extensive",
+            "explanation": "There's a significant amount of detail explaining why certain steps are essential, like the importance of well-beaten eggs for fluffiness and why dry ingredients should be added gradually. This helps viewers understand not just what to do but why they're doing it."
+          },
+          "Personalization": {
+            "label": "Personalization",
+            "value": "Personalized",
+            "explanation": "The narration begins with a personal introduction and contains several personal touches throughout, such as Dina's preference for topping the muffins with extra blueberries and her invitation to the audience to share, like, and subscribe, making the video more engaging and relatable."
+          },
+          "Navigational_Utility": {
+            "label": "Navigational Utility",
+            "value": "High",
+            "explanation": "The detailed, sequence-oriented presentation of information, combined with the personal and engaging style of narration, makes it easier for viewers to follow along and return to specific points in the video for clarification or to revisit certain steps."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "4",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "personalization": {
+            "label": "Personalization",
+            "value": "Low",
+            "explanation": "The narration lacks personal touches beyond the initial statement of having learned to make muffins. It does not include direct engagement with the audience, such as greetings or calls to action."
+          },
+          "explanation_depth": {
+            "label": "Explanation Depth",
+            "value": "Medium",
+            "explanation": "While the narration mentions a specific technique like refrigerating the batter to prevent overflow and help with rising, it mostly sticks to procedural instructions without delving into the science or reasons behind most steps."
+          },
+          "engagement_tactics": {
+            "label": "Engagement Tactics",
+            "value": "Minimal",
+            "explanation": "The narration is purely instructional without any direct calls to action, interactive dialogue, or attempts to engage the viewer beyond providing the recipe steps."
+          },
+          "visual_and_sensory_detail": {
+            "label": "Visual and Sensory Detail",
+            "value": "Sparse",
+            "explanation": "There are no vivid descriptions of textures, colors, or flavors that engage the senses, besides a basic description of combining ingredients and the final step of adding chocolate chips."
+          },
+          "utility_for_navigation": {
+            "label": "Utility for Navigation",
+            "value": "Medium",
+            "explanation": "The narration follows a straightforward, sequential format which might allow viewers to follow along easily. However, lack of detailed explanations or clear segment markers may hinder the ability to navigate to specific information or tips."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "personalization": {
+            "label": "Personalization",
+            "value": "High",
+            "explanation": "The narrator introduces herself, creates a welcoming atmosphere by directly addressing the audience ('Hey guys'), and invites viewers to engage by liking, subscribing, and sharing. This creates a strong connection with the audience."
+          },
+          "explanation_depth": {
+            "label": "Explanation Depth",
+            "value": "High",
+            "explanation": "The narrator provides detailed explanations about why certain techniques or ingredients are used, like coating blueberries in flour to prevent them from sinking and the importance of well-beaten eggs for fluffy muffins. This adds educational value and enhances viewer understanding."
+          },
+          "engagement_tactics": {
+            "label": "Engagement Tactics",
+            "value": "Interactive",
+            "explanation": "The narrator engages the viewer with direct calls to action, personal anecdotes, and questions. The inviting tone and the encouragement to participate (like and subscribe) make the viewing experience more interactive."
+          },
+          "visual_and_sensory_detail": {
+            "label": "Visual and Sensory Detail",
+            "value": "Rich",
+            "explanation": "The narration is packed with descriptive language that targets the senses, such as 'fluffy and moist blueberry muffins' and 'crumbly texture' of the streusel. These details help the viewer vividly imagine the taste, appearance, and texture of the muffins."
+          },
+          "utility_for_navigation": {
+            "label": "Utility for Navigation",
+            "value": "High",
+            "explanation": "The structured and detailed approach, combined with personal and engaging narrative, makes it easier for viewers to follow along or find specific parts of the recipe they might need to revisit for clarification or practical tips."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "5",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "detail_level": {
+            "label": "Level of Detail",
+            "value": "Low",
+            "explanation": "The narration provides a straightforward overview of the recipe without diving into specific measurements or offering a step-by-step guide. The focus is on the sequence of actions rather than the precise details."
+          },
+          "instructional_depth": {
+            "label": "Instructional Depth",
+            "value": "Minimal",
+            "explanation": "While the narration mentions a tip about coating chocolate chips in flour to prevent them from sinking, it largely avoids explaining the reasoning behind most steps. There's a brief mention of refrigerating the batter to help them rise without overflowing, but broader instructional insights are scarce."
+          },
+          "personal_engagement": {
+            "label": "Personal Engagement",
+            "value": "None",
+            "explanation": "This narration does not include any direct interaction with the audience, such as personal introductions, calls-to-action, or explicit efforts to engage the viewers beyond the recipe instructions. It sticks to the recipe content without personal commentary or engagement strategies."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "detail_level": {
+            "label": "Level of Detail",
+            "value": "High",
+            "explanation": "The narration provides a very detailed recipe, including specific measurements for ingredients, step-by-step instructions, and detailed processes for creating blueberry muffins with a streusel topping."
+          },
+          "instructional_depth": {
+            "label": "Instructional Depth",
+            "value": "Detailed",
+            "explanation": "The narration goes into depth explaining the reasons behind certain techniques, such as coating blueberries in flour to prevent sinking and the importance of beating eggs to achieve fluffy muffins, enhancing the viewer\u2019s understanding of baking science."
+          },
+          "personal_engagement": {
+            "label": "Personal Engagement",
+            "value": "Interactive",
+            "explanation": "The narrator introduces herself, engages directly with the audience through conversational language, invites them to share, like, and subscribe, and offers parting words, creating a personalized and interactive viewing experience."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "6",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "instructional_detail": {
+            "label": "Instructional Detail and Clarity",
+            "value": "Low",
+            "explanation": "The narration provides a straightforward list of steps without diving into detailed explanations or techniques behind each action. While it mentions a useful tip about coating chocolate chips in flour to prevent sinking, it lacks the depth seen in more detailed narrations."
+          },
+          "personalization_and_engagement": {
+            "label": "Personalization and Viewer Engagement",
+            "value": "Low",
+            "explanation": "There is no personal introduction or direct engagement with the audience beyond the procedural instructions. The narrator does not invite interaction such as sharing, liking, or subscribing, which limits the level of engagement."
+          },
+          "visual_and_auditory_cues": {
+            "label": "Use of Visual and Auditory Cues",
+            "value": "Minimal",
+            "explanation": "Given the brevity and straightforward nature of the instructions, there's an implication of minimal reliance on visual and auditory cues to support the instructional content. The narration does not specify using visual demonstrations or auditory enhancements to guide the viewer."
+          },
+          "utility_for_navigation": {
+            "label": "Utility for Navigation Across Videos",
+            "value": "Medium",
+            "explanation": "While the instructions are concise, which can theoretically make it easier to navigate to specific steps if the video is segmented accordingly, the lack of detailed navigation cues or chapter markers as implied by the narration style could make finding specific information moderately challenging."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "instructional_detail": {
+            "label": "Instructional Detail and Clarity",
+            "value": "High",
+            "explanation": "The narration provides a detailed walkthrough of the muffin-making process, including specific ingredient measurements and the rationale behind key steps, such as coating blueberries in flour to prevent them from sinking. Additionally, the step-by-step guidance on mixing and batter preparation is well elaborated, indicating a high level of instructional detail."
+          },
+          "personalization_and_engagement": {
+            "label": "Personalization and Viewer Engagement",
+            "value": "High",
+            "explanation": "The narrator introduces themselves at the beginning, creating a personal connection with the audience. There are multiple calls to action, including requests for viewers to share, like, and subscribe, as well as a direct farewell message, enhancing viewer engagement and interaction."
+          },
+          "visual_and_auditory_cues": {
+            "label": "Use of Visual and Auditory Cues",
+            "value": "Extensive",
+            "explanation": "While the transcript does not directly mention visual cues, the detailed descriptions of actions such as whisking eggs until fluffy, folding in blueberries with a spatula, and creating a streusel topping suggest that the video likely includes extensive visual demonstrations of these techniques."
+          },
+          "utility_for_navigation": {
+            "label": "Utility for Navigation Across Videos",
+            "value": "High",
+            "explanation": "The narration's detailed breakdown of the recipe into distinct steps and segments, coupled with personal engagement elements, likely makes it easier for viewers to navigate through the video. Viewers can revisit specific parts of the process without much difficulty due to the clear structure and detailed explanations."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "7",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "detail_level": {
+            "label": "Level of Detail",
+            "value": "Low",
+            "explanation": "The narration provides a straightforward description of the steps without much detail on specific quantities or the rationale behind each technique."
+          },
+          "explanation_depth": {
+            "label": "Depth of Explanation",
+            "value": "Basic",
+            "explanation": "There is a minimal explanation of why certain steps are taken, such as coating the chocolate chips in flour to prevent them from sinking, but these explanations are not elaborated upon."
+          },
+          "personalization": {
+            "label": "Personalization and Engagement",
+            "value": "Low",
+            "explanation": "The narration lacks direct engagement with the audience, personal anecdotes, or encouragement for viewer interaction beyond the mention of enjoying the muffins at the end."
+          },
+          "navigability": {
+            "label": "Navigability",
+            "value": "Easy",
+            "explanation": "Due to its straightforward and concise nature, viewers can easily navigate through the video to find specific steps or instructions."
+          },
+          "educational_value": {
+            "label": "Educational Value",
+            "value": "Low",
+            "explanation": "The narration focuses more on the process rather than providing additional learning opportunities or explaining the science behind the recipe."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "detail_level": {
+            "label": "Level of Detail",
+            "value": "High",
+            "explanation": "The narration provides specific measurements for ingredients, detailed steps in the baking process, and tips such as coating blueberries in flour to prevent them from sinking, indicating a high level of detail."
+          },
+          "explanation_depth": {
+            "label": "Depth of Explanation",
+            "value": "Detailed",
+            "explanation": "The narrator explains why certain steps are carried out, such as why blueberries are coated in flour and the importance of beating eggs until fluffy for the texture of the muffins, which demonstrates a detailed level of explanation."
+          },
+          "personalization": {
+            "label": "Personalization and Engagement",
+            "value": "High",
+            "explanation": "The narrator introduces herself, mentions her website, shares personal preferences (like adding extra blueberries on top), and encourages engagement through sharing, liking, and subscribing, indicating a high level of personalization."
+          },
+          "navigability": {
+            "label": "Navigability",
+            "value": "Challenging",
+            "explanation": "Given the detailed explanations and personal anecdotes, viewers might find it slightly more challenging to quickly navigate to specific parts of the recipe without watching the entire segment."
+          },
+          "educational_value": {
+            "label": "Educational Value",
+            "value": "High",
+            "explanation": "The narration goes beyond mere instructions by explaining the science behind certain steps (like why blueberries are coated in flour) and offers tips for achieving the best results (such as achieving fluffiness through well-beaten eggs), thus providing high educational value."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "step": "8",
+    "assignments": [
+      {
+        "id": 0,
+        "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+        "assignment": {
+          "level_of_detail": {
+            "label": "Level of Detail",
+            "value": "Low",
+            "explanation": "The narration provides a brief overview of the recipe process without delving into specific quantities for ingredients or detailed steps, suitable for those familiar with baking."
+          },
+          "explanation_of_techniques": {
+            "label": "Explanation of Techniques",
+            "value": "Minimal",
+            "explanation": "While the narration mentions a practical tip of coating chocolate chips in flour to prevent them from sinking, it lacks an in-depth explanation of the science or reasoning behind most steps."
+          },
+          "personalization": {
+            "label": "Personalization",
+            "value": "Low",
+            "explanation": "The narration is straightforward and focuses solely on the recipe. It lacks personal anecdotes, introductions, or any conversational elements that might engage the listener on a personal level."
+          },
+          "audience_engagement": {
+            "label": "Audience Engagement",
+            "value": "None",
+            "explanation": "There are no calls to action or direct engagement strategies with the audience. The narration concludes with the completion of the recipe without inviting viewers to subscribe, like, or share."
+          }
+        }
+      },
+      {
+        "id": 1,
+        "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+        "assignment": {
+          "level_of_detail": {
+            "label": "Level of Detail",
+            "value": "High",
+            "explanation": "The narration provides precise ingredient measurements, detailed step-by-step instructions, and comprehensive guidance on techniques, making it highly detailed and informative for the viewers."
+          },
+          "explanation_of_techniques": {
+            "label": "Explanation of Techniques",
+            "value": "In-depth",
+            "explanation": "The narrator goes into the 'why' behind certain steps, such as coating blueberries in flour to prevent sinking during baking, offering viewers a deeper understanding of baking techniques."
+          },
+          "personalization": {
+            "label": "Personalization",
+            "value": "High",
+            "explanation": "By introducing herself and actively engaging with the audience throughout the video, the narrator adds a personal touch, creating a more inviting and friendly tone."
+          },
+          "audience_engagement": {
+            "label": "Audience Engagement",
+            "value": "Direct",
+            "explanation": "The narration includes direct calls to action, encouraging viewers to like, subscribe, and share the video, which actively seeks to engage and build a community."
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "id": 0,
+    "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+    "assignment": {
+      "personalization": {
+        "label": "Personalization",
+        "value": "Low",
+        "explanation": "The narration lacks personal touches beyond the initial statement of having learned to make muffins. It does not include direct engagement with the audience, such as greetings or calls to action."
+      },
+      "explanation_depth": {
+        "label": "Explanation Depth",
+        "value": "Medium",
+        "explanation": "While the narration mentions a specific technique like refrigerating the batter to prevent overflow and help with rising, it mostly sticks to procedural instructions without delving into the science or reasons behind most steps."
+      },
+      "engagement_tactics": {
+        "label": "Engagement Tactics",
+        "value": "Minimal",
+        "explanation": "The narration is purely instructional without any direct calls to action, interactive dialogue, or attempts to engage the viewer beyond providing the recipe steps."
+      },
+      "visual_and_sensory_detail": {
+        "label": "Visual and Sensory Detail",
+        "value": "Sparse",
+        "explanation": "There are no vivid descriptions of textures, colors, or flavors that engage the senses, besides a basic description of combining ingredients and the final step of adding chocolate chips."
+      },
+      "utility_for_navigation": {
+        "label": "Utility for Navigation",
+        "value": "Medium",
+        "explanation": "The narration follows a straightforward, sequential format which might allow viewers to follow along easily. However, lack of detailed explanations or clear segment markers may hinder the ability to navigate to specific information or tips."
+      }
+    }
+  },
+  {
+    "id": 1,
+    "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+    "assignment": {
+      "personalization": {
+        "label": "Personalization",
+        "value": "High",
+        "explanation": "The narrator introduces herself, creates a welcoming atmosphere by directly addressing the audience ('Hey guys'), and invites viewers to engage by liking, subscribing, and sharing. This creates a strong connection with the audience."
+      },
+      "explanation_depth": {
+        "label": "Explanation Depth",
+        "value": "High",
+        "explanation": "The narrator provides detailed explanations about why certain techniques or ingredients are used, like coating blueberries in flour to prevent them from sinking and the importance of well-beaten eggs for fluffy muffins. This adds educational value and enhances viewer understanding."
+      },
+      "engagement_tactics": {
+        "label": "Engagement Tactics",
+        "value": "Interactive",
+        "explanation": "The narrator engages the viewer with direct calls to action, personal anecdotes, and questions. The inviting tone and the encouragement to participate (like and subscribe) make the viewing experience more interactive."
+      },
+      "visual_and_sensory_detail": {
+        "label": "Visual and Sensory Detail",
+        "value": "Rich",
+        "explanation": "The narration is packed with descriptive language that targets the senses, such as 'fluffy and moist blueberry muffins' and 'crumbly texture' of the streusel. These details help the viewer vividly imagine the taste, appearance, and texture of the muffins."
+      },
+      "utility_for_navigation": {
+        "label": "Utility for Navigation",
+        "value": "High",
+        "explanation": "The structured and detailed approach, combined with personal and engaging narrative, makes it easier for viewers to follow along or find specific parts of the recipe they might need to revisit for clarification or practical tips."
+      }
+    }
+  }
+]

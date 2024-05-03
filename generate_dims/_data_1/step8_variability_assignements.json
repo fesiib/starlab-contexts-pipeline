@@ -1,0 +1,36 @@
+[
+  {
+    "Detail_Level": {
+      "label": "Level of Detail",
+      "value": "Low",
+      "explanation": "The narration provides a very brief command without any specific instructions, temperatures, timing, or preparatory steps, offering minimal guidance to the viewer."
+    },
+    "Explanation_Quality": {
+      "label": "Quality of Explanation",
+      "value": "None",
+      "explanation": "There is no explanation or reasoning provided behind the instruction to follow the bacon cooking instructions, leaving the viewer without understanding or context."
+    },
+    "Personalization_Level": {
+      "label": "Level of Personalization",
+      "value": "Low",
+      "explanation": "The narration lacks any form of personal touch, storytelling, or adaptation to viewer preferences, making it a very generic and impersonal directive."
+    }
+  },
+  {
+    "Detail_Level": {
+      "label": "Level of Detail",
+      "value": "High",
+      "explanation": "This narration provides specific instructions, including the topping of the muffins with streusel, the exact temperature to bake at, and the duration for baking. It gives a clear, actionable guide for viewers to follow."
+    },
+    "Explanation_Quality": {
+      "label": "Quality of Explanation",
+      "value": "Implicit",
+      "explanation": "While the narration does not explicitly state why these steps are necessary, it implies the importance of following these precise instructions (temperature and time) for successful baking, allowing viewers to infer the reasoning."
+    },
+    "Personalization_Level": {
+      "label": "Level of Personalization",
+      "value": "Low",
+      "explanation": "The narration doesn't include personal anecdotes, preferences, or variability in the recipe that could tailor the experience to individual viewers. It sticks strictly to the instructional content."
+    }
+  }
+]

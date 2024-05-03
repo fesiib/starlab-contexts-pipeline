@@ -1,0 +1,46 @@
+[
+  {
+    "Personalization": {
+      "label": "Level of Personalization",
+      "value": "Low",
+      "explanation": "The narration 'and that's it enjoy' is very brief and lacks elements that would create a personal connection with the viewer. It's straightforward without using inclusive language or expressing care in a way that significantly engages the audience."
+    },
+    "Engagement": {
+      "label": "Viewer Engagement",
+      "value": "Passive",
+      "explanation": "This narration does not actively engage the viewer or encourage interaction. It wraps up the content passively without inviting further exploration or commenting on the viewer's experience."
+    },
+    "InstructionalDetail": {
+      "label": "Level of Instructional Detail",
+      "value": "None",
+      "explanation": "The narration provides no instructional detail or guidance on the cooking process. It neither clarifies recipe steps nor offers tips or techniques, ending the video without additional explanation."
+    },
+    "NavigationAid": {
+      "label": "Utility for Navigation Across Videos",
+      "value": "Absent",
+      "explanation": "There are no navigation cues or calls to action to guide viewers to related content or further videos. The narration concludes the current content without aiding in navigation."
+    }
+  },
+  {
+    "Personalization": {
+      "label": "Level of Personalization",
+      "value": "High",
+      "explanation": "The use of 'you guys' and 'I hope' in 'I hope you guys enjoyed watching' creates a more personal and direct connection with the audience, making it more personalized than generic endings."
+    },
+    "Engagement": {
+      "label": "Viewer Engagement",
+      "value": "Engaging",
+      "explanation": "By expressing hope that the viewers enjoyed the content, the narration seeks to engage the audience's feelings and reflections about the video, making it more engaging than merely instructive or descriptive endings."
+    },
+    "InstructionalDetail": {
+      "label": "Level of Instructional Detail",
+      "value": "None",
+      "explanation": "This narration does not provide any instructional content, tips, or techniques about the cooking process; it solely focuses on concluding remarks and audience engagement."
+    },
+    "NavigationAid": {
+      "label": "Utility for Navigation Across Videos",
+      "value": "Absent",
+      "explanation": "The narration does not include any cues or calls to action that would facilitate navigation to other videos, further information, or related content."
+    }
+  }
+]

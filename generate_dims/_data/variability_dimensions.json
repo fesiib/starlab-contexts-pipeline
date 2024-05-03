@@ -1,0 +1,44 @@
+{
+  "DetailLevel": {
+    "label": "Detail Level",
+    "description": "The amount of granularity provided in the narration regarding steps, ingredients, and techniques.",
+    "values": [
+      "High",
+      "Medium",
+      "Low"
+    ],
+    "examples": {
+      "High": "Narration Step2_0, where precise measurements and the purpose of each ingredient are provided.",
+      "Medium": "Narration Step4_2, which includes necessary steps and some measurements but with less emphasis on precision.",
+      "Low": "Narration Step1_3, offering very succinct instructions without elaborating on details."
+    }
+  },
+  "ExplanationDepth": {
+    "label": "Explanation Depth",
+    "description": "The extent to which the narration provides reasoning behind specific steps, techniques, or ingredient choices.",
+    "values": [
+      "In-depth",
+      "Moderate",
+      "Minimal"
+    ],
+    "examples": {
+      "In-depth": "Narration Step1_0, explaining the reason for a high oven temperature to achieve a specific muffin texture.",
+      "Moderate": "Narration Step5_1, mentioning the purpose of coating chocolate chips in flour without a detailed explanation.",
+      "Minimal": "Narration Step1_4, simply stating the baking time without explaining why that duration was chosen."
+    }
+  },
+  "Personalization": {
+    "label": "Personalization",
+    "description": "The presence of personal anecdotes, preferences, suggestions, or direct engagement with the audience in the narration.",
+    "values": [
+      "High",
+      "Medium",
+      "Low"
+    ],
+    "examples": {
+      "High": "Narration Step3_0, including a personal anecdote and a greeting from a behind-the-scenes team member.",
+      "Medium": "Narration Step5_0, suggesting variations based on personal preference but without a personal story.",
+      "Low": "Narration Step2_1, strictly sticking to the recipe steps and ingredients without any personalized commentary."
+    }
+  }
+}

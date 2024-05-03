@@ -1,0 +1,54 @@
+[
+  {
+    "id": 0,
+    "content": "now that i've successfully learned how to make muffins i had to make a triple chocolate version add all the wet ingredients to a bowl and whisk until combined in another bowl add the flour cocoa powder and caster sugar and whisk these together then add your chocolate chips coating them in the flour help stop them from sinking fold the wet ingredients into the mix then refrigerate for at least one hour this helps them rise without overflowing scoop the batter into muffin cases then top with a mix of chocolate chips follow these bacon instructions and that's it enjoy ",
+    "assignment": {
+      "DetailOrientation": {
+        "label": "Detail Orientation",
+        "value": "Low",
+        "explanation": "The narration provides a high-level overview of the recipe with minimal specifics about measurements or detailed techniques, focusing instead on a simple sequence of steps."
+      },
+      "PersonalEngagement": {
+        "label": "Personal Engagement",
+        "value": "Low",
+        "explanation": "While the narration begins with a brief personal note about learning to make muffins, it lacks further personal anecdotes, direct audience engagement, or encouragement for viewer interaction beyond the recipe itself."
+      },
+      "InstructionalApproach": {
+        "label": "Instructional Approach",
+        "value": "Basic",
+        "explanation": "The instructional approach is straightforward, providing a basic list of steps without explaining the rationale behind the steps or offering tips to enhance understanding or skills."
+      },
+      "ViewerInteraction": {
+        "label": "Viewer Interaction",
+        "value": "None",
+        "explanation": "The narration does not contain any calls to action such as asking viewers to subscribe, like, or share the video, nor does it invite comments or further engagement."
+      }
+    }
+  },
+  {
+    "id": 1,
+    "content": "Hey guys, I'm Dina from simplyhomecooked.com and today I'll be showing you how to make these fluffy and moist blueberry muffins They are loaded with a ton of blueberries and they're topped with a simple and delicious brown sugar streusel So you want to start off by combining all of your dry ingredients So in a large bowl combine two cups of all-purpose flour, a teaspoon of baking powder, half a teaspoon of baking soda, and a quarter teaspoon of salt Then whisk it all together and reserve one tablespoon of that flour mixture Now mix that reserve tablespoon of the flour mixture with one-and-a-half cups of fresh blueberries The reason why we add that little tiny bit of flour to those blueberries is when we add them to the batter During baking the blueberries don't sink as fast when they're coated in flour Now add three eggs into a large bowl and whisk them on high speed using an electric mixer You want to do this for about three minutes until the eggs become fluffy and pale Then continue beating the eggs as you slowly add one cup of granulated sugar You'll want to keep beating those eggs for about three more minutes So the key to really fluffy muffins is well beaten eggs Now you want to add a teaspoon of vanilla extract and a tablespoon of fresh lemon juice Now continue beating the egg mixture as you slowly add 3/4 cups of heavy cream Now you can begin adding your dry ingredients, but don't do it all at once So get a sifter out and then add about a third of that flour mixture at a time with mixing in between Once you've got all of your dry ingredients well combined into the muffin batter Continue beating with your electric mixer as you slowly gradually add in four tablespoons of melted unsalted butter All right Now the last and final step is adding in those blueberries and at this point you want to fold it in with a spatula Now line your muffin tin with cupcake liners and begin scooping the batter out using a large cookie scoop. I Like to top my blueberry muffins with a few extra blueberries on top, but that's totally optional And before the muffins go into the oven you want to make that simple streusel. In a small bowl combine a 1 tablespoon of unsalted cold cubed butter, 2 tablespoons of all-purpose flour, a pinch of salt, a teaspoon of cinnamon, and 3 tablespoons of brown sugar Mash that all together using a fork until the ingredients are well combined and they have a crumbly texture to them Now top the blueberry muffins with the streusel topping and bake them in the oven at 350 degrees Fahrenheit for about 35 minutes I hope you guys enjoyed watching this video and if you did, please be sure to share it, like and subscribe to our channel So you guys never miss out on any of our new recipes. See you next time ",
+    "assignment": {
+      "DetailOrientation": {
+        "label": "Detail Orientation",
+        "value": "High",
+        "explanation": "The narration provides in-depth detail, including precise measurements, specific techniques (such as whisking eggs to a certain texture), and explanations for actions, such as preventing blueberries from sinking in the batter by coating them in flour."
+      },
+      "PersonalEngagement": {
+        "label": "Personal Engagement",
+        "value": "High",
+        "explanation": "The narrator introduces themselves by name and mentions their website, creating a personal connection with the audience. The narration is delivered in a friendly and inviting tone, further enhancing personal engagement."
+      },
+      "InstructionalApproach": {
+        "label": "Instructional Approach",
+        "value": "In-depth",
+        "explanation": "The video adopts an educational and comprehensive instructional approach, explaining both the how and the why behind each step. Techniques are elaborated upon, such as the importance of well-beaten eggs for muffin fluffiness."
+      },
+      "ViewerInteraction": {
+        "label": "Viewer Interaction",
+        "value": "Active",
+        "explanation": "The narrator actively encourages viewer interaction by inviting them to share, like, and subscribe to the channel, fostering a sense of community and ongoing engagement."
+      }
+    }
+  }
+]

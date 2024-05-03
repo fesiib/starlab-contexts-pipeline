@@ -1,0 +1,36 @@
+[
+  {
+    "DetailLevel": {
+      "label": "Level of Detail",
+      "value": "Low",
+      "explanation": "The narration provides a list of ingredients without specifying the quantities, which indicates a lower level of detail intended for an audience that might already be familiar with the basics of the recipe."
+    },
+    "ExplanatoryDepth": {
+      "label": "Explanatory Depth",
+      "value": "None",
+      "explanation": "There is no explanation of the purpose or the role of each ingredient, nor is there any detail on the importance of whisking them together, implying no explanatory depth."
+    },
+    "Personalization": {
+      "label": "Personalization",
+      "value": "Low",
+      "explanation": "The narrative is straight to the point, focusing only on the task with no mention of personal anecdotes, preferences, or tips, which suggests a low level of personalization."
+    }
+  },
+  {
+    "DetailLevel": {
+      "label": "Level of Detail",
+      "value": "High",
+      "explanation": "This narration specifies the exact measurements of each ingredient, indicating a high level of detail to ensure the viewer can accurately reproduce the process."
+    },
+    "ExplanatoryDepth": {
+      "label": "Explanatory Depth",
+      "value": "Basic",
+      "explanation": "While the narration provides clear instructions on what to combine, it lacks deeper explanations on why these specific measurements or ingredients are used, thus offering only basic explanatory depth."
+    },
+    "Personalization": {
+      "label": "Personalization",
+      "value": "Low",
+      "explanation": "The narration strictly focuses on the procedural steps without incorporating any personal anecdotes, suggestions, or customizations, indicating a low level of personalization."
+    }
+  }
+]
