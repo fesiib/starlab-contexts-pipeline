@@ -1,8 +1,9 @@
 import torch
-from transformers import CLIPProcessor, CLIPModel
+import clip
+from PIL import Image
 
-clip_model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
-clip_processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model, preprocess = clip.load("ViT-B/32", device=device)
 
 def clip_embed_video(video):
     """
@@ -10,25 +11,32 @@ def clip_embed_video(video):
     """
     pass
 
-def clip_embed_image(image):
+def clip_embed_image(images):
     """
     Embed an image using a CLIP model
     """
+    ### transform the image to a tensor
+    embeddings = []
+    for image in images:
+        image = preprocess(Image.open(image)).unsqueeze(0).to(device)
+        ### get the image features
+        with torch.no_grad():
+            image_features = model.encode_image(image)
+        embeddings.append(image_features)
+    return embeddings
 
-    inputs = clip_processor(text=image, return_tensors="pt", padding=True)
-    with torch.no_grad():
-        outputs = clip_model(**inputs)
-    return outputs.last_hidden_state.mean(dim=1).squeeze()
 
-def clip_embed_text(text):
-    inputs = clip_processor(text=text, return_tensors="pt", padding=True)
-    with torch.no_grad():
-        outputs = clip_model(**inputs)
-    return outputs.last_hidden_state.mean(dim=1).squeeze()
-
-def clip_embed_audio(audio):
+def clip_embed_text(texts):
     """
-    Embed an audio file using a CLIP model
+    Embed a text using a CLIP model
     """
-    pass
-    
+
+    embeddings = []
+
+    for text in texts:
+        text = clip.tokenize([text]).to(device)
+        ### get the text features
+        with torch.no_grad():
+            text_features = model.encode_text(text)
+        embeddings.append(text_features)
+    return embeddings

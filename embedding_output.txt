@@ -1,1754 +1,0 @@
-[youtube] Extracting URL: https://www.youtube.com/watch?v=yJQShkjNn08
-[youtube] yJQShkjNn08: Downloading webpage
-[youtube] yJQShkjNn08: Downloading ios player API JSON
-[youtube] yJQShkjNn08: Downloading android player API JSON
-[youtube] yJQShkjNn08: Downloading m3u8 information
-[info] yJQShkjNn08: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=yweUoYP1v_o
-Video 'yJQShkjNn08' already exists in the directory.
-[youtube] yweUoYP1v_o: Downloading webpage
-[youtube] yweUoYP1v_o: Downloading ios player API JSON
-[youtube] yweUoYP1v_o: Downloading android player API JSON
-[youtube] yweUoYP1v_o: Downloading m3u8 information
-[info] yweUoYP1v_o: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=Ehntsffsx08
-Video 'yweUoYP1v_o' already exists in the directory.
-[youtube] Ehntsffsx08: Downloading webpage
-[youtube] Ehntsffsx08: Downloading ios player API JSON
-[youtube] Ehntsffsx08: Downloading android player API JSON
-[youtube] Ehntsffsx08: Downloading m3u8 information
-[info] Ehntsffsx08: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=wDc2aDH3zMM
-Video 'Ehntsffsx08' already exists in the directory.
-[youtube] wDc2aDH3zMM: Downloading webpage
-[youtube] wDc2aDH3zMM: Downloading ios player API JSON
-[youtube] wDc2aDH3zMM: Downloading android player API JSON
-[youtube] Extracting URL: https://www.youtube.com/watch?v=tdk9_Xs_CC0
-Failed to process video 'wDc2aDH3zMM': [0;31mERROR:[0m [youtube] wDc2aDH3zMM: Private video. Sign in if you've been granted access to this video
-[youtube] tdk9_Xs_CC0: Downloading webpage
-[youtube] tdk9_Xs_CC0: Downloading ios player API JSON
-[youtube] tdk9_Xs_CC0: Downloading android player API JSON
-[youtube] tdk9_Xs_CC0: Downloading m3u8 information
-[info] tdk9_Xs_CC0: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=tdk9_Xs_CC0
-[youtube] tdk9_Xs_CC0: Downloading webpage
-[youtube] tdk9_Xs_CC0: Downloading ios player API JSON
-[youtube] tdk9_Xs_CC0: Downloading android player API JSON
-[youtube] tdk9_Xs_CC0: Downloading m3u8 information
-[info] tdk9_Xs_CC0: Downloading subtitles: en
-[info] tdk9_Xs_CC0: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/tdk9_Xs_CC0.en.vtt
-[download] Destination: static/database/tdk9_Xs_CC0.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    2.99KiB at  Unknown B/s (00:00:00)[download] 100% of    2.99KiB in 00:00:00 at 27.20KiB/s
-[download] Destination: static/database/tdk9_Xs_CC0.mp4
-[download]   0.0% of   28.47MiB at  Unknown B/s ETA Unknown[download]   0.0% of   28.47MiB at  Unknown B/s ETA Unknown[download]   0.0% of   28.47MiB at    5.60MiB/s ETA 00:05  [download]   0.1% of   28.47MiB at    9.07MiB/s ETA 00:03[download]   0.1% of   28.47MiB at   14.65MiB/s ETA 00:01[download]   0.2% of   28.47MiB at   24.42MiB/s ETA 00:01[download]   0.4% of   28.47MiB at   34.67MiB/s ETA 00:00[download]   0.9% of   28.47MiB at  539.71KiB/s ETA 00:53[download]   1.8% of   28.47MiB at    1.05MiB/s ETA 00:26[download]   3.5% of   28.47MiB at    2.08MiB/s ETA 00:13[download]   7.0% of   28.47MiB at    4.09MiB/s ETA 00:06[download]  14.0% of   28.47MiB at    3.37MiB/s ETA 00:07[download]  24.1% of   28.47MiB at    2.66MiB/s ETA 00:08[download]  31.3% of   28.47MiB at    2.72MiB/s ETA 00:07[download]  34.4% of   28.47MiB at    2.98MiB/s ETA 00:06[download]  34.4% of   28.47MiB at  Unknown B/s ETA Unknown[download]  34.4% of   28.47MiB at  Unknown B/s ETA Unknown[download]  34.4% of   28.47MiB at  Unknown B/s ETA Unknown[download]  34.5% of   28.47MiB at   10.72MiB/s ETA 00:01  [download]  34.5% of   28.47MiB at   16.83MiB/s ETA 00:01[download]  34.6% of   28.47MiB at   27.36MiB/s ETA 00:00[download]  34.8% of   28.47MiB at   30.89MiB/s ETA 00:00[download]  35.3% of   28.47MiB at   45.82MiB/s ETA 00:00[download]  36.2% of   28.47MiB at   64.13MiB/s ETA 00:00[download]  37.9% of   28.47MiB at   81.15MiB/s ETA 00:00[download]  41.4% of   28.47MiB at    2.88MiB/s ETA 00:05[download]  46.6% of   28.47MiB at    2.55MiB/s ETA 00:05[download]  54.3% of   28.47MiB at    2.78MiB/s ETA 00:04[download]  65.7% of   28.47MiB at    3.26MiB/s ETA 00:02[download]  68.5% of   28.47MiB at    3.54MiB/s ETA 00:02[download]  68.5% of   28.47MiB at  Unknown B/s ETA Unknown[download]  68.5% of   28.47MiB at  Unknown B/s ETA Unknown[download]  68.5% of   28.47MiB at    5.67MiB/s ETA 00:01  [download]  68.6% of   28.47MiB at    9.27MiB/s ETA 00:00[download]  68.6% of   28.47MiB at   15.17MiB/s ETA 00:00[download]  68.7% of   28.47MiB at   25.31MiB/s ETA 00:00[download]  69.0% of   28.47MiB at  480.98KiB/s ETA 00:18[download]  69.4% of   28.47MiB at  354.51KiB/s ETA 00:25[download]  70.3% of   28.47MiB at  705.17KiB/s ETA 00:12[download]  72.0% of   28.47MiB at    1.37MiB/s ETA 00:05[download]  75.5% of   28.47MiB at    2.71MiB/s ETA 00:02[download]  82.6% of   28.47MiB at    2.77MiB/s ETA 00:01[download]  92.5% of   28.47MiB at    2.12MiB/s ETA 00:01[download]  98.1% of   28.47MiB at    2.60MiB/s ETA 00:00[download] 100.0% of   28.47MiB at    2.45MiB/s ETA 00:00[download] 100% of   28.47MiB in 00:00:12 at 2.27MiB/s   
-[ExtractAudio] Destination: static/database/tdk9_Xs_CC0.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=dkhy4vn9HcY
-Video 'tdk9_Xs_CC0' downloaded successfully.
-[youtube] dkhy4vn9HcY: Downloading webpage
-[youtube] dkhy4vn9HcY: Downloading ios player API JSON
-[youtube] dkhy4vn9HcY: Downloading android player API JSON
-[youtube] dkhy4vn9HcY: Downloading m3u8 information
-[info] dkhy4vn9HcY: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=dkhy4vn9HcY
-[youtube] dkhy4vn9HcY: Downloading webpage
-[youtube] dkhy4vn9HcY: Downloading ios player API JSON
-[youtube] dkhy4vn9HcY: Downloading android player API JSON
-[youtube] dkhy4vn9HcY: Downloading m3u8 information
-[info] dkhy4vn9HcY: Downloading subtitles: en
-[info] dkhy4vn9HcY: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/dkhy4vn9HcY.en.vtt
-[download] Destination: static/database/dkhy4vn9HcY.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    6.53KiB at    4.85MiB/s (00:00:00)[download] 100% of    6.53KiB in 00:00:00 at 80.27KiB/s
-[download] Destination: static/database/dkhy4vn9HcY.mp4
-[download]   0.0% of   27.14MiB at  113.27KiB/s ETA 04:05[download]   0.0% of   27.14MiB at  315.27KiB/s ETA 01:28[download]   0.0% of   27.14MiB at  704.87KiB/s ETA 00:39[download]   0.1% of   27.14MiB at    1.39MiB/s ETA 00:19[download]   0.1% of   27.14MiB at    1.45MiB/s ETA 00:18[download]   0.2% of   27.14MiB at  680.68KiB/s ETA 00:40[download]   0.5% of   27.14MiB at  767.38KiB/s ETA 00:36[download]   0.9% of   27.14MiB at    1.05MiB/s ETA 00:25[download]   1.8% of   27.14MiB at    1.57MiB/s ETA 00:17[download]   3.7% of   27.14MiB at    2.51MiB/s ETA 00:10[download]   7.4% of   27.14MiB at    4.17MiB/s ETA 00:06[download]  14.7% of   27.14MiB at    7.14MiB/s ETA 00:03[download]  29.5% of   27.14MiB at    7.79MiB/s ETA 00:02[download]  36.2% of   27.14MiB at    6.94MiB/s ETA 00:02[download]  36.2% of   27.14MiB at  127.41KiB/s ETA 02:19[download]  36.2% of   27.14MiB at  358.24KiB/s ETA 00:49[download]  36.2% of   27.14MiB at  799.83KiB/s ETA 00:22[download]  36.2% of   27.14MiB at    1.60MiB/s ETA 00:10[download]  36.3% of   27.14MiB at    1.82MiB/s ETA 00:09[download]  36.4% of   27.14MiB at  717.09KiB/s ETA 00:24[download]  36.6% of   27.14MiB at  762.29KiB/s ETA 00:23[download]  37.1% of   27.14MiB at    1.04MiB/s ETA 00:16[download]  38.0% of   27.14MiB at    1.57MiB/s ETA 00:10[download]  39.9% of   27.14MiB at    2.50MiB/s ETA 00:06[download]  43.5% of   27.14MiB at    4.15MiB/s ETA 00:03[download]  50.9% of   27.14MiB at    7.08MiB/s ETA 00:01[download]  65.7% of   27.14MiB at    3.66MiB/s ETA 00:02[download]  72.2% of   27.14MiB at    4.31MiB/s ETA 00:01[download]  72.2% of   27.14MiB at  126.22KiB/s ETA 01:01[download]  72.2% of   27.14MiB at  354.96KiB/s ETA 00:21[download]  72.2% of   27.14MiB at  791.76KiB/s ETA 00:09[download]  72.2% of   27.14MiB at    1.59MiB/s ETA 00:04[download]  72.3% of   27.14MiB at    1.81MiB/s ETA 00:04[download]  72.4% of   27.14MiB at  699.53KiB/s ETA 00:10[download]  72.6% of   27.14MiB at  766.67KiB/s ETA 00:09[download]  73.1% of   27.14MiB at    1.04MiB/s ETA 00:07[download]  74.0% of   27.14MiB at    1.55MiB/s ETA 00:04[download]  75.8% of   27.14MiB at    2.47MiB/s ETA 00:02[download]  79.5% of   27.14MiB at    4.11MiB/s ETA 00:01[download]  86.9% of   27.14MiB at    4.66MiB/s ETA 00:00[download] 100.0% of   27.14MiB at    7.97MiB/s ETA 00:00[download] 100% of   27.14MiB in 00:00:07 at 3.78MiB/s   
-[ExtractAudio] Destination: static/database/dkhy4vn9HcY.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=QECo58lV-bE
-Video 'dkhy4vn9HcY' downloaded successfully.
-[youtube] QECo58lV-bE: Downloading webpage
-[youtube] QECo58lV-bE: Downloading ios player API JSON
-[youtube] QECo58lV-bE: Downloading android player API JSON
-[youtube] QECo58lV-bE: Downloading m3u8 information
-[info] QECo58lV-bE: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=QECo58lV-bE
-[youtube] QECo58lV-bE: Downloading webpage
-[youtube] QECo58lV-bE: Downloading ios player API JSON
-[youtube] QECo58lV-bE: Downloading android player API JSON
-[youtube] QECo58lV-bE: Downloading m3u8 information
-[info] QECo58lV-bE: Downloading subtitles: en
-[info] QECo58lV-bE: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/QECo58lV-bE.en.vtt
-[download] Destination: static/database/QECo58lV-bE.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    6.15MiB/s (00:00:00)[download]   15.00KiB at    4.30MiB/s (00:00:00)[download]   31.00KiB at    3.67MiB/s (00:00:00)[download]   56.23KiB at    3.34MiB/s (00:00:00)[download] 100% of   56.23KiB in 00:00:00 at 611.32KiB/s
-[download] Destination: static/database/QECo58lV-bE.mp4
-[download]   0.0% of   95.17MiB at  Unknown B/s ETA Unknown[download]   0.0% of   95.17MiB at  Unknown B/s ETA Unknown[download]   0.0% of   95.17MiB at    1.78MiB/s ETA 00:53  [download]   0.0% of   95.17MiB at    3.40MiB/s ETA 00:28[download]   0.0% of   95.17MiB at    2.34MiB/s ETA 00:40[download]   0.1% of   95.17MiB at    1.15MiB/s ETA 01:22[download]   0.1% of   95.17MiB at    1.30MiB/s ETA 01:13[download]   0.3% of   95.17MiB at    1.79MiB/s ETA 00:52[download]   0.5% of   95.17MiB at    2.70MiB/s ETA 00:35[download]   1.0% of   95.17MiB at    4.29MiB/s ETA 00:21[download]   2.1% of   95.17MiB at    7.12MiB/s ETA 00:13[download]   4.2% of   95.17MiB at   12.13MiB/s ETA 00:07[download]   8.4% of   95.17MiB at    2.34MiB/s ETA 00:37[download]  10.3% of   95.17MiB at    2.81MiB/s ETA 00:30[download]  10.3% of   95.17MiB at  218.32KiB/s ETA 06:41[download]  10.3% of   95.17MiB at  579.99KiB/s ETA 02:30[download]  10.3% of   95.17MiB at    1.23MiB/s ETA 01:09[download]  10.3% of   95.17MiB at    2.47MiB/s ETA 00:34[download]  10.3% of   95.17MiB at    3.05MiB/s ETA 00:27[download]  10.3% of   95.17MiB at    1.12MiB/s ETA 01:16[download]  10.4% of   95.17MiB at    1.24MiB/s ETA 01:08[download]  10.5% of   95.17MiB at    1.74MiB/s ETA 00:48[download]  10.8% of   95.17MiB at    2.60MiB/s ETA 00:32[download]  11.3% of   95.17MiB at    4.10MiB/s ETA 00:20[download]  12.4% of   95.17MiB at    6.81MiB/s ETA 00:12[download]  14.5% of   95.17MiB at   11.54MiB/s ETA 00:07[download]  18.7% of   95.17MiB at   18.89MiB/s ETA 00:04[download]  20.3% of   95.17MiB at   20.10MiB/s ETA 00:03[download]  20.3% of   95.17MiB at  175.29KiB/s ETA 07:24[download]  20.3% of   95.17MiB at  476.73KiB/s ETA 02:43[download]  20.3% of   95.17MiB at    1.02MiB/s ETA 01:14[download]  20.3% of   95.17MiB at    2.08MiB/s ETA 00:36[download]  20.3% of   95.17MiB at    2.06MiB/s ETA 00:36[download]  20.4% of   95.17MiB at 1023.32KiB/s ETA 01:15[download]  20.4% of   95.17MiB at    1.14MiB/s ETA 01:06[download]  20.6% of   95.17MiB at  454.52KiB/s ETA 02:50[download]  20.8% of   95.17MiB at  803.61KiB/s ETA 01:36[download]  21.3% of   95.17MiB at    1.43MiB/s ETA 00:52[download]  22.4% of   95.17MiB at    2.63MiB/s ETA 00:28[download]  24.5% of   95.17MiB at    4.89MiB/s ETA 00:14[download]  28.7% of   95.17MiB at    4.63MiB/s ETA 00:14[download]  30.7% of   95.17MiB at    3.58MiB/s ETA 00:18[download]  30.7% of   95.17MiB at  194.90KiB/s ETA 05:47[download]  30.7% of   95.17MiB at  524.57KiB/s ETA 02:08[download]  30.7% of   95.17MiB at    1.12MiB/s ETA 00:58[download]  30.7% of   95.17MiB at    2.26MiB/s ETA 00:29[download]  30.7% of   95.17MiB at    1.74MiB/s ETA 00:37[download]  30.8% of   95.17MiB at    1.11MiB/s ETA 00:59[download]  30.8% of   95.17MiB at    1.31MiB/s ETA 00:50[download]  31.0% of   95.17MiB at    1.86MiB/s ETA 00:35[download]  31.2% of   95.17MiB at    2.79MiB/s ETA 00:23[download]  31.8% of   95.17MiB at    4.49MiB/s ETA 00:14[download]  32.8% of   95.17MiB at    7.46MiB/s ETA 00:08[download]  34.9% of   95.17MiB at   12.84MiB/s ETA 00:04[download]  39.1% of   95.17MiB at    3.89MiB/s ETA 00:14[download]  40.8% of   95.17MiB at    4.14MiB/s ETA 00:13[download]  40.8% of   95.17MiB at  Unknown B/s ETA Unknown[download]  40.8% of   95.17MiB at  Unknown B/s ETA Unknown[download]  40.8% of   95.17MiB at    1.12MiB/s ETA 00:50  [download]  40.8% of   95.17MiB at    2.24MiB/s ETA 00:25[download]  40.9% of   95.17MiB at    2.14MiB/s ETA 00:26[download]  40.9% of   95.17MiB at  989.48KiB/s ETA 00:58[download]  41.0% of   95.17MiB at    1.07MiB/s ETA 00:52[download]  41.1% of   95.17MiB at    1.52MiB/s ETA 00:36[download]  41.3% of   95.17MiB at    2.28MiB/s ETA 00:24[download]  41.9% of   95.17MiB at    3.57MiB/s ETA 00:15[download]  42.9% of   95.17MiB at    5.89MiB/s ETA 00:09[download]  45.0% of   95.17MiB at    3.74MiB/s ETA 00:13[download]  47.9% of   95.17MiB at    3.47MiB/s ETA 00:14[download]  50.8% of   95.17MiB at    3.34MiB/s ETA 00:14[download]  50.8% of   95.17MiB at  158.02KiB/s ETA 05:04[download]  50.8% of   95.17MiB at  433.40KiB/s ETA 01:50[download]  50.8% of   95.17MiB at  960.55KiB/s ETA 00:49[download]  50.8% of   95.17MiB at    1.85MiB/s ETA 00:25[download]  50.8% of   95.17MiB at    2.47MiB/s ETA 00:18[download]  50.9% of   95.17MiB at    1.12MiB/s ETA 00:41[download]  50.9% of   95.17MiB at    1.22MiB/s ETA 00:38[download]  51.1% of   95.17MiB at    1.79MiB/s ETA 00:26[download]  51.3% of   95.17MiB at    2.71MiB/s ETA 00:17[download]  51.9% of   95.17MiB at    4.35MiB/s ETA 00:10[download]  52.9% of   95.17MiB at    7.25MiB/s ETA 00:06[download]  55.0% of   95.17MiB at    5.15MiB/s ETA 00:08[download]  59.2% of   95.17MiB at    4.03MiB/s ETA 00:09[download]  61.3% of   95.17MiB at    3.74MiB/s ETA 00:09[download]  61.3% of   95.17MiB at  167.99KiB/s ETA 03:44[download]  61.3% of   95.17MiB at  458.43KiB/s ETA 01:22[download]  61.3% of   95.17MiB at 1009.18KiB/s ETA 00:37[download]  61.3% of   95.17MiB at    2.00MiB/s ETA 00:18[download]  61.4% of   95.17MiB at    2.70MiB/s ETA 00:13[download]  61.4% of   95.17MiB at    1.15MiB/s ETA 00:31[download]  61.4% of   95.17MiB at    1.32MiB/s ETA 00:27[download]  61.6% of   95.17MiB at    1.80MiB/s ETA 00:20[download]  61.8% of   95.17MiB at    2.71MiB/s ETA 00:13[download]  62.4% of   95.17MiB at    4.38MiB/s ETA 00:08[download]  63.4% of   95.17MiB at    7.34MiB/s ETA 00:04[download]  65.5% of   95.17MiB at   12.57MiB/s ETA 00:02[download]  69.7% of   95.17MiB at    3.61MiB/s ETA 00:07[download]  71.3% of   95.17MiB at    4.20MiB/s ETA 00:06[download]  71.3% of   95.17MiB at  213.64KiB/s ETA 02:11[download]  71.3% of   95.17MiB at  560.74KiB/s ETA 00:49[download]  71.3% of   95.17MiB at    1.19MiB/s ETA 00:22[download]  71.3% of   95.17MiB at    2.39MiB/s ETA 00:11[download]  71.3% of   95.17MiB at    3.11MiB/s ETA 00:08[download]  71.4% of   95.17MiB at    1.15MiB/s ETA 00:23[download]  71.4% of   95.17MiB at    1.29MiB/s ETA 00:21[download]  71.6% of   95.17MiB at    1.82MiB/s ETA 00:14[download]  71.8% of   95.17MiB at    2.79MiB/s ETA 00:09[download]  72.4% of   95.17MiB at    4.47MiB/s ETA 00:05[download]  73.4% of   95.17MiB at    3.50MiB/s ETA 00:07[download]  75.5% of   95.17MiB at    3.83MiB/s ETA 00:06[download]  79.7% of   95.17MiB at    3.30MiB/s ETA 00:05[download]  81.6% of   95.17MiB at    3.19MiB/s ETA 00:05[download]  81.6% of   95.17MiB at  203.36KiB/s ETA 01:28[download]  81.6% of   95.17MiB at  544.20KiB/s ETA 00:33[download]  81.6% of   95.17MiB at    1.16MiB/s ETA 00:15[download]  81.6% of   95.17MiB at    2.34MiB/s ETA 00:07[download]  81.6% of   95.17MiB at    3.02MiB/s ETA 00:05[download]  81.6% of   95.17MiB at    1.20MiB/s ETA 00:14[download]  81.7% of   95.17MiB at    1.33MiB/s ETA 00:13[download]  81.8% of   95.17MiB at    1.88MiB/s ETA 00:09[download]  82.1% of   95.17MiB at    2.83MiB/s ETA 00:06[download]  82.6% of   95.17MiB at    4.48MiB/s ETA 00:03[download]  83.7% of   95.17MiB at    7.42MiB/s ETA 00:02[download]  85.8% of   95.17MiB at   12.74MiB/s ETA 00:01[download]  90.0% of   95.17MiB at    4.56MiB/s ETA 00:02[download]  92.0% of   95.17MiB at    3.90MiB/s ETA 00:01[download]  92.0% of   95.17MiB at  Unknown B/s ETA Unknown[download]  92.0% of   95.17MiB at  Unknown B/s ETA Unknown[download]  92.0% of   95.17MiB at    3.28MiB/s ETA 00:02  [download]  92.0% of   95.17MiB at    1.39MiB/s ETA 00:05[download]  92.0% of   95.17MiB at  739.30KiB/s ETA 00:10[download]  92.0% of   95.17MiB at    1.08MiB/s ETA 00:07[download]  92.1% of   95.17MiB at    1.37MiB/s ETA 00:05[download]  92.2% of   95.17MiB at    1.84MiB/s ETA 00:04[download]  92.5% of   95.17MiB at    2.81MiB/s ETA 00:02[download]  93.0% of   95.17MiB at    4.50MiB/s ETA 00:01[download]  94.1% of   95.17MiB at    7.50MiB/s ETA 00:00[download]  96.2% of   95.17MiB at    6.68MiB/s ETA 00:00[download] 100.0% of   95.17MiB at    3.34MiB/s ETA 00:00[download] 100% of   95.17MiB in 00:00:27 at 3.46MiB/s   
-[ExtractAudio] Destination: static/database/QECo58lV-bE.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=ABx7X6IGCyI
-Video 'QECo58lV-bE' downloaded successfully.
-[youtube] ABx7X6IGCyI: Downloading webpage
-[youtube] ABx7X6IGCyI: Downloading ios player API JSON
-[youtube] ABx7X6IGCyI: Downloading android player API JSON
-[youtube] Extracting URL: https://www.youtube.com/watch?v=SMh2sjuEwxM
-Failed to process video 'ABx7X6IGCyI': [0;31mERROR:[0m [youtube] ABx7X6IGCyI: Video unavailable
-[youtube] SMh2sjuEwxM: Downloading webpage
-[youtube] SMh2sjuEwxM: Downloading ios player API JSON
-[youtube] SMh2sjuEwxM: Downloading android player API JSON
-[youtube] SMh2sjuEwxM: Downloading m3u8 information
-[info] SMh2sjuEwxM: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=SMh2sjuEwxM
-[youtube] SMh2sjuEwxM: Downloading webpage
-[youtube] SMh2sjuEwxM: Downloading ios player API JSON
-[youtube] SMh2sjuEwxM: Downloading android player API JSON
-[youtube] SMh2sjuEwxM: Downloading m3u8 information
-[info] SMh2sjuEwxM: Downloading subtitles: en
-[info] SMh2sjuEwxM: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/SMh2sjuEwxM.en.vtt
-[download] Destination: static/database/SMh2sjuEwxM.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.56MiB/s (00:00:00)[download]    7.00KiB at    2.52MiB/s (00:00:00)[download]   15.00KiB at    2.39MiB/s (00:00:00)[download]   31.00KiB at    2.70MiB/s (00:00:00)[download]   63.00KiB at    2.57MiB/s (00:00:00)[download]   63.44KiB at    2.54MiB/s (00:00:00)[download] 100% of   63.44KiB in 00:00:00 at 659.19KiB/s
-[download] Destination: static/database/SMh2sjuEwxM.mp4
-[download]   0.0% of   92.25MiB at  Unknown B/s ETA Unknown[download]   0.0% of   92.25MiB at    2.90MiB/s ETA 00:32  [download]   0.0% of   92.25MiB at    4.75MiB/s ETA 00:19[download]   0.0% of   92.25MiB at    1.23MiB/s ETA 01:15[download]   0.0% of   92.25MiB at    1.21MiB/s ETA 01:16[download]   0.1% of   92.25MiB at  749.43KiB/s ETA 02:05[download]   0.1% of   92.25MiB at  769.45KiB/s ETA 02:02[download]   0.3% of   92.25MiB at    1.05MiB/s ETA 01:27[download]   0.5% of   92.25MiB at    1.57MiB/s ETA 00:58[download]   1.1% of   92.25MiB at    2.49MiB/s ETA 00:36[download]   2.2% of   92.25MiB at    4.15MiB/s ETA 00:21[download]   4.3% of   92.25MiB at    3.16MiB/s ETA 00:27[download]   7.1% of   92.25MiB at    4.89MiB/s ETA 00:17[download]  10.4% of   92.25MiB at    5.42MiB/s ETA 00:15[download]  10.4% of   92.25MiB at  124.41KiB/s ETA 11:21[download]  10.4% of   92.25MiB at  347.73KiB/s ETA 04:03[download]  10.4% of   92.25MiB at  777.15KiB/s ETA 01:49[download]  10.4% of   92.25MiB at    1.56MiB/s ETA 00:53[download]  10.4% of   92.25MiB at    1.87MiB/s ETA 00:44[download]  10.4% of   92.25MiB at  739.97KiB/s ETA 01:54[download]  10.5% of   92.25MiB at  753.14KiB/s ETA 01:52[download]  10.6% of   92.25MiB at    1.04MiB/s ETA 01:18[download]  10.9% of   92.25MiB at    1.55MiB/s ETA 00:53[download]  11.4% of   92.25MiB at    2.48MiB/s ETA 00:32[download]  12.5% of   92.25MiB at    4.12MiB/s ETA 00:19[download]  14.7% of   92.25MiB at    7.05MiB/s ETA 00:11[download]  19.0% of   92.25MiB at    7.86MiB/s ETA 00:09[download]  20.8% of   92.25MiB at    3.33MiB/s ETA 00:21[download]  20.8% of   92.25MiB at  127.93KiB/s ETA 09:45[download]  20.8% of   92.25MiB at  356.48KiB/s ETA 03:29[download]  20.8% of   92.25MiB at  795.86KiB/s ETA 01:34[download]  20.8% of   92.25MiB at    1.60MiB/s ETA 00:45[download]  20.9% of   92.25MiB at    1.48MiB/s ETA 00:49[download]  20.9% of   92.25MiB at  697.77KiB/s ETA 01:47[download]  21.0% of   92.25MiB at  730.59KiB/s ETA 01:42[download]  21.1% of   92.25MiB at    1.03MiB/s ETA 01:10[download]  21.4% of   92.25MiB at    1.54MiB/s ETA 00:47[download]  21.9% of   92.25MiB at    2.44MiB/s ETA 00:29[download]  23.0% of   92.25MiB at    4.06MiB/s ETA 00:17[download]  25.2% of   92.25MiB at    6.95MiB/s ETA 00:09[download]  29.5% of   92.25MiB at    3.42MiB/s ETA 00:18[download]  31.4% of   92.25MiB at    2.90MiB/s ETA 00:21[download]  31.4% of   92.25MiB at  132.91KiB/s ETA 08:08[download]  31.4% of   92.25MiB at  369.41KiB/s ETA 02:55[download]  31.4% of   92.25MiB at  821.56KiB/s ETA 01:18[download]  31.4% of   92.25MiB at    1.65MiB/s ETA 00:38[download]  31.4% of   92.25MiB at    1.81MiB/s ETA 00:34[download]  31.5% of   92.25MiB at  649.59KiB/s ETA 01:39[download]  31.5% of   92.25MiB at  727.72KiB/s ETA 01:28[download]  31.7% of   92.25MiB at    1.03MiB/s ETA 01:00[download]  31.9% of   92.25MiB at    1.50MiB/s ETA 00:41[download]  32.5% of   92.25MiB at    2.38MiB/s ETA 00:26[download]  33.6% of   92.25MiB at    3.96MiB/s ETA 00:15[download]  35.7% of   92.25MiB at    5.00MiB/s ETA 00:11[download]  40.1% of   92.25MiB at    3.35MiB/s ETA 00:16[download]  42.0% of   92.25MiB at    2.68MiB/s ETA 00:19[download]  42.0% of   92.25MiB at  126.96KiB/s ETA 07:12[download]  42.1% of   92.25MiB at  346.60KiB/s ETA 02:38[download]  42.1% of   92.25MiB at  770.18KiB/s ETA 01:11[download]  42.1% of   92.25MiB at    1.51MiB/s ETA 00:35[download]  42.1% of   92.25MiB at    1.87MiB/s ETA 00:28[download]  42.1% of   92.25MiB at  746.79KiB/s ETA 01:13[download]  42.2% of   92.25MiB at  754.76KiB/s ETA 01:12[download]  42.3% of   92.25MiB at    1.07MiB/s ETA 00:49[download]  42.6% of   92.25MiB at    1.56MiB/s ETA 00:33[download]  43.1% of   92.25MiB at    2.49MiB/s ETA 00:21[download]  44.2% of   92.25MiB at    4.16MiB/s ETA 00:12[download]  46.4% of   92.25MiB at    6.22MiB/s ETA 00:07[download]  50.7% of   92.25MiB at    3.96MiB/s ETA 00:11[download]  52.8% of   92.25MiB at    3.33MiB/s ETA 00:13[download]  52.8% of   92.25MiB at  129.43KiB/s ETA 05:45[download]  52.8% of   92.25MiB at  360.86KiB/s ETA 02:03[download]  52.8% of   92.25MiB at  805.31KiB/s ETA 00:55[download]  52.8% of   92.25MiB at    1.61MiB/s ETA 00:26[download]  52.8% of   92.25MiB at    1.43MiB/s ETA 00:30[download]  52.9% of   92.25MiB at  759.54KiB/s ETA 00:58[download]  52.9% of   92.25MiB at  762.75KiB/s ETA 00:58[download]  53.1% of   92.25MiB at    1.05MiB/s ETA 00:41[download]  53.3% of   92.25MiB at    1.56MiB/s ETA 00:27[download]  53.9% of   92.25MiB at    2.48MiB/s ETA 00:17[download]  55.0% of   92.25MiB at    4.13MiB/s ETA 00:10[download]  57.1% of   92.25MiB at    7.09MiB/s ETA 00:05[download]  61.5% of   92.25MiB at    3.48MiB/s ETA 00:10[download]  63.1% of   92.25MiB at    3.48MiB/s ETA 00:09[download]  63.1% of   92.25MiB at  120.27KiB/s ETA 04:50[download]  63.1% of   92.25MiB at  335.37KiB/s ETA 01:43[download]  63.1% of   92.25MiB at  746.20KiB/s ETA 00:46[download]  63.1% of   92.25MiB at    1.50MiB/s ETA 00:22[download]  63.2% of   92.25MiB at    1.02MiB/s ETA 00:33[download]  63.2% of   92.25MiB at  654.72KiB/s ETA 00:53[download]  63.3% of   92.25MiB at  770.84KiB/s ETA 00:45[download]  63.4% of   92.25MiB at    1.08MiB/s ETA 00:31[download]  63.7% of   92.25MiB at    1.58MiB/s ETA 00:21[download]  64.2% of   92.25MiB at    2.52MiB/s ETA 00:13[download]  65.3% of   92.25MiB at    4.20MiB/s ETA 00:07[download]  67.5% of   92.25MiB at    7.18MiB/s ETA 00:04[download]  71.8% of   92.25MiB at    5.77MiB/s ETA 00:04[download]  73.5% of   92.25MiB at    1.94MiB/s ETA 00:12[download]  73.5% of   92.25MiB at  124.64KiB/s ETA 03:20[download]  73.5% of   92.25MiB at  340.75KiB/s ETA 01:13[download]  73.6% of   92.25MiB at  762.01KiB/s ETA 00:32[download]  73.6% of   92.25MiB at    1.53MiB/s ETA 00:15[download]  73.6% of   92.25MiB at    1.80MiB/s ETA 00:13[download]  73.6% of   92.25MiB at  713.78KiB/s ETA 00:34[download]  73.7% of   92.25MiB at  766.23KiB/s ETA 00:32[download]  73.8% of   92.25MiB at    1.04MiB/s ETA 00:23[download]  74.1% of   92.25MiB at    1.56MiB/s ETA 00:15[download]  74.6% of   92.25MiB at    2.50MiB/s ETA 00:09[download]  75.7% of   92.25MiB at    4.17MiB/s ETA 00:05[download]  77.9% of   92.25MiB at    7.13MiB/s ETA 00:02[download]  82.2% of   92.25MiB at    8.40MiB/s ETA 00:01[download]  84.3% of   92.25MiB at    5.01MiB/s ETA 00:02[download]  84.3% of   92.25MiB at  130.26KiB/s ETA 01:54[download]  84.3% of   92.25MiB at  362.99KiB/s ETA 00:40[download]  84.3% of   92.25MiB at  809.82KiB/s ETA 00:18[download]  84.3% of   92.25MiB at    1.62MiB/s ETA 00:08[download]  84.3% of   92.25MiB at    1.44MiB/s ETA 00:10[download]  84.4% of   92.25MiB at  702.70KiB/s ETA 00:21[download]  84.4% of   92.25MiB at  740.44KiB/s ETA 00:19[download]  84.6% of   92.25MiB at    1.05MiB/s ETA 00:13[download]  84.8% of   92.25MiB at    1.53MiB/s ETA 00:09[download]  85.4% of   92.25MiB at    2.45MiB/s ETA 00:05[download]  86.5% of   92.25MiB at    4.08MiB/s ETA 00:03[download]  88.6% of   92.25MiB at    1.79MiB/s ETA 00:05[download]  89.9% of   92.25MiB at    2.12MiB/s ETA 00:04[download]  92.4% of   92.25MiB at    2.25MiB/s ETA 00:03[download]  94.7% of   92.25MiB at    2.82MiB/s ETA 00:01[download]  94.7% of   92.25MiB at  126.57KiB/s ETA 00:39[download]  94.7% of   92.25MiB at  352.94KiB/s ETA 00:14[download]  94.7% of   92.25MiB at  788.21KiB/s ETA 00:06[download]  94.7% of   92.25MiB at    1.58MiB/s ETA 00:03[download]  94.7% of   92.25MiB at    1.03MiB/s ETA 00:04[download]  94.7% of   92.25MiB at  665.36KiB/s ETA 00:07[download]  94.8% of   92.25MiB at  757.79KiB/s ETA 00:06[download]  94.9% of   92.25MiB at    1.03MiB/s ETA 00:04[download]  95.2% of   92.25MiB at    1.53MiB/s ETA 00:02[download]  95.8% of   92.25MiB at    2.45MiB/s ETA 00:01[download]  96.8% of   92.25MiB at    4.07MiB/s ETA 00:00[download]  99.0% of   92.25MiB at    6.96MiB/s ETA 00:00[download] 100.0% of   92.25MiB at    3.34MiB/s ETA 00:00[download] 100% of   92.25MiB in 00:00:34 at 2.67MiB/s   
-[ExtractAudio] Destination: static/database/SMh2sjuEwxM.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=DaEzhwLFPi8
-Video 'SMh2sjuEwxM' downloaded successfully.
-[youtube] DaEzhwLFPi8: Downloading webpage
-[youtube] DaEzhwLFPi8: Downloading ios player API JSON
-[youtube] DaEzhwLFPi8: Downloading android player API JSON
-[youtube] DaEzhwLFPi8: Downloading m3u8 information
-[info] DaEzhwLFPi8: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=DaEzhwLFPi8
-[youtube] DaEzhwLFPi8: Downloading webpage
-[youtube] DaEzhwLFPi8: Downloading ios player API JSON
-[youtube] DaEzhwLFPi8: Downloading android player API JSON
-[youtube] DaEzhwLFPi8: Downloading m3u8 information
-[info] DaEzhwLFPi8: Downloading subtitles: en
-[info] DaEzhwLFPi8: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/DaEzhwLFPi8.en.vtt
-[download] Destination: static/database/DaEzhwLFPi8.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at    2.73MiB/s (00:00:00)[download]    7.00KiB at    2.42MiB/s (00:00:00)[download]   15.00KiB at    2.49MiB/s (00:00:00)[download]   23.93KiB at    2.16MiB/s (00:00:00)[download] 100% of   23.93KiB in 00:00:00 at 213.49KiB/s
-[download] Destination: static/database/DaEzhwLFPi8.mp4
-[download]   0.0% of   48.48MiB at  Unknown B/s ETA Unknown[download]   0.0% of   48.48MiB at  392.49KiB/s ETA 02:06  [download]   0.0% of   48.48MiB at  835.59KiB/s ETA 00:59[download]   0.0% of   48.48MiB at    1.67MiB/s ETA 00:29[download]   0.1% of   48.48MiB at    1.20MiB/s ETA 00:40[download]   0.1% of   48.48MiB at  737.54KiB/s ETA 01:07[download]   0.3% of   48.48MiB at  728.00KiB/s ETA 01:08[download]   0.5% of   48.48MiB at    1.04MiB/s ETA 00:46[download]   1.0% of   48.48MiB at    1.54MiB/s ETA 00:31[download]   2.1% of   48.48MiB at    2.44MiB/s ETA 00:19[download]   4.1% of   48.48MiB at    4.08MiB/s ETA 00:11[download]   8.2% of   48.48MiB at    6.37MiB/s ETA 00:06[download]  16.5% of   48.48MiB at   10.56MiB/s ETA 00:03[download]  20.0% of   48.48MiB at   12.10MiB/s ETA 00:03[download]  20.0% of   48.48MiB at  128.96KiB/s ETA 05:08[download]  20.0% of   48.48MiB at  362.39KiB/s ETA 01:49[download]  20.0% of   48.48MiB at  809.02KiB/s ETA 00:49[download]  20.1% of   48.48MiB at    1.62MiB/s ETA 00:23[download]  20.1% of   48.48MiB at    1.80MiB/s ETA 00:21[download]  20.2% of   48.48MiB at  667.76KiB/s ETA 00:59[download]  20.3% of   48.48MiB at  751.21KiB/s ETA 00:52[download]  20.5% of   48.48MiB at    1.04MiB/s ETA 00:36[download]  21.1% of   48.48MiB at    1.55MiB/s ETA 00:24[download]  22.1% of   48.48MiB at    2.46MiB/s ETA 00:15[download]  24.1% of   48.48MiB at    4.10MiB/s ETA 00:08[download]  28.3% of   48.48MiB at    7.01MiB/s ETA 00:04[download]  36.5% of   48.48MiB at    6.31MiB/s ETA 00:04[download]  39.8% of   48.48MiB at    3.95MiB/s ETA 00:07[download]  39.8% of   48.48MiB at  134.53KiB/s ETA 03:42[download]  39.8% of   48.48MiB at  366.69KiB/s ETA 01:21[download]  39.8% of   48.48MiB at  819.13KiB/s ETA 00:36[download]  39.8% of   48.48MiB at    1.64MiB/s ETA 00:17[download]  39.8% of   48.48MiB at    1.90MiB/s ETA 00:15[download]  39.9% of   48.48MiB at  734.92KiB/s ETA 00:40[download]  40.0% of   48.48MiB at  779.17KiB/s ETA 00:38[download]  40.3% of   48.48MiB at    1.03MiB/s ETA 00:28[download]  40.8% of   48.48MiB at    1.55MiB/s ETA 00:18[download]  41.8% of   48.48MiB at    2.47MiB/s ETA 00:11[download]  43.9% of   48.48MiB at    4.10MiB/s ETA 00:06[download]  48.0% of   48.48MiB at    7.01MiB/s ETA 00:03[download]  56.3% of   48.48MiB at    5.96MiB/s ETA 00:03[download]  60.3% of   48.48MiB at    3.52MiB/s ETA 00:05[download]  60.3% of   48.48MiB at  128.85KiB/s ETA 02:33[download]  60.3% of   48.48MiB at  361.43KiB/s ETA 00:54[download]  60.3% of   48.48MiB at  807.77KiB/s ETA 00:24[download]  60.3% of   48.48MiB at    1.62MiB/s ETA 00:11[download]  60.3% of   48.48MiB at    1.81MiB/s ETA 00:10[download]  60.4% of   48.48MiB at  623.64KiB/s ETA 00:31[download]  60.5% of   48.48MiB at  690.40KiB/s ETA 00:28[download]  60.8% of   48.48MiB at  967.14KiB/s ETA 00:20[download]  61.3% of   48.48MiB at    1.40MiB/s ETA 00:13[download]  62.3% of   48.48MiB at    2.21MiB/s ETA 00:08[download]  64.4% of   48.48MiB at    3.66MiB/s ETA 00:04[download]  68.5% of   48.48MiB at    4.18MiB/s ETA 00:03[download]  76.8% of   48.48MiB at    7.07MiB/s ETA 00:01[download]  80.1% of   48.48MiB at    4.80MiB/s ETA 00:02[download]  80.1% of   48.48MiB at  130.27KiB/s ETA 01:16[download]  80.1% of   48.48MiB at  356.96KiB/s ETA 00:27[download]  80.1% of   48.48MiB at  796.88KiB/s ETA 00:12[download]  80.1% of   48.48MiB at    1.60MiB/s ETA 00:06[download]  80.2% of   48.48MiB at    1.87MiB/s ETA 00:05[download]  80.2% of   48.48MiB at  737.26KiB/s ETA 00:13[download]  80.4% of   48.48MiB at  734.00KiB/s ETA 00:13[download]  80.6% of   48.48MiB at    1.04MiB/s ETA 00:09[download]  81.1% of   48.48MiB at    1.55MiB/s ETA 00:05[download]  82.2% of   48.48MiB at    2.46MiB/s ETA 00:03[download]  84.2% of   48.48MiB at    4.06MiB/s ETA 00:01[download]  88.3% of   48.48MiB at    6.88MiB/s ETA 00:00[download]  96.6% of   48.48MiB at    4.15MiB/s ETA 00:00[download] 100.0% of   48.48MiB at    3.53MiB/s ETA 00:00[download] 100% of   48.48MiB in 00:00:13 at 3.52MiB/s   
-[ExtractAudio] Destination: static/database/DaEzhwLFPi8.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=J_5scvrv0LU
-Video 'DaEzhwLFPi8' downloaded successfully.
-[youtube] J_5scvrv0LU: Downloading webpage
-[youtube] J_5scvrv0LU: Downloading ios player API JSON
-[youtube] J_5scvrv0LU: Downloading android player API JSON
-[youtube] J_5scvrv0LU: Downloading m3u8 information
-[info] J_5scvrv0LU: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=J_5scvrv0LU
-[youtube] J_5scvrv0LU: Downloading webpage
-[youtube] J_5scvrv0LU: Downloading ios player API JSON
-[youtube] J_5scvrv0LU: Downloading android player API JSON
-[youtube] J_5scvrv0LU: Downloading m3u8 information
-[info] J_5scvrv0LU: Downloading subtitles: en
-[info] J_5scvrv0LU: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/J_5scvrv0LU.en.vtt
-[download] Destination: static/database/J_5scvrv0LU.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    4.25MiB/s (00:00:00)[download]   15.00KiB at    3.49MiB/s (00:00:00)[download]   22.28KiB at    3.40MiB/s (00:00:00)[download] 100% of   22.28KiB in 00:00:00 at 304.57KiB/s
-[download] Destination: static/database/J_5scvrv0LU.mp4
-[download]   0.0% of   89.96MiB at  Unknown B/s ETA Unknown[download]   0.0% of   89.96MiB at  Unknown B/s ETA Unknown[download]   0.0% of   89.96MiB at  842.25KiB/s ETA 01:49  [download]   0.0% of   89.96MiB at    1.64MiB/s ETA 00:54[download]   0.0% of   89.96MiB at    1.35MiB/s ETA 01:06[download]   0.1% of   89.96MiB at  680.63KiB/s ETA 02:15[download]   0.1% of   89.96MiB at  602.53KiB/s ETA 02:32[download]   0.3% of   89.96MiB at  906.62KiB/s ETA 01:41[download]   0.6% of   89.96MiB at    1.33MiB/s ETA 01:07[download]   1.1% of   89.96MiB at    2.12MiB/s ETA 00:41[download]   2.2% of   89.96MiB at    3.51MiB/s ETA 00:25[download]   4.4% of   89.96MiB at    6.08MiB/s ETA 00:14[download]   8.9% of   89.96MiB at    9.98MiB/s ETA 00:08[download]  10.8% of   89.96MiB at   11.41MiB/s ETA 00:07[download]  10.8% of   89.96MiB at  125.39KiB/s ETA 10:56[download]  10.8% of   89.96MiB at  349.72KiB/s ETA 03:55[download]  10.8% of   89.96MiB at  782.60KiB/s ETA 01:45[download]  10.8% of   89.96MiB at    1.57MiB/s ETA 00:51[download]  10.9% of   89.96MiB at    1.80MiB/s ETA 00:44[download]  10.9% of   89.96MiB at  755.34KiB/s ETA 01:48[download]  11.0% of   89.96MiB at  744.30KiB/s ETA 01:50[download]  11.1% of   89.96MiB at    1.06MiB/s ETA 01:15[download]  11.4% of   89.96MiB at    1.57MiB/s ETA 00:50[download]  11.9% of   89.96MiB at    2.50MiB/s ETA 00:31[download]  13.0% of   89.96MiB at    4.17MiB/s ETA 00:18[download]  15.3% of   89.96MiB at    7.13MiB/s ETA 00:10[download]  19.7% of   89.96MiB at   10.16MiB/s ETA 00:07[download]  21.6% of   89.96MiB at    4.77MiB/s ETA 00:14[download]  21.6% of   89.96MiB at  271.49KiB/s ETA 04:26[download]  21.6% of   89.96MiB at  698.35KiB/s ETA 01:43[download]  21.6% of   89.96MiB at    1.46MiB/s ETA 00:48[download]  21.6% of   89.96MiB at    1.85MiB/s ETA 00:38[download]  21.7% of   89.96MiB at    1.45MiB/s ETA 00:48[download]  21.7% of   89.96MiB at  738.20KiB/s ETA 01:37[download]  21.8% of   89.96MiB at  740.76KiB/s ETA 01:37[download]  21.9% of   89.96MiB at    1.03MiB/s ETA 01:08[download]  22.2% of   89.96MiB at    1.55MiB/s ETA 00:45[download]  22.7% of   89.96MiB at    2.46MiB/s ETA 00:28[download]  23.8% of   89.96MiB at    4.10MiB/s ETA 00:16[download]  26.1% of   89.96MiB at    7.00MiB/s ETA 00:09[download]  30.5% of   89.96MiB at    4.81MiB/s ETA 00:13[download]  32.3% of   89.96MiB at    4.55MiB/s ETA 00:13[download]  32.3% of   89.96MiB at  126.96KiB/s ETA 08:12[download]  32.3% of   89.96MiB at  347.58KiB/s ETA 02:59[download]  32.3% of   89.96MiB at  778.08KiB/s ETA 01:20[download]  32.3% of   89.96MiB at    1.56MiB/s ETA 00:39[download]  32.3% of   89.96MiB at    1.20MiB/s ETA 00:50[download]  32.3% of   89.96MiB at  667.72KiB/s ETA 01:33[download]  32.4% of   89.96MiB at  752.95KiB/s ETA 01:22[download]  32.5% of   89.96MiB at    1.03MiB/s ETA 00:58[download]  32.8% of   89.96MiB at    1.54MiB/s ETA 00:39[download]  33.4% of   89.96MiB at    2.46MiB/s ETA 00:24[download]  34.5% of   89.96MiB at    4.09MiB/s ETA 00:14[download]  36.7% of   89.96MiB at    6.90MiB/s ETA 00:08[download]  41.1% of   89.96MiB at   11.64MiB/s ETA 00:04[download]  43.2% of   89.96MiB at   13.26MiB/s ETA 00:03[download]  43.2% of   89.96MiB at  115.12KiB/s ETA 07:34[download]  43.2% of   89.96MiB at  323.61KiB/s ETA 02:41[download]  43.3% of   89.96MiB at  726.41KiB/s ETA 01:12[download]  43.3% of   89.96MiB at    1.46MiB/s ETA 00:35[download]  43.3% of   89.96MiB at    1.37MiB/s ETA 00:37[download]  43.3% of   89.96MiB at  717.34KiB/s ETA 01:12[download]  43.4% of   89.96MiB at  774.20KiB/s ETA 01:07[download]  43.5% of   89.96MiB at    1.05MiB/s ETA 00:48[download]  43.8% of   89.96MiB at    1.59MiB/s ETA 00:31[download]  44.4% of   89.96MiB at    2.51MiB/s ETA 00:19[download]  45.5% of   89.96MiB at    4.19MiB/s ETA 00:11[download]  47.7% of   89.96MiB at    2.64MiB/s ETA 00:17[download]  49.8% of   89.96MiB at    3.90MiB/s ETA 00:11[download]  53.9% of   89.96MiB at    2.94MiB/s ETA 00:14[download]  53.9% of   89.96MiB at  Unknown B/s ETA Unknown[download]  53.9% of   89.96MiB at  Unknown B/s ETA Unknown[download]  53.9% of   89.96MiB at  Unknown B/s ETA Unknown[download]  53.9% of   89.96MiB at  923.67KiB/s ETA 00:45  [download]  54.0% of   89.96MiB at    1.03MiB/s ETA 00:40[download]  54.0% of   89.96MiB at  612.24KiB/s ETA 01:09[download]  54.1% of   89.96MiB at  696.65KiB/s ETA 01:00[download]  54.2% of   89.96MiB at    1.02MiB/s ETA 00:40[download]  54.5% of   89.96MiB at    1.46MiB/s ETA 00:28[download]  55.0% of   89.96MiB at    2.33MiB/s ETA 00:17[download]  56.1% of   89.96MiB at    3.88MiB/s ETA 00:10[download]  58.4% of   89.96MiB at    4.57MiB/s ETA 00:08[download]  62.8% of   89.96MiB at    3.91MiB/s ETA 00:08[download]  64.6% of   89.96MiB at    3.27MiB/s ETA 00:09[download]  64.6% of   89.96MiB at  Unknown B/s ETA Unknown[download]  64.6% of   89.96MiB at  Unknown B/s ETA Unknown[download]  64.6% of   89.96MiB at  865.44KiB/s ETA 00:37  [download]  64.6% of   89.96MiB at    1.67MiB/s ETA 00:19[download]  64.6% of   89.96MiB at    1.44MiB/s ETA 00:22[download]  64.7% of   89.96MiB at  704.29KiB/s ETA 00:46[download]  64.8% of   89.96MiB at  772.04KiB/s ETA 00:42[download]  64.9% of   89.96MiB at    1.03MiB/s ETA 00:30[download]  65.2% of   89.96MiB at    1.54MiB/s ETA 00:20[download]  65.7% of   89.96MiB at    2.46MiB/s ETA 00:12[download]  66.8% of   89.96MiB at    4.09MiB/s ETA 00:07[download]  69.1% of   89.96MiB at    7.00MiB/s ETA 00:03[download]  73.5% of   89.96MiB at   11.78MiB/s ETA 00:02[download]  75.5% of   89.96MiB at   13.50MiB/s ETA 00:01[download]  75.5% of   89.96MiB at  133.06KiB/s ETA 02:50[download]  75.5% of   89.96MiB at  362.92KiB/s ETA 01:02[download]  75.5% of   89.96MiB at  811.21KiB/s ETA 00:27[download]  75.5% of   89.96MiB at    1.63MiB/s ETA 00:13[download]  75.5% of   89.96MiB at    1.85MiB/s ETA 00:11[download]  75.6% of   89.96MiB at  730.47KiB/s ETA 00:30[download]  75.6% of   89.96MiB at  746.41KiB/s ETA 00:30[download]  75.8% of   89.96MiB at    1.03MiB/s ETA 00:21[download]  76.0% of   89.96MiB at    1.52MiB/s ETA 00:14[download]  76.6% of   89.96MiB at    2.43MiB/s ETA 00:08[download]  77.7% of   89.96MiB at    4.05MiB/s ETA 00:04[download]  79.9% of   89.96MiB at    6.93MiB/s ETA 00:02[download]  84.4% of   89.96MiB at    4.68MiB/s ETA 00:03[download]  86.5% of   89.96MiB at    4.29MiB/s ETA 00:02[download]  86.5% of   89.96MiB at  307.05KiB/s ETA 00:40[download]  86.5% of   89.96MiB at  751.13KiB/s ETA 00:16[download]  86.5% of   89.96MiB at    1.57MiB/s ETA 00:07[download]  86.6% of   89.96MiB at    1.90MiB/s ETA 00:06[download]  86.6% of   89.96MiB at    1.44MiB/s ETA 00:08[download]  86.6% of   89.96MiB at  721.14KiB/s ETA 00:17[download]  86.7% of   89.96MiB at  788.43KiB/s ETA 00:15[download]  86.8% of   89.96MiB at    1.07MiB/s ETA 00:11[download]  87.1% of   89.96MiB at    1.58MiB/s ETA 00:07[download]  87.6% of   89.96MiB at    2.52MiB/s ETA 00:04[download]  88.8% of   89.96MiB at    4.20MiB/s ETA 00:02[download]  91.0% of   89.96MiB at    6.67MiB/s ETA 00:01[download]  95.4% of   89.96MiB at    5.00MiB/s ETA 00:00[download]  97.1% of   89.96MiB at    4.49MiB/s ETA 00:00[download]  97.1% of   89.96MiB at  127.26KiB/s ETA 00:20[download]  97.1% of   89.96MiB at  358.05KiB/s ETA 00:07[download]  97.1% of   89.96MiB at  800.40KiB/s ETA 00:03[download]  97.1% of   89.96MiB at    1.61MiB/s ETA 00:01[download]  97.1% of   89.96MiB at    1.82MiB/s ETA 00:01[download]  97.2% of   89.96MiB at  740.95KiB/s ETA 00:03[download]  97.3% of   89.96MiB at  755.35KiB/s ETA 00:03[download]  97.4% of   89.96MiB at    1.07MiB/s ETA 00:02[download]  97.7% of   89.96MiB at    1.56MiB/s ETA 00:01[download]  98.2% of   89.96MiB at    2.47MiB/s ETA 00:00[download]  99.3% of   89.96MiB at    4.10MiB/s ETA 00:00[download] 100.0% of   89.96MiB at    5.01MiB/s ETA 00:00[download] 100% of   89.96MiB in 00:00:22 at 4.00MiB/s   
-[ExtractAudio] Destination: static/database/J_5scvrv0LU.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=umbBEHlpTfo
-Video 'J_5scvrv0LU' downloaded successfully.
-[youtube] umbBEHlpTfo: Downloading webpage
-[youtube] umbBEHlpTfo: Downloading ios player API JSON
-[youtube] umbBEHlpTfo: Downloading android player API JSON
-[youtube] umbBEHlpTfo: Downloading m3u8 information
-[info] umbBEHlpTfo: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=umbBEHlpTfo
-[youtube] umbBEHlpTfo: Downloading webpage
-[youtube] umbBEHlpTfo: Downloading ios player API JSON
-[youtube] umbBEHlpTfo: Downloading android player API JSON
-[youtube] umbBEHlpTfo: Downloading m3u8 information
-[info] umbBEHlpTfo: Downloading subtitles: en
-[info] umbBEHlpTfo: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/umbBEHlpTfo.en.vtt
-[download] Destination: static/database/umbBEHlpTfo.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    5.47MiB/s (00:00:00)[download]   15.00KiB at    4.26MiB/s (00:00:00)[download]   31.00KiB at    3.75MiB/s (00:00:00)[download]   56.53KiB at    3.48MiB/s (00:00:00)[download] 100% of   56.53KiB in 00:00:00 at 661.55KiB/s
-[download] Destination: static/database/umbBEHlpTfo.mp4
-[download]   0.0% of   42.10MiB at  Unknown B/s ETA Unknown[download]   0.0% of   42.10MiB at  Unknown B/s ETA Unknown[download]   0.0% of   42.10MiB at  889.16KiB/s ETA 00:48  [download]   0.0% of   42.10MiB at    1.68MiB/s ETA 00:25[download]   0.1% of   42.10MiB at    1.43MiB/s ETA 00:29[download]   0.1% of   42.10MiB at  714.70KiB/s ETA 01:00[download]   0.3% of   42.10MiB at  768.46KiB/s ETA 00:55[download]   0.6% of   42.10MiB at    1.07MiB/s ETA 00:39[download]   1.2% of   42.10MiB at    1.29MiB/s ETA 00:32[download]   2.4% of   42.10MiB at    2.46MiB/s ETA 00:16[download]   4.7% of   42.10MiB at    3.98MiB/s ETA 00:10[download]   9.5% of   42.10MiB at    6.65MiB/s ETA 00:05[download]  19.0% of   42.10MiB at   11.00MiB/s ETA 00:03[download]  22.7% of   42.10MiB at   12.82MiB/s ETA 00:02[download]  22.7% of   42.10MiB at  121.73KiB/s ETA 04:34[download]  22.7% of   42.10MiB at  334.55KiB/s ETA 01:39[download]  22.7% of   42.10MiB at  746.93KiB/s ETA 00:44[download]  22.7% of   42.10MiB at    1.50MiB/s ETA 00:21[download]  22.7% of   42.10MiB at    1.78MiB/s ETA 00:18[download]  22.8% of   42.10MiB at  687.35KiB/s ETA 00:48[download]  23.0% of   42.10MiB at  774.04KiB/s ETA 00:42[download]  23.3% of   42.10MiB at    1.06MiB/s ETA 00:30[download]  23.9% of   42.10MiB at    1.58MiB/s ETA 00:20[download]  25.0% of   42.10MiB at    2.52MiB/s ETA 00:12[download]  27.4% of   42.10MiB at    4.20MiB/s ETA 00:07[download]  32.2% of   42.10MiB at    6.74MiB/s ETA 00:04[download]  41.7% of   42.10MiB at   10.37MiB/s ETA 00:02[download]  45.4% of   42.10MiB at    4.06MiB/s ETA 00:05[download]  45.4% of   42.10MiB at  134.15KiB/s ETA 02:55[download]  45.4% of   42.10MiB at  372.62KiB/s ETA 01:03[download]  45.4% of   42.10MiB at  830.16KiB/s ETA 00:28[download]  45.5% of   42.10MiB at    1.66MiB/s ETA 00:13[download]  45.5% of   42.10MiB at    1.90MiB/s ETA 00:12[download]  45.6% of   42.10MiB at  640.57KiB/s ETA 00:36[download]  45.7% of   42.10MiB at  769.08KiB/s ETA 00:30[download]  46.0% of   42.10MiB at    1.05MiB/s ETA 00:21[download]  46.6% of   42.10MiB at    1.54MiB/s ETA 00:14[download]  47.8% of   42.10MiB at    2.47MiB/s ETA 00:08[download]  50.2% of   42.10MiB at    4.10MiB/s ETA 00:05[download]  54.9% of   42.10MiB at    7.01MiB/s ETA 00:02[download]  64.4% of   42.10MiB at    7.68MiB/s ETA 00:01[download]  69.1% of   42.10MiB at    3.82MiB/s ETA 00:03[download]  69.1% of   42.10MiB at  126.29KiB/s ETA 01:45[download]  69.1% of   42.10MiB at  335.99KiB/s ETA 00:39[download]  69.1% of   42.10MiB at  751.55KiB/s ETA 00:17[download]  69.2% of   42.10MiB at    1.51MiB/s ETA 00:08[download]  69.2% of   42.10MiB at    1.76MiB/s ETA 00:07[download]  69.3% of   42.10MiB at  756.28KiB/s ETA 00:17[download]  69.4% of   42.10MiB at  786.52KiB/s ETA 00:16[download]  69.7% of   42.10MiB at    1.08MiB/s ETA 00:11[download]  70.3% of   42.10MiB at    1.57MiB/s ETA 00:07[download]  71.5% of   42.10MiB at    2.52MiB/s ETA 00:04[download]  73.9% of   42.10MiB at    4.20MiB/s ETA 00:02[download]  78.6% of   42.10MiB at    7.18MiB/s ETA 00:01[download]  88.1% of   42.10MiB at    8.03MiB/s ETA 00:00[download]  92.5% of   42.10MiB at    4.16MiB/s ETA 00:00[download]  92.5% of   42.10MiB at  122.87KiB/s ETA 00:26[download]  92.5% of   42.10MiB at  346.17KiB/s ETA 00:09[download]  92.5% of   42.10MiB at  775.14KiB/s ETA 00:04[download]  92.5% of   42.10MiB at    1.55MiB/s ETA 00:02[download]  92.5% of   42.10MiB at    1.76MiB/s ETA 00:01[download]  92.6% of   42.10MiB at  743.79KiB/s ETA 00:04[download]  92.8% of   42.10MiB at  748.50KiB/s ETA 00:04[download]  93.0% of   42.10MiB at    1.04MiB/s ETA 00:02[download]  93.6% of   42.10MiB at    1.53MiB/s ETA 00:01[download]  94.8% of   42.10MiB at    2.43MiB/s ETA 00:00[download]  97.2% of   42.10MiB at    4.05MiB/s ETA 00:00[download] 100.0% of   42.10MiB at    5.80MiB/s ETA 00:00[download] 100% of   42.10MiB in 00:00:11 at 3.81MiB/s   
-[ExtractAudio] Destination: static/database/umbBEHlpTfo.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=kDaSB89ND7Q
-Video 'umbBEHlpTfo' downloaded successfully.
-[youtube] kDaSB89ND7Q: Downloading webpage
-[youtube] kDaSB89ND7Q: Downloading ios player API JSON
-[youtube] kDaSB89ND7Q: Downloading android player API JSON
-[youtube] Extracting URL: https://www.youtube.com/watch?v=pq_INi_4IBI
-Failed to process video 'kDaSB89ND7Q': [0;31mERROR:[0m [youtube] kDaSB89ND7Q: Private video. Sign in if you've been granted access to this video
-[youtube] pq_INi_4IBI: Downloading webpage
-[youtube] pq_INi_4IBI: Downloading ios player API JSON
-[youtube] pq_INi_4IBI: Downloading android player API JSON
-[youtube] pq_INi_4IBI: Downloading m3u8 information
-[info] pq_INi_4IBI: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=pq_INi_4IBI
-[youtube] pq_INi_4IBI: Downloading webpage
-[youtube] pq_INi_4IBI: Downloading ios player API JSON
-[youtube] pq_INi_4IBI: Downloading android player API JSON
-[youtube] pq_INi_4IBI: Downloading m3u8 information
-[info] pq_INi_4IBI: Downloading subtitles: en
-[info] pq_INi_4IBI: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/pq_INi_4IBI.en.vtt
-[download] Destination: static/database/pq_INi_4IBI.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    3.80MiB/s (00:00:00)[download]   15.00KiB at    2.86MiB/s (00:00:00)[download]   31.00KiB at    2.48MiB/s (00:00:00)[download]   31.34KiB at    2.40MiB/s (00:00:00)[download] 100% of   31.34KiB in 00:00:00 at 389.90KiB/s
-[download] Destination: static/database/pq_INi_4IBI.mp4
-[download]   0.0% of   49.11MiB at  Unknown B/s ETA Unknown[download]   0.0% of   49.11MiB at  Unknown B/s ETA Unknown[download]   0.0% of   49.11MiB at  855.83KiB/s ETA 00:58  [download]   0.0% of   49.11MiB at    1.66MiB/s ETA 00:29[download]   0.1% of   49.11MiB at    1.83MiB/s ETA 00:26[download]   0.1% of   49.11MiB at  603.55KiB/s ETA 01:23[download]   0.3% of   49.11MiB at  684.20KiB/s ETA 01:13[download]   0.5% of   49.11MiB at  943.08KiB/s ETA 00:53[download]   1.0% of   49.11MiB at    1.38MiB/s ETA 00:35[download]   2.0% of   49.11MiB at    2.18MiB/s ETA 00:22[download]   4.1% of   49.11MiB at    3.61MiB/s ETA 00:13[download]   8.1% of   49.11MiB at    6.14MiB/s ETA 00:07[download]  16.3% of   49.11MiB at    8.33MiB/s ETA 00:04[download]  20.1% of   49.11MiB at    9.43MiB/s ETA 00:04[download]  20.1% of   49.11MiB at  120.67KiB/s ETA 05:33[download]  20.1% of   49.11MiB at  332.98KiB/s ETA 02:00[download]  20.1% of   49.11MiB at  743.50KiB/s ETA 00:54[download]  20.1% of   49.11MiB at    1.49MiB/s ETA 00:26[download]  20.2% of   49.11MiB at    1.77MiB/s ETA 00:22[download]  20.2% of   49.11MiB at  676.07KiB/s ETA 00:59[download]  20.4% of   49.11MiB at  766.35KiB/s ETA 00:52[download]  20.6% of   49.11MiB at    1.06MiB/s ETA 00:36[download]  21.1% of   49.11MiB at    1.55MiB/s ETA 00:24[download]  22.1% of   49.11MiB at    2.48MiB/s ETA 00:15[download]  24.2% of   49.11MiB at    4.14MiB/s ETA 00:08[download]  28.2% of   49.11MiB at    6.78MiB/s ETA 00:05[download]  36.4% of   49.11MiB at    6.47MiB/s ETA 00:04[download]  40.2% of   49.11MiB at    4.36MiB/s ETA 00:06[download]  40.2% of   49.11MiB at  154.06KiB/s ETA 03:15[download]  40.2% of   49.11MiB at  423.48KiB/s ETA 01:11[download]  40.2% of   49.11MiB at  874.33KiB/s ETA 00:34[download]  40.3% of   49.11MiB at    1.74MiB/s ETA 00:16[download]  40.3% of   49.11MiB at    1.27MiB/s ETA 00:23[download]  40.3% of   49.11MiB at  675.65KiB/s ETA 00:44[download]  40.5% of   49.11MiB at  752.03KiB/s ETA 00:39[download]  40.7% of   49.11MiB at    1.06MiB/s ETA 00:27[download]  41.2% of   49.11MiB at    1.56MiB/s ETA 00:18[download]  42.3% of   49.11MiB at    2.48MiB/s ETA 00:11[download]  44.3% of   49.11MiB at    4.12MiB/s ETA 00:06[download]  48.4% of   49.11MiB at    7.07MiB/s ETA 00:03[download]  56.5% of   49.11MiB at    4.96MiB/s ETA 00:04[download]  60.2% of   49.11MiB at    4.69MiB/s ETA 00:04[download]  60.2% of   49.11MiB at  127.69KiB/s ETA 02:37[download]  60.2% of   49.11MiB at  349.50KiB/s ETA 00:57[download]  60.2% of   49.11MiB at  778.76KiB/s ETA 00:25[download]  60.2% of   49.11MiB at    1.56MiB/s ETA 00:12[download]  60.2% of   49.11MiB at    1.47MiB/s ETA 00:13[download]  60.3% of   49.11MiB at  741.32KiB/s ETA 00:26[download]  60.4% of   49.11MiB at  741.44KiB/s ETA 00:26[download]  60.7% of   49.11MiB at    1.04MiB/s ETA 00:18[download]  61.2% of   49.11MiB at    1.55MiB/s ETA 00:12[download]  62.2% of   49.11MiB at    2.47MiB/s ETA 00:07[download]  64.2% of   49.11MiB at    4.11MiB/s ETA 00:04[download]  68.3% of   49.11MiB at    4.84MiB/s ETA 00:03[download]  76.4% of   49.11MiB at    4.18MiB/s ETA 00:02[download]  80.3% of   49.11MiB at    3.25MiB/s ETA 00:02[download]  80.3% of   49.11MiB at  125.20KiB/s ETA 01:19[download]  80.4% of   49.11MiB at  352.05KiB/s ETA 00:28[download]  80.4% of   49.11MiB at  783.40KiB/s ETA 00:12[download]  80.4% of   49.11MiB at    1.57MiB/s ETA 00:06[download]  80.4% of   49.11MiB at    1.77MiB/s ETA 00:05[download]  80.5% of   49.11MiB at  695.87KiB/s ETA 00:14[download]  80.6% of   49.11MiB at  758.67KiB/s ETA 00:12[download]  80.9% of   49.11MiB at    1.04MiB/s ETA 00:09[download]  81.4% of   49.11MiB at    1.54MiB/s ETA 00:05[download]  82.4% of   49.11MiB at    2.45MiB/s ETA 00:03[download]  84.4% of   49.11MiB at    4.08MiB/s ETA 00:01[download]  88.5% of   49.11MiB at    6.97MiB/s ETA 00:00[download]  96.6% of   49.11MiB at    3.98MiB/s ETA 00:00[download]  99.7% of   49.11MiB at    3.83MiB/s ETA 00:00[download]  99.7% of   49.11MiB at  123.82KiB/s ETA 00:01[download]  99.7% of   49.11MiB at  339.78KiB/s ETA 00:00[download]  99.7% of   49.11MiB at  757.64KiB/s ETA 00:00[download]  99.8% of   49.11MiB at    1.52MiB/s ETA 00:00[download]  99.8% of   49.11MiB at    1.79MiB/s ETA 00:00[download]  99.8% of   49.11MiB at  723.45KiB/s ETA 00:00[download] 100.0% of   49.11MiB at  789.18KiB/s ETA 00:00[download] 100.0% of   49.11MiB at  834.03KiB/s ETA 00:00[download] 100% of   49.11MiB in 00:00:14 at 3.45MiB/s   
-[ExtractAudio] Destination: static/database/pq_INi_4IBI.mp3
-[youtube] Extracting URL: https://www.youtube.com/watch?v=pYOQutHfCDo
-Video 'pq_INi_4IBI' downloaded successfully.
-[youtube] pYOQutHfCDo: Downloading webpage
-[youtube] pYOQutHfCDo: Downloading ios player API JSON
-[youtube] pYOQutHfCDo: Downloading android player API JSON
-[youtube] pYOQutHfCDo: Downloading m3u8 information
-[info] pYOQutHfCDo: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=pYOQutHfCDo
-[youtube] pYOQutHfCDo: Downloading webpage
-[youtube] pYOQutHfCDo: Downloading ios player API JSON
-[youtube] pYOQutHfCDo: Downloading android player API JSON
-[youtube] pYOQutHfCDo: Downloading m3u8 information
-[info] pYOQutHfCDo: Downloading subtitles: en
-[info] pYOQutHfCDo: Downloading 1 format(s): 22
-[info] Writing video subtitles to: static/database/pYOQutHfCDo.en.vtt
-[download] Destination: static/database/pYOQutHfCDo.en.vtt
-[download]    1.00KiB at  Unknown B/s (00:00:00)[download]    3.00KiB at  Unknown B/s (00:00:00)[download]    7.00KiB at    4.25MiB/s (00:00:00)[download]   15.00KiB at    2.73MiB/s (00:00:00)[download]   31.00KiB at    2.91MiB/s (00:00:00)[download]   63.00KiB at    2.86MiB/s (00:00:00)[download]   64.74KiB at    2.82MiB/s (00:00:00)[download] 100% of   64.74KiB in 00:00:00 at 708.10KiB/s
-[download] Destination: static/database/pYOQutHfCDo.mp4
-[download]   0.0% of   80.60MiB at  Unknown B/s ETA Unknown[download]   0.0% of   80.60MiB at  Unknown B/s ETA Unknown[download]   0.0% of   80.60MiB at  575.02KiB/s ETA 02:23  [download]   0.0% of   80.60MiB at    1.14MiB/s ETA 01:10[download]   0.0% of   80.60MiB at    1.44MiB/s ETA 00:56[download]   0.1% of   80.60MiB at  761.28KiB/s ETA 01:48[download]   0.2% of   80.60MiB at  761.88KiB/s ETA 01:48[download]   0.3% of   80.60MiB at    1.08MiB/s ETA 01:14[download]   0.6% of   80.60MiB at    1.58MiB/s ETA 00:50[download]   1.2% of   80.60MiB at    2.53MiB/s ETA 00:31[download]   2.5% of   80.60MiB at    4.21MiB/s ETA 00:18[download]   5.0% of   80.60MiB at    7.21MiB/s ETA 00:10[download]   9.9% of   80.60MiB at   11.91MiB/s ETA 00:06[download]  12.4% of   80.60MiB at   13.55MiB/s ETA 00:05[download]  12.4% of   80.60MiB at  122.13KiB/s ETA 09:53[download]  12.4% of   80.60MiB at  340.73KiB/s ETA 03:32[download]  12.4% of   80.60MiB at  759.70KiB/s ETA 01:35[download]  12.4% of   80.60MiB at    1.52MiB/s ETA 00:46[download]  12.4% of   80.60MiB at    1.40MiB/s ETA 00:50[download]  12.5% of   80.60MiB at  678.36KiB/s ETA 01:46[download]  12.5% of   80.60MiB at  711.61KiB/s ETA 01:41[download]  12.7% of   80.60MiB at    1.03MiB/s ETA 01:08[download]  13.0% of   80.60MiB at    1.50MiB/s ETA 00:46[download]  13.6% of   80.60MiB at    2.38MiB/s ETA 00:29[download]  14.9% of   80.60MiB at    3.96MiB/s ETA 00:17[download]  17.3% of   80.60MiB at    6.77MiB/s ETA 00:09[download]  22.3% of   80.60MiB at    7.34MiB/s ETA 00:08[download]  24.7% of   80.60MiB at    9.07MiB/s ETA 00:06[download]  24.7% of   80.60MiB at  115.45KiB/s ETA 08:59[download]  24.7% of   80.60MiB at  319.51KiB/s ETA 03:14[download]  24.7% of   80.60MiB at  716.38KiB/s ETA 01:26[download]  24.7% of   80.60MiB at    1.44MiB/s ETA 00:42[download]  24.7% of   80.60MiB at    1.18MiB/s ETA 00:51[download]  24.8% of   80.60MiB at  657.19KiB/s ETA 01:34[download]  24.8% of   80.60MiB at  708.30KiB/s ETA 01:27[download]  25.0% of   80.60MiB at 1015.05KiB/s ETA 01:00[download]  25.3% of   80.60MiB at    1.44MiB/s ETA 00:41[download]  25.9% of   80.60MiB at    2.27MiB/s ETA 00:26[download]  27.2% of   80.60MiB at    3.78MiB/s ETA 00:15[download]  29.6% of   80.60MiB at    6.46MiB/s ETA 00:08[download]  34.6% of   80.60MiB at    5.25MiB/s ETA 00:10[download]  36.5% of   80.60MiB at    3.60MiB/s ETA 00:14[download]  36.5% of   80.60MiB at  125.91KiB/s ETA 06:56[download]  36.5% of   80.60MiB at  353.61KiB/s ETA 02:28[download]  36.5% of   80.60MiB at  789.38KiB/s ETA 01:06[download]  36.6% of   80.60MiB at    1.58MiB/s ETA 00:32[download]  36.6% of   80.60MiB at    1.76MiB/s ETA 00:29[download]  36.6% of   80.60MiB at  699.24KiB/s ETA 01:14[download]  36.7% of   80.60MiB at  748.95KiB/s ETA 01:09[download]  36.8% of   80.60MiB at    1.04MiB/s ETA 00:49[download]  37.2% of   80.60MiB at    1.55MiB/s ETA 00:32[download]  37.8% of   80.60MiB at    2.46MiB/s ETA 00:20[download]  39.0% of   80.60MiB at    4.10MiB/s ETA 00:11[download]  41.5% of   80.60MiB at    6.67MiB/s ETA 00:07[download]  46.5% of   80.60MiB at    8.13MiB/s ETA 00:05[download]  48.5% of   80.60MiB at    9.61MiB/s ETA 00:04[download]  48.5% of   80.60MiB at  Unknown B/s ETA Unknown[download]  48.5% of   80.60MiB at  Unknown B/s ETA Unknown[download]  48.5% of   80.60MiB at  895.75KiB/s ETA 00:47  [download]  48.5% of   80.60MiB at    1.71MiB/s ETA 00:24[download]  48.5% of   80.60MiB at    1.45MiB/s ETA 00:28[download]  48.6% of   80.60MiB at  716.17KiB/s ETA 00:59[download]  48.6% of   80.60MiB at  760.41KiB/s ETA 00:55[download]  48.8% of   80.60MiB at    1.07MiB/s ETA 00:38[download]  49.1% of   80.60MiB at    1.57MiB/s ETA 00:26[download]  49.7% of   80.60MiB at    2.51MiB/s ETA 00:16[download]  51.0% of   80.60MiB at    4.19MiB/s ETA 00:09[download]  53.4% of   80.60MiB at    5.64MiB/s ETA 00:06[download]  58.4% of   80.60MiB at    2.75MiB/s ETA 00:12[download]  60.3% of   80.60MiB at    2.40MiB/s ETA 00:13[download]  60.3% of   80.60MiB at  127.73KiB/s ETA 04:16[download]  60.3% of   80.60MiB at  349.94KiB/s ETA 01:33[download]  60.4% of   80.60MiB at  780.27KiB/s ETA 00:41[download]  60.4% of   80.60MiB at    1.56MiB/s ETA 00:20[download]  60.4% of   80.60MiB at    1.82MiB/s ETA 00:17[download]  60.4% of   80.60MiB at  631.38KiB/s ETA 00:51[download]  60.5% of   80.60MiB at  734.95KiB/s ETA 00:44[download]  60.7% of   80.60MiB at    1.04MiB/s ETA 00:30[download]  61.0% of   80.60MiB at    1.47MiB/s ETA 00:21[download]  61.6% of   80.60MiB at    2.32MiB/s ETA 00:13[download]  62.8% of   80.60MiB at    3.87MiB/s ETA 00:07[download]  65.3% of   80.60MiB at    3.20MiB/s ETA 00:08[download]  68.7% of   80.60MiB at    3.79MiB/s ETA 00:06[download]  72.4% of   80.60MiB at    3.59MiB/s ETA 00:06[download]  72.4% of   80.60MiB at  Unknown B/s ETA Unknown[download]  72.4% of   80.60MiB at  380.76KiB/s ETA 00:59  [download]  72.4% of   80.60MiB at  839.29KiB/s ETA 00:27[download]  72.5% of   80.60MiB at    1.67MiB/s ETA 00:13[download]  72.5% of   80.60MiB at    1.44MiB/s ETA 00:15[download]  72.5% of   80.60MiB at  712.36KiB/s ETA 00:31[download]  72.6% of   80.60MiB at  749.52KiB/s ETA 00:30[download]  72.7% of   80.60MiB at    1.01MiB/s ETA 00:21[download]  73.1% of   80.60MiB at    1.50MiB/s ETA 00:14[download]  73.7% of   80.60MiB at    2.38MiB/s ETA 00:08[download]  74.9% of   80.60MiB at    3.96MiB/s ETA 00:05[download]  77.4% of   80.60MiB at    6.20MiB/s ETA 00:02[download]  82.4% of   80.60MiB at    2.91MiB/s ETA 00:04[download]  84.5% of   80.60MiB at    3.46MiB/s ETA 00:03[download]  84.5% of   80.60MiB at  125.59KiB/s ETA 01:41[download]  84.5% of   80.60MiB at  352.93KiB/s ETA 00:36[download]  84.5% of   80.60MiB at  787.96KiB/s ETA 00:16[download]  84.5% of   80.60MiB at    1.58MiB/s ETA 00:07[download]  84.5% of   80.60MiB at    1.14MiB/s ETA 00:10[download]  84.6% of   80.60MiB at  684.99KiB/s ETA 00:18[download]  84.7% of   80.60MiB at  744.30KiB/s ETA 00:17[download]  84.8% of   80.60MiB at    1.07MiB/s ETA 00:11[download]  85.1% of   80.60MiB at    1.54MiB/s ETA 00:07[download]  85.7% of   80.60MiB at    2.45MiB/s ETA 00:04[download]  87.0% of   80.60MiB at    4.07MiB/s ETA 00:02[download]  89.5% of   80.60MiB at    6.94MiB/s ETA 00:01[download]  94.4% of   80.60MiB at    8.12MiB/s ETA 00:00[download]  96.7% of   80.60MiB at    4.11MiB/s ETA 00:00[download]  96.7% of   80.60MiB at  Unknown B/s ETA Unknown[download]  96.7% of   80.60MiB at  Unknown B/s ETA Unknown[download]  96.7% of   80.60MiB at  592.62KiB/s ETA 00:04  [download]  96.7% of   80.60MiB at    1.15MiB/s ETA 00:02[download]  96.8% of   80.60MiB at    1.22MiB/s ETA 00:02[download]  96.8% of   80.60MiB at  638.51KiB/s ETA 00:04[download]  96.9% of   80.60MiB at  762.51KiB/s ETA 00:03[download]  97.0% of   80.60MiB at    1.03MiB/s ETA 00:02[download]  97.3% of   80.60MiB at    1.54MiB/s ETA 00:01[download]  98.0% of   80.60MiB at    2.45MiB/s ETA 00:00[download]  99.2% of   80.60MiB at    4.09MiB/s ETA 00:00[download] 100.0% of   80.60MiB at    5.06MiB/s ETA 00:00[download] 100% of   80.60MiB in 00:00:22 at 3.62MiB/s   
-[ExtractAudio] Destination: static/database/pYOQutHfCDo.mp3
-Video 'pYOQutHfCDo' downloaded successfully.
-Number of videos: 12
-Video ID=0: yJQShkjNn08
-	Title: Jalapeño & Cheese stuffed Portobello Mushrooms | Lazarus Lynch
-Description: ['Tastemade', 'recipe', 'food', 'cooking', 'how to', 'cook', 'bake', 'grill', 'sweet', 'dessert', 'savory', 'travel', 'jalapeño', 'mushrooms', 'cheese', 'appetizer', 'portobello']; ['Howto & Style']
-Transcript:
-00:00:00.080 - 00:00:01.599: today we're making a portobello mushroom
-00:00:01.599 - 00:00:03.600: that's stuffed with cheddar cheese cream
-00:00:03.600 - 00:00:06.399: cheese bacon and jalapenos so delicious
-00:00:06.399 - 00:00:07.839: here's how we're gonna make it what i've
-00:00:07.839 - 00:00:09.280: got here is some beautiful portobello
-00:00:09.280 - 00:00:12.080: mushrooms they look great nice and large
-00:00:12.080 - 00:00:15.519: i'm just gonna remove the stems here
-00:00:15.519 - 00:00:17.760: so easy to remove just
-00:00:17.760 - 00:00:19.520: gently
-00:00:19.520 - 00:00:23.439: pull them and they'll come right off
-00:00:23.439 - 00:00:25.519: so what i'm going to do is just oil them
-00:00:25.519 - 00:00:27.599: up a little bit
-00:00:27.599 - 00:00:31.840: oil both sides
-00:00:31.840 - 00:00:33.920: yeah
-00:00:33.920 - 00:00:34.880: i'm going to give it a little bit of a
-00:00:34.880 - 00:00:36.960: season with some salt i'm going to start
-00:00:36.960 - 00:00:38.160: working on our aromatics i've got some
-00:00:38.160 - 00:00:39.360: garlic here
-00:00:39.360 - 00:00:42.399: just give it a smash
-00:00:42.399 - 00:00:46.719: one more just mince that up
-00:00:46.719 - 00:00:49.280: beautiful set that to the side so you're
-00:00:49.280 - 00:00:51.760: gonna also cut up some jalapenos here
-00:00:51.760 - 00:00:54.960: just remove the stems
-00:00:54.960 - 00:00:57.039: put down the middle
-00:00:57.039 - 00:00:58.399: just going to remove those seeds that's
-00:00:58.399 - 00:01:06.960: where really all the heat lies
-00:01:06.960 - 00:01:13.040: we're going to do a small dice on these
-00:01:13.040 - 00:01:15.759: another
-00:01:15.759 - 00:01:17.520: chop on them
-00:01:17.520 - 00:01:20.479: we're gonna saute up
-00:01:20.479 - 00:01:24.080: these jalapenos and garlic
-00:01:24.080 - 00:01:25.360: so as that begins to cook we're gonna
-00:01:25.360 - 00:01:29.119: also chop up these beautiful caps
-00:01:29.119 - 00:01:31.439: of our mushrooms and just coarsely chop
-00:01:31.439 - 00:01:34.960: it
-00:01:34.960 - 00:01:36.560: this is gonna get cooked down anyway
-00:01:36.560 - 00:01:42.560: inside of our pan
-00:01:42.560 - 00:01:43.520: beautiful
-00:01:43.520 - 00:01:46.399: same with our stems
-00:01:46.399 - 00:01:50.079: add your mushrooms to the pan
-00:01:50.079 - 00:01:52.320: i'm going to give it a season of salt
-00:01:52.320 - 00:01:53.600: generous season
-00:01:53.600 - 00:01:54.640: i'm gonna give it a little bit of black
-00:01:54.640 - 00:01:58.399: pepper
-00:01:58.399 - 00:02:01.520: just add a little bit more oil
-00:02:01.520 - 00:02:02.880: mushrooms are like sponges so they
-00:02:02.880 - 00:02:04.240: really do pick up
-00:02:04.240 - 00:02:05.280: anything
-00:02:05.280 - 00:02:06.960: any liquid that you put it with or any
-00:02:06.960 - 00:02:08.800: oil or fat
-00:02:08.800 - 00:02:10.399: so that looks good
-00:02:10.399 - 00:02:12.239: it's cooked down
-00:02:12.239 - 00:02:14.879: transfer this over
-00:02:14.879 - 00:02:18.800: to a bowl
-00:02:18.800 - 00:02:20.319: all right so let's talk about what we've
-00:02:20.319 - 00:02:22.239: got going on we've got some cream cheese
-00:02:22.239 - 00:02:23.360: right here
-00:02:23.360 - 00:02:25.120: we're gonna add the cream cheese in it's
-00:02:25.120 - 00:02:27.840: softened so that it's pliable
-00:02:27.840 - 00:02:30.080: we're also going to add in our bacon
-00:02:30.080 - 00:02:31.680: and our
-00:02:31.680 - 00:02:34.080: lovely cheddar cheese
-00:02:34.080 - 00:02:40.160: i'm just gonna give that a mix
-00:02:40.160 - 00:02:42.879: so look at that really easy
-00:02:42.879 - 00:02:44.959: we're going to divide this into thirds
-00:02:44.959 - 00:02:47.120: just kind of eyeball it
-00:02:47.120 - 00:02:48.319: stack it up really nicely here i'll
-00:02:48.319 - 00:02:49.519: actually bring this up so you guys can
-00:02:49.519 - 00:02:55.519: see
-00:02:55.519 - 00:02:58.000: so this is going to go into an oven 350
-00:02:58.000 - 00:02:59.519: degrees preheated and it's going to cook
-00:02:59.519 - 00:03:03.440: for about 20 minutes
-00:03:03.440 - 00:03:04.640: we're gonna pull out our mushrooms out
-00:03:04.640 - 00:03:05.760: of the oven
-00:03:05.760 - 00:03:09.599: they smell fantastic
-00:03:09.599 - 00:03:12.159: yes
-00:03:12.159 - 00:03:15.509: please i'm gonna take this one righ
-00:03:15.509 - 00:03:15.519: yes please i'm gonna take this one right
-00:03:15.519 - 00:03:17.440: here
-00:03:17.440 - 00:03:19.599: give us a little garnish of parsley and
-00:03:19.599 - 00:03:28.879: we're going to dig in
-00:03:28.879 - 00:03:34.400: oh yes
-00:03:34.400 - 00:03:37.680: that just gave me so much life
-00:03:37.680 - 00:03:41.599: super good really creamy bacon is salty
-00:03:41.599 - 00:03:43.519: and perfect and i love that the bacon
-00:03:43.519 - 00:03:44.799: flavor is going all through that
-00:03:44.799 - 00:03:46.879: mushroom just permeating and perfuming
-00:03:46.879 - 00:03:49.440: that mushroom so beautifully the cheese
-00:03:49.440 - 00:03:51.840: is so creamy and it's actually light as
-00:03:51.840 - 00:03:53.599: much stuff as we got going on inside of
-00:03:53.599 - 00:03:56.239: here it's not heavy to eat it's so so
-00:03:56.239 - 00:03:58.319: good guys thanks for watching i'm son of
-00:03:58.319 - 00:03:59.519: a southern chef and i'll see you next
-00:03:59.519 - 00:04:01.840: time
-----------------------------------------------------------------
-
-Video ID=1: yweUoYP1v_o
-	Title: Stuffed Mushrooms | One Pot Chef
-Description: ['onepotchefshow', 'onepotchef', 'one', 'pot', 'chef', 'cooking', 'cooked', 'baking', 'easy', 'quick', 'slow', 'stuffed', 'mushrooms', 'oven', 'baked', 'sun', 'dried', 'tomato', 'ricotta', 'cheddar', 'cheese', 'tasty', 'fresh', 'basil', 'olive', 'oil', 'party', 'nibbles', 'grilled', 'food', 'warm', 'cold', 'hot', 'learn', 'basic', 'simple', 'home', 'made', 'main', 'meal', 'dinner', 'lunch', 'breakfast', 'dessert', 'treat', 'snack', 'recipe', 'howto', 'how', 'to', 'how-to', 'make', 'side', 'dish', 'accompaniment', 'cuisine', 'recipes', 'educational', 'instruction', 'Kitchen', 'Cook', 'Restaurant', 'Vegetarian']; ['Howto & Style']
-Transcript:
-00:00:00.800 - 00:00:03.240: today I present to you a versatile dish
-00:00:03.240 - 00:00:05.879: that can be served as a snack as a party
-00:00:05.879 - 00:00:08.010: food or even as a meal with a salad it's
-00:00:08.010 - 00:00:10.500: absolutely fantastic and is so easy to
-00:00:10.500 - 00:00:12.719: adapt to your own personal tastes let's
-00:00:12.719 - 00:00:14.580: make some stuffed mushrooms I'm a one
-00:00:14.580 - 00:00:29.759: pot chef
-00:00:29.759 - 00:00:33.129: on a baking tray lined with some
-00:00:33.129 - 00:00:35.079: non-stick baking paper I've got 10
-00:00:35.079 - 00:00:37.960: mushrooms just little cut mushrooms and
-00:00:37.960 - 00:00:39.430: all I've done is I've pulled the stalks
-00:00:39.430 - 00:00:41.500: off each one and I'm just going to brush
-00:00:41.500 - 00:00:44.050: each one over with a little bit of olive
-00:00:44.050 - 00:00:47.379: oil in a mixing bowl I've got about a
-00:00:47.379 - 00:00:49.300: hundred grams of ricotta cheese now you
-00:00:49.300 - 00:00:50.860: don't need to use ricotta cheese you
-00:00:50.860 - 00:00:52.510: could use cream cheese you could use
-00:00:52.510 - 00:00:53.530: crumble up feta
-00:00:53.530 - 00:00:55.840: pretty much any cheese you like if you
-00:00:55.840 - 00:00:57.550: like blue cheese it's really good in
-00:00:57.550 - 00:00:57.879: this
-00:00:57.879 - 00:00:59.890: now I'm also adding in about a hundred
-00:00:59.890 - 00:01:02.800: grams of semi dried tomatoes which I
-00:01:02.800 - 00:01:06.090: have just chopped up into little chunks
-00:01:06.090 - 00:01:08.289: I'm adding a little bit of fresh basil
-00:01:08.289 - 00:01:11.380: which I've just chopped up roughly
-00:01:11.380 - 00:01:14.289: chopped no need to be overly neat
-00:01:14.289 - 00:01:16.810: quarter of a cup of some grated cheddar
-00:01:16.810 - 00:01:22.289: cheese 1 egg and season with some salt
-00:01:22.289 - 00:01:26.799: and some pepper and just mix that all
-00:01:26.799 - 00:01:29.640: together until it's nice and smooth
-00:01:29.640 - 00:01:32.680: that's the filling looking good so let's
-00:01:32.680 - 00:01:34.840: stuff our mushrooms divide the mixture
-00:01:34.840 - 00:01:37.390: between the mushrooms but what you want
-00:01:37.390 - 00:01:39.100: to do is you don't want to be actually
-00:01:39.100 - 00:01:40.869: just filling them you want to have a
-00:01:40.869 - 00:01:42.820: little bit of a mound of mixture on top
-00:01:42.820 - 00:01:46.439: of each so that way it's nice and filled
-00:01:46.439 - 00:01:49.659: like so and our stuffed mushrooms are
-00:01:49.659 - 00:01:51.549: ready to go into the oven preheated oven
-00:01:51.549 - 00:01:54.700: 180 degrees Celsius for about 20 minutes
-00:01:54.700 - 00:01:56.439: or until the mushrooms are cooked and
-00:01:56.439 - 00:01:59.049: the top is nice and golden then we'll be
-00:01:59.049 - 00:02:00.729: ready to eat our stuffed mushrooms have
-00:02:00.729 - 00:02:01.990: just come out of the oven you can see
-00:02:01.990 - 00:02:03.729: some of the juices are flowing out of
-00:02:03.729 - 00:02:05.829: the mushrooms now allow them to cool for
-00:02:05.829 - 00:02:07.479: a few minutes before we serve them up
-00:02:07.479 - 00:02:08.829: because we don't want to burn anybody's
-00:02:08.829 - 00:02:20.590: mails let's have a taste
-00:02:20.590 - 00:02:27.440: so many flavors those tomatoes because
-00:02:27.440 - 00:02:28.940: they're marinated in herbs and garlic
-00:02:28.940 - 00:02:31.670: absolutely gorgeous the basil really
-00:02:31.670 - 00:02:33.470: comes through you've got that creamy
-00:02:33.470 - 00:02:36.560: almost salty flavor of the ricotta the
-00:02:36.560 - 00:02:40.180: burst of cheese from the cheddar cheese
-00:02:40.180 - 00:02:42.200: from the mushrooms of beautiful and
-00:02:42.200 - 00:02:44.500: tender YUM
-00:02:44.500 - 00:02:46.400: well I hope you've enjoyed this recipe
-00:02:46.400 - 00:02:48.290: check out my other videos at one-pot
-00:02:48.290 - 00:02:51.560: chef show calm until next time see you
-00:02:51.560 - 00:02:53.740: later
-----------------------------------------------------------------
-
-Video ID=2: Ehntsffsx08
-	Title: "Stovetop" Baked STUFFING for Roast Chicken /professional restaurant recipe
-Description: ['Stove Top Stuffing (Invention)', 'Stuffing (Dish)', 'Chicken (Organism Classification)', 'Baking (Culinary Technique)', 'Roasting (Culinary Technique)', 'Restaurant (Industry)', 'Cooking (Award Discipline)', 'roasted', 'mushrooms', 'sage', 'classic', 'home made']; ['Howto & Style']
-Transcript:
-00:00:09.240 - 00:00:10.800: many people these days are afraid of
-00:00:10.800 - 00:00:12.519: stuffing that's cooked inside of a
-00:00:12.519 - 00:00:15.400: chicken or other bird there are packaged
-00:00:15.400 - 00:00:17.520: Stove Top Stuffing mixes on the market
-00:00:17.520 - 00:00:19.400: but the results are synthetic full of
-00:00:19.400 - 00:00:21.199: chemicals they generally taste pretty
-00:00:21.199 - 00:00:24.480: awful here's a recipe for a natural Rich
-00:00:24.480 - 00:00:25.800: flavorful stuffing that's
-00:00:25.800 - 00:00:27.800: indistinguishable from the classic sage
-00:00:27.800 - 00:00:29.599: and mushroom stuffings that used to cook
-00:00:29.599 - 00:00:31.920: in the cavity of the Sunday bird
-00:00:31.920 - 00:00:33.680: although this is obviously more work
-00:00:33.680 - 00:00:35.680: than the packaged mix the result is a
-00:00:35.680 - 00:00:38.360: million times better I was working on
-00:00:38.360 - 00:00:40.239: perfecting this recipe at a restaurant
-00:00:40.239 - 00:00:42.680: in Beverly Hills quite a few years back
-00:00:42.680 - 00:00:45.600: when uh Chef Wolf Gang Puck stopped by
-00:00:45.600 - 00:00:49.239: he tasted it and told me don't change a
-00:00:49.239 - 00:00:51.559: thing yeah I know it made him sound like
-00:00:51.559 - 00:00:53.280: Arnold Schwarzenegger but that's how he
-00:00:53.280 - 00:00:56.520: always sounded to me the first step of
-00:00:56.520 - 00:00:59.199: this is to prepare the bread uh you want
-00:00:59.199 - 00:01:01.359: a loaf that's fairly dense not like a
-00:01:01.359 - 00:01:03.960: cake loaf don't use like a Wonder Bread
-00:01:03.960 - 00:01:05.519: or something like that it has to be like
-00:01:05.519 - 00:01:08.360: real bread um it can be stale but it
-00:01:08.360 - 00:01:09.720: really won't make any difference here
-00:01:09.720 - 00:01:11.439: cuz we're going to bake it anyway so if
-00:01:11.439 - 00:01:13.119: you've got stale use stale if you all
-00:01:13.119 - 00:01:15.320: you can get is fresh find use fresh um
-00:01:15.320 - 00:01:17.439: now you're going to cut this up into
-00:01:17.439 - 00:01:20.000: cubes now we're going to begin making
-00:01:20.000 - 00:01:21.280: the
-00:01:21.280 - 00:01:23.960: uh liquid that goes over the top of this
-00:01:23.960 - 00:01:26.720: bread I'm going to put in cut up red
-00:01:26.720 - 00:01:28.560: bell peppers I took the garlic cloves
-00:01:28.560 - 00:01:31.600: and I just sliced them in off um I'm
-00:01:31.600 - 00:01:34.240: going to add some dried rosemary to this
-00:01:34.240 - 00:01:35.840: uh this is one of those instances where
-00:01:35.840 - 00:01:38.560: I'm actually I don't want the high notes
-00:01:38.560 - 00:01:40.720: of the herb which is why I'm putting
-00:01:40.720 - 00:01:42.479: that in now I just want that this
-00:01:42.479 - 00:01:44.520: background deep richness is all we're
-00:01:44.520 - 00:01:48.119: going for now um with the paprika and
-00:01:48.119 - 00:01:50.040: we'll put a little bit of salt we're
-00:01:50.040 - 00:01:51.040: going to we're going to adjust the
-00:01:51.040 - 00:01:52.960: seasoning later
-00:01:52.960 - 00:01:57.240: but is salted all the way through so
-00:01:57.240 - 00:01:59.479: that you don't end up in the end with
-00:01:59.479 - 00:02:02.119: bread has no saltiness to it at all in
-00:02:02.119 - 00:02:04.240: within the stuffing okay there's the
-00:02:04.240 - 00:02:07.920: olive oil now this gets uh usual stick
-00:02:07.920 - 00:02:10.520: blender
-00:02:10.520 - 00:02:12.879: treatment this is the Brad that I cubed
-00:02:12.879 - 00:02:15.640: up um I cubed it fairly large because
-00:02:15.640 - 00:02:17.840: that's the way that I like it uh if you
-00:02:17.840 - 00:02:20.680: Cube it too small in the end what you're
-00:02:20.680 - 00:02:24.280: going to end up with is is really uh
-00:02:24.280 - 00:02:26.640: like a soup almost of instead of a like
-00:02:26.640 - 00:02:28.720: a discernable stuffing so I always want
-00:02:28.720 - 00:02:31.000: to guard against that personally I I
-00:02:31.000 - 00:02:36.080: don't like that too squishy of soft um
-00:02:36.080 - 00:02:37.879: texture in the end I want to be able to
-00:02:37.879 - 00:02:42.319: to identify and taste the bread um okay
-00:02:42.319 - 00:02:45.800: so I've scraped out the contents of this
-00:02:45.800 - 00:02:47.879: and we're going to begin mixing it you
-00:02:47.879 - 00:02:49.400: just really just got to get your hands
-00:02:49.400 - 00:02:51.000: in there and do it's the only way make
-00:02:51.000 - 00:02:52.840: it as even as you can and here it is
-00:02:52.840 - 00:02:54.519: spread out on a single layer in the
-00:02:54.519 - 00:02:57.200: baking sheet I've preheated the oven to
-00:02:57.200 - 00:03:00.120: 150 c as soon as it goes in I'm going to
-00:03:00.120 - 00:03:07.440: lower the temperature and turn the fan
-00:03:07.440 - 00:03:09.680: on you can play around with these
-00:03:09.680 - 00:03:12.159: proportions you know up and down these
-00:03:12.159 - 00:03:13.519: are the ones I'm comfortable with
-00:03:13.519 - 00:03:15.319: because I've made it many many times I
-00:03:15.319 - 00:03:19.080: like this the best 160 180 200 the W
-00:03:19.080 - 00:03:20.879: this is in the oven also you get plenty
-00:03:20.879 - 00:03:23.000: of time hopefully got plenty of time to
-00:03:23.000 - 00:03:25.480: cut up your your vegetables the celery
-00:03:25.480 - 00:03:27.200: the mushrooms and the onions and cut
-00:03:27.200 - 00:03:29.239: them into um you know reasonable size
-00:03:29.239 - 00:03:31.280: chunks like inch bre is still toasting
-00:03:31.280 - 00:03:33.879: in the oven I'm going to begin cooking
-00:03:33.879 - 00:03:35.480: the other
-00:03:35.480 - 00:03:38.680: ingredients when the butter is foamed up
-00:03:38.680 - 00:03:41.239: going to add the uh onions to it and
-00:03:41.239 - 00:03:43.360: start counting a Time the temperature
-00:03:43.360 - 00:03:47.480: here on the stove is on a six from 1 to
-00:03:47.480 - 00:03:50.120: 10 stir this around a little bit let it
-00:03:50.120 - 00:03:52.640: go for a few 5 minutes by the clock now
-00:03:52.640 - 00:03:55.360: I'm going to add the celery and a little
-00:03:55.360 - 00:03:57.799: bit of salt you have to be careful not
-00:03:57.799 - 00:04:00.239: to overs salt this
-00:04:00.239 - 00:04:01.959: but you want to make sure that the
-00:04:01.959 - 00:04:03.519: celery has some salt in there to break
-00:04:03.519 - 00:04:06.599: it down the salt will exude moisture
-00:04:06.599 - 00:04:08.840: from the celery in from the onion but
-00:04:08.840 - 00:04:11.079: you want to you want to make sure the
-00:04:11.079 - 00:04:12.879: celery is soft in this you don't want it
-00:04:12.879 - 00:04:17.079: to have nasty hard chunks in the end so
-00:04:17.079 - 00:04:18.560: stir it around once in a while a little
-00:04:18.560 - 00:04:20.560: bit let it keep cooking okay it's now
-00:04:20.560 - 00:04:23.759: been 8 minutes since I added the cery
-00:04:23.759 - 00:04:26.960: now I'm going to add the
-00:04:26.960 - 00:04:29.400: mushrooms and the same routine stir them
-00:04:29.400 - 00:04:30.919: around one once in a while let them
-00:04:30.919 - 00:04:34.160: continue to cook it's been just over 13
-00:04:34.160 - 00:04:36.800: minutes so far but you can you know
-00:04:36.800 - 00:04:38.720: after you do this a couple time you can
-00:04:38.720 - 00:04:41.400: just use your own judgment just look at
-00:04:41.400 - 00:04:43.800: it this is also the time you want to
-00:04:43.800 - 00:04:46.880: start picking your Sage leaves off
-00:04:46.880 - 00:04:48.720: preparing the your
-00:04:48.720 - 00:04:52.440: shien of these to go in don't want to do
-00:04:52.440 - 00:04:55.440: it too early because the uh Aroma will
-00:04:55.440 - 00:04:57.720: evaporate into the air but we're getting
-00:04:57.720 - 00:04:59.479: pretty the mushrooms have been cooking
-00:04:59.479 - 00:05:01.039: for about 3 minutes now I'm going to
-00:05:01.039 - 00:05:02.840: kill the Heat and I'm going to add the
-00:05:02.840 - 00:05:04.479: dark chicken stock by the way this is
-00:05:04.479 - 00:05:06.800: what chicken stock that's properly made
-00:05:06.800 - 00:05:09.440: should look like it should be gelatinous
-00:05:09.440 - 00:05:11.880: not like the stuff you get in the store
-00:05:11.880 - 00:05:13.680: okay there's no heat on here but I'm
-00:05:13.680 - 00:05:16.199: using the residual heat in the pan to to
-00:05:16.199 - 00:05:18.479: make sure that this melts thoroughly
-00:05:18.479 - 00:05:25.120: into the um into the mixture
-00:05:25.120 - 00:05:28.240: here okay it's been 40 minutes now the
-00:05:28.240 - 00:05:29.440: bread came out of the oven you want to
-00:05:29.440 - 00:05:31.240: make sure that there's no burn on it at
-00:05:31.240 - 00:05:33.120: all it's I've used a low temperature for
-00:05:33.120 - 00:05:36.880: a long time this is very rich and a
-00:05:36.880 - 00:05:39.560: concentrated flavor but it's no it's
-00:05:39.560 - 00:05:42.360: absolutely not burnt in any way that's
-00:05:42.360 - 00:05:43.919: important because if it's burnt it'll
-00:05:43.919 - 00:05:46.000: make the the overall stuffing
-00:05:46.000 - 00:05:49.440: bitter I transferred the uh cooked
-00:05:49.440 - 00:05:51.960: vegetables and chicken stock into Bowl
-00:05:51.960 - 00:05:55.080: that's all I did and I'm adding uh that
-00:05:55.080 - 00:05:56.600: chipot of
-00:05:56.600 - 00:05:58.639: sage and now I'm
-00:05:58.639 - 00:06:01.919: adding all the breadcrumbs to this more
-00:06:01.919 - 00:06:05.400: like crutons really um and I'm going to
-00:06:05.400 - 00:06:07.240: mix this up but I'm not going to add the
-00:06:07.240 - 00:06:10.520: egg yet I'm going to let this sit and
-00:06:10.520 - 00:06:12.639: absorb all this liquid I don't want to
-00:06:12.639 - 00:06:14.080: add the egg because first of all it'll
-00:06:14.080 - 00:06:17.080: start spoilage and second of all it will
-00:06:17.080 - 00:06:19.080: actually interfere with the absorption
-00:06:19.080 - 00:06:21.479: of the the liquid by the bread so we're
-00:06:21.479 - 00:06:23.599: just going to mix this around and let it
-00:06:23.599 - 00:06:25.919: stand after you're satisfied that it's
-00:06:25.919 - 00:06:28.440: mixed as well as you can put some cing
-00:06:28.440 - 00:06:30.120: film over it
-00:06:30.120 - 00:06:32.120: let it stand for a while go on after
-00:06:32.120 - 00:06:33.840: about half an hour we remove the clean
-00:06:33.840 - 00:06:37.800: film I've got the um one whole egg and
-00:06:37.800 - 00:06:44.039: the egg
-00:06:44.039 - 00:06:47.080: yolk this up little
-00:06:47.080 - 00:06:49.759: first sure it breaks
-00:06:49.759 - 00:06:52.120: up and I'm also going to put a little
-00:06:52.120 - 00:06:55.560: fresh ground white pepper on this
-00:06:55.560 - 00:06:59.199: too remember it's had no pepper added so
-00:06:59.199 - 00:07:03.360: far
-00:07:03.360 - 00:07:06.879: okay now we're going to stir this
-00:07:06.879 - 00:07:10.039: up and get ready to start baking it
-00:07:10.039 - 00:07:12.520: here take a ceramic baking dish I'm
-00:07:12.520 - 00:07:14.280: going to put some butter and rub the
-00:07:14.280 - 00:07:15.720: bottom of it with butter just to make
-00:07:15.720 - 00:07:17.680: sure it doesn't
-00:07:17.680 - 00:07:20.080: stick as you got egg and bread in there
-00:07:20.080 - 00:07:22.680: it's kind of classic for sticking to the
-00:07:22.680 - 00:07:23.879: pan as it's
-00:07:23.879 - 00:07:26.879: breaking okay put
-00:07:26.879 - 00:07:33.120: the mixture in here
-00:07:33.120 - 00:07:37.199: sure you get
-00:07:37.199 - 00:07:42.440: everything smooth it
-00:07:42.440 - 00:07:46.159: out now for the first period of cooking
-00:07:46.159 - 00:07:48.400: I'm going to cover it with foil this
-00:07:48.400 - 00:07:50.000: will make sure that the bread doesn't
-00:07:50.000 - 00:07:53.560: end up drying up and and turning chewy
-00:07:53.560 - 00:07:55.639: which is something you want to make very
-00:07:55.639 - 00:07:57.879: sure to avoid cuz nobody likes chewy
-00:07:57.879 - 00:07:59.960: stuffing okay it's going the oven for
-00:07:59.960 - 00:08:05.199: the first
-00:08:05.199 - 00:08:08.759: period it's been 30 minutes now remove
-00:08:08.759 - 00:08:10.520: the cover and it goes back in for the
-00:08:10.520 - 00:08:16.479: remaining
-00:08:16.479 - 00:08:20.039: time this is 10 minutes after it's been
-00:08:20.039 - 00:08:21.800: in the oven without a cover and I'm
-00:08:21.800 - 00:08:22.639: going to
-00:08:22.639 - 00:08:24.960: sprinkle some vermouth on it dry
-00:08:24.960 - 00:08:27.599: vermouth don't have to do this but it's
-00:08:27.599 - 00:08:30.000: a nice touch and now it's to go back in
-00:08:30.000 - 00:08:36.080: the
-00:08:36.080 - 00:08:40.320: oven and now after the last 10 minutes
-00:08:40.320 - 00:08:41.800: uh I'm going to do is I'm going to put
-00:08:41.800 - 00:08:45.040: this cover back on it in order to retain
-00:08:45.040 - 00:08:46.800: some of that moisture so it doesn't all
-00:08:46.800 - 00:08:49.320: evaporate out now so we want it want the
-00:08:49.320 - 00:08:50.560: stuffing to be
-00:08:50.560 - 00:08:52.880: moist just let it sit like this till it
-00:08:52.880 - 00:08:58.440: cools
-00:08:58.440 - 00:09:15.200: down
-00:09:15.200 - 00:09:17.320: also look for my cocktail book cocktails
-00:09:17.320 - 00:09:19.760: of the South Pacific and Beyond Advanced
-00:09:19.760 - 00:09:22.640: Mixology available through Amazon
-00:09:22.640 - 00:09:25.640: online
-----------------------------------------------------------------
-
-Video ID=3: tdk9_Xs_CC0
-	Title: Rosemary, Mushroom and Garlic Stuffing Recipe
-Description: ['Titli', 'Cook', 'Halal', 'halal', 'Thanksgiving', 'herbs', 'duck', 'breadcrumbs', 'Make', 'garlic', 'How to Cook', 'recipe', 'Cooking', 'turkey', 'goose', 'Food', 'to', 'How to', 'roast', 'How', 'chicken', 'mushroom', 'How to Make', 'rosemary', 'stuffing recipe', 'stuffing', 'Christmas', 'Recipe', 'Recipes', 'onion']; ['Howto & Style']
-Transcript:
-00:00:08.830 - 00:00:10.830: [Intro music]
-00:00:10.830 - 00:00:13.139: Assalaamu Alaikum and welcome to Titli's Busy
-Kitchen with me Titli Nihaan.
-00:00:13.139 - 00:00:18.130: I'll know that some of you will be thinking
-about stuffing your bird right now
-00:00:18.130 - 00:00:23.210: but maybe, recently, things have gone a bit
-humdrum, a little bit samey
-00:00:23.210 - 00:00:26.369: and you want a little bit more adventure in
-your stuffing.
-00:00:26.369 - 00:00:28.390: Don't despair because in this video
-00:00:28.390 - 00:00:33.970: I'll show you something that will maybe bring
-back a little bit of the magic.
-00:00:33.970 - 00:00:37.600: There's enough here to stuff a 4 kg or 10
-pound bird.
-00:00:37.600 - 00:00:40.940: Here I've got 250 g of breadcrumbs.
-00:00:40.940 - 00:00:43.360: 500 g of finely chopped mushrooms.
-00:00:43.360 - 00:00:47.460: I actually used a food processor to chop these.
-00:00:47.460 - 00:00:51.380: 250 g of spring onions or green onions or
-scallions.
-00:00:51.380 - 00:00:52.600: Whatever you want to call them.
-00:00:52.600 - 00:00:54.540: Here's one I didn't prepare earlier.
-00:00:54.540 - 00:01:00.850: A 150 g of something like either bacon or
-I'm using a halal salami.
-00:01:00.850 - 00:01:04.220: A 125 g of butter.
-00:01:04.220 - 00:01:07.440: 3 tablespoons of freshly chopped rosemary.
-00:01:07.440 - 00:01:09.670: Dried rosemary is fine too.
-00:01:09.670 - 00:01:12.450: 4 crushed cloves of garlic.
-00:01:12.450 - 00:01:16.010: Begin by melting the butter in a large pan.
-00:01:16.010 - 00:01:19.050: Once the butter is melted, add in the onions,
-00:01:19.050 - 00:01:22.290: the bacon or in my case, my salami
-00:01:22.290 - 00:01:25.130: and the garlic.
-00:01:25.130 - 00:01:30.440: Sauté gently until the onions become soft.
-00:01:30.440 - 00:01:33.860: After about 5 minutes or so, gentle sautéing,
-00:01:33.860 - 00:01:35.780: the onion should be nice and soft.
-00:01:35.780 - 00:01:37.520: I'll turn off the heat.
-00:01:37.520 - 00:01:43.460: I'll just season it with a little bit of salt
-and pepper.
-00:01:43.460 - 00:01:45.400: Add in all the remaining ingredients:
-00:01:45.400 - 00:01:47.800: the mushrooms, the breadcrumbs and the rosemary.
-00:01:47.800 - 00:01:53.730: Give it all a good mix.
-00:01:53.730 - 00:01:56.100: When everything is nicely mixed,
-00:01:56.100 - 00:01:58.780: it's ready for use!
-00:01:58.780 - 00:02:03.550: It's kinda hard to make a bowl of stuffing
-look attractive but it does taste awesome!
-00:02:03.550 - 00:02:08.700: So now there's no excuse for the same thing,
-year in, year out.
-00:02:08.700 - 00:02:12.060: I do hope that you enjoy good stuffing this
-year
-00:02:12.060 - 00:02:17.160: and do join me next time in Titli's Busy Kitchen
-with me Titli Nihaan.
-00:02:17.160 - 00:02:18.200: Until next time...
-00:02:18.200 - 00:02:26.190: Khuda hafiz�
-----------------------------------------------------------------
-
-Video ID=4: dkhy4vn9HcY
-	Title: Spinach Stuffed Mushrooms | Hilah Cooking
-Description: ['stuffed mushrooms', 'how to make stuffed mushrooms', 'stuffed mushrooms recipe', 'easy stuffed mushrooms', 'how to stuffed mushrooms', 'mushroom recipe', 'appetizer', 'hidden valley ranch recipe', 'hilah cooking', 'hilah johnson', 'cooking', 'learn to cook', 'cooking show', 'cooking channel', 'cooking lessons', 'recipes', 'video recipes', 'recipe videos', 'texmex cooking', 'texmex recipes', 'texmex food', 'mexican recipes', 'texas cooking', 'home cooking', 'vegetarian stuffed mushrooms', 'spinach stuffed mushrooms']; ['Howto & Style']
-Transcript:
-00:00:00.122 - 00:00:02.083: - Hey dudes, I'm Hilah
-and today on Hilah Cooking
-00:00:02.083 - 00:00:04.046: I'm making spinach stuffed mushrooms.
-00:00:04.046 - 00:00:05.473: Hidden Valley Ranch asked me to come up
-00:00:05.473 - 00:00:07.028: with a recipe that would be great
-00:00:07.028 - 00:00:08.493: for an awards season party
-00:00:08.493 - 00:00:09.685: and I think these fit the bill
-00:00:09.685 - 00:00:11.345: because you can make 'em ahead of time,
-00:00:11.345 - 00:00:12.969: ladies love vegetables
-00:00:12.969 - 00:00:14.470: and they go really great with champagne
-00:00:14.470 - 00:00:16.032: and talking about celebrities.
-00:00:16.032 - 00:00:18.391: (electronic instrumental music)
-00:00:29.286 - 00:00:30.911: Start out with prepping the mushrooms.
-00:00:30.911 - 00:00:33.743: I've got some pretty big
-cremini mushrooms here
-00:00:33.743 - 00:00:36.773: that I just wiped off with a damp towel
-00:00:36.773 - 00:00:40.036: to get off all the dusties off
-00:00:40.036 - 00:00:42.158: and then you just wanna pop the stem out
-00:00:42.158 - 00:00:43.750: and I find the easiest way to do it
-00:00:43.750 - 00:00:47.321: it kind of like going around
-and break this membrane
-00:00:49.456 - 00:00:50.982: if you need to, sometimes it's not there,
-00:00:50.982 - 00:00:52.779: but I think fresher mushrooms usually
-00:00:52.779 - 00:00:54.545: have that little membrane
-00:00:54.545 - 00:00:58.320: and then just kind of pop it out.
-00:01:01.308 - 00:01:03.446: And it literally makes a
-popping sound, so that's cool
-00:01:03.446 - 00:01:04.754: and then if you're the type of
-00:01:04.754 - 00:01:06.542: person that makes like your own
-00:01:06.542 - 00:01:08.620: vegetable stock or
-chicken stock and stuff,
-00:01:08.620 - 00:01:10.014: save these mushroom stems,
-00:01:10.014 - 00:01:12.348: 'cause those go really well
-in something like that.
-00:01:12.348 - 00:01:13.952: So I'll show you another one.
-00:01:15.734 - 00:01:18.227: So once you've got your
-mushrooms ready to roll,
-00:01:18.227 - 00:01:19.668: you can push those aside
-00:01:19.668 - 00:01:21.734: and we'll start mixing up our filling.
-00:01:21.734 - 00:01:26.052: The base of it is gonna
-be some cream cheese.
-00:01:26.052 - 00:01:29.170: Add a little bit of mayonnaise.
-00:01:29.170 - 00:01:32.809: And I'm gonna add one packet of
-00:01:32.809 - 00:01:35.364: Hidden Valley salad
-dressing and seasoning mix.
-00:01:37.317 - 00:01:40.640: Just get these mixed up together.
-00:01:40.640 - 00:01:42.173: Okay, so this looks really good.
-00:01:42.173 - 00:01:44.017: It's all smooth.
-00:01:44.017 - 00:01:46.257: So we can add the rest of
-our filling ingredients,
-00:01:46.257 - 00:01:48.634: so I'm gonna use a little
-bit of grated cheese.
-00:01:48.634 - 00:01:50.375: I'm using Monterrey Jack.
-00:01:50.375 - 00:01:52.780: I think cheddar would be really good too.
-00:01:52.780 - 00:01:55.668: Some grated carrots.
-00:01:55.668 - 00:01:59.886: Some finely chopped spinach.
-00:01:59.886 - 00:02:01.820: Some green onions and some fresh herbs.
-00:02:01.820 - 00:02:03.759: Today I'm gonna use some dill and parsley,
-00:02:03.759 - 00:02:06.591: but you could use all dill or all parsley.
-00:02:06.591 - 00:02:09.029: And then some bread crumbs.
-00:02:09.029 - 00:02:10.250: You wanna save some to put on the
-00:02:10.250 - 00:02:12.812: top of the stuffed mushrooms later
-00:02:12.812 - 00:02:15.565: and I'm gonna add some black pepper.
-00:02:15.565 - 00:02:17.487: And then just get this all mixed up.
-00:02:17.487 - 00:02:19.128: Okay, so once you're certain that
-00:02:19.128 - 00:02:21.787: your mixture is very well combined
-00:02:21.787 - 00:02:23.587: and there's no streaks of cream cheese
-00:02:23.587 - 00:02:25.465: or mayonnaise hiding around the bottom,
-00:02:25.465 - 00:02:27.159: we can stuff the mushrooms.
-00:02:27.159 - 00:02:28.785: So I'm using a baking tray that
-00:02:28.785 - 00:02:30.243: I've lined with a little bit of parchment.
-00:02:30.243 - 00:02:31.032: You don't need to do that,
-00:02:31.032 - 00:02:34.201: but it makes clean up a little bit easier.
-00:02:34.201 - 00:02:35.524: So then we can just start
-filling the mushrooms
-00:02:35.524 - 00:02:38.485: and I just use a regular spoon
-00:02:38.485 - 00:02:41.063: and do a teaspoon and a
-half or two teaspoons,
-00:02:41.063 - 00:02:42.720: depending on the size of the mushroom.
-00:02:42.720 - 00:02:45.188: (easy listening instrumental music)
-00:02:55.478 - 00:02:57.196: Once your mushrooms are all stuffed,
-00:02:57.196 - 00:02:58.393: you just wanna sprinkle the top of
-00:02:58.393 - 00:03:01.992: each one with a couple
-pinches of bread crumbs.
-00:03:01.992 - 00:03:04.115: Just to make sure you get a nice little
-00:03:04.115 - 00:03:08.217: toasty brown top and add
-a little bit of crunch.
-00:03:10.786 - 00:03:12.691: And if you did wanna
-make these ahead of time,
-00:03:12.691 - 00:03:17.691: you could just refrigerate
-them for up to hour
-00:03:18.390 - 00:03:20.295: and then bake them whenever you're
-00:03:20.295 - 00:03:22.083: ready for some hot stuffed mushrooms.
-00:03:22.083 - 00:03:25.008: So I'm gonna put these in
-a preheated 400 degree oven
-00:03:25.008 - 00:03:26.946: and bake 'em for 20 to 25 minutes,
-00:03:26.946 - 00:03:28.107: until the mushrooms are nice and soft
-00:03:28.107 - 00:03:30.394: and kind of shrively
-and the tops are brown
-00:03:30.394 - 00:03:32.276: and toasty and everything
-inside is all melty
-00:03:32.276 - 00:03:35.062: and yummy and gooey.
-00:03:35.062 - 00:03:38.973: Alright, so 20 minutes later
-and my house smells amazing
-00:03:38.973 - 00:03:41.981: and these look gorgeous and
-I can't wait to eat one.
-00:03:41.981 - 00:03:44.325: For this recipe, check
-out hilahcooking.com
-00:03:44.325 - 00:03:46.729: and for many, many, many more recipes,
-00:03:46.729 - 00:03:49.573: check out hiddenvalley.com/recipe.
-00:03:49.573 - 00:03:53.465: Now, let's taste this recipe.
-00:03:53.465 - 00:03:56.803: They're gonna be hot so beware.
-00:03:56.803 - 00:03:58.058: Biter beware.
-00:04:01.466 - 00:04:02.520: Ya'll really should try this.
-00:04:02.520 - 00:04:03.693: This is one of my
-favorite stuffed mushroom
-00:04:03.693 - 00:04:08.485: recipes that I've ever
-had or even ever created.
-00:04:08.485 - 00:04:09.830: So thank you so much for watching,
-00:04:09.830 - 00:04:12.293: thanks for subscribing and
-I will see ya'll next week.
-00:04:12.293 - 00:04:12.895: Bye.
-00:04:12.895 - 00:04:15.165: (electronic instrumental music)
-----------------------------------------------------------------
-
-Video ID=5: QECo58lV-bE
-	Title: Mushroom and Sage Stuffing
-Description: ['Tse', 'Tselani', 'richmond', 'stuffing', 'sage', 'mushrooms', 'cooking', 'healthy', 'regence', 'food']; ['Education']
-Transcript:
-00:00:07.410 - 00:00:10.000: when it comes to the holidays I have to
-00:00:10.000 - 00:00:11.950: say my favorite dish is the stuffing I
-00:00:11.950 - 00:00:14.170: love that mix of flavors and textures
-00:00:14.170 - 00:00:16.660: and it makes a great leftover before I
-00:00:16.660 - 00:00:19.060: became a chef I usually prepared the
-00:00:19.060 - 00:00:21.369: stuff that came in a box but recently I
-00:00:21.369 - 00:00:23.140: picked it up and read the ingredient
-00:00:23.140 - 00:00:27.009: label hydrogenated oil hmm monosodium
-00:00:27.009 - 00:00:30.099: glutamate preservatives and what's this
-00:00:30.099 - 00:00:32.529: high fructose corn syrup what's that
-00:00:32.529 - 00:00:33.610: doing in here
-00:00:33.610 - 00:00:35.920: so this year I'm gonna skip the box
-00:00:35.920 - 00:00:37.810: stuff and I'm gonna be going into the
-00:00:37.810 - 00:00:39.370: kitchen and making my own from scratch
-00:00:39.370 - 00:00:42.220: come and join me and see how it's done
-00:00:42.220 - 00:00:44.860: for the foundation in our stuffing I
-00:00:44.860 - 00:00:47.350: went ahead and toasted my bread cubes
-00:00:47.350 - 00:00:50.200: now I'm using equal parts whole wheat
-00:00:50.200 - 00:00:52.690: and white and I've toasted these in a
-00:00:52.690 - 00:00:54.730: really hot oven so they're super super
-00:00:54.730 - 00:00:57.430: crispy the reason why I want a crispy
-00:00:57.430 - 00:00:59.650: crouton is so that when you mix it with
-00:00:59.650 - 00:01:01.360: all the liquids it doesn't fall apart
-00:01:01.360 - 00:01:03.520: during baking so those are ready to go
-00:01:03.520 - 00:01:06.640: and now I want to move on here I have my
-00:01:06.640 - 00:01:09.249: onion my carrot and my celery all ready
-00:01:09.249 - 00:01:09.789: to go
-00:01:09.789 - 00:01:13.450: hot pan over medium heat let's turn that
-00:01:13.450 - 00:01:16.420: up perfect we're gonna add a little bit
-00:01:16.420 - 00:01:20.560: of olive oil there we go make sure you
-00:01:20.560 - 00:01:23.829: coat the pan well and because this is a
-00:01:23.829 - 00:01:26.350: mushroom stuffing recipe we're gonna
-00:01:26.350 - 00:01:29.200: start off with our mushrooms so here I
-00:01:29.200 - 00:01:31.240: have some crimini mushrooms all cut up
-00:01:31.240 - 00:01:34.229: these are gonna go directly in the pan
-00:01:34.229 - 00:01:37.689: there we go and now I don't like
-00:01:37.689 - 00:01:39.759: mushrooms that are super soft and
-00:01:39.759 - 00:01:40.329: squishy
-00:01:40.329 - 00:01:42.700: so what I want to do watch how I do this
-00:01:42.700 - 00:01:46.030: I'm going to coat my mushrooms with the
-00:01:46.030 - 00:01:49.749: oil just like that in the pan and then
-00:01:49.749 - 00:01:52.299: I'm going to let them sit and if you do
-00:01:52.299 - 00:01:54.520: this you actually end up searing them as
-00:01:54.520 - 00:01:57.219: opposed to steaming them if you have too
-00:01:57.219 - 00:01:59.319: many mushrooms in the pan the mushrooms
-00:01:59.319 - 00:02:00.850: will want to release all the liquid and
-00:02:00.850 - 00:02:02.590: then your mushrooms kind of end up soft
-00:02:02.590 - 00:02:04.719: and mushy that's not my goal in this
-00:02:04.719 - 00:02:05.750: recipe
-00:02:05.750 - 00:02:07.640: you can hear how the mushrooms are
-00:02:07.640 - 00:02:09.860: squeaking in the pan that's good because
-00:02:09.860 - 00:02:11.750: it means they're not drowning in their
-00:02:11.750 - 00:02:14.480: own liquid they're searing perfectly now
-00:02:14.480 - 00:02:16.520: these are done I'm gonna take them off
-00:02:16.520 - 00:02:19.430: the heat and add a little sprinkle of
-00:02:19.430 - 00:02:23.300: salt just like that and a few grinds of
-00:02:23.300 - 00:02:25.730: pepper now you may wonder why I don't
-00:02:25.730 - 00:02:27.200: add salt and pepper in the beginning
-00:02:27.200 - 00:02:30.380: well if you add salt it actually helps
-00:02:30.380 - 00:02:32.300: your mushroom release liquid and again
-00:02:32.300 - 00:02:34.160: that's not what I wanted I wanted my
-00:02:34.160 - 00:02:36.560: mushrooms to sear so now that those are
-00:02:36.560 - 00:02:39.860: seasoned this is gonna go directly over
-00:02:39.860 - 00:02:42.920: my bread cubes and look at all that
-00:02:42.920 - 00:02:44.600: fabulous stuff in the bottom of the pan
-00:02:44.600 - 00:02:47.750: this is called sook s you see it's a
-00:02:47.750 - 00:02:49.850: French term and it's all the sugars that
-00:02:49.850 - 00:02:51.350: have caramelized on the bottom of the
-00:02:51.350 - 00:02:53.780: pan now that equals great flavor so we
-00:02:53.780 - 00:02:55.130: don't want to lose this that's why I'm
-00:02:55.130 - 00:02:57.770: not gonna wash the pan again I'm gonna
-00:02:57.770 - 00:03:00.890: add a little bit more olive oil there we
-00:03:00.890 - 00:03:01.250: go
-00:03:01.250 - 00:03:04.850: coat the pan nicely just swirl it around
-00:03:04.850 - 00:03:07.520: and now it's time to add the rest of our
-00:03:07.520 - 00:03:09.500: vegetables so I'm gonna add a little bit
-00:03:09.500 - 00:03:11.480: of garlic because I like just a little
-00:03:11.480 - 00:03:13.549: bit of bite and then the rest of our
-00:03:13.549 - 00:03:17.810: vegetables are going in perfect now all
-00:03:17.810 - 00:03:20.239: we need to do is saute this similar to
-00:03:20.239 - 00:03:22.549: the mushrooms until they're starting to
-00:03:22.549 - 00:03:24.860: turn golden brown I don't want to take
-00:03:24.860 - 00:03:26.690: them too far because I don't want them
-00:03:26.690 - 00:03:29.360: to turn into mush while they cook I wish
-00:03:29.360 - 00:03:31.430: you could smell it in here it smells so
-00:03:31.430 - 00:03:33.709: good you can see that my vegetables are
-00:03:33.709 - 00:03:35.269: nicely sauteed I don't want to take them
-00:03:35.269 - 00:03:38.209: too far but I want to get that brown
-00:03:38.209 - 00:03:39.829: stuff off the bottom of the pan so I'm
-00:03:39.829 - 00:03:42.650: gonna deglaze with about a cup of white
-00:03:42.650 - 00:03:45.110: wine that's gonna help me get all those
-00:03:45.110 - 00:03:47.780: flavors into the vegetables and give a
-00:03:47.780 - 00:03:50.450: fabulous flavor to the stuffing if you
-00:03:50.450 - 00:03:52.370: don't want to use an alcohol like wine
-00:03:52.370 - 00:03:54.650: go ahead and use chicken stock or even
-00:03:54.650 - 00:03:57.290: water is totally fine I'm going to let
-00:03:57.290 - 00:03:59.329: this reduce until almost all the liquid
-00:03:59.329 - 00:04:01.220: is evaporated and then we're ready to
-00:04:01.220 - 00:04:04.400: move on see how the liquid is nice and
-00:04:04.400 - 00:04:06.560: reduced it's time to go ahead and add
-00:04:06.560 - 00:04:08.840: this to our stuffing mix now before I do
-00:04:08.840 - 00:04:10.519: it I'm in a season with salt and pepper
-00:04:10.519 - 00:04:13.280: again because I'm creating layers of
-00:04:13.280 - 00:04:15.920: flavor there we go just a little bit of
-00:04:15.920 - 00:04:18.959: pepper stir that around and now
-00:04:18.959 - 00:04:21.600: this goes on top of our bread cubes so
-00:04:21.600 - 00:04:24.660: pour that on top so now look gorgeous
-00:04:24.660 - 00:04:27.150: and see how nice and deglaze the pan got
-00:04:27.150 - 00:04:28.860: that's perfect that's exactly what we
-00:04:28.860 - 00:04:32.669: were looking for now comes time for the
-00:04:32.669 - 00:04:35.280: herbs so to this I'm going to add some
-00:04:35.280 - 00:04:37.590: oregano because I love the flavor of
-00:04:37.590 - 00:04:40.710: fresh oregano now this is a mushroom in
-00:04:40.710 - 00:04:42.900: sage stuffing so we want to add our sage
-00:04:42.900 - 00:04:46.530: now sage is a really strong herb so you
-00:04:46.530 - 00:04:48.330: don't want to put too much I'm probably
-00:04:48.330 - 00:04:51.750: gonna use about 1/4 cup in here there we
-00:04:51.750 - 00:04:55.259: go now for the final step I've got some
-00:04:55.259 - 00:04:57.570: chicken broth here you can use vegetable
-00:04:57.570 - 00:04:59.729: that's totally fine to it I'm going to
-00:04:59.729 - 00:05:02.910: add a couple of eggs now you don't want
-00:05:02.910 - 00:05:04.560: to do this if you're gonna stuff your
-00:05:04.560 - 00:05:06.960: turkey with this stuffing because the
-00:05:06.960 - 00:05:08.280: eggs may not cook all the way through
-00:05:08.280 - 00:05:10.470: but if you're gonna bake your stuffing
-00:05:10.470 - 00:05:13.380: it's just fine I'm using eggs as a
-00:05:13.380 - 00:05:15.750: binding agent if you want to leave them
-00:05:15.750 - 00:05:18.060: out you can certainly do that I think
-00:05:18.060 - 00:05:20.370: think they add a really nice texture I'm
-00:05:20.370 - 00:05:22.590: also using low-sodium chicken broth
-00:05:22.590 - 00:05:24.360: because again I want to be able to
-00:05:24.360 - 00:05:26.970: control the salt and the pepper in my
-00:05:26.970 - 00:05:30.750: recipes perfect so now this just goes on
-00:05:30.750 - 00:05:33.570: top of our vegetables there we go just
-00:05:33.570 - 00:05:35.849: get that nice and mixed in now you can
-00:05:35.849 - 00:05:37.710: see there's still a little bit of liquid
-00:05:37.710 - 00:05:40.320: that doesn't get absorbed by the bread
-00:05:40.320 - 00:05:42.840: don't worry that's going to absorb as it
-00:05:42.840 - 00:05:46.740: bakes this is gonna go directly into our
-00:05:46.740 - 00:05:49.710: oiled baking dish I just sprayed it with
-00:05:49.710 - 00:05:52.490: a little bit of nonstick cooking spray
-00:05:52.490 - 00:05:54.060: there we go
-00:05:54.060 - 00:05:56.520: now this is going to go into the oven
-00:05:56.520 - 00:05:59.039: and you're gonna cook it for 30 minutes
-00:05:59.039 - 00:06:01.680: with foil on top and that's gonna cook
-00:06:01.680 - 00:06:03.150: it all the way through and then you're
-00:06:03.150 - 00:06:04.889: gonna take the foil off and cook it for
-00:06:04.889 - 00:06:07.500: another 15 minutes so that that top gets
-00:06:07.500 - 00:06:10.380: nice and brown all right we're ready for
-00:06:10.380 - 00:06:11.300: the oven
-00:06:11.300 - 00:06:14.039: Wow I wish you can smell it in here it
-00:06:14.039 - 00:06:16.530: smells so wonderful our stuffing is
-00:06:16.530 - 00:06:18.240: still nice and moist but look at that
-00:06:18.240 - 00:06:20.699: beautiful crisp crust this is something
-00:06:20.699 - 00:06:22.979: that everybody is going to enjoy and it
-00:06:22.979 - 00:06:24.830: doesn't come from a box I
-00:06:24.830 - 00:06:27.050: hope you'll join me in making Whole
-00:06:27.050 - 00:06:29.600: Foods for the holidays happy and healthy
-00:06:29.600 - 00:06:40.390: eating
-00:06:40.390 - 00:06:42.450: you
-----------------------------------------------------------------
-
-Video ID=6: SMh2sjuEwxM
-	Title: Stuffed Mushroom Recipe - OrsaraRecipes
-Description: ['chef pasquale', 'orsararecipes', 'cooking', 'italian cooking', 'italian recipes', 'food', 'foodie', 'stuffed mushrooms', 'Zucchini (Ingredient)', 'crab', 'crab meat', 'stuffed mushroom', 'mushroom']; ['Howto & Style']
-Transcript:
-00:00:00.000 - 00:00:02.970: how everybody today I want to make it to
-00:00:02.970 - 00:00:06.480: kind of the stuff Marshall and I wanted
-00:00:06.480 - 00:00:08.630: to make the stuff of mushroom over the
-00:00:08.630 - 00:00:13.170: zucchini squash it with a crepe knit
-00:00:13.170 - 00:00:15.990: it's a to Chi and the mushroom I was
-00:00:15.990 - 00:00:20.400: awash already what I do you break inside
-00:00:20.400 - 00:00:24.210: say you do like this and you take it out
-00:00:24.210 - 00:00:27.090: of this but not other way this this I
-00:00:27.090 - 00:00:30.660: gotta use when I start I have to take
-00:00:30.660 - 00:00:38.010: the knife and you call like this all the
-00:00:38.010 - 00:00:41.610: way rah okay one you stop you got a
-00:00:41.610 - 00:00:45.829: little room to put inside and you do
-00:00:45.829 - 00:00:49.020: cleanup this over here like I said but
-00:00:49.020 - 00:00:52.800: not away okay clean up all I put on a
-00:00:52.800 - 00:00:56.850: date okay this I got a boy for minute a
-00:00:56.850 - 00:00:59.789: minute and a half okay we put inside the
-00:00:59.789 - 00:01:06.570: water like I said minute and a half
-00:01:06.570 - 00:01:13.799: no more the days okay it's a minute and
-00:01:13.799 - 00:01:19.409: a half is done a Wittig around look a
-00:01:19.409 - 00:01:24.689: nice white mushroom okay now this is the
-00:01:24.689 - 00:01:26.909: eager cool off the time of the cigar
-00:01:26.909 - 00:01:30.900: cloth I wanna saute the zucchini there
-00:01:30.900 - 00:01:40.100: chop this garlic
-00:01:40.100 - 00:01:43.140: okay this is one dispatch so we get a
-00:01:43.140 - 00:01:46.950: current fry lower it down pour little
-00:01:46.950 - 00:01:58.110: oil okay go on the stove
-00:01:58.110 - 00:02:02.970: okay let's boost Oh fun let's see if
-00:02:02.970 - 00:02:04.830: this is a good this dish
-00:02:04.830 - 00:02:08.369: like I say fat thanks Gabe yeah this
-00:02:08.369 - 00:02:10.800: dish I use food for Thanksgiving for
-00:02:10.800 - 00:02:13.830: Christmas after the Christmas of the
-00:02:13.830 - 00:02:15.900: fish it's really good with the straw
-00:02:15.900 - 00:02:19.110: there's tougher crab meat okay the pile
-00:02:19.110 - 00:02:21.060: of this you gotta fry the little bit of
-00:02:21.060 - 00:02:23.040: the garlic and onion what I do i chop
-00:02:23.040 - 00:02:25.500: with a celebrated the chopper I started
-00:02:25.500 - 00:02:29.840: to do like this after use of the knife
-00:02:29.840 - 00:02:39.360: the make a little small okay you say
-00:02:39.360 - 00:02:41.310: we're not got a of what you hear
-00:02:41.310 - 00:02:46.739: this is my my kitchen Adam I know nobody
-00:02:46.739 - 00:02:50.760: else and I do the zucchini where you
-00:02:50.760 - 00:02:58.470: move you do like this and I have a few
-00:02:58.470 - 00:03:01.620: chopped addition in the small but not do
-00:03:01.620 - 00:03:05.040: home like this like I do that maybe you
-00:03:05.040 - 00:03:10.799: could cook you cook a finger okay we
-00:03:10.799 - 00:03:13.019: stopped with a mushroom see Daniel nice
-00:03:13.019 - 00:03:15.079: color
-00:03:15.079 - 00:03:23.500: okay now the zucchini
-00:03:23.500 - 00:03:28.140: that's a no I'm not gonna crazy
-00:03:28.140 - 00:03:33.940: hello yeah you see you call wine your
-00:03:33.940 - 00:03:36.880: hands up you call them anytime you call
-00:03:36.880 - 00:03:39.520: it birthday yeah wait you're into the
-00:03:39.520 - 00:03:42.910: phone not coming up ma boy you're making
-00:03:42.910 - 00:03:45.100: me crazy I'm gonna cook over here
-00:03:45.100 - 00:03:48.700: no I have any stop the ends your phone
-00:03:48.700 - 00:03:53.170: ain't nobody hangs me goodbye no call it
-00:03:53.170 - 00:03:58.690: again boy speak it makes me crazy boy
-00:03:58.690 - 00:04:00.940: look up take it you see what I did it
-00:04:00.940 - 00:04:03.160: this feeling make me crazy
-00:04:03.160 - 00:04:06.640: okay now I'll put this fiddling opponent
-00:04:06.640 - 00:04:10.960: no more it's a hollow does not call our
-00:04:10.960 - 00:04:13.720: dispiriting or list it code maybe
-00:04:13.720 - 00:04:15.760: five-minute this you look on the phone
-00:04:15.760 - 00:04:19.750: over there look body call over my
-00:04:19.750 - 00:04:22.540: business over here everybody call a lion
-00:04:22.540 - 00:04:29.169: god hello oh no ok little soft allay
-00:04:29.169 - 00:04:32.770: this is say that's all yeah I won the
-00:04:32.770 - 00:04:36.360: food like that they look like the pepper
-00:04:36.360 - 00:04:44.650: hey G - G - - baby quit for those story
-00:04:44.650 - 00:04:47.169: Bruce Oh baby hero baby on the black
-00:04:47.169 - 00:04:49.960: pepper red the fabric and white pepper
-00:04:49.960 - 00:04:54.250: make us at the gap look given you a
-00:04:54.250 - 00:04:57.460: something now something but i saute in
-00:04:57.460 - 00:05:02.530: the past okay now this I gotta put over
-00:05:02.530 - 00:05:08.530: here but look at this nice why are you
-00:05:08.530 - 00:05:09.160: baby
-00:05:09.160 - 00:05:12.970: look at this alright now what I'll do
-00:05:12.970 - 00:05:14.830: this you gotta cool off a little bit
-00:05:14.830 - 00:05:25.810: okay coffee break it's like start side
-00:05:25.810 - 00:05:26.900: back
-00:05:26.900 - 00:05:30.139: it's not the stand back stand back stand
-00:05:30.139 - 00:05:30.590: back
-00:05:30.590 - 00:05:35.690: woods with coffee you know why wait wait
-00:05:35.690 - 00:05:38.990: I gotta fix this coffee the coffee it's
-00:05:38.990 - 00:05:42.169: good to the making like little drab
-00:05:42.169 - 00:05:49.340: little too much to march that they said
-00:05:49.340 - 00:05:50.000: too much
-00:05:50.000 - 00:05:52.070: yeah it was not much I don't know why
-00:05:52.070 - 00:06:03.350: the bottle my hands shake I say nah you
-00:06:03.350 - 00:06:06.530: can sit for coffee but certain to be no
-00:06:06.530 - 00:06:10.340: sure you all under my and onz Bhupesh in
-00:06:10.340 - 00:06:17.120: Manna Dey okay now do the mixer with a
-00:06:17.120 - 00:06:20.539: crap meat and the cred mate what I'll do
-00:06:20.539 - 00:06:24.380: Gaga like maybe it's like seven a
-00:06:24.380 - 00:06:28.340: moisture on my guard oh okay this is an
-00:06:28.340 - 00:06:31.639: awful for this in what are you gotta use
-00:06:31.639 - 00:06:38.450: I use Lila mayonnaise not too much only
-00:06:38.450 - 00:06:44.620: like this okay and I use a little
-00:06:44.620 - 00:06:49.280: habanero it's a hot sauce but not too
-00:06:49.280 - 00:06:54.110: much because it's a type or like okay
-00:06:54.110 - 00:06:59.570: it's not little black pepper
-00:06:59.570 - 00:07:13.050: I use it's a mozzarella cheese
-00:07:13.050 - 00:07:16.000: and I usually look breadcrumb not too
-00:07:16.000 - 00:07:25.110: much and now I gotta chop this garlic
-00:07:25.110 - 00:07:27.790: it's everything to go inside overnight
-00:07:27.790 - 00:07:29.860: oh the gout you cry
-00:07:29.860 - 00:07:37.900: fly away from me okay now we gotta mix
-00:07:37.900 - 00:07:46.840: all this together okay we put a drop off
-00:07:46.840 - 00:07:47.710: the set
-00:07:47.710 - 00:07:53.050: one drop not too much this for me a call
-00:07:53.050 - 00:07:58.630: or sticky goo stretcher or Astrakhan to
-00:07:58.630 - 00:08:02.770: this so this is the pronunciation only
-00:08:02.770 - 00:08:07.230: the Muhammad Ali handle the orchard or
-00:08:07.230 - 00:08:10.450: okay now we put a little pass on it -
-00:08:10.450 - 00:08:14.680: which are the pass on it and we mix all
-00:08:14.680 - 00:08:18.970: together with a creme meet together go
-00:08:18.970 - 00:08:30.390: this F over here in the other half it go
-00:08:30.390 - 00:08:33.930: under stop the with the zucchini
-00:08:33.930 - 00:08:37.300: okay okay now this is so with the squash
-00:08:37.300 - 00:08:40.830: yeah I put a little mozzarella inside
-00:08:40.830 - 00:08:45.580: hey I use a little breadcrumb the mixer
-00:08:45.580 - 00:08:50.500: together and this is done for this okay
-00:08:50.500 - 00:08:55.140: and this is impasto the mushroom stopped
-00:08:55.140 - 00:08:59.490: stopped mushroom it will mix it together
-00:08:59.490 - 00:09:01.930: okay now this stuff that's like this
-00:09:01.930 - 00:09:05.610: this is sort of stuffed with a zucchini
-00:09:05.610 - 00:09:08.830: the squash and the mushroom where you do
-00:09:08.830 - 00:09:13.540: like this a lot and so this like that
-00:09:13.540 - 00:09:15.070: you put right over here
-00:09:15.070 - 00:09:17.350: and now we do this one over the crane
-00:09:17.350 - 00:09:22.540: mate and you do the same thing
-00:09:22.540 - 00:09:28.610: like this hey I'd do all the same don't
-00:09:28.610 - 00:09:30.440: think I pulled that one over there if
-00:09:30.440 - 00:09:32.930: this one over here cannot no one to stay
-00:09:32.930 - 00:09:35.510: together yeah I'm gonna finish all this
-00:09:35.510 - 00:09:37.220: mushroom of the stuff than that
-00:09:37.220 - 00:09:39.350: okay this he got a gun in your hand I
-00:09:39.350 - 00:09:41.420: put it the oven already at 400 degree
-00:09:41.420 - 00:09:44.120: but before I put in the oven I like it
-00:09:44.120 - 00:09:49.940: the poor little water hey I put a little
-00:09:49.940 - 00:09:52.640: bread crumb and a tap like this only
-00:09:52.640 - 00:10:01.350: spring like that
-00:10:01.350 - 00:10:04.860: maybe shoe it's a 400-degree now this uh
-00:10:04.860 - 00:10:08.550: put together the fish it is but somebody
-00:10:08.550 - 00:10:12.420: got allergy no cook together can be
-00:10:12.420 - 00:10:15.149: juicy he go all over the place you don't
-00:10:15.149 - 00:10:18.240: want somebody piss sake okay alright
-00:10:18.240 - 00:10:19.259: okay
-00:10:19.259 - 00:10:23.149: twenty minute and look up beautiful look
-00:10:23.149 - 00:10:25.160: really nice
-00:10:25.160 - 00:10:32.370: okay now we put a lie over here okay we
-00:10:32.370 - 00:10:33.500: take her out
-00:10:33.500 - 00:10:39.889: hey this is over the stove with zucchini
-00:10:39.889 - 00:10:45.870: look good yes you look really good now I
-00:10:45.870 - 00:10:49.259: wanna taste one over the fish the crab
-00:10:49.259 - 00:10:52.350: meat a one with the other one I want to
-00:10:52.350 - 00:10:54.800: try this one first
-00:10:54.800 - 00:11:08.660: with the crab meat
-00:11:08.660 - 00:11:11.810: a really good little spice it's really
-00:11:11.810 - 00:11:18.139: good applause with the orea baby hmm
-00:11:18.139 - 00:11:24.610: already see the motion of a nice inside
-00:11:24.610 - 00:11:27.759: it's why I boil a little bit too before
-00:11:27.759 - 00:11:33.649: like this it could good
-00:11:33.649 - 00:11:52.070: nah I want to test this one
-00:11:52.070 - 00:11:56.240: but it's a really good output somebody
-00:11:56.240 - 00:12:00.650: make a scene Megan I got data somebody
-00:12:00.650 - 00:12:03.260: gotta give it in a compliment for this
-00:12:03.260 - 00:12:08.840: gets a really good delicious oh yeah
-00:12:08.840 - 00:12:14.509: baby
-00:12:14.509 - 00:12:17.879: thank you very much to everybody I hope
-00:12:17.879 - 00:12:19.379: to somebody make this for Thanksgiving
-00:12:19.379 - 00:12:23.750: it's really good for appetizer this is
-00:12:23.750 - 00:12:25.230: so good
-00:12:25.230 - 00:12:27.600: thank you very much I don't drink no
-00:12:27.600 - 00:12:29.550: wine in the air before I wasn't doing
-00:12:29.550 - 00:12:31.589: the coffee was something inside it was a
-00:12:31.589 - 00:12:35.540: dropper but I gotta go out meanwhile
-00:12:35.540 - 00:12:38.370: anyone and drinking no more but tonight
-00:12:38.370 - 00:12:41.879: I get in my glass wine thank you very
-00:12:41.879 - 00:12:43.110: much everybody
-00:12:43.110 - 00:12:45.329: yeah I'll see you next recipe hugger
-00:12:45.329 - 00:12:51.569: done thank you very much are you ready
-00:12:51.569 - 00:12:54.240: second we gotta use this one drop once
-00:12:54.240 - 00:12:57.839: there xuxa no ready figure we gotta use
-00:12:57.839 - 00:13:02.389: this one just shoot so xuxa
-----------------------------------------------------------------
-
-Video ID=7: DaEzhwLFPi8
-	Title: Emeril Lagasse’s Sausage-Stuffed Mushrooms
-Description: ['rachel ray', 'cocktail party', 'stuffed mushrooms', 'rachaelray', 'Rachael Ray Show', 'christmas', 'Emeril Lagasse', 'party', 'holiday', 'new years eve', 'sausage', 'emeril', 'snack', 'holidays', 'appetizer', 'rachael ray']; ['Howto & Style']
-Transcript:
-00:00:00.120 - 00:00:01.890: whatever favorite sausage you have
-00:00:01.890 - 00:00:04.080: Italian sausage if you can't find sauce
-00:00:04.080 - 00:00:05.549: you can use ground pork ground beef
-00:00:05.549 - 00:00:07.859: whatever ground chicken ground turkey
-00:00:07.859 - 00:00:10.710: your vegetarian grind up some uh some
-00:00:10.710 - 00:00:13.259: vegetables but basically this is Italian
-00:00:13.259 - 00:00:16.260: sausage and I use happy ah and half
-00:00:16.260 - 00:00:18.359: sweet because when this all comes
-00:00:18.359 - 00:00:20.279: together you you're gonna see why clean
-00:00:20.279 - 00:00:22.199: your mushrooms right right like we did
-00:00:22.199 - 00:00:22.590: here
-00:00:22.590 - 00:00:23.939: baking sheet oh they're on a baking
-00:00:23.939 - 00:00:25.470: sheet and here's what we're gonna do
-00:00:25.470 - 00:00:27.510: we're gonna add onion and we're gonna
-00:00:27.510 - 00:00:30.840: add bell pepper hmm and really simple I
-00:00:30.840 - 00:00:32.520: mean come on and a little bit of celery
-00:00:32.520 - 00:00:34.500: that I use from the South the Trinity
-00:00:34.500 - 00:00:35.880: yeah that would also be called the
-00:00:35.880 - 00:00:38.280: Trinity like Rachel you said and I'm
-00:00:38.280 - 00:00:39.989: what we're gonna do a little garlic for
-00:00:39.989 - 00:00:41.129: sure go ahead
-00:00:41.129 - 00:00:43.890: - stems and then you're gonna add all
-00:00:43.890 - 00:00:45.840: those mushroom stems why waste them
-00:00:45.840 - 00:00:48.090: that's fine you paid whatever you paid
-00:00:48.090 - 00:00:51.210: for them why wait right or you can make
-00:00:51.210 - 00:00:53.010: a stock with them but who's the time for
-00:00:53.010 - 00:00:55.530: that so throw in the fall of that right
-00:00:55.530 - 00:00:55.800: there
-00:00:55.800 - 00:00:58.739: cooks down yep okay and then that's that
-00:00:58.739 - 00:01:00.690: guy and then back here is what we have
-00:01:00.690 - 00:01:02.760: right here so let's do this what we call
-00:01:02.760 - 00:01:06.150: a swap a swap all right so there's the
-00:01:06.150 - 00:01:08.790: swap no swap - the sausage I've been
-00:01:08.790 - 00:01:11.640: eating right all right so now what we're
-00:01:11.640 - 00:01:15.090: gonna do is we're gonna let this cool a
-00:01:15.090 - 00:01:16.350: little bit hmm
-00:01:16.350 - 00:01:17.729: and then we're gonna go inside the food
-00:01:17.729 - 00:01:19.860: processor here's the reason why because
-00:01:19.860 - 00:01:22.650: you see the sausage is chunky right big
-00:01:22.650 - 00:01:26.040: piece right and I don't uh I I didn't
-00:01:26.040 - 00:01:28.350: want to grind it ahead of time so what I
-00:01:28.350 - 00:01:30.600: do is I get all the flavor of that right
-00:01:30.600 - 00:01:33.329: and all your vegetables right we add a
-00:01:33.329 - 00:01:36.570: little bit of breadcrumb breadcrumb just
-00:01:36.570 - 00:01:40.040: a little Oh
-00:01:40.040 - 00:01:48.350: okay all right all right so now what
-00:01:48.350 - 00:01:49.040: we're gonna do
-00:01:49.040 - 00:01:50.930: maybe we didn't have the eggs I don't
-00:01:50.930 - 00:01:53.540: know whatever zap it together so now we
-00:01:53.540 - 00:01:57.410: have this ground mixture that's easy to
-00:01:57.410 - 00:01:59.660: school and to scoop I've got some back
-00:01:59.660 - 00:02:02.240: here buddy yeah here we go we have we
-00:02:02.240 - 00:02:04.190: got some ready to go super easy folks
-00:02:04.190 - 00:02:06.050: and then what we're gonna do is we're
-00:02:06.050 - 00:02:08.060: gonna take our mushroom caps with this
-00:02:08.060 - 00:02:11.480: great ahh as much as you wanted him if
-00:02:11.480 - 00:02:13.280: you want his mound a might just round
-00:02:13.280 - 00:02:15.680: them like that keep doing that keep
-00:02:15.680 - 00:02:17.300: doing that now what I like to do is I
-00:02:17.300 - 00:02:19.250: like to put a little bit of bread crumb
-00:02:19.250 - 00:02:22.390: and a little bit of cheese on top
-00:02:22.390 - 00:02:25.360: should I grab some out of the oven yeah
-00:02:25.360 - 00:02:28.940: 350 degrees folks you want to do it 375
-00:02:28.940 - 00:02:34.670: knock your lights out okay 350 put him
-00:02:34.670 - 00:02:37.930: in there bottom oven ah got about oh
-00:02:37.930 - 00:02:42.530: they're gorgeous
-00:02:42.530 - 00:02:44.860: all their beautiful
-00:02:44.860 - 00:02:46.790: so
-00:02:46.790 - 00:02:48.769: yeah yeah so like Rachel's doing then
-00:02:48.769 - 00:02:50.360: you get your decorative platter and you
-00:02:50.360 - 00:02:52.320: put them out that's them
-00:02:52.320 - 00:02:55.789: [Applause]
-----------------------------------------------------------------
-
-Video ID=8: J_5scvrv0LU
-	Title: Spring Mix + Spinach Stuffed Portobello Mushrooms | Vegan
-Description: ['spring mix', 'portobello', 'portobello mushroom', 'stuffed mushroom', 'stuffed portobello', 'vegan stuffed mushroom', 'spinach stuffed mushroom', 'mushroom entree', 'easy', 'vegan', 'vegetarian', 'simple', 'healthy', 'vegan protein', 'snr living', 'snr', 'snrliving']; ['People & Blogs']
-Transcript:
-00:00:00.000 - 00:00:02.639: today on us and our living we will be
-00:00:02.639 - 00:00:05.250: making spring mix and spinach stuffed
-00:00:05.250 - 00:00:10.410: portobello caps you will need portobello
-00:00:10.410 - 00:00:14.549: caps Arlit shallot olive oil butter
-00:00:14.549 - 00:00:17.640: mushrooms sun-dried tomatoes salt and
-00:00:17.640 - 00:00:20.310: pepper spring mix and baby spinach and
-00:00:20.310 - 00:00:23.789: mozzarella cheese start by preheating
-00:00:23.789 - 00:00:26.279: your oven to 350 degrees Fahrenheit
-00:00:26.279 - 00:00:28.619: while you wait prepare your mushrooms
-00:00:28.619 - 00:00:31.289: remove the stem and then remove the
-00:00:31.289 - 00:00:33.630: gills from your portobello caps with a
-00:00:33.630 - 00:01:01.890: spoon
-00:01:01.890 - 00:01:04.330: another way to prepare your mushroom is
-00:01:04.330 - 00:01:06.970: peeling off the outside skin this just
-00:01:06.970 - 00:01:08.740: makes it a little easier to cut apart
-00:01:08.740 - 00:01:17.410: after you've cooked it
-00:01:17.410 - 00:01:20.330: use a basting brush to cook the inside
-00:01:20.330 - 00:01:22.670: and outside of your mushroom caps with
-00:01:22.670 - 00:01:25.280: olive oil make sure to coat your pan as
-00:01:25.280 - 00:01:29.060: well place your mushrooms topside down
-00:01:29.060 - 00:01:33.230: in your baking dish sprinkle the inside
-00:01:33.230 - 00:01:34.940: of your mushrooms with garlic and
-00:01:34.940 - 00:01:50.799: shallots
-00:01:50.799 - 00:01:53.570: take your mushroom caps in the oven for
-00:01:53.570 - 00:02:08.580: about 10 minutes
-00:02:08.580 - 00:02:11.200: while we wait for the mushrooms to bait
-00:02:11.200 - 00:02:13.930: go ahead and melt your butter in a saute
-00:02:13.930 - 00:02:31.950: pan
-00:02:31.950 - 00:02:34.990: once your butter is melted add your
-00:02:34.990 - 00:02:37.120: garlic and shallots and cook until
-00:02:37.120 - 00:02:52.690: translucent on medium heat
-00:02:52.690 - 00:02:56.030: next add your olive oil and cook until
-00:02:56.030 - 00:02:58.430: the edges of the garlic and shallots
-00:02:58.430 - 00:03:14.430: begin to brown in our crispy
-00:03:14.430 - 00:03:17.170: once your garlic and shallots are crispy
-00:03:17.170 - 00:03:19.180: go ahead and add your mushrooms and
-00:03:19.180 - 00:03:21.730: sun-dried tomatoes saute until they're
-00:03:21.730 - 00:03:43.760: sweated adding salt and pepper to taste
-00:03:43.760 - 00:03:46.920: once your mushroom mixture is cooked go
-00:03:46.920 - 00:03:49.140: ahead and take some of your spring mix
-00:03:49.140 - 00:03:51.900: and baby spinach and put it on one side
-00:03:51.900 - 00:03:54.060: of the pan we're going to cook these
-00:03:54.060 - 00:03:56.700: until they are wilted add a couple
-00:03:56.700 - 00:03:58.410: handfuls at a time you don't want to
-00:03:58.410 - 00:04:14.680: over stuff your pan
-00:04:14.680 - 00:04:17.449: once your greens are nice and wilted go
-00:04:17.449 - 00:04:20.479: ahead and take this off heat next take
-00:04:20.479 - 00:04:22.460: your mushrooms out of the oven be
-00:04:22.460 - 00:04:26.180: careful they will be very hot stuff your
-00:04:26.180 - 00:04:28.250: caps with your mushroom and greens
-00:04:28.250 - 00:04:31.850: mixture you want to align your filling
-00:04:31.850 - 00:04:34.370: up to the edge of the portobello cap if
-00:04:34.370 - 00:04:37.039: you overstuff them they will fall apart
-00:04:37.039 - 00:04:58.320: in the next step
-00:04:58.320 - 00:05:16.210: you
-00:05:16.210 - 00:05:18.439: finally top here mushrooms with
-00:05:18.439 - 00:05:21.409: mozzarella cheese we're using via vegan
-00:05:21.409 - 00:05:23.659: mozzarella shreds but any mozzarella
-00:05:23.659 - 00:05:25.520: cheese would work once you're done
-00:05:25.520 - 00:05:27.199: topping these pop them back into the
-00:05:27.199 - 00:05:29.599: oven until the cheese has melted while
-00:05:29.599 - 00:05:31.400: you're waiting you can prepare a bed of
-00:05:31.400 - 00:05:33.259: baby greens to place them on once they
-00:05:33.259 - 00:05:37.610: come out once your cheese has melted
-00:05:37.610 - 00:05:40.729: place on a bed of baby greens we topped
-00:05:40.729 - 00:05:43.580: ours with vegan mushroom gravy if you'd
-00:05:43.580 - 00:05:45.469: like to see how we made that check the
-00:05:45.469 - 00:05:47.749: link in the description below as always
-00:05:47.749 - 00:05:50.210: thanks for watching like if you liked it
-00:05:50.210 - 00:05:53.349: and subscribe for more videos
-----------------------------------------------------------------
-
-Video ID=9: umbBEHlpTfo
-	Title: Stuffed Mushrooms - Mushroom Recipes by NoRecipeRequired
-Description: ['Stuffed Mushrooms', 'stuffed mushroom recipes', 'stuffed mushrooms recipe', 'how to make stuffed mushrooms', 'easy stuffed mushroom recipe', 'cheese stuffed mushroom recipe', 'stuffed mushroom caps', 'easy stuffed mushrooms', 'vegetarian', 'stuffed mushroom caps recipe', 'mushrooms', 'mushroom recipes', 'easy mushroom recipe', 'pine nuts', 'pine nut recipe', 'dannynewnun', 'noreciperequired', 'dave beaulieu']; ['Howto & Style']
-Transcript:
-00:00:06.529 - 00:00:08.849: hey there and welcome to no recipe
-00:00:08.849 - 00:00:11.099: required tonight I've got a stuffed
-00:00:11.099 - 00:00:13.410: mushroom dish for now I'm usually not
-00:00:13.410 - 00:00:15.059: crazy about stuffed mushrooms because I
-00:00:15.059 - 00:00:17.279: find the mushroom is a little too beefy
-00:00:17.279 - 00:00:19.500: meaty and frankly me I was a little
-00:00:19.500 - 00:00:21.060: undercooked and a little water
-00:00:21.060 - 00:00:23.279: I've got a little trick to take care of
-00:00:23.279 - 00:00:25.740: that we're gonna get cooking we're gonna
-00:00:25.740 - 00:00:27.269: get the mushrooms cook down a little bit
-00:00:27.269 - 00:00:28.980: more or make an awesome filling with
-00:00:28.980 - 00:00:30.869: some of the mushroom itself some pine
-00:00:30.869 - 00:00:32.279: nuts of bread crumbs some Parmesan
-00:00:32.279 - 00:00:32.550: cheese
-00:00:32.550 - 00:00:34.649: it's absolutely killer let's go ahead
-00:00:34.649 - 00:00:36.090: and get started okay I've got some
-00:00:36.090 - 00:00:39.300: cremini mushrooms here and if you are if
-00:00:39.300 - 00:00:41.190: you're ever gonna do stuff in mushroom
-00:00:41.190 - 00:00:43.170: you need to be able to follow out a
-00:00:43.170 - 00:00:45.930: mushroom so on these what I like to use
-00:00:45.930 - 00:00:47.940: because they've got a nice you know kind
-00:00:47.940 - 00:00:49.289: of stem that's easy to pull out at a
-00:00:49.289 - 00:00:52.110: good area in there easiest thing to do
-00:00:52.110 - 00:00:55.890: if the stem pops out easily this one's
-00:00:55.890 - 00:00:58.590: not popping out really easily then you
-00:00:58.590 - 00:00:59.640: know sometimes they just break off
-00:00:59.640 - 00:01:02.370: you're good to go otherwise you can take
-00:01:02.370 - 00:01:04.530: a knife here and just go right around
-00:01:04.530 - 00:01:07.439: the stem I kind of actually hold it on
-00:01:07.439 - 00:01:10.950: the blade to get full control and just
-00:01:10.950 - 00:01:13.439: turn it hold the knife still turn the
-00:01:13.439 - 00:01:17.610: mushroom and you can pop that stem right
-00:01:17.610 - 00:01:20.610: out you can certainly just go right
-00:01:20.610 - 00:01:23.460: there put a little stuffing in there or
-00:01:23.460 - 00:01:28.020: you can then take a spoon and just kind
-00:01:28.020 - 00:01:33.180: of scrape out the insides and the gills
-00:01:33.180 - 00:01:37.579: out of the shroom and it's dump those
-00:01:37.579 - 00:01:40.560: right out on the on the cutting board
-00:01:40.560 - 00:01:42.630: discard them not a whole lot of use for
-00:01:42.630 - 00:01:45.420: the gills the stems you can cut off
-00:01:45.420 - 00:01:47.399: throwing the throw on your stuffing so
-00:01:47.399 - 00:01:48.659: if you want to just stuff your mushrooms
-00:01:48.659 - 00:01:51.600: that is absolutely fine but one of the
-00:01:51.600 - 00:01:55.920: things I actually do is roast off my
-00:01:55.920 - 00:01:58.469: hollowed-out mushrooms before stuffing
-00:01:58.469 - 00:02:00.930: because I find them you know these can
-00:02:00.930 - 00:02:04.890: be it's a pretty big pretty big mushroom
-00:02:04.890 - 00:02:06.719: to be cooked off and say 20 minutes or
-00:02:06.719 - 00:02:08.990: 25 minutes in the oven and
-00:02:08.990 - 00:02:10.790: I find a mobile raw tasting a little
-00:02:10.790 - 00:02:14.150: kind of soft or undercooked so I pre
-00:02:14.150 - 00:02:16.280: cook mine for about 25 minutes in the
-00:02:16.280 - 00:02:19.220: oven 400 degrees and then we'll stuff
-00:02:19.220 - 00:02:20.330: them we'll throw them back in the oven
-00:02:20.330 - 00:02:22.940: okay so check out what happens just uh
-00:02:22.940 - 00:02:24.980: you know 20 minutes or so in the oven to
-00:02:24.980 - 00:02:26.570: those mushrooms you can see all that
-00:02:26.570 - 00:02:29.720: liquid is water coming out and if we
-00:02:29.720 - 00:02:32.000: didn't pre cook them all that water
-00:02:32.000 - 00:02:35.150: would stay great in the mushrooms so I'm
-00:02:35.150 - 00:02:36.050: just going to transfer these to our
-00:02:36.050 - 00:02:37.610: walling dish let them cool then we'll
-00:02:37.610 - 00:02:40.500: come back and stuff them
-00:02:40.500 - 00:02:43.049: going to start our mushroom stuffing
-00:02:43.049 - 00:02:46.239: shockingly it up with mushrooms so I've
-00:02:46.239 - 00:02:49.599: got all these stems that we pulled out
-00:02:49.599 - 00:02:51.760: just chopped up finely as well as
-00:02:51.760 - 00:02:52.930: there's a there's a couple whole
-00:02:52.930 - 00:02:54.579: mushrooms in there I just add some some
-00:02:54.579 - 00:02:58.599: extras I'm gonna add that into a sauté
-00:02:58.599 - 00:03:03.239: pan with some olive oil salt and pepper
-00:03:03.239 - 00:03:05.379: I'm just gonna cook these off over
-00:03:05.379 - 00:03:07.840: medium heat until the to the water is
-00:03:07.840 - 00:03:10.209: evaporated out of them and we've got a
-00:03:10.209 - 00:03:13.569: nice kind of nice firm texture to some
-00:03:13.569 - 00:03:15.730: mushrooms our wake up down now which is
-00:03:15.730 - 00:03:18.870: what I'm looking for I'm gonna add in
-00:03:18.870 - 00:03:25.959: the shallots instead I finally pretty
-00:03:25.959 - 00:03:28.060: small so I've got three in there one
-00:03:28.060 - 00:03:31.650: large garlic
-00:03:31.650 - 00:03:33.939: Pam looks a little jar I'm just gonna
-00:03:33.939 - 00:03:35.920: put a touch more oil to it
-00:03:35.920 - 00:03:38.170: and just throw and saute these until
-00:03:38.170 - 00:03:40.060: everything is nice and soft everything
-00:03:40.060 - 00:03:41.950: is soft I'm just gonna throw in my
-00:03:41.950 - 00:03:44.859: tarragon which I'm not using a whole lot
-00:03:44.859 - 00:03:47.949: that's maybe two pinches right because
-00:03:47.949 - 00:03:49.389: there isn't frankly a whole lot of stuff
-00:03:49.389 - 00:03:50.470: in here tarragon
-00:03:50.470 - 00:03:52.660: I love with mushrooms are you you know
-00:03:52.660 - 00:03:54.069: you can use parsley you can use basil
-00:03:54.069 - 00:03:56.159: you can use just about anything you want
-00:03:56.159 - 00:03:58.690: as long as you got a you know kind of
-00:03:58.690 - 00:04:00.669: nice fresh thyme in there just kill the
-00:04:00.669 - 00:04:02.290: heat I'm gonna move these off into a
-00:04:02.290 - 00:04:04.599: holding bowl just to cool off and then
-00:04:04.599 - 00:04:06.430: we'll finish off our stuffing okay I've
-00:04:06.430 - 00:04:08.409: got my stuff in here just cool it off a
-00:04:08.409 - 00:04:10.510: little bit it doesn't have to be be too
-00:04:10.510 - 00:04:15.310: cool I'm gonna and about call that it
-00:04:15.310 - 00:04:18.820: two tablespoons of breadcrumbs an equal
-00:04:18.820 - 00:04:22.210: amount of Parmesan cheese and then I'm
-00:04:22.210 - 00:04:25.180: adding some pine nuts as well you fine
-00:04:25.180 - 00:04:26.260: you know if you really all like them
-00:04:26.260 - 00:04:28.000: obviously if you're allergic
-00:04:28.000 - 00:04:29.770: don't add them but one of the things I
-00:04:29.770 - 00:04:32.409: am remains I don't love about a lot of
-00:04:32.409 - 00:04:36.280: stock mushrooms is the fact that there's
-00:04:36.280 - 00:04:39.039: a little texture and that that pine nut
-00:04:39.039 - 00:04:40.570: that we just added in is going to
-00:04:40.570 - 00:04:43.810: provide some of that texture I just
-00:04:43.810 - 00:04:46.210: added a little bit of olive oil cuz my
-00:04:46.210 - 00:04:48.669: stuffing was looking a little bit moist
-00:04:48.669 - 00:04:50.710: I like it to be able to you know if you
-00:04:50.710 - 00:04:52.960: kind of press it to the side it should
-00:04:52.960 - 00:04:53.660: you know
-00:04:53.660 - 00:04:55.300: kind of form a little mold there and
-00:04:55.300 - 00:04:58.670: then we get it mixed together we're
-00:04:58.670 - 00:05:04.850: gonna taste it we're going to realize we
-00:05:04.850 - 00:05:09.380: didn't add any salt or pepper now I also
-00:05:09.380 - 00:05:11.060: like to over season a little bit here
-00:05:11.060 - 00:05:13.280: because remember we are season in the
-00:05:13.280 - 00:05:15.800: entire mushroom with just the stuffing
-00:05:15.800 - 00:05:18.530: right so this I like to be just a little
-00:05:18.530 - 00:05:20.840: bit salty a little bit peppery no now
-00:05:20.840 - 00:05:22.460: we're gonna need that seasoning to carry
-00:05:22.460 - 00:05:24.260: through so our mushrooms have now cooled
-00:05:24.260 - 00:05:27.080: off to where I can handle them and I'm
-00:05:27.080 - 00:05:29.210: just gonna okay I'm not gonna do it over
-00:05:29.210 - 00:05:32.510: the dish I'm gonna do it over my bowl
-00:05:32.510 - 00:05:35.420: here I'm gonna fill them with my
-00:05:35.420 - 00:05:38.660: stuffing and then I've got I like to
-00:05:38.660 - 00:05:40.640: pack it in too tight keep it fairly
-00:05:40.640 - 00:05:42.970: loose and then just a little bit of
-00:05:42.970 - 00:05:46.060: Parmesan cheese on each and every one
-00:05:46.060 - 00:05:48.230: and you can lay them right back down
-00:05:48.230 - 00:05:51.140: into the into the pan that you did the
-00:05:51.140 - 00:05:53.650: first roast end and pop them back into
-00:05:53.650 - 00:05:57.650: that 400-degree oven for probably to
-00:05:57.650 - 00:06:01.340: another 15 20 minutes or so and if you
-00:06:01.340 - 00:06:02.930: want or if you need to at the end you're
-00:06:02.930 - 00:06:04.540: looking for a nice golden-brown crust
-00:06:04.540 - 00:06:06.680: you can always just throw the Royal
-00:06:06.680 - 00:06:08.720: broiler on just make sure that cheese
-00:06:08.720 - 00:06:12.020: melts down and they get you know nice
-00:06:12.020 - 00:06:14.300: and crispy on top all right so it's time
-00:06:14.300 - 00:06:15.830: to pop the mushrooms out
-00:06:15.830 - 00:06:17.510: I got a nice kind of golden brown crust
-00:06:17.510 - 00:06:19.370: there that's exactly what you're looking
-00:06:19.370 - 00:06:21.290: for a good kind of crunchy contrast and
-00:06:21.290 - 00:06:23.480: texture let's go play them up okay if
-00:06:23.480 - 00:06:25.190: you serve it as a little hors d'oeuvres
-00:06:25.190 - 00:06:27.290: you can lay them out on a nice little
-00:06:27.290 - 00:06:29.510: plate like this you know remember there
-00:06:29.510 - 00:06:32.630: was a little bit of tarragon was the
-00:06:32.630 - 00:06:34.640: herb we use so you can always throw a
-00:06:34.640 - 00:06:38.270: little bit of green on the plate to make
-00:06:38.270 - 00:06:42.260: it look nice and pretty and there you go
-00:06:42.260 - 00:06:44.810: with our stuffed mushrooms I'll see you
-00:06:44.810 - 00:06:45.320: next time
-00:06:45.320 - 00:06:48.160: no recipe required
-----------------------------------------------------------------
-
-Video ID=10: pq_INi_4IBI
-	Title: Stuffed Portobello Mushrooms
-Description: ['student mealz', 'student meals', 'studentmealz', 'studentmeals', 'DIY', 'student recipe', "student recipes'", 'student', 'portobello', 'portobello mushroom', 'portobello mushrooms', 'creamy portobello mushrooms', 'beans and corn mushroom', 'portobello mushroom in the oven', 'how to make portobello mushrooms', 'chilli con carne mushrooms', 'stuffed mushrooms recipe', 'portobello recipe', 'diy portobello mushrooms', 'homemade portobello mushrooms', 'homemade stuffed mushrooms']; ['Howto & Style']
-Transcript:
-00:00:00.030 - 00:00:02.429: hello there guys and welcome to students
-00:00:02.429 - 00:00:05.130: do you like mushrooms I know I do today
-00:00:05.130 - 00:00:07.319: I will be making some super delicious
-00:00:07.319 - 00:00:10.769: stuffed portobello mushrooms I hope that
-00:00:10.769 - 00:00:21.480: you enjoy this episode so what you need
-00:00:21.480 - 00:00:24.119: is portobello mushrooms the amount
-00:00:24.119 - 00:00:26.099: depends on how many you will be making
-00:00:26.099 - 00:00:28.619: I'm just going to take two corn you
-00:00:28.619 - 00:00:30.900: should take about two tablespoons per
-00:00:30.900 - 00:00:33.090: portobello mushrooms so that's four
-00:00:33.090 - 00:00:35.579: tablespoons of corn the same applies for
-00:00:35.579 - 00:00:38.219: the kidney beans one small onion finely
-00:00:38.219 - 00:00:42.000: chopped about one tablespoon of sour
-00:00:42.000 - 00:00:45.510: cream some sriracha sauce demand depends
-00:00:45.510 - 00:00:48.480: on how spicy you want the recipe to be 1
-00:00:48.480 - 00:00:50.940: clove of garlic a handful of grated
-00:00:50.940 - 00:00:53.430: mozzarella cheese and finally some
-00:00:53.430 - 00:00:55.860: chives as decoration first we're going
-00:00:55.860 - 00:00:58.109: to start off by preparing the mushrooms
-00:00:58.109 - 00:01:00.629: if your mushroom has a stem just remove
-00:01:00.629 - 00:01:02.699: it by snapping it off make sure that you
-00:01:02.699 - 00:01:04.500: don't break your portobello mushroom
-00:01:04.500 - 00:01:07.560: then take a spoon and remove these hairy
-00:01:07.560 - 00:01:09.780: bits or yeah I don't know how to call
-00:01:09.780 - 00:01:11.820: them just scrape them off a bit set them
-00:01:11.820 - 00:01:14.010: aside we're not going to be wasteful in
-00:01:14.010 - 00:01:16.110: this recipe so we're going to add this
-00:01:16.110 - 00:01:18.330: to the filling later there we go
-00:01:18.330 - 00:01:19.290: something like this
-00:01:19.290 - 00:01:21.570: so here I have a pan with some olive oil
-00:01:21.570 - 00:01:24.390: in there now let's put it on a fire and
-00:01:24.390 - 00:01:26.790: let it get hot once the oil is hot add
-00:01:26.790 - 00:01:29.700: in your onion and let it fry for a bit
-00:01:29.700 - 00:01:32.070: once the onion starts looking blazing
-00:01:32.070 - 00:01:34.470: let's add the mushroom give it a good
-00:01:34.470 - 00:01:36.930: stir and fry this for about a minute
-00:01:36.930 - 00:01:39.450: then crushing your garlic make sure not
-00:01:39.450 - 00:01:42.210: to over fry your garlic otherwise it
-00:01:42.210 - 00:01:46.409: won't become bitter starting to smell
-00:01:46.409 - 00:01:47.790: really really nice
-00:01:47.790 - 00:01:50.009: at this point it's optional to season
-00:01:50.009 - 00:01:51.780: your mushrooms I'm just going to season
-00:01:51.780 - 00:01:52.909: them with some
-00:01:52.909 - 00:01:56.759: and a little bit of salt now let's add
-00:01:56.759 - 00:02:00.420: in the key beans and the corn and fry
-00:02:00.420 - 00:02:03.270: that for about three to four minutes to
-00:02:03.270 - 00:02:04.619: make it a better greener you can
-00:02:04.619 - 00:02:06.240: sprinkle a little bit of chives in there
-00:02:06.240 - 00:02:08.910: or you can leave them all as decoration
-00:02:08.910 - 00:02:11.190: that's all up to you at this point you
-00:02:11.190 - 00:02:13.590: can turn up the fire now let's add a
-00:02:13.590 - 00:02:17.099: good tablespoon of sour cream and of
-00:02:17.099 - 00:02:19.110: course it depends how spicy you want it
-00:02:19.110 - 00:02:21.739: squeeze a good amount of sriracha sauce
-00:02:21.739 - 00:02:26.519: on top let's mix everything up and there
-00:02:26.519 - 00:02:29.040: you go the filling is done take a tray
-00:02:29.040 - 00:02:31.200: covered with baking paper and place your
-00:02:31.200 - 00:02:33.720: portobello mushrooms on there then take
-00:02:33.720 - 00:02:36.060: your filling and put it in the mushrooms
-00:02:36.060 - 00:02:38.819: there we go top it off with mozzarella
-00:02:38.819 - 00:02:41.819: cheese there we go now put them into a
-00:02:41.819 - 00:02:44.370: preheated oven at 200 degrees Celsius
-00:02:44.370 - 00:02:47.750: for about five to eight minutes and
-00:02:47.750 - 00:02:50.459: there you go about eight minutes later
-00:02:50.459 - 00:02:52.799: the mushrooms are done all we have left
-00:02:52.799 - 00:02:55.440: is to decorate them with some chives and
-00:02:55.440 - 00:02:57.810: there you go as you can see this one is
-00:02:57.810 - 00:03:00.090: falling apart a bit because the edges
-00:03:00.090 - 00:03:02.940: were not as sturdy as this one so if
-00:03:02.940 - 00:03:04.650: you're making these make sure that your
-00:03:04.650 - 00:03:06.780: portobello mushrooms have a sturdy edge
-00:03:06.780 - 00:03:09.000: and they're really firm besides that
-00:03:09.000 - 00:03:12.269: it's pretty damn good I can't wait to
-00:03:12.269 - 00:03:14.280: try it so I'm just going to dig in to
-00:03:14.280 - 00:03:18.150: one let's see oh yeah offs just going to
-00:03:18.150 - 00:03:21.860: cut off a bit of the mushroom
-00:03:21.860 - 00:03:23.930: that's pretty damn good the whole
-00:03:23.930 - 00:03:25.910: combination of beans corn sour cream a
-00:03:25.910 - 00:03:27.560: sriracha sauce just makes it so
-00:03:27.560 - 00:03:29.780: well-balanced it is a bit spicy but the
-00:03:29.780 - 00:03:31.760: sour cream and the cheese make it a bit
-00:03:31.760 - 00:03:33.860: more manageable and also enhance the
-00:03:33.860 - 00:03:36.110: flavor pretty pretty good I'm just going
-00:03:36.110 - 00:03:37.760: to wrap this up before I finish the
-00:03:37.760 - 00:03:39.290: whole thing so thank you guys for
-00:03:39.290 - 00:03:40.880: watching this episode I really hope that
-00:03:40.880 - 00:03:43.010: you enjoyed it and learn something and
-00:03:43.010 - 00:03:45.350: as always see you in the next one
-00:03:45.350 - 00:03:47.250: goodbye
-00:03:47.250 - 00:03:56.470: [Music]
-00:03:56.470 - 00:04:04.280: you
-00:04:04.280 - 00:04:07.419: [Music]
-----------------------------------------------------------------
-
-Video ID=11: pYOQutHfCDo
-	Title: Super Creamy Stuffed Mushrooms (Low Carb) Episode 1240
-Description: ['chef vitale', 'chef laura vitale', 'laura vitale', 'chef laura', 'stuffed mushrooms', 'cream cheese', 'creamy stuffed mushrooms', 'stuffed mushroom recipe', 'homemade mushrooms', 'easy mushrooms', 'easiest stuffed mushroom recipe', 'recipe', 'mushroom', 'entree', 'appetizer', 'cook', 'cooking', 'how to cook', 'kitchen', 'cooking shows']; ['Howto & Style']
-Transcript:
-00:00:13.250 - 00:00:16.290: hi guys I'm Laura Vitale and on this
-00:00:16.290 - 00:00:17.700: episode of Laura in the kitchen I want
-00:00:17.700 - 00:00:20.220: to show you how I make my shot I call
-00:00:20.220 - 00:00:21.810: them like my creamy sausage stuffed
-00:00:21.810 - 00:00:24.329: mushrooms they are absolutely insanely
-00:00:24.329 - 00:00:26.610: good you're gonna love them and they're
-00:00:26.610 - 00:00:28.950: really great like lower like a low carb
-00:00:28.950 - 00:00:30.599: option for your Easter table I've been
-00:00:30.599 - 00:00:32.279: getting a lot of messages on Instagram
-00:00:32.279 - 00:00:34.440: to share just a couple of like low carb
-00:00:34.440 - 00:00:37.950: options for your Easter menu so I feel
-00:00:37.950 - 00:00:39.420: this would be really great and you can
-00:00:39.420 - 00:00:41.460: make them into an entree if you want to
-00:00:41.460 - 00:00:42.930: by just using bigger mushrooms like a
-00:00:42.930 - 00:00:44.610: portobello mushroom and that would be
-00:00:44.610 - 00:00:46.590: fantastic but these are gonna be great
-00:00:46.590 - 00:00:48.420: with a little bit of arugula and fennel
-00:00:48.420 - 00:00:51.270: salad for either an entree a side dish a
-00:00:51.270 - 00:00:53.820: starter whatever you fancy let me when
-00:00:53.820 - 00:00:54.450: you're through the list of in
-00:00:54.450 - 00:00:56.640: Greensborough beg you need some
-00:00:56.640 - 00:00:58.020: mushrooms these are just white button
-00:00:58.020 - 00:00:59.250: mushrooms that I prepped and I'll show
-00:00:59.250 - 00:01:01.950: you one in just a second I've got a four
-00:01:01.950 - 00:01:04.259: blend cheese here mozzarella Asiago
-00:01:04.259 - 00:01:06.420: provolone and lots of freshly grated
-00:01:06.420 - 00:01:08.820: parm these are the stems from those
-00:01:08.820 - 00:01:10.439: mushrooms that I just finely chopped
-00:01:10.439 - 00:01:13.079: onion garlic parsley a little cream
-00:01:13.079 - 00:01:16.109: cheese Italian sausage salt and a little
-00:01:16.109 - 00:01:17.700: bit of olive oil now I'm gonna show you
-00:01:17.700 - 00:01:19.950: how I prepped the mushrooms just to give
-00:01:19.950 - 00:01:21.749: you an idea of how I did all of them so
-00:01:21.749 - 00:01:23.639: I just take out the stem and you take
-00:01:23.639 - 00:01:26.670: the stem and you give it a nice little
-00:01:26.670 - 00:01:28.079: chopper Roux because this is perfectly
-00:01:28.079 - 00:01:30.350: edible it's not too hard it's not too
-00:01:30.350 - 00:01:33.090: tough it's perfect and just take a
-00:01:33.090 - 00:01:35.999: little teeny tiny teaspoon right and
-00:01:35.999 - 00:01:37.200: this doesn't have to be pretty because
-00:01:37.200 - 00:01:39.090: these are gonna be covered so you won't
-00:01:39.090 - 00:01:40.649: see it but I kind of just get rid of all
-00:01:40.649 - 00:01:43.759: the center bits so I've got a nice
-00:01:43.759 - 00:01:46.409: amount of surface area here for the
-00:01:46.409 - 00:01:48.179: stuffing and that's it I just kind of
-00:01:48.179 - 00:01:50.340: took a damp paper towel to clean each
-00:01:50.340 - 00:01:51.810: one and they're good to go
-00:01:51.810 - 00:01:53.579: to myhouse skillet with a little bit of
-00:01:53.579 - 00:01:55.740: olive oil I'm gonna add my sausage now I
-00:01:55.740 - 00:01:57.840: bought my sausage already in book like
-00:01:57.840 - 00:02:00.209: this out of the casing but if you were
-00:02:00.209 - 00:02:02.849: using like sausage links do you want to
-00:02:02.849 - 00:02:05.249: get rid of the casing now I know for a
-00:02:05.249 - 00:02:06.959: fact that I'm gonna have a lot more
-00:02:06.959 - 00:02:09.630: filling than I do mushrooms that's
-00:02:09.630 - 00:02:11.459: because I'm saving some of it to make
-00:02:11.459 - 00:02:12.660: stuffed mushrooms in the middle of the
-00:02:12.660 - 00:02:16.829: week I need it twice Omega one huh so
-00:02:16.829 - 00:02:19.409: that's what I'm doing it so I'm just
-00:02:19.409 - 00:02:19.980: gonna cook
-00:02:19.980 - 00:02:22.700: in my skillet over about medium heat
-00:02:22.700 - 00:02:26.640: medium-high ish heat until the sausage
-00:02:26.640 - 00:02:28.560: is pretty much fully cooked and you want
-00:02:28.560 - 00:02:30.030: to break it up as much as you can with a
-00:02:30.030 - 00:02:33.209: wooden spoon this looks really great now
-00:02:33.209 - 00:02:34.590: obviously it's not fully cooked through
-00:02:34.590 - 00:02:36.000: yet but that's okay because it's got a
-00:02:36.000 - 00:02:38.340: ways to go so now I'm gonna add my diced
-00:02:38.340 - 00:02:42.900: onion finely chopped onion 1 small 1/2
-00:02:42.900 - 00:02:47.129: medium large joy charge you do and the
-00:02:47.129 - 00:02:49.470: stems of mushrooms right so now to this
-00:02:49.470 - 00:02:52.709: I'm gonna add a good pinch of salt and
-00:02:52.709 - 00:02:54.629: cook them all together I'm not gonna add
-00:02:54.629 - 00:02:56.610: any extra oil or anything just because a
-00:02:56.610 - 00:02:58.290: sausage already is rendering a little
-00:02:58.290 - 00:03:00.690: bit of fat and the sausage i buy is
-00:03:00.690 - 00:03:02.549: quite lean I mean as you can see there's
-00:03:02.549 - 00:03:04.980: not like a kind of fat rendering but
-00:03:04.980 - 00:03:06.750: it's just enough that's going to cook
-00:03:06.750 - 00:03:08.790: everything really nicely that's gonna be
-00:03:08.790 - 00:03:11.849: so delicious you gotta trust me on this
-00:03:11.849 - 00:03:14.400: they're really simple and easy but what
-00:03:14.400 - 00:03:16.709: a fantastic recipe to serve in the
-00:03:16.709 - 00:03:18.180: middle of the night I mean I like to do
-00:03:18.180 - 00:03:21.359: these to be honest appetizer side sides
-00:03:21.359 - 00:03:24.000: are fantastic but I love to do these and
-00:03:24.000 - 00:03:25.739: really big portobello mushrooms with a
-00:03:25.739 - 00:03:28.829: lovely side salad perfect weeknight
-00:03:28.829 - 00:03:31.380: dinner that it's so satisfying and if
-00:03:31.380 - 00:03:32.940: you are curbing your carbs a couple
-00:03:32.940 - 00:03:34.470: times a week because if you don't even
-00:03:34.470 - 00:03:36.389: like me you eat heavy carbs a few times
-00:03:36.389 - 00:03:38.250: and low carb is a few times it's called
-00:03:38.250 - 00:03:40.319: balanced then this is so great you're
-00:03:40.319 - 00:03:41.910: gonna love it so you're gonna keep my
-00:03:41.910 - 00:03:43.980: eye on this and just cook it until the
-00:03:43.980 - 00:03:45.780: sauce is develop some color and the
-00:03:45.780 - 00:03:49.440: mushrooms and onions cook down this
-00:03:49.440 - 00:03:51.540: looks really great so now I'm gonna just
-00:03:51.540 - 00:03:55.739: add the garlic add that right in and the
-00:03:55.739 - 00:03:58.019: parsley I'm just gonna cook this for I
-00:03:58.019 - 00:03:59.790: don't know like a minute just to kind of
-00:03:59.790 - 00:04:01.889: cook the garlic a little bit and then
-00:04:01.889 - 00:04:04.220: I'm gonna add it all to a big bowl and
-00:04:04.220 - 00:04:07.079: then we'll continue on to make the
-00:04:07.079 - 00:04:11.099: filling alright this looks amazing to me
-00:04:11.099 - 00:04:15.750: I mean do it it mmm super yummy now I'm
-00:04:15.750 - 00:04:18.209: gonna add my cream cheese sounds crazy I
-00:04:18.209 - 00:04:21.180: know but it is amazingly delicious and
-00:04:21.180 - 00:04:24.570: it kind of it kind of holds everything
-00:04:24.570 - 00:04:27.030: together without having to add and the
-00:04:27.030 - 00:04:29.340: eggs or bread crumbs but it also gives
-00:04:29.340 - 00:04:31.800: you this lovely creamy component that
-00:04:31.800 - 00:04:33.010: makes these melt
-00:04:33.010 - 00:04:36.220: in your Boca mmm so good
-00:04:36.220 - 00:04:38.470: so I'm just gonna work the cream cheese
-00:04:38.470 - 00:04:42.700: in the hot sausage mixture just I'm
-00:04:42.700 - 00:04:44.800: gonna use my spoon because it's nice and
-00:04:44.800 - 00:04:47.110: easy and now what I've done here so I've
-00:04:47.110 - 00:04:48.880: done my I'll been preheated to 400
-00:04:48.880 - 00:04:51.040: degrees right now because I made the
-00:04:51.040 - 00:04:52.900: filling in my cast-iron skillet and my
-00:04:52.900 - 00:04:54.520: cast-iron skillet can go right into my
-00:04:54.520 - 00:04:56.920: oven what I did was I just added a small
-00:04:56.920 - 00:04:58.930: drizzle of olive oil to the same skillet
-00:04:58.930 - 00:05:00.460: I don't even rinse it out because more
-00:05:00.460 - 00:05:02.410: flavor and more better I'm gonna just
-00:05:02.410 - 00:05:03.970: cook them in there I mean why get
-00:05:03.970 - 00:05:05.260: everything else something else dirty if
-00:05:05.260 - 00:05:06.910: I don't need to right and it's gonna be
-00:05:06.910 - 00:05:08.500: delicious when it's soaked up the
-00:05:08.500 - 00:05:10.090: mushrooms are gonna soak up any extra
-00:05:10.090 - 00:05:12.070: flavor from the bottom of the pan so
-00:05:12.070 - 00:05:14.580: it's a two-for-one really and we're just
-00:05:14.580 - 00:05:17.980: about near the end of where we want to
-00:05:17.980 - 00:05:21.160: be with this mixin so here's what you do
-00:05:21.160 - 00:05:25.150: now you take your mushroom okay this is
-00:05:25.150 - 00:05:26.350: a lot of flavor so I don't have to
-00:05:26.350 - 00:05:28.390: season this at all all right take an ice
-00:05:28.390 - 00:05:31.150: cream scoop a small one and I do a
-00:05:31.150 - 00:05:32.620: little bit of that and then go right
-00:05:32.620 - 00:05:35.220: into your pan and then just continue
-00:05:35.220 - 00:05:40.060: that's all son look at this look at this
-00:05:40.060 - 00:05:42.670: I mean honestly now you just take a
-00:05:42.670 - 00:05:44.500: little bit of your cheese a lot of
-00:05:44.500 - 00:05:47.350: cheese a lot of is better and then I
-00:05:47.350 - 00:05:50.080: just found it on each one now I'm gonna
-00:05:50.080 - 00:05:53.230: pop these into my oven at 400 come on 15
-00:05:53.230 - 00:05:55.480: 20 minutes or so until golden brown I'll
-00:05:55.480 - 00:05:57.130: show you what they look like when they
-00:05:57.130 - 00:06:01.030: are done all right these were in the
-00:06:01.030 - 00:06:04.020: oven for 15 minutes at 400 look at this
-00:06:04.020 - 00:06:09.280: look at this gorgeous bronze to cap the
-00:06:09.280 - 00:06:11.650: bottom is just lovely and juicy the
-00:06:11.650 - 00:06:14.260: interior you can see is super cheesy
-00:06:14.260 - 00:06:18.580: I mean I'm into this okay I am all about
-00:06:18.580 - 00:06:19.870: it probably should have gotten the spoon
-00:06:19.870 - 00:06:23.080: but you know it's okay I'm just gonna
-00:06:23.080 - 00:06:25.600: taste one for now and half the rest for
-00:06:25.600 - 00:06:29.290: dinner I'm gonna use this so I don't
-00:06:29.290 - 00:06:30.660: have a smaller knife near me right now
-00:06:30.660 - 00:06:34.450: look at that look at this cap is
-00:06:34.450 - 00:06:38.320: beautiful this I mean it's just
-00:06:38.320 - 00:06:39.970: magnificent I just kind of pulled it
-00:06:39.970 - 00:06:41.470: apart for you to see the interior but it
-00:06:41.470 - 00:06:43.750: holds together really well
-00:06:43.750 - 00:06:46.909: smells unbelievable
-00:06:46.909 - 00:06:48.409: give me a second up this is gonna be
-00:06:48.409 - 00:06:50.539: really hot I literally just pulled it
-00:06:50.539 - 00:07:05.779: out of the oven best stuffed mushrooms
-00:07:05.779 - 00:07:07.219: will ever have in your entire life
-00:07:07.219 - 00:07:10.219: they are so delicious they are so creamy
-00:07:10.219 - 00:07:13.729: so see away from the cheese and the
-00:07:13.729 - 00:07:15.349: cream cheese just really brings them
-00:07:15.349 - 00:07:17.509: together and make some super super
-00:07:17.509 - 00:07:22.929: creamy you know I'm just gonna do this
-00:07:22.929 - 00:07:31.089: mmm robbing on just do it
-00:07:31.089 - 00:07:32.959: Laura in the kitchen that come has a
-00:07:32.959 - 00:07:34.879: written recipe for you right there to
-00:07:34.879 - 00:07:37.279: die for make them for you holiday table
-00:07:37.279 - 00:07:39.110: I hope you enjoyed my time with me
-00:07:39.110 - 00:07:41.460: announcer each time
-00:07:41.460 - 00:07:42.110: you
-00:07:42.110 - 00:07:46.679: [Music]
-----------------------------------------------------------------
-

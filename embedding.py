@@ -2,219 +2,48 @@ import os
 
 from pathlib import Path
 
-import cv2
 import json
-import csv
-import re
-import webvtt
-import whisper
 
 import numpy as np
 import pandas as pd
 
-from yt_dlp import YoutubeDL
+from helpers.video_obj import process_videos, Video
 
-from helpers.bert import bert_embed_text
+from helpers.bert import bert_embedding
+from helpers.sklearn import tfidf_embedding
 from helpers.sklearn import reduce_dim, standardize
+from helpers.clip import clip_embed_image, clip_embed_text
 
 import matplotlib.pyplot as plt
 
-DATABASE = Path("static/database")
 RESULTS = Path("static/results")
-HOWTO = Path("howto100m")
-
-class Video:
-    video_id = ""
-    video_link = ""
-    processed = False
-    video_path = ""
-    subtitle_path = ""
-    audio_path = ""
-    metadata = {}
-
-    def __init__(self, video_id, video_link):
-        self.video_id = video_id
-        self.video_link = video_link
-        self.processed = False
-
-    def process(self):
-        options = {
-            'format': 'bv[height<=?480][ext=mp4]+ba[ext=mp3]/best',
-            #'format': 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=mp3]/best',
-            'outtmpl': os.path.join(DATABASE, '%(id)s.%(ext)s'),
-            'writesubtitles': True,
-            'writeautomaticsub': True,
-            'subtitleslangs': {'en'},  # Download English subtitles
-            'subtitlesformat': '/vtt/g',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
-            'keepvideo': True,
-            'skip_download': False,
-        }
-
-        with YoutubeDL(options) as ydl:
-            info = ydl.extract_info(self.video_link, download=False)
-            self.metadata = ydl.sanitize_info(info)
-            video_title = self.metadata.get('id')
-            video_path = os.path.join(DATABASE, f'{video_title}.mp4')
-            if not os.path.exists(video_path):
-                ydl.download([self.video_link])
-                print(f"Video '{video_title}' downloaded successfully.")
-            else:
-                print(f"Video '{video_title}' already exists in the directory.")
-
-            self.video_path = video_path
-            self.subtitle_path = os.path.join(DATABASE, f'{video_title}.en.vtt')
-            self.audio_path = os.path.join(DATABASE, f'{video_title}.mp3')
-            self.extract_transcript()
-            self.processed = True
-            return self.metadata
-
-    def extract_frames(self):
-        video_cap = cv2.VideoCapture(self.video_path)
-        
-        frames = []
-        
-        while (True):
-            res, frame = video_cap.read()
-            if (res == False):
-                break
-
-            frames.append(frame)
-        
-        video_cap.release()
-
-        return frames
-
-
-    def extract_transcript_from_audio(self):
-        output_path = self.audio_path.replace(".mp3", ".alt.json")
-        raw_transcript = {}
-        if os.path.exists(output_path):
-            with open(output_path, 'r') as f:
-                raw_transcript = json.load(f)
-        else:
-            model = whisper.load_model("small.en")
-            raw_transcript = model.transcribe(self.audio_path)
-            with open(output_path, 'w') as f:
-                json.dump(raw_transcript, f, indent=2)
-
-        transcript = []
-        for segment in raw_transcript["segments"]:
-            transcript.append({
-                "start": segment["start"],
-                "finish": segment["end"],
-                "text": segment["text"],
-            })
-        return transcript
-
-    def extract_transcript(self):
-        if not os.path.exists(self.subtitle_path):
-            print(f"Subtitles file '{self.subtitle_path}' does not exist.")
-            if not os.path.exists(self.audio_path):
-                print(f"Audio file '{self.audio_path}' does not exist.")
-                return []
-            transcript = self.extract_transcript_from_audio(self.audio_path)
-
-            return transcript
-
-        subtitles = webvtt.read(self.subtitle_path)
-
-        transcript = []
-        for caption in subtitles:
-            lines = caption.text.strip("\n ").split("\n")
-            if len(transcript) == 0:
-                transcript.append({
-                    "start": caption.start,
-                    "finish": caption.end,
-                    "text": "\n".join(lines),
-                })
-                continue
-            last_caption = transcript[len(transcript) - 1]
-
-            new_text = ""
-            for line in lines:
-                if line.startswith(last_caption["text"], 0):
-                    new_line = line[len(last_caption["text"]):-1].strip()
-                    if len(new_line) > 0:
-                        new_text += new_line + "\n"
-                elif len(line) > 0:
-                    new_text += line + "\n"
-            new_text = new_text.strip("\n ")
-            if len(new_text) == 0:
-                transcript[len(transcript) - 1]["finish"] = caption.end
-            else:
-                transcript.append({
-                    "start": caption.start,
-                    "finish": caption.end,
-                    "text": new_text,
-                })
-        return transcript
 
 def format_rgba(color):
     return f"rgba({int(color[0] * 255)}, {int(color[1] * 255)}, {int(color[2] * 255)}, 1)"
 
-def process_howto100m():
-    video_ids_path = HOWTO / "HowTo100M_v1.csv"
-    task_ids_path = HOWTO / "task_ids.csv"
+def embed_texts(texts, method="bert", truncate=0):
+    if truncate > 0:
+        for i in range(len(texts)):
+            texts[i] = texts[i][:truncate]
+    if method == "tfidf":
+        return tfidf_embedding(texts)
+    if method == "clip":
+        return clip_embed_text(texts)
+    return bert_embedding(texts)
 
-    videos_info = []
-    with open(video_ids_path, mode='r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        for row in csv_reader:
-            videos_info.append({
-                "video_id": row["video_id"],
-                "cat1": row["category_1"],
-                "cat2": row["category_2"],
-                "rank": row["rank"],
-                "task_id": row["task_id"],
-            })
-    
-    task_id_titles = {}
-    with open(task_ids_path, mode='r') as csv_file:
-        csv_reader = csv.DictReader(csv_file, delimiter='\t')
-        for row in csv_reader:
-            task_id_titles[row["id"]] = row["task_name"]
-    
-    for video_info in videos_info:
-        video_info["task_name"] = task_id_titles[video_info["task_id"]]
+def embed_images(images, method="clip"):
+    if method == "clip":
+        return clip_embed_image(images)
+    return []
 
-    return videos_info
+def draw_embeddings(task_id, embeddings, contents, labels, colors, figure_name="embedding"):
+    if os.path.exists(RESULTS / f"{task_id}") == False:
+        os.makedirs(RESULTS / f"{task_id}")
 
-def process_videos(n=100):
-    ### read csv file of HowTo100M dataset
-    videos = []
-    
-    videos_info = process_howto100m()
-
-    ### sample 100 videos with category_1 = "Food and Entertaining" and category_2 = "Recipes" and task_id == 11967
-    for video_info in videos_info:
-        if video_info["cat1"] == "Food and Entertaining" and video_info["cat2"] == "Recipes" and video_info["task_id"] == "11967":
-            video = Video(video_info["video_id"], f"https://www.youtube.com/watch?v={video_info['video_id']}")
-            try:
-                video.process()
-                videos.append(video)
-            except Exception as e:
-                print(f"Failed to process video '{video_info['video_id']}': {e}")
-                continue
-        if len(videos) >= n:
-            break
-    print(f"Number of videos: {len(videos)}")
-    return videos
-
-def draw_embeddings(embeddings, contents, labels, colors, figure_name="embedding"):
-    # do sparse dimensionality reduction on embeddings using PCA
-    ### preprocess embeddings (e.g., normalize, standardize, etc.)
     embeddings = np.array(embeddings)
     embeddings = standardize(embeddings)
-    ### apply PCA to reduce dimensions
-    reduced_embeddings = reduce_dim(embeddings, n_components=2)
-    ### visuliaze embeddings
-
-    data = pd.DataFrame(reduced_embeddings, columns=['x', 'y'])
+    
+    data = pd.DataFrame(embeddings, columns=['x', 'y'])
     data['content'] = [content for content in contents]
     data['label'] = [label for label in labels]
     data['color'] = [color for color in colors]
@@ -226,7 +55,7 @@ def draw_embeddings(embeddings, contents, labels, colors, figure_name="embedding
 
 
     ### save the plot
-    plt.savefig(RESULTS / f"{figure_name}.png")
+    plt.savefig(RESULTS / f"{task_id}" / f"{figure_name}.png")
 
     formatted_data = []
     for idx, row in data.iterrows():
@@ -240,79 +69,271 @@ def draw_embeddings(embeddings, contents, labels, colors, figure_name="embedding
             },
         })
 
-    with open(RESULTS / f"{figure_name}.json", 'w') as f:
-        json.dump(formatted_data, f, indent=2)
+    with open(RESULTS / f"{task_id}" / f"{figure_name}.json", 'w') as f:
+        json.dump(formatted_data, f, indent=4)
 
-def json_dump_video_links(videos):
-    json_dump = []
-    for idx, video in enumerate(videos):
-        json_dump.append(video.video_link)
-    
-    print(json.dumps(json_dump, indent=2))
-    return
+def get_representation_video(
+    task_id="11967",
+    n=100,
+):
+    videos = process_videos(
+        n=n,
+        task_id=task_id,
+        cat1="Food and Entertaining",
+        cat2="Recipes",
+    )
 
-def generate_embeddings_simplest():
-    videos = process_videos(100)
-
-    ### output info about the videos
-
-    for idx, video in enumerate(videos):
-        print(f"Video ID={idx}: {video.video_id}")
-        ### print title, description, tags, etc.
-        if not video.processed:
-            continue
-        print(f"\tTitle: {video.metadata['title']}")
-        print(f"Description: {video.metadata['tags']}; {video.metadata['categories']}")
-        transcript = video.extract_transcript()
-        print("Transcript:")
-        for seg in transcript:
-            print(f"{seg['start']} - {seg['finish']}: {seg['text']}")
-        print("----------------------------------------------------------------")
-        print()
-
-    embeddings = []
+    transcripts = []
     contents = []
     labels = []
     colors = []
 
     for video in videos:
-        transcript = video.extract_transcript()
-        transcript_str = "\n".join([f"{seg['text']} " for seg in transcript])
-        embedding = bert_embed_text(transcript_str)
-        embeddings.append(embedding)
-        contents.append(transcript_str)
+        transcript = video.extract_transcript_str()
+        transcripts.append(transcript)
+        contents.append({
+            "content": transcript,
+            "label": "all",
+            "step_assignment_explanation": "",
+            "assignment": {},
+        })
         labels.append(video.video_id)
         colors.append(np.random.rand(3,))
+    
+    return {
+        "transcripts": transcripts,
+        "contents": contents,
+        "labels": labels,
+        "colors": colors,
+    }
 
-    draw_embeddings(embeddings, contents, labels, colors, "embedding")
+def get_representation_per_step(
+    task_id="11967",
+    steps_to_consider=None,
+):
+    assignments_filepath = f"step_data/{task_id}/assignments.json"
+    dimensions_filepath = f"step_data/{task_id}/variability_dimensions.json"
 
-def generate_embeddings_simplest_per_step():
-    filepath = "_data/all_variability_assignments.json"
     videos = {}
-    with open(filepath, 'r') as f:
-        videos = json.load(f)
+    dimensions = {}
 
-    embeddings = []
+    with open(assignments_filepath, 'r') as f:
+        videos = json.load(f)
+    
+    with open(dimensions_filepath, 'r') as f:
+        dimensions = json.load(f)
+
+    transcripts = []
+    dims = []
     contents = []
     labels = []
     colors = []
     for video_id, video in videos.items():
-        ### random video_color
-        video_color = np.random.rand(3,)
         for step_id, step in video.items():
-            embedding = bert_embed_text(step["content"])
-            embeddings.append(embedding)
-            contents.append(step["content"])
-            labels.append(f"{video_id}-{step_id}")
-            colors.append(video_color)
+            step_id = step_id.lower()
+            if (steps_to_consider is not None
+                and step_id not in steps_to_consider):
+                print(step_id, steps_to_consider)
+                continue
+            dims.append("")
+            for dimension in step["assignment"].values():
+                dims[-1] += f"{dimension['label']}: {dimension['value']}\n"
 
-    draw_embeddings(embeddings, contents, labels, colors, "embedding_per_step")
+            transcripts.append(f"{step['content']}")
+
+            contents.append(step)
+            labels.append(f"{video_id}-{step_id}")
+            colors.append(np.random.rand(3,))
+
+    dim_defs = []
+    for dimension in dimensions.values():
+        dim_defs.append(f"{dimension['label']}: {dimension['description']}")
+
+    return {
+        "transcripts": transcripts,
+        "dims": dims,
+        "dim_defs": dim_defs,
+        "contents": contents,
+        "labels": labels,
+        "colors": colors,
+    }
+
+
+def generate_embeddings(
+    fit_embeddings,
+    transform_embeddings,
+    method,
+    truncate,
+):  
+    fit_embeddings = embed_texts(
+        fit_embeddings,
+        method, 
+        truncate
+    )
+    transform_embeddings = embed_texts(
+        transform_embeddings,
+        method,
+        truncate
+    )
+
+    embeddings, pca = reduce_dim(
+        fit_embeddings,
+        transform_embeddings,
+        n_components=2
+    )
+
+    return embeddings, pca
+
+def augment_embeddings(
+    representation,
+    augmentation,
+):
+    embeddings = []
+    if augmentation == "dims":
+        for i in range(len(representation["transcripts"])):
+            transcript = representation["transcripts"][i]
+            dims = representation["dims"][i]
+            embeddings.append(f"{dims}\n{transcript}")
+    else:
+        for transcript in representation["transcripts"]:
+            embeddings.append(transcript)
+    return embeddings
+        
+
+def __process(
+    task_id="11967", 
+    representation=[],
+    granularity="video",
+    augmentation="", # "dims"
+    embedding_method="bert",
+    reduction_method="pca-merged", # pca-seperate
+    truncate=0,
+):
+    if len(representation) == 0:
+        return
+    filename_prefix = f"{granularity}_{task_id}_{embedding_method}_{reduction_method}_{augmentation}_{truncate}"
+    print("Filename Prefix: ", filename_prefix)
+    
+    if reduction_method.endswith("seperate"):
+        if "dim_defs" not in representation or embedding_method == "tfidf":
+            print("Skipping")
+            return
+
+    if reduction_method.endswith("seperate"):
+        ### define fit and transform embeddings
+        fit_embeddings = representation["dim_defs"]
+        transform_embeddings = augment_embeddings(representation, augmentation)
+                
+        embeddings, pca = generate_embeddings(
+            fit_embeddings,
+            transform_embeddings,
+            embedding_method,
+            truncate,
+        )
+    else:
+        embeddings = augment_embeddings(representation, augmentation)
+
+        embeddings, pca = generate_embeddings(
+            embeddings,
+            embeddings,
+            embedding_method,
+            truncate,
+        )
+
+    print("Explained Variance Ratio: ", pca.explained_variance_ratio_)
+    print("Eigenvalues: ", pca.singular_values_)
+    print()
+
+    contents = representation["contents"]
+    labels = representation["labels"]
+    colors = representation["colors"]
+
+    draw_embeddings(task_id, embeddings, contents, labels, colors, filename_prefix)
+
+def process(
+    task_id="11967",
+    granularity="video",
+    n=5,
+):
+    if granularity == "video":
+        representation = get_representation_video(task_id, n=n)
+    elif granularity == "step":
+        representation = get_representation_per_step(task_id)
+    elif granularity.startswith("step"):
+        representation = get_representation_per_step(task_id, granularity)
+    methods = [
+        "bert",
+        "tfidf",
+        # "clip",
+    ]
+
+    reduction_methods = [
+        "pca-seperate",
+        "pca-merged",
+    ]
+
+    augmentations = [
+        "",
+        "dims",
+    ]
+
+    truncates = [
+       0, # 50, 100
+    ]
+
+    if granularity == "video":
+        for truncate in truncates:
+            for method in methods:
+                __process(
+                    task_id=task_id,
+                    representation=representation,
+                    granularity=granularity,
+                    augmentation=augmentations[0],
+                    embedding_method=method,
+                    reduction_method=reduction_methods[1],
+                    truncate=truncate,
+                )
+    else:
+        for truncate in truncates:
+            for embedding_method in methods:
+                for reduction_method in reduction_methods:
+                    for augmentation in augmentations:
+                        __process(
+                            task_id=task_id,
+                            representation=representation,
+                            granularity=granularity,
+                            augmentation=augmentation,
+                            embedding_method=embedding_method,
+                            reduction_method=reduction_method,
+                            truncate=truncate,
+                        )
 
 def main():
 
-    
-    #generate_embeddings_simplest(videos)
-    generate_embeddings_simplest_per_step()
+    task_ids = [
+        "11967",
+        "13630",
+    ]
+    # process(
+    #     task_id=task_ids[0],
+    #     granularity="step",
+    #     n=5,
+    # )
+    # process(
+    #     task_id=task_ids[0],
+    #     granularity="video",
+    #     n=5,
+    # )
+    process(
+        task_id=task_ids[1],
+        granularity="step",
+        n=5,
+    )
+    process(
+        task_id=task_ids[1],
+        granularity="video",
+        n=5,
+    )
 
 if __name__ == "__main__":
     main()

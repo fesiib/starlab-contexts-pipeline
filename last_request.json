@@ -1,0 +1,117 @@
+{
+  "watch_history": [
+    {
+      "video_id": "B-XGIGS4Ipw",
+      "start": 0.12685646262579403,
+      "finish": 0.12685646262579403
+    }
+  ],
+  "link_types": [
+    "local",
+    "global"
+  ],
+  "previous_with_titles": [],
+  "last_step": {
+    "title": "Introduction",
+    "video_id": "B-XGIGS4Ipw",
+    "start": 0.0,
+    "finish": 3.959,
+    "text": "These are my blueberry muffins."
+  },
+  "links": {
+    "global": [
+      {
+        "gap_title": "Incorporating Lemon Zest and Milk",
+        "gap_description": "The learner may not know the importance of adding lemon zest and milk to the muffin batter.",
+        "explanation": "The unseen narration explains that grated lemon zest and a milk of choice (soy milk in this case) are added to a large mixing bowl, which can enhance the flavor and texture of the muffins.",
+        "video_id": "B-XGIGS4Ipw",
+        "start": 6.779,
+        "finish": 9.059,
+        "label": "Procedure"
+      },
+      {
+        "gap_title": "Tossing Blueberries with Cornstarch",
+        "gap_description": "The learner may not be aware of the step to toss blueberries with cornstarch before adding them to the batter.",
+        "explanation": "The unseen narration describes rinsing the blueberries, shaking the water off, and then tossing them with cornstarch to prevent them from sinking in the batter.",
+        "video_id": "B-XGIGS4Ipw",
+        "start": 16.08,
+        "finish": 18.42,
+        "label": "Procedure"
+      },
+      {
+        "gap_title": "Refrigerating Batter",
+        "gap_description": "The learner may not know the benefit of refrigerating the batter before baking.",
+        "explanation": "The unseen narration mentions refrigerating the batter for at least one hour to help the muffins rise without overflowing.",
+        "video_id": "fWp5z_YM07Q",
+        "start": 16.08,
+        "finish": 17.84,
+        "label": "Procedure"
+      },
+      {
+        "gap_title": "Using a Scale for Dry Ingredients",
+        "gap_description": "The learner may not understand the importance of using a scale for measuring dry ingredients.",
+        "explanation": "The unseen narration emphasizes using a scale for accurate measurement of dry ingredients, which is crucial for successful baking.",
+        "video_id": "aEFvNsBDCWs",
+        "start": 35.68,
+        "finish": 87.36,
+        "label": "Procedure"
+      },
+      {
+        "gap_title": "Beating Eggs for Fluffy Muffins",
+        "gap_description": "The learner may not know the technique of beating eggs to achieve fluffy muffins.",
+        "explanation": "The unseen narration explains that beating eggs on high speed until they become fluffy and pale is key to making fluffy muffins.",
+        "video_id": "gN-orgrgvU8",
+        "start": 47.86,
+        "finish": 76.83,
+        "label": "Procedure"
+      },
+      {
+        "gap_title": "Master Muffin Recipe",
+        "gap_description": "The learner may not be aware of a master muffin recipe that can be adapted to various flavors.",
+        "explanation": "The unseen narration introduces a master muffin recipe that can be used to make almost any flavor of muffins, providing a versatile base for different variations.",
+        "video_id": "cZ2KJPGVwNU",
+        "start": 4.263,
+        "finish": 12.907,
+        "label": "Procedure"
+      }
+    ],
+    "local": [
+      {
+        "gap_title": "Introduction to Blueberry Muffins",
+        "gap_description": "The learner has not been introduced to the specific context of blueberry muffins, including their appearance and basic description.",
+        "explanation": "The unseen narration in video B-XGIGS4Ipw provides a basic introduction to blueberry muffins by showing and describing them as 'These are my blueberry muffins.' This helps set the context for what the learner will be making.",
+        "video_id": "B-XGIGS4Ipw",
+        "start": 0.0,
+        "finish": 3.959,
+        "label": "Step Introduction"
+      },
+      {
+        "gap_title": "Personal Achievement in Muffin Making",
+        "gap_description": "The learner has not been exposed to the personal achievement and satisfaction aspect of baking muffins.",
+        "explanation": "The unseen narration in video fWp5z_YM07Q highlights the personal achievement of successfully learning how to make muffins and the motivation to create a new version, which can inspire and motivate the learner.",
+        "video_id": "fWp5z_YM07Q",
+        "start": 0.08,
+        "finish": 1.68,
+        "label": "Step Introduction"
+      },
+      {
+        "gap_title": "Introduction by the Chef",
+        "gap_description": "The learner has not been introduced to the chef who will be guiding them through the muffin-making process.",
+        "explanation": "The unseen narration in video gN-orgrgvU8 introduces the chef, Dina from simplyhomecooked.com, and sets the stage for the tutorial by mentioning the specific type of muffins (fluffy and moist blueberry muffins) that will be made.",
+        "video_id": "gN-orgrgvU8",
+        "start": 0.03,
+        "finish": 7.079,
+        "label": "Step Introduction"
+      },
+      {
+        "gap_title": "Master Muffin Recipe Introduction",
+        "gap_description": "The learner has not been introduced to the concept of a 'master muffin recipe' which can be a foundational recipe for various types of muffins.",
+        "explanation": "The unseen narration in video cZ2KJPGVwNU introduces the concept of a 'master muffin recipe,' which is a versatile and foundational recipe that can be adapted for different types of muffins.",
+        "video_id": "cZ2KJPGVwNU",
+        "start": 0.08,
+        "finish": 4.263,
+        "label": "Step Introduction"
+      }
+    ]
+  }
+}
