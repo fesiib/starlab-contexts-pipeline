@@ -7,8 +7,8 @@ from flask import request, send_file, redirect, url_for
 
 from pathlib import Path
 
-from generate_links import setup_ug, generate_links
-from generate_data import extract_frames
+from preprocess import setup_ug, generate_links
+from backend import extract_frames
 
 app = Flask(__name__)
 
