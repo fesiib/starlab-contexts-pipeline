@@ -8,7 +8,7 @@ from helpers import META_TITLE, ALIGNMENT_DEFINITIONS
 from pydantic_models.segmentation import TaskGraph, IndexVideoSegmentation, get_segmentation_schema
 from pydantic_models.summarization import MetaSummarySchema, SubgoalSummarySchema
 
-from pydantic_models.comparison import AlignmentsSchema, AlignmentClassificationSchema, AlignmentHooksSchema
+from pydantic_models.comparison import AlignmentsSchema, NotableInformationSchema, HookSchema, AlignmentClassificationSchema, AlignmentHooksSchema
 
 from helpers import get_response_pydantic, encode_image
 
@@ -174,7 +174,7 @@ def get_subgoal_alignments_v2(contents1, contents2, subgoal, task):
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a detailed-oriented assistant specializing in analyzing and comparing procedural content across different how-to videos about the same task. You are given procedural information from two videos (current and previous) about task `{task}. Given the information for the subgoal `{subgoal}`, analyze and compare the information from each video and identify all the `new` subgoal information in the current video compared to the previous video.".format(task=task, subgoal=subgoal)
+                "text": "You are a helpful assistant specializing in analyzing and comparing procedural content across different how-to videos about task `{task}`. Given the information from current and previous videos for the subgoal `{subgoal}`, analyze and compare the information from each video and identify all the `new` pieces of subgoal information in the current video compared to the previous video.".format(task=task, subgoal=subgoal)
             }],
         },
         {
@@ -202,7 +202,7 @@ def get_meta_alignments_v2(contents1, contents2, task):
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a detailed-oriented assistant specializing in analyzing and comparing procedural content across different how-to videos about the same task. You are given procedural information from two videos (current and previous) about task `{task}. Analyze and compare the information from each video and identify all the `new` information in the current video compared to the previous video.".format(task=task)
+                "text": "You are a helpful assistant specializing in analyzing and comparing procedural content across different how-to videos about task `{task}`. Given the information from current and previous videos, analyze and compare the information from each video and identify all the `new` pieces of information in the current video compared to the previous video.".format(task=task)
             }],
         },
         {
@@ -223,6 +223,42 @@ def get_meta_alignments_v2(contents1, contents2, task):
 
     response = get_response_pydantic(messages, AlignmentsSchema)
     return response["alignments"]
+
+def get_notable_v2(contents, task):
+    messages = [
+        {
+            "role": "system",
+            "content": [{
+                "type": "text",
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `{task}`. You are given the descriptions of `notable procedural information` in the current video compared to various previous videos. Create a 5-word (or fewer) title summarizing the information, followed by a detailed description of the notable information. Focus only on the information itself without referencing or comparing it to other videos.".format(task=task)
+            }],
+        },
+        {
+            "role": "user",
+            "content": __extend_contents(contents),
+        }
+    ]
+
+    response = get_response_pydantic(messages, NotableInformationSchema)
+    return response
+
+def get_hook_v2(contents, task):
+    messages = [
+        {
+            "role": "system",
+            "content": [{
+                "type": "text",
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `{task}`. You are given the descriptions of `notable/interesting procedural information` in other videos. Generate a conversational, but informative hook (a short 5-words or fewer, engaging sentence) that captures the essence of the information and sparks interest in the new content or overall comparison and provide a concise description or elaboration that explains the hook in more detail.".format(task=task)
+            }],
+        },
+        {
+            "role": "user",
+            "content": __extend_contents(contents),
+        }
+    ]
+
+    response = get_response_pydantic(messages, HookSchema)
+    return response
 
 # def generate_common_subgoals_v2(contents, subgoals, task):
 #     messages = [

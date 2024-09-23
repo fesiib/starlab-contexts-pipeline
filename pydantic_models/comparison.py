@@ -19,10 +19,10 @@ class InformationRelations(BaseModel):
 
 class InformationAlignmentSchema(BaseModel):
     title: str = Field(..., title="the 3-word title of the new content in the current video.")
-    description: str = Field(..., title="the description of the new content in the current video that is not present in the previous video. The description should first state the new content and then why is it particularly new, different, or not present in the previous video.")
-    cur_quotes: list[str] = Field(..., title="(must be nonempty) the list of relevant quotes from the current video.")
-    prev_quotes: list[str] = Field(..., title="(if any) the list of relevant quotes from the previous video.")
-    different_aspects: list[Literal["subgoal", "context", "outcome", "materials", "instructions", "rationale", "tips"]] = Field(..., title="a list of different aspects that the new content pertains to.")
+    description: str = Field(..., title="the description of the new content in the current video that is not present in the previous video. When describing, follow the template `The video ... But, the previous video ...`. First, state the `new` information and then why is it particularly new, different, or not present in the previous video.`")
+    quotes: list[str] = Field(..., title="(must be nonempty) the list of relevant quotes from the current video.")
+    other_quotes: list[str] = Field(..., title="(if any) the list of relevant quotes from the previous video.")
+    # different_aspects: list[Literal["subgoal", "context", "outcome", "materials", "instructions", "rationale", "tips"]] = Field(..., title="a list of different aspects that the new content pertains to.")
 
 class AlignmentsSchema(BaseModel):
     alignments: list[InformationAlignmentSchema] = Field(..., title="The comprehensive and exhaustive list of new content in the current video")
@@ -51,3 +51,11 @@ class AlignmentHookSchema(BaseModel):
     
 class AlignmentHooksSchema(BaseModel):
     hooks: list[AlignmentHookSchema] = Field(..., title="The comprehensive and exhaustive list of hooks cover all information alignments")
+
+class NotableInformationSchema(BaseModel):
+    title: str = Field(..., title="the concise title of the notable information that is present in the current video.")
+    description: str = Field(..., title="the description of the notable information.")
+
+class HookSchema(BaseModel):
+    title: str = Field(..., title="the title of the hook in a conversational manner. It should be interesting and engaging, but short!")
+    description: str = Field(..., title="the elaboration on the hook. It should look like continuation of the title.")

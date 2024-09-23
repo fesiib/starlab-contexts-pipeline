@@ -196,7 +196,7 @@ class Video:
             
             text += subgoal["text"] + "\n"
             return [{
-                "id": f"content-{index}",
+                "id": f"subgoal-content-{index}",
                 "text": text,
                 "frame_paths": [path for path in subgoal["frame_paths"]],
             }]
@@ -219,7 +219,6 @@ class Video:
             content_ids.append(contents[idx]["id"])
 
         return content_ids
-
                         
     def calculate_custom_subgoals_embeddings(self):
         """
@@ -227,6 +226,24 @@ class Video:
         """
         texts = [subgoal["text"] for subgoal in self.custom_subgoals]
         self.custom_subgoals_embeddings = bert_embedding(texts)
+
+    def get_most_similar_content_ids(self, texts):
+        """
+        Returns the content ids of the most similar texts
+        """
+        if len(texts) == 0:
+            return []
+        contents = self.get_all_contents()
+        if len(self.custom_subgoals_embeddings) == 0:
+            self.calculate_custom_subgoals_embeddings()
+        text_embeddings = bert_embedding(texts)
+
+        indexes = find_most_similar(self.custom_subgoals_embeddings, text_embeddings)
+
+        content_ids = []
+        for idx in indexes:
+            content_ids.append(contents[idx]["id"])
+        return content_ids
 
     def to_dict(self):
         return {
