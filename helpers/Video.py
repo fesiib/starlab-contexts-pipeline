@@ -105,7 +105,6 @@ class Video:
         return contents
 
     def get_meta_summary_contents(self, as_context=False) -> list:
-        ### TODO: If going bad, may need to add quotes
         if self.meta_summary is None:
             return None
         quotes = {}

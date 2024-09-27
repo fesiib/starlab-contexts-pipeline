@@ -30,6 +30,7 @@ class InformationAlignmentSchema(SummarizedAlignmentSchema):
 class AlignmentsSchema(BaseModel):
     alignments: list[InformationAlignmentSchema] = Field(..., title="The comprehensive and exhaustive list of new content in the current video")
 
+
 class InformationEnum(str, Enum):
     additional_information = "`Additional Information`"
     alternative_method = "`Alternative Method`"
@@ -62,3 +63,12 @@ class NotableInformationSchema(BaseModel):
 class HookSchema(BaseModel):
     title: str = Field(..., title="the title of the hook in a conversational manner. It should be interesting and engaging, but short!")
     description: str = Field(..., title="the elaboration on the hook. It should look like continuation of the title.")
+
+
+## V3
+class ClassifiedAlignmentSchema(InformationAlignmentSchema): 
+    classification: Literal["method", "context", "both", "other"] = Field(..., title="the classification of the new information in terms of its main concern: (1) method, (2) context/goal, (3) both, (4) other.")
+
+class AlignmentsSchema2(BaseModel):
+    supplementary_information: list[ClassifiedAlignmentSchema] = Field(..., title="The list of `new` contents in the video that can be considered `supplementary` to the previous video (i.e., does not contradict or replace any information in the previous video and adds or extends the information in the previous video).")
+    contradictory_information: list[ClassifiedAlignmentSchema] = Field(..., title="The list of `new` contents in the video that can be considered `contradictory` to the previous video (i.e., contradicts or replaces any information in the previous video, but presents a different context, approach, or motivation).")

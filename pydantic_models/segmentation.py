@@ -21,7 +21,6 @@ class VideoSegmentation(BaseModel):
     
 
 class IndexVideoSegment(BaseModel):
-    ## todo: may need to ask for content-ids with representative frames here?
     title: str = Field(..., title="The title of subgoal that the segment belongs")
     content_ids: list[str] = Field(..., title="The list of content ids that belong to the segment")
     explanation: str = Field(..., title="The jusitifcation on why this segment is assigned to a `title` subgoal")
