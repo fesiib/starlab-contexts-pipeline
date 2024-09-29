@@ -181,7 +181,7 @@ class Video:
             
             text += subgoal["text"] + "\n"
             contents.append({
-                "id": subgoal['id'],
+                "id": subgoal["content_ids"][0],
                 "text": text,
                 "frame_paths": [path for path in subgoal["frame_paths"]],
                 "content_ids": subgoal["content_ids"]

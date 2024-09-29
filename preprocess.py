@@ -594,6 +594,7 @@ class DynamicSummary:
                     alignment["subgoal_title"] = META_TITLE
                 cur_alignments.extend(self.__reformat_alignments(meta_alignments, video1, video2))
 
+                ### aggregate alignments
                 alignments_per_class = {}
                 for alignment in cur_alignments:
                     classification = alignment["classification"]
@@ -630,7 +631,7 @@ class DynamicSummary:
                 })
     
     ### APPROACH 3 (BASELINE 1)
-    def __generate_alignments_2(self):
+    def __generate_alignments_baseline_1(self):
         approach = BASELINES[0]
         ## TODO: UPDATE
         if len(self.videos) < 2:
@@ -645,6 +646,7 @@ class DynamicSummary:
             for v2_idx, video2 in enumerate(self.videos):
                 if v1_idx == v2_idx:
                     continue
+                cur_alignments = []
                 ### between subgoals
                 for subgoal_def in self.subgoals:
                     contents1 = video1.get_subgoal_contents(subgoal_def["title"])
@@ -656,16 +658,52 @@ class DynamicSummary:
                     for parent_title in subgoal_def["dependencies"]:
                         context1 += video1.get_subgoal_contents(parent_title, True)
                         context2 += video2.get_subgoal_contents(parent_title, True)
-                    subgoal_alignments = get_subgoal_alignments_v2(
+                    subgoal_alignments = get_subgoal_alignments_v3(
                         context1 + contents1, context2 + contents2, subgoal_def["title"], self.task
                     )
-                    self.alignment_sets[approach].append({
-                        "alignments": self.__reformat_alignments(subgoal_alignments, video1, video2, subgoal_def["title"]),
-                        "video_id": video1.video_id,
-                    })
+                    for alignment in subgoal_alignments:
+                        alignment["subgoal_title"] = subgoal_def["title"]
+
+                    cur_alignments.extend(self.__reformat_alignments(subgoal_alignments, video1, video2))
+
+                ### aggregate alignments
+                alignments_per_class = {}
+                for alignment in cur_alignments:
+                    classification = alignment["classification"]
+                    if classification not in alignments_per_class:
+                        alignments_per_class[classification] = []
+                    alignments_per_class[classification].append(alignment)
+                
+                summarized_alignments = []
+                clusters = []
+                for c, a in alignments_per_class.items():
+                    cur_summarized, cur_clusters = self.__cluster("alignment", a, get_alignments_summary_v2)
+                    for alignment in cur_summarized:
+                        alignment["classification"] = c
+                    summarized_alignments.extend(cur_summarized)
+                    clusters.extend(cur_clusters)
+
+                for summarized_alignment, cluster in zip(summarized_alignments, clusters):
+                    summarized_alignment["content_ids"] = []
+                    summarized_alignment["quotes"] = []
+                    summarized_alignment["other_content_ids"] = []
+                    summarized_alignment["other_quotes"] = []
+                    for alignment in cluster:
+                        summarized_alignment["content_ids"] += alignment["content_ids"]
+                        summarized_alignment["quotes"] += alignment["quotes"]
+                        summarized_alignment["other_content_ids"] += alignment["other_content_ids"]
+                        summarized_alignment["other_quotes"] += alignment["other_quotes"]
+                    summarized_alignment["subgoal_title"] = cluster[0]["subgoal_title"]
+
+                summarized_alignments = self.__reformat_alignments(summarized_alignments, video1, video2)    
+                    
+                self.alignment_sets[approach].append({
+                    "alignments": summarized_alignments,
+                    "video_id": video1.video_id,
+                })
     
     ### APPROACH 4 (BASELINE 2)
-    def __generate_alignments_3(self):
+    def __generate_alignments_baseline_2(self):
         ## TODO: UPDATE
         approach = BASELINES[1]
         if len(self.videos) < 2:
@@ -680,23 +718,29 @@ class DynamicSummary:
             for v2_idx, video2 in enumerate(self.videos):
                 if v1_idx == v2_idx:
                     continue
+                ### between meta
                 contents1 = video1.get_all_contents()
                 contents2 = video2.get_all_contents()
                 if len(contents1) == 0 or len(contents2) == 0:
                     continue
-                meta_alignments = get_meta_alignments_v2(
+                meta_alignments = get_meta_alignments_v3(
                     contents1, contents2, self.task
                 )
+                for alignment in meta_alignments:
+                    alignment["subgoal_title"] = META_TITLE
+
                 self.alignment_sets[approach].append({
-                    "alignments": self.__reformat_alignments(meta_alignments, video1, video2, META_TITLE),
+                    "alignments": self.__reformat_alignments(meta_alignments, video1, video2),
                     "video_id": video1.video_id,
                 })
 
     def generate_alignments(self):
         self.__generate_alignments_0()
         self.__generate_alignments_1()
-        # self.__generate_alignments_2()
-        # self.__generate_alignments_3()
+        print("Baseline 1")
+        self.__generate_alignments_baseline_1()
+        print("Baseline 2")
+        self.__generate_alignments_baseline_2()
 
     def __generate_notable(self, root_alignments):
         if len(root_alignments) < 1:
@@ -903,9 +947,9 @@ def setup_ds(task_id):
     
     ds.generate_alignments()
 
-    ds.find_notables()
+    # ds.find_notables()
 
-    ds.generate_hooks()
+    # ds.generate_hooks()
     
     # ds.classify_alignments()
 
