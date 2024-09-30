@@ -963,7 +963,28 @@ def main():
 
     if ds is None:
         return
-        
+    
+    other_video = 'D_2DBLAt57c'
+    current_video = 'dzyXBU3dIys'
+
+    ours_alignments = ds.alignment_sets['approach_1']
+    subgoal_alignments = ds.alignment_sets['baseline_1']
+    meta_alignments = ds.alignment_sets['baseline_2']
+
+    for a_set in [ours_alignments, subgoal_alignments, meta_alignments]:
+        print("## APPROACH")
+        for a in a_set:
+            if a['video_id'] != current_video:
+                continue
+            alignments = a["alignments"]
+            for alignment in alignments:
+                if alignment['other_video_id'] != other_video:
+                    continue
+                print("-", alignment['alignment_title'])
+                print("\t-", alignment['alignment_description'])
+                print("\t-", alignment['alignment_comparison'])
+                print()
+        print()
 
 if __name__ == "__main__":
     main()
