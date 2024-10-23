@@ -3311,3 +3311,414 @@ MESSAGES: [
     ]
   }
 ]
+RESPONSE: {
+  "segments": [
+    {
+      "step": "Boil water and add salt at a ratio of 10 grams per liter.",
+      "start_index": 4,
+      "end_index": 5
+    },
+    {
+      "step": "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
+      "start_index": 7,
+      "end_index": 11
+    },
+    {
+      "step": "Cut guanciale (or pancetta) into chunks.",
+      "start_index": 14,
+      "end_index": 18
+    },
+    {
+      "step": "Heat olive oil in a pan and cook the guanciale until it releases fat.",
+      "start_index": 22,
+      "end_index": 24
+    },
+    {
+      "step": "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
+      "start_index": 26,
+      "end_index": 38
+    },
+    {
+      "step": "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
+      "start_index": 50,
+      "end_index": 54
+    },
+    {
+      "step": "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
+      "start_index": 55,
+      "end_index": 58
+    },
+    {
+      "step": "Stir until the sauce is creamy and coats the pasta.",
+      "start_index": 59,
+      "end_index": 60
+    },
+    {
+      "step": "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration.",
+      "start_index": 61,
+      "end_index": 64
+    },
+    {
+      "step": "None",
+      "start_index": 0,
+      "end_index": 3
+    },
+    {
+      "step": "None",
+      "start_index": 6,
+      "end_index": 6
+    },
+    {
+      "step": "None",
+      "start_index": 12,
+      "end_index": 13
+    },
+    {
+      "step": "None",
+      "start_index": 19,
+      "end_index": 21
+    },
+    {
+      "step": "None",
+      "start_index": 25,
+      "end_index": 25
+    },
+    {
+      "step": "None",
+      "start_index": 39,
+      "end_index": 49
+    },
+    {
+      "step": "None",
+      "start_index": 65,
+      "end_index": 71
+    }
+  ]
+}
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Overlapping segments
+ERROR: Index out of bounds
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+ERROR: Missing segment
+MESSAGES: [
+  {
+    "role": "system",
+    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+  },
+  {
+    "role": "user",
+    "content": "## Video 1:\nChop bacon into small pieces.\nCook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.\nSeparate egg yolks from egg whites and place the yolks in a bowl.\nGrate pecorino romano cheese and add it to the egg yolks.\nAdd freshly ground black pepper to the egg yolk and cheese mixture and mix well.\nBoil water in a pot, add salt, and cook spaghetti until al dente.\nReserve some pasta water before draining the spaghetti.\nAdd a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.\nTransfer the cooked spaghetti directly from the pot to the pan with bacon.\nMix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.\nIf needed, add more reserved pasta water to achieve the desired sauce consistency.\nFinish with additional grated pecorino romano and black pepper before serving."
+  },
+  {
+    "role": "user",
+    "content": "## Video 2:\nCut about half a pound of thick-cut bacon into three-quarter inch slices.\nHeat a pan over medium heat and add a tiny bit of olive oil.\nAdd the bacon to the pan and slowly render out the fat until the bacon is crispy.\nBoil about four quarts of water and add a tablespoon of kosher salt.\nGrate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\nIn a bowl, whisk together three whole eggs and two egg yolks.\nWhisk the grated cheese into the egg mixture.\nAdd freshly ground black pepper to the egg and cheese mixture to taste.\nOnce the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.\nCook spaghetti in the boiling water until slightly al dente, about 10 minutes.\nTurn off the heat under the bacon pan and add the cooked spaghetti to the pan.\nAdd the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.\nIf needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.\nPlate the pasta and garnish with additional grated cheese and crispy bacon."
+  }
+]
+RESPONSE: {
+  "agg_steps": [
+    "Chop bacon into small pieces and cook until crispy, then set aside.",
+    "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper.",
+    "Boil salted water and cook spaghetti until al dente, reserving some pasta water.",
+    "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+    "Garnish with additional cheese and bacon before serving."
+  ],
+  "assignments_1": [
+    {
+      "original_step": "Chop bacon into small pieces.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Separate egg yolks from egg whites and place the yolks in a bowl.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Grate pecorino romano cheese and add it to the egg yolks.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Add freshly ground black pepper to the egg yolk and cheese mixture and mix well.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Boil water in a pot, add salt, and cook spaghetti until al dente.",
+      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Reserve some pasta water before draining the spaghetti.",
+      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Add a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "If needed, add more reserved pasta water to achieve the desired sauce consistency.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Finish with additional grated pecorino romano and black pepper before serving.",
+      "agg_step": "Garnish with additional cheese and bacon before serving."
+    }
+  ],
+  "assignments_2": [
+    {
+      "original_step": "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Heat a pan over medium heat and add a tiny bit of olive oil.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Boil about four quarts of water and add a tablespoon of kosher salt.",
+      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "In a bowl, whisk together three whole eggs and two egg yolks.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Whisk the grated cheese into the egg mixture.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Add freshly ground black pepper to the egg and cheese mixture to taste.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper."
+    },
+    {
+      "original_step": "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
+      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
+    },
+    {
+      "original_step": "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
+      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Turn off the heat under the bacon pan and add the cooked spaghetti to the pan.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Add the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "If needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.",
+      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Plate the pasta and garnish with additional grated cheese and crispy bacon.",
+      "agg_step": "Garnish with additional cheese and bacon before serving."
+    }
+  ]
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+  },
+  {
+    "role": "user",
+    "content": "## Video 1:\nChop bacon into small pieces and cook until crispy, then set aside.\nGrate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper.\nBoil salted water and cook spaghetti until al dente, reserving some pasta water.\nCombine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.\nGarnish with additional cheese and bacon before serving."
+  },
+  {
+    "role": "user",
+    "content": "## Video 2:\nGather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.\nBoil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.\nRemove the skin from the guanciale and cut it into half-centimeter chunks.\nPlace a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.\nCrack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.\nOnce the guanciale is golden, remove the garlic from the pan and turn off the heat.\nCrack eggs into a bowl and add about 20 grams of pecorino cheese. Whisk together.\nDrag the cooked pasta and some of its water into the pan with the guanciale. Use the water to stop frying and start emulsifying the sauce.\nAdd the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce.\nFinish with more cracked black pepper and a sprinkle of pecorino cheese before serving."
+  }
+]
+RESPONSE: {
+  "agg_steps": [
+    "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic.",
+    "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside.",
+    "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper.",
+    "Boil salted water and cook pasta until al dente, reserving some pasta water.",
+    "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+    "Garnish with additional cheese and black pepper before serving."
+  ],
+  "assignments_1": [
+    {
+      "original_step": "Chop bacon into small pieces and cook until crispy, then set aside.",
+      "agg_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside."
+    },
+    {
+      "original_step": "Grate cheese and prepare the egg mixture by combining egg yolks (and whole eggs if using), cheese, and black pepper.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper."
+    },
+    {
+      "original_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water.",
+      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Combine cooked spaghetti with bacon and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Garnish with additional cheese and bacon before serving.",
+      "agg_step": "Garnish with additional cheese and black pepper before serving."
+    }
+  ],
+  "assignments_2": [
+    {
+      "original_step": "Gather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.",
+      "agg_step": "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic."
+    },
+    {
+      "original_step": "Boil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.",
+      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Remove the skin from the guanciale and cut it into half-centimeter chunks.",
+      "agg_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside."
+    },
+    {
+      "original_step": "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
+      "agg_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside."
+    },
+    {
+      "original_step": "Crack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper."
+    },
+    {
+      "original_step": "Once the guanciale is golden, remove the garlic from the pan and turn off the heat.",
+      "agg_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside."
+    },
+    {
+      "original_step": "Crack eggs into a bowl and add about 20 grams of pecorino cheese. Whisk together.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper."
+    },
+    {
+      "original_step": "Drag the cooked pasta and some of its water into the pan with the guanciale. Use the water to stop frying and start emulsifying the sauce.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Add the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Finish with more cracked black pepper and a sprinkle of pecorino cheese before serving.",
+      "agg_step": "Garnish with additional cheese and black pepper before serving."
+    }
+  ]
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+  },
+  {
+    "role": "user",
+    "content": "## Video 1:\nGather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic.\nPrepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside.\nGrate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper.\nBoil salted water and cook pasta until al dente, reserving some pasta water.\nCombine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.\nGarnish with additional cheese and black pepper before serving."
+  },
+  {
+    "role": "user",
+    "content": "## Video 2:\nBoil water and add salt at a ratio of 10 grams per liter.\nAdd spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.\nCut guanciale (or pancetta) into chunks.\nHeat olive oil in a pan and cook the guanciale until it releases fat.\nIn a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.\nOnce the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.\nMix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.\nStir until the sauce is creamy and coats the pasta.\nServe with additional grated parmesan or pecorino and a touch of pepper for decoration."
+  }
+]
+RESPONSE: {
+  "agg_steps": [
+    "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic.",
+    "Cut the meat (bacon or guanciale/pancetta) into small pieces or chunks.",
+    "Cook the meat in a pan until crispy or golden, optionally with garlic or olive oil, and set aside.",
+    "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper.",
+    "Boil salted water and cook pasta until al dente, reserving some pasta water.",
+    "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+    "Garnish with additional cheese and black pepper before serving."
+  ],
+  "assignments_1": [
+    {
+      "original_step": "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic.",
+      "agg_step": "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic."
+    },
+    {
+      "original_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside.",
+      "agg_step": "Cut the meat (bacon or guanciale/pancetta) into small pieces or chunks."
+    },
+    {
+      "original_step": "Prepare the meat by cutting it into small pieces and cook until crispy or golden, optionally with garlic, then set aside.",
+      "agg_step": "Cook the meat in a pan until crispy or golden, optionally with garlic or olive oil, and set aside."
+    },
+    {
+      "original_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper."
+    },
+    {
+      "original_step": "Boil salted water and cook pasta until al dente, reserving some pasta water.",
+      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Garnish with additional cheese and black pepper before serving.",
+      "agg_step": "Garnish with additional cheese and black pepper before serving."
+    }
+  ],
+  "assignments_2": [
+    {
+      "original_step": "Boil water and add salt at a ratio of 10 grams per liter.",
+      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
+      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
+    },
+    {
+      "original_step": "Cut guanciale (or pancetta) into chunks.",
+      "agg_step": "Cut the meat (bacon or guanciale/pancetta) into small pieces or chunks."
+    },
+    {
+      "original_step": "Heat olive oil in a pan and cook the guanciale until it releases fat.",
+      "agg_step": "Cook the meat in a pan until crispy or golden, optionally with garlic or olive oil, and set aside."
+    },
+    {
+      "original_step": "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
+      "agg_step": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper."
+    },
+    {
+      "original_step": "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Stir until the sauce is creamy and coats the pasta.",
+      "agg_step": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed."
+    },
+    {
+      "original_step": "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration.",
+      "agg_step": "Garnish with additional cheese and black pepper before serving."
+    }
+  ]
+}
+ERROR: Length of assignments_1 does not match the length of sequence1

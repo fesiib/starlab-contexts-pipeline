@@ -1,0 +1,91 @@
+[
+  {
+    "subgoal": "Gather ingredients: bacon or guanciale/pancetta, cheese, eggs, pasta, black pepper, and optionally garlic.",
+    "original_subgoals": [
+      "Gather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic."
+    ]
+  },
+  {
+    "subgoal": "Cut the meat (bacon or guanciale/pancetta) into small pieces or chunks.",
+    "original_subgoals": [
+      "Cut guanciale (or pancetta) into chunks.",
+      "Remove the skin from the guanciale and cut it into half-centimeter chunks.",
+      "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
+      "Once the guanciale is golden, remove the garlic from the pan and turn off the heat.",
+      "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
+      "Heat a pan over medium heat and add a tiny bit of olive oil.",
+      "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
+      "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
+      "Chop bacon into small pieces.",
+      "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly."
+    ]
+  },
+  {
+    "subgoal": "Cook the meat in a pan until crispy or golden, optionally with garlic or olive oil, and set aside.",
+    "original_subgoals": [
+      "Heat olive oil in a pan and cook the guanciale until it releases fat.",
+      "Remove the skin from the guanciale and cut it into half-centimeter chunks.",
+      "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
+      "Once the guanciale is golden, remove the garlic from the pan and turn off the heat.",
+      "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
+      "Heat a pan over medium heat and add a tiny bit of olive oil.",
+      "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
+      "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
+      "Chop bacon into small pieces.",
+      "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly."
+    ]
+  },
+  {
+    "subgoal": "Grate cheese and prepare the egg mixture by combining eggs, cheese, and black pepper.",
+    "original_subgoals": [
+      "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
+      "Crack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.",
+      "Crack eggs into a bowl and add about 20 grams of pecorino cheese. Whisk together.",
+      "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.",
+      "In a bowl, whisk together three whole eggs and two egg yolks.",
+      "Whisk the grated cheese into the egg mixture.",
+      "Add freshly ground black pepper to the egg and cheese mixture to taste.",
+      "Separate egg yolks from egg whites and place the yolks in a bowl.",
+      "Grate pecorino romano cheese and add it to the egg yolks.",
+      "Add freshly ground black pepper to the egg yolk and cheese mixture and mix well."
+    ]
+  },
+  {
+    "subgoal": "Boil salted water and cook pasta until al dente, reserving some pasta water.",
+    "original_subgoals": [
+      "Boil water and add salt at a ratio of 10 grams per liter.",
+      "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
+      "Boil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.",
+      "Boil about four quarts of water and add a tablespoon of kosher salt.",
+      "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
+      "Boil water in a pot, add salt, and cook spaghetti until al dente.",
+      "Reserve some pasta water before draining the spaghetti."
+    ]
+  },
+  {
+    "subgoal": "Combine cooked pasta with meat and egg mixture, stirring quickly to create a creamy sauce, adding reserved pasta water if needed.",
+    "original_subgoals": [
+      "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
+      "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
+      "Stir until the sauce is creamy and coats the pasta.",
+      "Drag the cooked pasta and some of its water into the pan with the guanciale. Use the water to stop frying and start emulsifying the sauce.",
+      "Add the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce.",
+      "Turn off the heat under the bacon pan and add the cooked spaghetti to the pan.",
+      "Add the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.",
+      "If needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.",
+      "Add a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.",
+      "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
+      "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.",
+      "If needed, add more reserved pasta water to achieve the desired sauce consistency."
+    ]
+  },
+  {
+    "subgoal": "Garnish with additional cheese and black pepper before serving.",
+    "original_subgoals": [
+      "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration.",
+      "Finish with more cracked black pepper and a sprinkle of pecorino cheese before serving.",
+      "Plate the pasta and garnish with additional grated cheese and crispy bacon.",
+      "Finish with additional grated pecorino romano and black pepper before serving."
+    ]
+  }
+]
