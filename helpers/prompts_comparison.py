@@ -140,7 +140,7 @@ def get_transcript_alignments_v3(contents1, contents2, task):
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a helpful assistant specializing in analyzing and comparing procedural content about task `{task}`. Given contents from the two videos, analyze and compare the information from each video and provide a comprehensive list of new supplementary and contradictory contents presented in the current video. For each piece of content, focus on one specific point at a time, avoid combining multiple details.".format(task=task)
+                "text": "You are a helpful assistant specializing in analyzing and comparing procedural content about task `{task}`. Given contents from the two videos, analyze and compare the information from each video and provide a comprehensive list of new supplementary and contradictory contents presented in the current video only. For each piece of content, focus on one specific point at a time, avoid combining multiple details.".format(task=task)
             }],
         },
         {
@@ -174,11 +174,9 @@ def get_transcript_alignments_v3(contents1, contents2, task):
             "role": "user",
             "content": [{
                 "type": "text",
-                "text": "If applicable, provide more supplementary and contradictory contents presented in the current video compared to the previous video."
+                "text": "Provide additional supplementary and contradictory contents presented in the current video only. Do not repeat yourself, be specific, and focus on one point at a time."
             }]
         })
-
-        found_any = False
         
         for alignment in response["supplementary_information"]:
             alignment["classification"] = "supplementary_" + alignment["classification"]
@@ -188,7 +186,7 @@ def get_transcript_alignments_v3(contents1, contents2, task):
             alignment["classification"] = "contradictory_" + alignment["classification"]
             alignments.append(alignment)
             found_any = True
-        if found_any is False:
+        if found_any is False or response["more_information_exist"] is False:
             break
 
     return alignments

@@ -223,21 +223,25 @@ def extract_keysteps(step_sequences, min_clique_size=1):
     if len(all_steps) == 0:
         return []
     
-    print(all_steps)
-    
     embeddings = bert_embedding(all_steps)
+    similarities = np.zeros((len(all_steps), len(all_steps)))
+    for i in range(len(all_steps)):
+        for j in range(i+1, len(all_steps)):
+            similarities[i][j] = np.dot(embeddings[i], embeddings[j])
+            similarities[j][i] = similarities[i][j]
+
 
     ## identify max_cliques
     max_cliques = []
     for i in range(len(all_steps)):
         for j in range(i+1, len(all_steps)):
-            if np.dot(embeddings[i], embeddings[j]) > MAX_CLIQUE_THRESHOLD:
+            if similarities[i][j] >= MAX_CLIQUE_THRESHOLD:
                 max_cliques.append((i, j))
 
     ## identify keysteps (cluster of steps within a max_clique)
     keysteps = []
     visited = [False for _ in range(len(all_steps))]
-    for i, j in max_cliques:
+    for i in range(len(all_steps)):
         if not visited[i]:
             cluster = [i]
             visited[i] = True
@@ -310,12 +314,6 @@ def extract_keysteps(step_sequences, min_clique_size=1):
             new_keysteps.extend(keysteps[idx])
         merged_keysteps.append(new_keysteps)
     
-    ### print merged keysteps for each label
-    for i, keysteps in enumerate(merged_keysteps):
-        print("## Keystep ", i, ": ")
-        for k in keysteps:
-            print(f"- {all_steps[k]}")
-    
     relabled_step_sequences = []
     for sequence in step_sequences:
         new_sequence = []
@@ -334,5 +332,3 @@ def extract_keysteps(step_sequences, min_clique_size=1):
         relabled_step_sequences.append(new_sequence)
     
     return relabled_step_sequences
-
-

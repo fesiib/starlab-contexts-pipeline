@@ -5,7 +5,7 @@ from helpers import random_uid
 
 from helpers.prompts_segmentation import define_common_subgoals_v2, align_common_subgoals_v2, generate_common_subgoals_v3
 
-from helpers.prompts_segmentation import define_common_subgoals_v4, summarize_common_subgoals_v4
+from helpers.prompts_segmentation import define_common_subgoals_v4, summarize_common_subgoals_v4, align_common_subgoals_v4
 
 from helpers.prompts_segmentation import extract_all_procedural_info_v5
 
@@ -43,8 +43,8 @@ class VideoPool:
 
     def process_videos(self):
         # self.__process_videos_v2()
-        self.__process_videos_v3()
-        # self.__process_videos_v4()
+        # self.__process_videos_v3()
+        self.__process_videos_v4()
         # self.__process_videos_v5()
     
     def __process_videos_v5(self):
@@ -55,44 +55,55 @@ class VideoPool:
                 all_pieces = extract_all_procedural_info_v5(video.get_all_contents(), self.task)  
                 all_pieces_per_video[video.video_id] = all_pieces
             print (json.dumps(all_pieces_per_video, indent=2))
-            
-                    
 
     def __process_videos_v4(self):
         ### Based on task subgoals clustering.
         if len(self.subgoals) == 0:
             sequences = []
             for video in self.videos:
-                sequence = define_common_subgoals_v4(video.get_all_contents(), self.task)
+                sequence, segments = define_common_subgoals_v4(video.get_all_contents(), self.task)
                 sequences.append(sequence)
-            
-            sequences_text = []
-            for sequence in sequences:
-                sequence_text = []
-                for subgoal in sequence:
-                    sequence_text.append(subgoal["description"])
-                sequences_text.append(sequence_text)
-            label_sequences = extract_keysteps(sequences_text)
-
-            subgoals_per_label = {}
-            for seq_id, sequence in enumerate(sequences):
-                for subg_id, subgoal in enumerate(sequence):
-                    label = label_sequences[seq_id][subg_id]
-                    if label not in subgoals_per_label:
-                        subgoals_per_label[label] = []
-                    subgoals_per_label[label].append({
-                        **subgoal,
+                video.common_subgoals = []
+                for index, subgoal in enumerate(segments):
+                    video.common_subgoals.append({
+                        "id": f"{video.video_id}-subgoal-{index}",
+                        "title": subgoal["title"],
+                        "start": subgoal["start"],
+                        "finish": subgoal["finish"],
+                        "text": subgoal["text"],
+                        "frame_paths": subgoal["frame_paths"],
+                        "content_ids": subgoal["content_ids"],
                     })
             
+            ## ASSUMPTION: as we go over all videos, the subgoals will get calibrated
             self.subgoals = []
-            for label, subgoals in subgoals_per_label.items():
-                if (len(subgoals) == 0):
-                    continue
-                if (len(subgoals) > 1):
-                    cur_subgoal = summarize_common_subgoals_v4(subgoals, self.task)
-                else:
-                    cur_subgoal = subgoals[0]
-                self.subgoals.append(cur_subgoal)
+            for subgoal in sequences[0]:
+                self.subgoals.append({
+                    "subgoal": subgoal,
+                    "original_subgoals": [subgoal],
+                })
+            for new_sequence in sequences[1:]:
+                old_sequence = []
+                for subgoal in self.subgoals:
+                    old_sequence.append(subgoal["subgoal"])
+                
+                agg_sequence = align_common_subgoals_v4(old_sequence, new_sequence, self.task)
+                
+                new_subgoals = []
+                for new_subgoal in agg_sequence:
+                    original_subgoals  = new_subgoal["original_list_2"]
+                    
+                    old_sequence_subgoals = new_subgoal["original_list_1"]
+                    for old_subgoal in old_sequence_subgoals:
+                        for subgoal in self.subgoals:
+                            if subgoal["subgoal"] == old_subgoal:
+                                original_subgoals += subgoal["original_subgoals"]
+                                break
+                    new_subgoals.append({
+                        "subgoal": new_subgoal["aggregated"],
+                        "original_subgoals": original_subgoals,
+                    })
+                self.subgoals = new_subgoals
 
     def __process_videos_v3(self):
         for video in self.videos:
