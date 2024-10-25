@@ -4,21 +4,22 @@ from helpers import META_TITLE, APPROACHES, BASELINES
 from helpers import random_uid
 
 from helpers.prompts_segmentation import define_subgoals_v2, align_subgoals_v2, generate_subgoals_v3
-
-from helpers.prompts_segmentation import define_steps_v4, summarize_steps_v4, align_steps_v4, segment_video_v4
-
+from helpers.prompts_segmentation import define_steps_v4, extract_subgoals_v4, align_steps_v4, segment_video_v4
 from helpers.prompts_segmentation import extract_all_procedural_info_v5
 
+from helpers.prompts_summarization import get_step_summary_v4
 from helpers.prompts_summarization import get_meta_summary_v2, get_subgoal_summary_v2
-
 from helpers.prompts_summarization import get_problem_summary_v1, get_method_summary_v1
 
-from helpers.prompts_comparison import get_subgoal_alignments_v3, get_meta_alignments_v3, get_transcript_alignments_v3, get_subgoal_alignments_v2, get_meta_alignments_v2, get_meta_alignments_v4
+from helpers.prompts_comparison import get_subgoal_alignments_v3, get_meta_alignments_v3, get_transcript_alignments_v3
+from helpers.prompts_comparison import get_subgoal_alignments_v2, get_meta_alignments_v2, get_overall_alignments_v4
+from helpers.prompts_comparison import get_subgoal_alignments_v4, get_steps_alignments_v4
 
 from helpers.prompts_organization import get_notable_v2, get_hook_v2, get_alignments_summary_v2
+from helpers.prompts_organization import get_notable_v4
 
 from helpers.clip import clip_similar_per_text
-from helpers.sklearn import cluster_tagged_texts, cluster_texts, extract_keysteps
+from helpers.sklearn import cluster_tagged_texts, cluster_texts, extract_keysteps, cluster_conservative
 from helpers.bert import bert_embedding, find_most_similar
 
 class VideoPool:
@@ -61,6 +62,60 @@ class VideoPool:
         for video in self.videos:
             if len(video.steps) == 0:
                 video.steps = define_steps_v4(video.get_all_contents(), self.task)
+
+        ### Cluster steps ands define subgoals
+        if len(self.subgoals) == 0:
+            sequences = []
+            for video in self.videos:
+                sequences.append(video.steps)
+                
+            ## ASSUMPTION: as we go over all videos, the steps will get calibrated
+            agg_steps = []
+            for step in sequences[0]:
+                agg_steps.append({
+                    "step": step,
+                    "original_steps": [step],
+                })
+            for new_sequence in sequences[1:]:
+                old_sequence = []
+                for step in agg_steps:
+                    old_sequence.append(step["step"])
+                
+                agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
+                
+                new_agg_steps = []
+                for new_agg_step in agg_sequence:
+                    original_steps = new_agg_step["original_list_2"]
+                    
+                    for old_step in new_agg_step["original_list_1"]:
+                        for agg_step in agg_steps:
+                            if agg_step["step"] == old_step:
+                                original_steps += agg_step["original_steps"]
+                                break
+                    new_agg_steps.append({
+                        "step": new_agg_step["aggregated"],
+                        "original_steps": original_steps,
+                    })
+                agg_steps = new_agg_steps
+            ### TODO: Turn the sequence of aggregated steps into subgoals
+            subgoals = extract_subgoals_v4([s["step"] for s in agg_steps], self.task)
+            self.subgoals = []
+            for subgoal in subgoals:
+                original_steps = []
+                for step in subgoal["original_steps"]:
+                    for agg_step in agg_steps:
+                        if agg_step["step"] == step:
+                            original_steps.extend(agg_step["original_steps"])
+                            break
+
+                self.subgoals.append({
+                    "title": subgoal["title"],
+                    "description": subgoal["description"],
+                    "original_steps": original_steps,
+                })
+        
+        ### Segment each video based on the appropriate subgoals --> does not work too well...
+        for video in self.videos:
             ## initial subgoals
             if len(video.subgoals) == 0:
                 segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
@@ -74,44 +129,72 @@ class VideoPool:
                         "frame_paths": subgoal["frame_paths"],
                         "content_ids": subgoal["content_ids"],
                     })
+                ## re-segment based on the new subgoals TODO: move under if
+                subgoal_assignment = [""] * len(video.subgoals)
+                for index, step in enumerate(video.subgoals):
+                    for subgoal in self.subgoals:
+                        if step["title"] in subgoal["original_steps"]:
+                            if subgoal_assignment[index] != "":
+                                print(f"Warning: {video.video_id} - {step['title']} is assigned to {subgoal_assignment[index]} and {subgoal['title']}")
+                            subgoal_assignment[index] = subgoal["title"]
+                new_video_subgoals = []
+                for index, step in enumerate(video.subgoals):
+                    if len(new_video_subgoals) > 0 and (new_video_subgoals[-1]["title"] == subgoal_assignment[index] or subgoal_assignment[index] == ""):
+                        new_video_subgoals[-1]["finish"] = step["finish"]
+                        new_video_subgoals[-1]["text"] += " " + step["text"]
+                        new_video_subgoals[-1]["frame_paths"] += step["frame_paths"]
+                        new_video_subgoals[-1]["content_ids"] += step["content_ids"]
+                        new_video_subgoals[-1]["original_steps"].append(step["title"])
+                    else:
+                        new_video_subgoals.append({
+                            "id": step["id"],
+                            "title": subgoal_assignment[index],
+                            "start": step["start"],
+                            "finish": step["finish"],
+                            "text": step["text"],
+                            "frame_paths": step["frame_paths"],
+                            "content_ids": step["content_ids"],
+                            "original_steps": [step["title"]],
+                        })
+                video.subgoals = new_video_subgoals
 
-        ### Cluster steps ands define subgoals
-        if len(self.subgoals) == 0:
-            sequences = []
-            for video in self.videos:
-                sequences.append(video.steps)
+            ### extract useful information for each step
+            if len(video.subgoal_summaries) == 0:
+                video.subgoal_summaries = []
+                for subgoal in video.subgoals:
+                    if subgoal["title"] == "":
+                        continue
+                    summary = get_step_summary_v4(video.get_all_contents(),
+                        subgoal["original_steps"], self.task)
+                    for key in summary:
+                        if not key.endswith("_content_ids"):
+                            continue
+                        new_content_ids = []
+                        for id in summary[key]:
+                            new_content_ids.append(f"{video.video_id}-{id}")
+                        summary[key] = new_content_ids
+                    summary = {
+                        "title": subgoal["title"],
+                        **summary,
+                        "outcome_frame_paths": [],
+                        "materials_frame_paths": [],
+                        "tools_frame_paths": [],
+                    }
+                    if len(summary["outcome"]) > 0:
+                        summary["outcome_frame_paths"] = clip_similar_per_text([*summary["outcome"]], summary["frame_paths"])
+                    if len(summary["materials"]) > 0:
+                        summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
+                    if len(summary["tools"]) > 0:
+                        summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
+                    video.subgoal_summaries.append(summary)
+
+            cannot_be_empty = ["instructions", "explanation", "tips"]
+            for subgoal_summary in video.subgoal_summaries:
+                for key in cannot_be_empty:
+                    if len(subgoal_summary[key+"_content_ids"]) == 0:
+                        subgoal_summary[key] = ""
+
                 
-            ## ASSUMPTION: as we go over all videos, the subgoals will get calibrated
-            self.subgoals = []
-            for subgoal in sequences[0]:
-                self.subgoals.append({
-                    "subgoal": subgoal,
-                    "original_subgoals": [subgoal],
-                })
-            for new_sequence in sequences[1:]:
-                old_sequence = []
-                for subgoal in self.subgoals:
-                    old_sequence.append(subgoal["subgoal"])
-                
-                agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
-                
-                new_subgoals = []
-                for new_subgoal in agg_sequence:
-                    original_subgoals  = new_subgoal["original_list_2"]
-                    
-                    old_sequence_subgoals = new_subgoal["original_list_1"]
-                    for old_subgoal in old_sequence_subgoals:
-                        for subgoal in self.subgoals:
-                            if subgoal["subgoal"] == old_subgoal:
-                                original_subgoals += subgoal["original_subgoals"]
-                                break
-                    new_subgoals.append({
-                        "subgoal": new_subgoal["aggregated"],
-                        "original_subgoals": original_subgoals,
-                    })
-                self.subgoals = new_subgoals
-                ### TODO: Summarize each subgoal
-        ### Segment each video based on the appropriate subgoals TODO
 
     def __process_videos_v3(self):
         for video in self.videos:
@@ -221,6 +304,20 @@ class VideoPool:
                     }
                     video.subgoal_summaries.append(summary)
 
+    def __reformat_alignments_v2(self, alignments, video1, video2):
+        for alignment in alignments:
+            alignment["other_video_id"] = video2.video_id
+            alignment["id"] = f"link-{video1.video_id}-{random_uid()}"
+            alignment["alignment_title"] = alignment["title"]
+            alignment["alignment_description"] = alignment["description"]
+            alignment["alignment_reasoning"] = alignment["reasoning"]
+            alignment["alignment_comparison"] = alignment["comparison"]
+            del alignment["comparison"]
+            del alignment["reasoning"]
+            del alignment["title"]
+            del alignment["description"]
+        return alignments
+    
     def __reformat_alignments(self, alignments_set, video1, video2):
         for alignment in alignments_set:
             alignment["alignment_title"] = alignment["title"]
@@ -240,7 +337,7 @@ class VideoPool:
             if "other_content_ids" not in alignment:
                 alignment["other_content_ids"] = video2.quotes_to_content_ids(alignment["other_quotes"])
             alignment["other_video_id"] = video2.video_id
-            alignment["id"] = f"link-{video1.video_id}-{random_uid()}"
+            alignment["id"] = f"alignment-{video1.video_id}-{random_uid()}"
             
             subgoal_title = alignment["subgoal_title"]
 
@@ -448,7 +545,8 @@ class VideoPool:
                     "alignments": summarized_alignments,
                     "video_id": video1.video_id,
                 })
-    
+
+
     ### APPROACH PROBLEM/METHOD SPLIT
     def __generate_alignments_2(self):
         approach = APPROACHES[2]
@@ -465,7 +563,7 @@ class VideoPool:
                 ### between meta
                 contents1 = video1.get_meta_summary_contents(False)
                 contents2 = video2.get_meta_summary_contents(False)
-                meta_alignments = get_meta_alignments_v4(
+                meta_alignments = get_overall_alignments_v4(
                     contents1, contents2, self.task
                 )
                 for alignment in meta_alignments:
@@ -474,6 +572,64 @@ class VideoPool:
                 self.alignment_sets[approach].append({
                     "alignments": self.__reformat_alignments(meta_alignments, video1, video2),
                     "video_id": video1.video_id,
+                })
+
+    ### APPROACH 4 (CLASSIFICATION + IMPORTANCE + AGGREGATION_PER_RELATION_AND_CLASS)
+    def __generate_alignments_3(self):
+        approach = APPROACHES[3]
+        if len(self.videos) < 2:
+            return
+        if len(self.subgoals) == 0:
+            return
+        if approach in self.alignment_sets and len(self.alignment_sets[approach]) > 0:
+            return
+        self.alignment_sets[approach] = []
+        for v1_idx, video1 in enumerate(self.videos):
+            for v2_idx, video2 in enumerate(self.videos):
+                if v1_idx > v2_idx:
+                    continue
+                alignments_1 = []
+                alignments_2 = []
+                ### between subgoals
+                for subgoal_def in self.subgoals:
+                    contents1 = video1.get_subgoal_summary_multimodal_contents(subgoal_def["title"])
+                    contents2 = video2.get_subgoal_summary_multimodal_contents(subgoal_def["title"])
+                    if len(contents1) == 0 or len(contents2) == 0:
+                        continue
+                    subgoal_alignments_1, subgoal_alignments_2 = get_subgoal_alignments_v4(
+                        contents1, contents2, subgoal_def["title"], self.task
+                    )
+                    for alignment in [*subgoal_alignments_1, *subgoal_alignments_2]:
+                        alignment["subgoal_title"] = subgoal_def["title"]
+                                            
+                    alignments_1.extend(self.__reformat_alignments_v2(
+                        subgoal_alignments_1, video1, video2
+                    ))
+                    alignments_2.extend(self.__reformat_alignments_v2(
+                        subgoal_alignments_2, video2, video1
+                    ))
+                
+                ### between meta
+                meta_alignments_1, meta_alignments_2 = get_steps_alignments_v4(
+                    contents1, contents2, self.task
+                )
+                for alignment in [*meta_alignments_1, *meta_alignments_2]:
+                    alignment["subgoal_title"] = META_TITLE
+                
+                alignments_1.extend(self.__reformat_alignments_v2(
+                    meta_alignments_1, video1, video2
+                ))
+                alignments_2.extend(self.__reformat_alignments_v2(
+                    meta_alignments_2, video2, video1
+                ))
+                    
+                self.alignment_sets[approach].append({
+                    "alignments": alignments_1,
+                    "video_id": video1.video_id,
+                })
+                self.alignment_sets[approach].append({
+                    "alignments": alignments_2,
+                    "video_id": video2.video_id,
                 })
 
     ### APPROACH 3 (BASELINE 1)
@@ -580,8 +736,123 @@ class VideoPool:
         # self.__generate_alignments_0()
         # self.__generate_alignments_1()
         # self.__generate_alignments_2()
+        self.__generate_alignments_3()
         # self.__generate_alignments_baseline_1()
-        self.__generate_alignments_baseline_2()
+        # self.__generate_alignments_baseline_2()
+
+    def __cluster_v2(self, source, items, summarization_f = None):
+        if len(items) == 0:
+            return []
+        texts = []
+        for item in items:
+            texts.append(item[f"{source}_description"])
+        # tags = []
+        # for item in items:
+        #     texts.append(item[f"{source}_description"])
+        #     if source == "alignment":
+        #         ## ASSUMPTION: two different alignments from the same video pair should not be in the same cluster as it should have been eliminated earlier!
+        #         tags.append(item["other_video_id"])
+        #     else:
+        #         ## ASSUMPTION: a hook should not lead to same subgoal of the video twice!
+        #         tags.append(item["video_id"] + "-" + item["subgoal_title"])
+        cluster_labels = cluster_conservative(texts)
+        clusters = {}
+        for index, label in enumerate(cluster_labels):
+            if label not in clusters:
+                clusters[label] = []
+            clusters[label].append(items[index])
+
+        if summarization_f is None:
+            return [], list(clusters.values()),
+        
+        results = []
+        for cluster in clusters.values():
+            if len(cluster) < 1:
+                continue
+            contents = []
+            for a in cluster:
+                text = "- **Procedural Content**: " + a[f"{source}_title"] + "\n"
+                text += "\t- Description: " + a[f"{source}_description"] + "\n"
+                if source == "alignment":
+                    text += "\t- Reasoning: " + a['alignment_reasoning'] + "\n"
+                    text + "\t- Comparison: " + a['alignment_comparison'] + "\n"
+                
+                contents.append({
+                    "type": "text",
+                    "text": text
+                })
+            if len(cluster) == 1:
+                results.append({
+                    "title": cluster[0][f"{source}_title"],
+                    "description": cluster[0][f"{source}_description"],
+                    "reasoning": cluster[0][f"{source}_reasoning"],
+                    "comparison": cluster[0][f"{source}_comparison"],
+                })
+            else:
+                results.append(summarization_f(contents, self.task))
+        return results, list(clusters.values())
+
+    def __generate_notable_v2(self, root_alignments):
+        if len(root_alignments) < 1:
+            return []
+        notables = []
+        alignments_per_video = {}
+        for alignment in root_alignments:
+            video_id = alignment["video_id"]
+            if video_id not in alignments_per_video:
+                alignments_per_video[video_id] = []
+            alignments_per_video[video_id] += alignment["alignments"]
+        for video_id, all_alignments in alignments_per_video.items():
+            if len(all_alignments) < 1:
+                continue
+
+            video = self.get_video(video_id)
+            if video is None:
+                continue
+
+            alignments_per_subgoal_aspect = {}
+            for alignment in all_alignments:
+                subgoal_aspect = alignment["aspect"] + "+" + alignment["subgoal_title"]
+
+                if subgoal_aspect not in alignments_per_subgoal_aspect:
+                    alignments_per_subgoal_aspect[subgoal_aspect] = []
+                alignments_per_subgoal_aspect[subgoal_aspect].append(alignment)
+
+            ### cluster alignments per aspect
+            for subgoal_aspect, alignments in alignments_per_subgoal_aspect.items():
+                if len(alignments) < 1:
+                    continue
+                aspect = subgoal_aspect.split("+")[0]
+                subgoal = subgoal_aspect.split("+")[1]
+                
+                cur_notables, clusters = self.__cluster_v2("alignment", alignments, get_notable_v4)
+                for notable, cluster in zip(cur_notables, clusters):
+                    print("--> ", len(cluster))
+                    links = []
+                    importance = 0
+                    for alignment in cluster:
+                        links.append({
+                            "id": alignment["id"],
+                            "video_id": alignment["other_video_id"],
+                            "description": alignment["alignment_comparison"],
+                            "aspect": alignment["aspect"],
+                            "subgoal": alignment["subgoal_title"],
+                            "relation": alignment["relation"],
+                            "importance": alignment["importance"],
+                        })
+                        importance += alignment["importance"]
+                    notables.append({
+                        "id": f"notable-{video_id}-{random_uid()}",
+                        "video_id": video_id,
+                        "title": notable["title"],
+                        "description": notable["description"],
+                        "reasoning": notable["reasoning"],
+                        "subgoal": subgoal,
+                        "aspect": aspect,
+                        "links": links,
+                        "importance": importance / len(cluster),
+                    })
+        return notables
 
     def __generate_notable(self, root_alignments):
         if len(root_alignments) < 1:
@@ -633,13 +904,13 @@ class VideoPool:
             if approach not in self.alignment_sets:
                 continue
             if f"notables_{approach}" not in self.hooks:
-                self.hooks[f"notables_{approach}"] = self.__generate_notable(self.alignment_sets[approach])
+                self.hooks[f"notables_{approach}"] = self.__generate_notable_v2(self.alignment_sets[approach])
 
         for baseline in BASELINES:
             if baseline not in self.alignment_sets:
                 continue
             if f"notables_{baseline}" not in self.hooks:
-                self.hooks[f"notables_{baseline}"] = self.__generate_notable(self.alignment_sets[baseline])
+                self.hooks[f"notables_{baseline}"] = self.__generate_notable_v2(self.alignment_sets[baseline])
 
     def __generate_hooks(self, root_notables):
         hook_parents_per_video = {}

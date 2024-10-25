@@ -209,6 +209,41 @@ def cluster_tagged_texts(texts, tags, tries=5):
 
     return labels
 
+def cluster_conservative(texts):
+    """
+    cluster texts that have `high` similarity
+    """
+
+    SIMILARITY_THRESHOLD = 0.9
+
+    if len(texts) <= 1:
+        return [0 for _ in range(len(texts))]
+    
+    labels = []
+    embeddings = bert_embedding(texts)
+
+    similarities = np.zeros((len(texts), len(texts)))
+    for i in range(len(texts)):
+        for j in range(i+1, len(texts)):
+            similarities[i][j] = np.dot(embeddings[i], embeddings[j])
+            similarities[j][i] = similarities[i][j]
+    
+
+    labels = [i for i in range(len(texts))]
+    visited = [False for _ in range(len(texts))]
+    for i in range(len(texts)):
+        if visited[i]:
+            continue
+        visited[i] = True
+        for j in range(i+1, len(texts)):
+            if visited[j]:
+                continue
+            if similarities[i][j] >= SIMILARITY_THRESHOLD:
+                visited[j] = True
+                labels[j] = labels[i]
+    return labels
+
+
 def extract_keysteps(step_sequences, min_clique_size=1):
     """
     Extract keysteps similar to https://aclanthology.org/2023.findings-acl.210.pdf

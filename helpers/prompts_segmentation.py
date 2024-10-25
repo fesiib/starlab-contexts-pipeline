@@ -1,12 +1,12 @@
 from helpers import get_response_pydantic, extend_contents, extend_subgoals
 from helpers import encode_image, get_response_pydantic_with_message
 
-from pydantic_models.segmentation import TaskGraph, get_segmentation_schema, StepsSchema, AggStepsSchema, SubgoalSchema, AllProceduralInformationSchema, TranscriptAssignmentsSchema, get_segmentation_schema_v4
+from pydantic_models.segmentation import TaskGraph, get_segmentation_schema, StepsSchema, AggStepsSchema, SubgoalSchema, AllProceduralInformationSchema, TranscriptAssignmentsSchema, get_segmentation_schema_v4, AggSubgoalsSchema
 
 
 def define_subgoals_v2(contents, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing and extracting subgoals for task `{task}`. You are given a transcript of a how-to video and asked to define a task graph that consists of subgoals of the demonstrated procedure and dependencies between the subgoals. Ensure that the subgoals are (1) based on meaningful intermediate stages of the procedure, (2) broad enough to encompass diverse ways to complete the task, and (3) specific enough to capture all critical procedural steps.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing and extracting subgoals for task `{task}`. You are given a transcript of a how-to video and asked to define the task graph that consists of subgoals of the demonstrated procedure and dependencies between the subgoals. Ensure that the subgoals are (1) based on meaningful intermediate stages of the procedure, (2) broad enough to encompass diverse ways to complete the task, and (3) specific enough to capture all critical procedural steps.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -88,7 +88,7 @@ def generate_subgoals_v3(contents, subgoals, task):
 
 def assign_transcripts_v4(contents, subgoals, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `{task}` and a set of steps, analyze each sentence and find the steps it is talking about. You can specify multiple steps per sentence or leave it empty if it does not belong to any of the steps. Additionally, specify relevance of the sentence to the task at hand.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}` and a set of steps, analyze each sentence and find the steps it is talking about. You can specify multiple steps per sentence or leave it empty if it does not belong to any of the steps. Additionally, specify relevance of the sentence to the task at hand.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -144,7 +144,7 @@ def assign_transcripts_v4(contents, subgoals, task):
 
 def segment_video_v4(contents, steps, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `{task}` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -166,6 +166,8 @@ def segment_video_v4(contents, steps, task):
     response = get_response_pydantic(messages, SegmentationSchema)
 
     contents_coverage = [""] * len(contents)
+    response["segments"] = sorted(response["segments"], key=lambda x: x["start_index"])
+
     for segment in response["segments"]:
         start = segment["start_index"]
         finish = segment["end_index"]
@@ -185,9 +187,12 @@ def segment_video_v4(contents, steps, task):
         else:
             ### Start a new segment
             if len(segments) > 0:
-                segments[-1]["finish"] = content["start"]
+                new_start = (content["start"] + segments[-1]["finish"]) / 2
+                segments[-1]["finish"] = new_start
+            else:
+                new_start = content["start"]
             segments.append({
-                "start": content["start"],
+                "start": new_start,
                 "finish": content["finish"],
                 "title": cur_step,
                 "text": content["text"],
@@ -198,7 +203,7 @@ def segment_video_v4(contents, steps, task):
 
 def define_steps_v4(contents, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `{task}`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -249,17 +254,30 @@ def align_steps_v4(sequence1, sequence2, task):
                 print("ERROR: Original step from sequence found in multiple agg_steps")
     return steps
 
-def summarize_steps_v4(steps, task):
+def extract_subgoals_v4(steps, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial content. You are given a set of steps in the task `{task}`. Extract the common goal each of the steps are accomplishing and provide a single COMPREHENSIVE subgoal.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial content. You are given a set of generalized steps to perform the task `{task}`. Identify and extract subgoals within this procedure. Each subgoal should represent a distinct, meaningful intermediate stage or outcome within the procedure. Label each subgoal concisely in 1 to 3 words, ensuring each term is both informative and distinct.”".format(task=task)},
         {
             "role": "user",
-            "content": "## Steps:\n" + "\n".join(steps)
+            "content": "## Generalized Steps:\n" + "\n".join(steps)
         }
     ]
     
-    response = get_response_pydantic(messages, SubgoalSchema)
-    return response
+    response = get_response_pydantic(messages, AggSubgoalsSchema)
+    subgoals = response["subgoals"]
+    assignments = response["assignments"]
+    for subgoal in subgoals:
+        subgoal["original_steps"] = []
+        found = 0
+        for a in assignments:
+            if a["subgoal"] == subgoal["title"]:
+                subgoal["original_steps"].append(a["step"])
+                found += 1
+        if found == 0:
+            print("ERROR: Subgoal not found in assignments")
+    return subgoals
+
+                
 
 def extract_all_procedural_info_v5(contents, task, include_image=False):
     # extract_all_procedural_info_v5_explicit(contents, task, include_image)

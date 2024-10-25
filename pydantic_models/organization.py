@@ -13,3 +13,10 @@ class NotableInformationSchema(BaseModel):
 class HookSchema(BaseModel):
     title: str = Field(..., title="the title of the hook in a conversational manner. It should be interesting and engaging, but short!")
     description: str = Field(..., title="the elaboration on the hook. It should look like continuation of the title.")
+
+
+class SummarizedAlignmentSchema2(BaseModel):
+    title: str = Field(..., title="A 1 to 5 words title that concisely describes the new content.")
+    description: str = Field(..., title="a brief, specific, and clear description of the new content.")
+    reasoning: str = Field(..., title="a brief explanation of why this specific content is included in the video.")
+    comparison: str = Field(..., title="if applicable, a brief explanation of why the new content is different from or not included in the other video(s). Do not mention the other video(s) by name.")

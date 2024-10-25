@@ -71,6 +71,18 @@ class TranscriptAssignmentsSchema(BaseModel):
     assignments: list[TranscriptMappingSchema] = Field(..., title="The mapping of sentences in the narration to steps.")
 
 
+class AggSubgoalMappingSchema(BaseModel):
+    step: str = Field(..., title="The step that the subgoal is mapped to.")
+    subgoal: str = Field(..., title="The subgoal that the step is mapped to.")
+
+class AggSubgoalSchema(BaseModel):
+    title: str = Field(..., title="A 1 to 3 words title of the subgoal")
+    description: str = Field(..., title="The description of the subgoal that specifies the information it should cover in tutorial videos")
+
+class AggSubgoalsSchema(BaseModel):
+    subgoals: list[AggSubgoalSchema] = Field(..., title="The list of subgoals with their steps")
+    assignments: list[AggSubgoalMappingSchema] = Field(..., title="The mapping of steps to subgoals")
+
 class SubgoalSchema(BaseModel):
     title: str = Field(..., title="A 2/3-word title of the subgoal")
     description: str = Field(..., title="The description of the subgoal that specifies the information it should cover in different videos")

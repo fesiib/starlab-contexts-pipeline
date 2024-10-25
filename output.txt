@@ -1,342 +1,46 @@
-[youtube] Extracting URL: https://www.youtube.com/watch?v=75p4UHRIMcU
 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
-[youtube] 75p4UHRIMcU: Downloading webpage
-[youtube] 75p4UHRIMcU: Downloading ios player API JSON
-[youtube] 75p4UHRIMcU: Downloading mweb player API JSON
-[youtube] 75p4UHRIMcU: Downloading m3u8 information
-[info] 75p4UHRIMcU: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=dzyXBU3dIys
-Video '75p4UHRIMcU' already exists in the directory.
-Frames for video 'static/database/75p4UHRIMcU.mp4' already exist.
-[youtube] dzyXBU3dIys: Downloading webpage
-[youtube] dzyXBU3dIys: Downloading ios player API JSON
-[youtube] dzyXBU3dIys: Downloading mweb player API JSON
-[youtube] dzyXBU3dIys: Downloading m3u8 information
-[info] dzyXBU3dIys: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=D_2DBLAt57c
-Video 'dzyXBU3dIys' already exists in the directory.
-Frames for video 'static/database/dzyXBU3dIys.mp4' already exist.
-[youtube] D_2DBLAt57c: Downloading webpage
-[youtube] D_2DBLAt57c: Downloading ios player API JSON
-[youtube] D_2DBLAt57c: Downloading mweb player API JSON
-[youtube] D_2DBLAt57c: Downloading m3u8 information
-[info] D_2DBLAt57c: Downloading subtitles: en
-[youtube] Extracting URL: https://www.youtube.com/watch?v=3AAdKl1UYZs
-Video 'D_2DBLAt57c' already exists in the directory.
-Frames for video 'static/database/D_2DBLAt57c.mp4' already exist.
-[youtube] 3AAdKl1UYZs: Downloading webpage
-[youtube] 3AAdKl1UYZs: Downloading ios player API JSON
-[youtube] 3AAdKl1UYZs: Downloading mweb player API JSON
-[youtube] 3AAdKl1UYZs: Downloading m3u8 information
-[info] 3AAdKl1UYZs: Downloading subtitles: en
-Video '3AAdKl1UYZs' already exists in the directory.
-Frames for video 'static/database/3AAdKl1UYZs.mp4' already exist.
+-->  1
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information."
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
   },
   {
     "role": "user",
     "content": [
       {
         "type": "text",
-        "text": "Contents:\n"
+        "text": "- **Procedural Content**: Use Bacon Instead of Guanciale\n\t- Description: Bacon is used as the meat for the dish instead of guanciale.\n\t- Reasoning: Bacon is a more commonly available ingredient and can be used as a substitute for guanciale.\n"
       },
       {
         "type": "text",
-        "text": "Fai schifo cucinare, ja totalmente schifo!"
-      },
-      {
-        "type": "text",
-        "text": "Today we're not making spaghetti carbonara."
-      },
-      {
-        "type": "text",
-        "text": "Some might say it looks like carbonara, and tastes like carbonara, and has the mouthfeel of carbonara, the substances which make up carbonara, and even the personality of carbonara."
-      },
-      {
-        "type": "text",
-        "text": "But this is not carbonara."
-      },
-      {
-        "type": "text",
-        "text": "The first thing we're gonna do is chop up some bacon."
-      },
-      {
-        "type": "text",
-        "text": "That's how you know this isn't carbonara, because if you were making carbonara, you'd be using guanciale."
-      },
-      {
-        "type": "text",
-        "text": "You see, bacon comes from a pig, whereas guanciale comes from a completely different animal, known as an Italian hog."
-      },
-      {
-        "type": "text",
-        "text": "Oh my god, it looks like a jumping Italian horse!"
-      },
-      {
-        "type": "text",
-        "text": "You wouldn't make a hamburger with tiger meat, would you?"
-      },
-      {
-        "type": "text",
-        "text": "I really hope not."
-      },
-      {
-        "type": "text",
-        "text": "Tigers are expensive."
-      },
-      {
-        "type": "text",
-        "text": "Carbonara is typically made with egg yolks, which is irrelevant, since that's not what we're making."
-      },
-      {
-        "type": "text",
-        "text": "Don't accidentally use egg yolkles, because banjo music really ruins this dish."
-      },
-      {
-        "type": "text",
-        "text": "We'll just do the classic hold the yolk with your thumb trick."
-      },
-      {
-        "type": "text",
-        "text": "You can also do the back and forth, and whoops, maybe no forth."
-      },
-      {
-        "type": "text",
-        "text": "Then make the traditional Italian egg white on toast as an appetizer."
-      },
-      {
-        "type": "text",
-        "text": "Mmm."
-      },
-      {
-        "type": "text",
-        "text": "This is pecorino romano, which you would use if you're making carbonara, which we are not."
-      },
-      {
-        "type": "text",
-        "text": "It gets its name because the Romans who made it had huge pecs."
-      },
-      {
-        "type": "text",
-        "text": "So did the goats."
-      },
-      {
-        "type": "text",
-        "text": "They worked out together."
-      },
-      {
-        "type": "text",
-        "text": "If you want to shred your pecorino more easily, you can take a drill, put in a nice big fat screw, then you just... okay."
-      },
-      {
-        "type": "text",
-        "text": "So, whoop."
-      },
-      {
-        "type": "text",
-        "text": "All right."
-      },
-      {
-        "type": "text",
-        "text": "If I just maybe... okay, let's try."
-      },
-      {
-        "type": "text",
-        "text": "Nope."
-      },
-      {
-        "type": "text",
-        "text": "See, in my mind when I thought of this, none of the physics of how objects work would be an issue."
-      },
-      {
-        "type": "text",
-        "text": "If you're Italian, you don't need to innovate in this department, because you simply harness the power of your hand gesture muscles, which makes this a breeze."
-      },
-      {
-        "type": "text",
-        "text": "So grate that into the egg yolk and wang jangle until you've got Cadbury cream egg filling."
-      },
-      {
-        "type": "text",
-        "text": "Then we'll add some pepper pepper pepper, and we're good to go."
-      },
-      {
-        "type": "text",
-        "text": "And by go, I mean stay, because we're not done yet."
-      },
-      {
-        "type": "text",
-        "text": "The original carbonara was made with handcrafted artisan spaghetti from the Veneto region."
-      },
-      {
-        "type": "text",
-        "text": "Each spaghetti craftsperson had their signature style."
-      },
-      {
-        "type": "text",
-        "text": "Sadly, these days you can only find straight parallel line spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "And you know, it just really angers me that the craft has been left to die like nobody cares."
-      },
-      {
-        "type": "text",
-        "text": "Now let's just fix that."
-      },
-      {
-        "type": "text",
-        "text": "Breaking spaghetti in half is a crime in Italy and can land you in prison for up to nine months."
-      },
-      {
-        "type": "text",
-        "text": "It sounds like an overreaction at first, but the crack sends a shock wave through the noodle, rendering it completely inedible."
-      },
-      {
-        "type": "text",
-        "text": "I mean look, here's uncracked spaghetti and cracked spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "If I didn't tell you that was spaghetti, you wouldn't have even recognized it."
-      },
-      {
-        "type": "text",
-        "text": "Now we'll salt this angry water, then throw in 156 pieces of spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "Keep wang jangling that for the first bit to keep the spag from getting clingy."
-      },
-      {
-        "type": "text",
-        "text": "By the way, spaghetti gets its name because you put it in the spa to cook it."
-      },
-      {
-        "type": "text",
-        "text": "Now our bacon is cooked."
-      },
-      {
-        "type": "text",
-        "text": "We're turning the burner off, waiting for this to cool, at least until there's no sizzle left, and a bit longer so we don't overcook the eggbased sauce."
-      },
-      {
-        "type": "text",
-        "text": "Now I'm gonna put in a bit of pasta water into our sauce ingredients to get that cheeseahead start on the melting."
-      },
-      {
-        "type": "text",
-        "text": "Noodles go straight from the water into the bacon pan for a wang jangulation."
-      },
-      {
-        "type": "text",
-        "text": "Since noodles are made of wheat, this is essentially a bacon sandwich, but if you do strain the spaghetti, make sure to set aside some pasta water, and if you get the kind of spaghetti with dehydrated meatballs, just pull those out and set them aside."
-      },
-      {
-        "type": "text",
-        "text": "Then the sauce can go in and the egg will cook just enough from the noodle heat, although you can put your pan on low to thicken it as well, because here comes more pasta water making this nice and creamy."
-      },
-      {
-        "type": "text",
-        "text": "The reason we add pasta water is so that if you get thirsty while you eat it, you don't have to stop and have a drink."
-      },
-      {
-        "type": "text",
-        "text": "Here I'm trying to do that fancy twist thing, but it's not the right tool, and I don't know what I'm doing."
-      },
-      {
-        "type": "text",
-        "text": "We'll finish with some pepper pepper pepper and some more pecorino or parmesan, and here we don't have carbonara."
-      },
-      {
-        "type": "text",
-        "text": "If you want to really see not carbonara, here's an earlier attempt where I used whole egg."
-      },
-      {
-        "type": "text",
-        "text": "Too much heat, and for some reason this came out way worse than my first attempt with whole egg, which came out great."
-      },
-      {
-        "type": "text",
-        "text": "So are the whims of the food gods."
-      },
-      {
-        "type": "text",
-        "text": "If this was carbonara, you'd have to be careful, because the carbonistic properties are so fragile that if you put in a single pea, it would no longer be carbonara."
-      },
-      {
-        "type": "text",
-        "text": "It's a mysterious chemical reaction that only Italian scientists understand."
-      },
-      {
-        "type": "text",
-        "text": "I'm craving carbonara, but I don't have guanciale."
-      },
-      {
-        "type": "text",
-        "text": "Should I really even bother?"
-      },
-      {
-        "type": "text",
-        "text": "Oh no, will they judge my carbonara?"
-      },
-      {
-        "type": "text",
-        "text": "Because I want some cream upon it."
-      },
-      {
-        "type": "text",
-        "text": "Should I eat it in the closet?"
-      },
-      {
-        "type": "text",
-        "text": "Oh no, what have I done?"
-      },
-      {
-        "type": "text",
-        "text": "I've added peas to a dish that is otherwise vegetable free."
-      },
-      {
-        "type": "text",
-        "text": "They say it's no game."
-      },
-      {
-        "type": "text",
-        "text": "Hang my head as I eat this not carbonara in shame."
+        "text": "- **Procedural Content**: Use Bacon Instead of Guanciale\n\t- Description: Bacon is used as the meat for the dish instead of guanciale or pancetta.\n\t- Reasoning: Bacon is a more commonly available ingredient and can be used as a substitute for guanciale.\n"
       }
     ]
   }
 ]
 RESPONSE: {
-  "steps": [
-    "Chop bacon into small pieces.",
-    "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.",
-    "Separate egg yolks from the whites and place the yolks in a bowl.",
-    "Grate pecorino romano cheese and add it to the egg yolks.",
-    "Add black pepper to the egg yolk and cheese mixture and mix well.",
-    "Boil water in a pot, add salt, and cook spaghetti until al dente.",
-    "Reserve some pasta water before draining the spaghetti.",
-    "Add a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.",
-    "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
-    "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.",
-    "If needed, add more reserved pasta water to achieve the desired sauce consistency.",
-    "Finish with additional black pepper and grated pecorino romano or parmesan cheese before serving."
-  ]
+  "title": "Bacon as Guanciale Substitute",
+  "description": "Bacon is used instead of guanciale for the meat in Pasta Carbonara.",
+  "reasoning": "Bacon is more widely available and serves as a suitable substitute for guanciale.",
+  "comparison": "The use of bacon instead of guanciale or pancetta is highlighted as a common substitution due to availability."
 }
+-->  1
+-->  2
+-->  1
+-->  1
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered."
-  },
-  {
-    "role": "user",
     "content": [
       {
         "type": "text",
-        "text": "## Steps:\nChop bacon into small pieces.\nCook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.\nSeparate egg yolks from the whites and place the yolks in a bowl.\nGrate pecorino romano cheese and add it to the egg yolks.\nAdd black pepper to the egg yolk and cheese mixture and mix well.\nBoil water in a pot, add salt, and cook spaghetti until al dente.\nReserve some pasta water before draining the spaghetti.\nAdd a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.\nTransfer the cooked spaghetti directly from the pot to the pan with bacon.\nMix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.\nIf needed, add more reserved pasta water to achieve the desired sauce consistency.\nFinish with additional black pepper and grated pecorino romano or parmesan cheese before serving."
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
       }
     ]
   },
@@ -345,907 +49,36 @@ MESSAGES: [
     "content": [
       {
         "type": "text",
-        "text": "## Contents:\n"
+        "text": "- **Procedural Content**: Yolk Separation Tips\n\t- Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: These tips help in efficiently separating yolks without breaking them.\n"
       },
       {
         "type": "text",
-        "text": "0. Fai schifo cucinare, ja totalmente schifo!"
+        "text": "- **Procedural Content**: Separate Egg Yolks Method\n\t- Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: This method is included to provide viewers with a reliable technique for separating egg yolks, which is crucial for the sauce's texture.\n"
       },
       {
         "type": "text",
-        "text": "1. Today we're not making spaghetti carbonara."
-      },
-      {
-        "type": "text",
-        "text": "2. Some might say it looks like carbonara, and tastes like carbonara, and has the mouthfeel of carbonara, the substances which make up carbonara, and even the personality of carbonara."
-      },
-      {
-        "type": "text",
-        "text": "3. But this is not carbonara."
-      },
-      {
-        "type": "text",
-        "text": "4. The first thing we're gonna do is chop up some bacon."
-      },
-      {
-        "type": "text",
-        "text": "5. That's how you know this isn't carbonara, because if you were making carbonara, you'd be using guanciale."
-      },
-      {
-        "type": "text",
-        "text": "6. You see, bacon comes from a pig, whereas guanciale comes from a completely different animal, known as an Italian hog."
-      },
-      {
-        "type": "text",
-        "text": "7. Oh my god, it looks like a jumping Italian horse!"
-      },
-      {
-        "type": "text",
-        "text": "8. You wouldn't make a hamburger with tiger meat, would you?"
-      },
-      {
-        "type": "text",
-        "text": "9. I really hope not."
-      },
-      {
-        "type": "text",
-        "text": "10. Tigers are expensive."
-      },
-      {
-        "type": "text",
-        "text": "11. Carbonara is typically made with egg yolks, which is irrelevant, since that's not what we're making."
-      },
-      {
-        "type": "text",
-        "text": "12. Don't accidentally use egg yolkles, because banjo music really ruins this dish."
-      },
-      {
-        "type": "text",
-        "text": "13. We'll just do the classic hold the yolk with your thumb trick."
-      },
-      {
-        "type": "text",
-        "text": "14. You can also do the back and forth, and whoops, maybe no forth."
-      },
-      {
-        "type": "text",
-        "text": "15. Then make the traditional Italian egg white on toast as an appetizer."
-      },
-      {
-        "type": "text",
-        "text": "16. Mmm."
-      },
-      {
-        "type": "text",
-        "text": "17. This is pecorino romano, which you would use if you're making carbonara, which we are not."
-      },
-      {
-        "type": "text",
-        "text": "18. It gets its name because the Romans who made it had huge pecs."
-      },
-      {
-        "type": "text",
-        "text": "19. So did the goats."
-      },
-      {
-        "type": "text",
-        "text": "20. They worked out together."
-      },
-      {
-        "type": "text",
-        "text": "21. If you want to shred your pecorino more easily, you can take a drill, put in a nice big fat screw, then you just... okay."
-      },
-      {
-        "type": "text",
-        "text": "22. So, whoop."
-      },
-      {
-        "type": "text",
-        "text": "23. All right."
-      },
-      {
-        "type": "text",
-        "text": "24. If I just maybe... okay, let's try."
-      },
-      {
-        "type": "text",
-        "text": "25. Nope."
-      },
-      {
-        "type": "text",
-        "text": "26. See, in my mind when I thought of this, none of the physics of how objects work would be an issue."
-      },
-      {
-        "type": "text",
-        "text": "27. If you're Italian, you don't need to innovate in this department, because you simply harness the power of your hand gesture muscles, which makes this a breeze."
-      },
-      {
-        "type": "text",
-        "text": "28. So grate that into the egg yolk and wang jangle until you've got Cadbury cream egg filling."
-      },
-      {
-        "type": "text",
-        "text": "29. Then we'll add some pepper pepper pepper, and we're good to go."
-      },
-      {
-        "type": "text",
-        "text": "30. And by go, I mean stay, because we're not done yet."
-      },
-      {
-        "type": "text",
-        "text": "31. The original carbonara was made with handcrafted artisan spaghetti from the Veneto region."
-      },
-      {
-        "type": "text",
-        "text": "32. Each spaghetti craftsperson had their signature style."
-      },
-      {
-        "type": "text",
-        "text": "33. Sadly, these days you can only find straight parallel line spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "34. And you know, it just really angers me that the craft has been left to die like nobody cares."
-      },
-      {
-        "type": "text",
-        "text": "35. Now let's just fix that."
-      },
-      {
-        "type": "text",
-        "text": "36. Breaking spaghetti in half is a crime in Italy and can land you in prison for up to nine months."
-      },
-      {
-        "type": "text",
-        "text": "37. It sounds like an overreaction at first, but the crack sends a shock wave through the noodle, rendering it completely inedible."
-      },
-      {
-        "type": "text",
-        "text": "38. I mean look, here's uncracked spaghetti and cracked spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "39. If I didn't tell you that was spaghetti, you wouldn't have even recognized it."
-      },
-      {
-        "type": "text",
-        "text": "40. Now we'll salt this angry water, then throw in 156 pieces of spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "41. Keep wang jangling that for the first bit to keep the spag from getting clingy."
-      },
-      {
-        "type": "text",
-        "text": "42. By the way, spaghetti gets its name because you put it in the spa to cook it."
-      },
-      {
-        "type": "text",
-        "text": "43. Now our bacon is cooked."
-      },
-      {
-        "type": "text",
-        "text": "44. We're turning the burner off, waiting for this to cool, at least until there's no sizzle left, and a bit longer so we don't overcook the eggbased sauce."
-      },
-      {
-        "type": "text",
-        "text": "45. Now I'm gonna put in a bit of pasta water into our sauce ingredients to get that cheeseahead start on the melting."
-      },
-      {
-        "type": "text",
-        "text": "46. Noodles go straight from the water into the bacon pan for a wang jangulation."
-      },
-      {
-        "type": "text",
-        "text": "47. Since noodles are made of wheat, this is essentially a bacon sandwich, but if you do strain the spaghetti, make sure to set aside some pasta water, and if you get the kind of spaghetti with dehydrated meatballs, just pull those out and set them aside."
-      },
-      {
-        "type": "text",
-        "text": "48. Then the sauce can go in and the egg will cook just enough from the noodle heat, although you can put your pan on low to thicken it as well, because here comes more pasta water making this nice and creamy."
-      },
-      {
-        "type": "text",
-        "text": "49. The reason we add pasta water is so that if you get thirsty while you eat it, you don't have to stop and have a drink."
-      },
-      {
-        "type": "text",
-        "text": "50. Here I'm trying to do that fancy twist thing, but it's not the right tool, and I don't know what I'm doing."
-      },
-      {
-        "type": "text",
-        "text": "51. We'll finish with some pepper pepper pepper and some more pecorino or parmesan, and here we don't have carbonara."
-      },
-      {
-        "type": "text",
-        "text": "52. If you want to really see not carbonara, here's an earlier attempt where I used whole egg."
-      },
-      {
-        "type": "text",
-        "text": "53. Too much heat, and for some reason this came out way worse than my first attempt with whole egg, which came out great."
-      },
-      {
-        "type": "text",
-        "text": "54. So are the whims of the food gods."
-      },
-      {
-        "type": "text",
-        "text": "55. If this was carbonara, you'd have to be careful, because the carbonistic properties are so fragile that if you put in a single pea, it would no longer be carbonara."
-      },
-      {
-        "type": "text",
-        "text": "56. It's a mysterious chemical reaction that only Italian scientists understand."
-      },
-      {
-        "type": "text",
-        "text": "57. I'm craving carbonara, but I don't have guanciale."
-      },
-      {
-        "type": "text",
-        "text": "58. Should I really even bother?"
-      },
-      {
-        "type": "text",
-        "text": "59. Oh no, will they judge my carbonara?"
-      },
-      {
-        "type": "text",
-        "text": "60. Because I want some cream upon it."
-      },
-      {
-        "type": "text",
-        "text": "61. Should I eat it in the closet?"
-      },
-      {
-        "type": "text",
-        "text": "62. Oh no, what have I done?"
-      },
-      {
-        "type": "text",
-        "text": "63. I've added peas to a dish that is otherwise vegetable free."
-      },
-      {
-        "type": "text",
-        "text": "64. They say it's no game."
-      },
-      {
-        "type": "text",
-        "text": "65. Hang my head as I eat this not carbonara in shame."
+        "text": "- **Procedural Content**: Separate Egg Yolks Method\n\t- Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: This tip helps viewers effectively separate egg yolks from whites.\n"
       }
     ]
   }
 ]
 RESPONSE: {
-  "segments": [
-    {
-      "step": "Chop bacon into small pieces.",
-      "start_index": 4,
-      "end_index": 4
-    },
-    {
-      "step": "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.",
-      "start_index": 43,
-      "end_index": 44
-    },
-    {
-      "step": "Separate egg yolks from the whites and place the yolks in a bowl.",
-      "start_index": 11,
-      "end_index": 15
-    },
-    {
-      "step": "Grate pecorino romano cheese and add it to the egg yolks.",
-      "start_index": 17,
-      "end_index": 28
-    },
-    {
-      "step": "Add black pepper to the egg yolk and cheese mixture and mix well.",
-      "start_index": 29,
-      "end_index": 30
-    },
-    {
-      "step": "Boil water in a pot, add salt, and cook spaghetti until al dente.",
-      "start_index": 40,
-      "end_index": 42
-    },
-    {
-      "step": "Reserve some pasta water before draining the spaghetti.",
-      "start_index": 47,
-      "end_index": 47
-    },
-    {
-      "step": "Add a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.",
-      "start_index": 45,
-      "end_index": 45
-    },
-    {
-      "step": "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
-      "start_index": 46,
-      "end_index": 46
-    },
-    {
-      "step": "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.",
-      "start_index": 48,
-      "end_index": 48
-    },
-    {
-      "step": "If needed, add more reserved pasta water to achieve the desired sauce consistency.",
-      "start_index": 49,
-      "end_index": 49
-    },
-    {
-      "step": "Finish with additional black pepper and grated pecorino romano or parmesan cheese before serving.",
-      "start_index": 51,
-      "end_index": 51
-    }
-  ]
+  "title": "Egg Yolk Separation",
+  "description": "Tips for separating egg yolks using thumb or back and forth method.",
+  "reasoning": "Efficient yolk separation is crucial for the sauce's texture.",
+  "comparison": "This content focuses on practical techniques for yolk separation, which may not be detailed in other videos."
 }
+-->  3
+-->  1
+-->  1
+-->  1
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information."
-  },
-  {
-    "role": "user",
     "content": [
       {
         "type": "text",
-        "text": "Contents:\n"
-      },
-      {
-        "type": "text",
-        "text": "You need to understand, carbonara does not need cream, or peas, or ham, or whatever else people are putting in it."
-      },
-      {
-        "type": "text",
-        "text": "It's so simple!"
-      },
-      {
-        "type": "text",
-        "text": "Today, hang out for a second, and you're gonna learn how to do it right."
-      },
-      {
-        "type": "text",
-        "text": "Let's not waste any time, now let's go!"
-      },
-      {
-        "type": "text",
-        "text": "Traditionally, you're gonna see spaghetti carbonara made with guanciale, which is the jowl, meaning the cheek of a pig that's been cured."
-      },
-      {
-        "type": "text",
-        "text": "So for this video, of course, I could have ordered guanciale, but I know most of my audience is American, so I want the most people possible to actually make this, so we're gonna use bacon."
-      },
-      {
-        "type": "text",
-        "text": "And thickcut bacon would be best."
-      },
-      {
-        "type": "text",
-        "text": "You could also use pancetta."
-      },
-      {
-        "type": "text",
-        "text": "So I'll take about a half pound of bacon, and we're gonna slice this just pretty thick, this way."
-      },
-      {
-        "type": "text",
-        "text": "That's about three quarters of an inch."
-      },
-      {
-        "type": "text",
-        "text": "Turn this pan on to medium heat."
-      },
-      {
-        "type": "text",
-        "text": "I'm doing a tiny bit of olive oil, I don't think it's traditional, but when I'm cooking Italian food, it just feels right."
-      },
-      {
-        "type": "text",
-        "text": "Then go ahead and break your bacon into that pan, and what we're gonna do here is slowly render out the fat from this bacon, get it nice and crispy."
-      },
-      {
-        "type": "text",
-        "text": "We'll use most of it in the pasta, and then we'll actually use some for garnish, because who doesn't like crispy bacon on top?"
-      },
-      {
-        "type": "text",
-        "text": "Now, bacon is rendering, pasta water is coming up to a boil, and we're gonna season our pasta water just a little bit, about a tablespoon of salt, kosher salt, into about four quarts of water."
-      },
-      {
-        "type": "text",
-        "text": "Usually, I'm gonna put more salt, but because there's so many salty elements in carbonara, I wanna put less salt in the pasta water."
-      },
-      {
-        "type": "text",
-        "text": "So first is very important, we need to talk about the cheese."
-      },
-      {
-        "type": "text",
-        "text": "Here we have Pecorino Romano, it's a sheep's milk cheese, this one is aged."
-      },
-      {
-        "type": "text",
-        "text": "I think this is what is traditionally used when you're making spaghetti carbonara, but as always, if you watch this channel, you know I love ParmigianoReggiano."
-      },
-      {
-        "type": "text",
-        "text": "That's not to be confused with Parmesan, make sure it says ParmigianoReggiano, and it's from Italy, and you'll know you have the good stuff."
-      },
-      {
-        "type": "text",
-        "text": "So what I'm gonna do is a mixture of both these cheeses, and you want them to be pretty fine, so I'm gonna be using this cheese grater, and if you don't have one of those, just use this setting on a box grater, and just get to shredding."
-      },
-      {
-        "type": "text",
-        "text": "I'm gonna do about three ounces of each of these cheeses, so half and half, but as always, with my videos, the full recipe is gonna be down in the description."
-      },
-      {
-        "type": "text",
-        "text": "Underneath this video, you just gotta click that little arrow, and it'll open up."
-      },
-      {
-        "type": "text",
-        "text": "So here's all our beautiful cheese."
-      },
-      {
-        "type": "text",
-        "text": "Okay, now time for the eggs."
-      },
-      {
-        "type": "text",
-        "text": "A lot of recipes call for all whole, all yolks."
-      },
-      {
-        "type": "text",
-        "text": "I like to do a mixture of both."
-      },
-      {
-        "type": "text",
-        "text": "So I'm doing three whole eggs, as well as two egg yolks."
-      },
-      {
-        "type": "text",
-        "text": "The way I see it, carbonara is already so rich, it doesn't need all egg yolks."
-      },
-      {
-        "type": "text",
-        "text": "Go ahead and whisk that all up, and then we'll start whisking our cheese into our egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "And you'll see all that, and it looked like so much cheese, right?"
-      },
-      {
-        "type": "text",
-        "text": "But as this breaks down, it won't look like that anymore."
-      },
-      {
-        "type": "text",
-        "text": "Add that all in."
-      },
-      {
-        "type": "text",
-        "text": "And so now we have a consistency like this."
-      },
-      {
-        "type": "text",
-        "text": "Now, this is a very important time for our good friend, Sergeant Gilbert."
-      },
-      {
-        "type": "text",
-        "text": "I'm gonna put quite a bit of Gilbert's insides into this egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "If you didn't know already, Gilbert is just fresh ground black pepper."
-      },
-      {
-        "type": "text",
-        "text": "He's a sentient being, a pepper grinder, who became selfaware in 2020."
-      },
-      {
-        "type": "text",
-        "text": "You know, and this is preference."
-      },
-      {
-        "type": "text",
-        "text": "Put as much pepper or as little pepper as you like, and whisk it in."
-      },
-      {
-        "type": "text",
-        "text": "As you can see, there's a lot of fat coming out of this bacon."
-      },
-      {
-        "type": "text",
-        "text": "Just want to turn this occasionally."
-      },
-      {
-        "type": "text",
-        "text": "And we are going to be using some, but not all of this fat in the actual spaghetti carbonara."
-      },
-      {
-        "type": "text",
-        "text": "Another thing you can do is just take a little bit of that boiling water and add it to the eggs."
-      },
-      {
-        "type": "text",
-        "text": "Quickly whisk that in."
-      },
-      {
-        "type": "text",
-        "text": "We're kind of equalizing the temperatures here and loosening up this egg mixture a little bit, and it's going to make the whole pasta come together a lot easier in the end."
-      },
-      {
-        "type": "text",
-        "text": "I put just about a quarter cup in here."
-      },
-      {
-        "type": "text",
-        "text": "Our bacon is almost rendered, so now we'll drop our spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "We'll try to do that twisty thing."
-      },
-      {
-        "type": "text",
-        "text": "Kind of worked."
-      },
-      {
-        "type": "text",
-        "text": "Just get a little bit of water up on it."
-      },
-      {
-        "type": "text",
-        "text": "Let that roll."
-      },
-      {
-        "type": "text",
-        "text": "Check it on the bacon."
-      },
-      {
-        "type": "text",
-        "text": "I turned the heat down in the end."
-      },
-      {
-        "type": "text",
-        "text": "Be careful not to overcook this."
-      },
-      {
-        "type": "text",
-        "text": "Looks pretty much perfect."
-      },
-      {
-        "type": "text",
-        "text": "First, I'm going to take some out for garnish."
-      },
-      {
-        "type": "text",
-        "text": "Drain it on a paper towel."
-      },
-      {
-        "type": "text",
-        "text": "Now I'm turning off the heat of this pan, and I'm going to drain off most of the fat, all except for about two tablespoons or so."
-      },
-      {
-        "type": "text",
-        "text": "And then just set that back over there."
-      },
-      {
-        "type": "text",
-        "text": "Remember, now, heat is off."
-      },
-      {
-        "type": "text",
-        "text": "This is so important."
-      },
-      {
-        "type": "text",
-        "text": "Okay, and of course, we're going to put some olive oil in this pasta."
-      },
-      {
-        "type": "text",
-        "text": "No, we're not going to do that."
-      },
-      {
-        "type": "text",
-        "text": "Why do people do that?"
-      },
-      {
-        "type": "text",
-        "text": "It's a myth."
-      },
-      {
-        "type": "text",
-        "text": "It's a myth."
-      },
-      {
-        "type": "text",
-        "text": "Just like MSG is going to give you cancer or whatever."
-      },
-      {
-        "type": "text",
-        "text": "It's just not true, and it serves no purpose."
-      },
-      {
-        "type": "text",
-        "text": "So don't do it."
-      },
-      {
-        "type": "text",
-        "text": "Don't do it, okay?"
-      },
-      {
-        "type": "text",
-        "text": "Another thing I want to share with you, there are tons of expensive pasta brands out in the world, but honestly, like, I like these cheap Italian brands, like this one, Giacchecco."
-      },
-      {
-        "type": "text",
-        "text": "I don't know how to say it, but like, I don't know why."
-      },
-      {
-        "type": "text",
-        "text": "I just prefer the cheap one."
-      },
-      {
-        "type": "text",
-        "text": "So if anyone's wondering, this is what I use."
-      },
-      {
-        "type": "text",
-        "text": "So we'll cook this spaghetti about 10 minutes in this pot, just slightly al dente, and then we'll finish it over in this baking pan."
-      },
-      {
-        "type": "text",
-        "text": "Remember, still no heat on this pan."
-      },
-      {
-        "type": "text",
-        "text": "I'm going to explain all this soon, but you want to leave this water in this pot."
-      },
-      {
-        "type": "text",
-        "text": "This will make sense in a minute."
-      },
-      {
-        "type": "text",
-        "text": "So here we go."
-      },
-      {
-        "type": "text",
-        "text": "It's been 10 minutes."
-      },
-      {
-        "type": "text",
-        "text": "We're just going to use our tongs here."
-      },
-      {
-        "type": "text",
-        "text": "Drop that in there."
-      },
-      {
-        "type": "text",
-        "text": "Trust me, this spaghetti is generating a ridiculous amount of heat."
-      },
-      {
-        "type": "text",
-        "text": "Turn that pasta water down to a simmer."
-      },
-      {
-        "type": "text",
-        "text": "Once you have all the pasta out, now we're going to add in that beautiful egg and cheese mixture."
-      },
-      {
-        "type": "text",
-        "text": "The whole trick here, and what you really need to keep in mind is that we do not want to scramble these eggs."
-      },
-      {
-        "type": "text",
-        "text": "The eggs are going to cook from the heat of this pasta and very gently and beautifully in a velvety, fluffy, creamy way, coat it all up, right?"
-      },
-      {
-        "type": "text",
-        "text": "And don't worry, you're not eating raw eggs."
-      },
-      {
-        "type": "text",
-        "text": "And gentle with the pasta."
-      },
-      {
-        "type": "text",
-        "text": "You don't want to break it."
-      },
-      {
-        "type": "text",
-        "text": "Oh, man."
-      },
-      {
-        "type": "text",
-        "text": "And the pasta water, the bacon fat, the cheese and egg mixture is now emulsifying all over this pasta."
-      },
-      {
-        "type": "text",
-        "text": "You see how creamy this is?"
-      },
-      {
-        "type": "text",
-        "text": "I'm also using these La Crusade pans, which I'll link in the description, and they hold a lot of heat."
-      },
-      {
-        "type": "text",
-        "text": "So I don't think I even need to do my plan, but I can show you why I left that pasta water on."
-      },
-      {
-        "type": "text",
-        "text": "Because if it doesn't thicken up like you like, literally what you can do is set that pan back on top of that pasta water and like a double boil or bainmarie, it will keep cooking the egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "But I don't think I even really need to do this."
-      },
-      {
-        "type": "text",
-        "text": "But that's a good option, especially if you're using a pan that's not as thick as this."
-      },
-      {
-        "type": "text",
-        "text": "Oh, my God."
-      },
-      {
-        "type": "text",
-        "text": "Looks so good."
-      },
-      {
-        "type": "text",
-        "text": "And if it looks too thick to you, also what you can do is just add a little bit of that pasta water."
-      },
-      {
-        "type": "text",
-        "text": "That's going to loosen it up."
-      },
-      {
-        "type": "text",
-        "text": "And help establish that creamy sauce that has no cream."
-      },
-      {
-        "type": "text",
-        "text": "Done."
-      },
-      {
-        "type": "text",
-        "text": "No scramble, nothing."
-      },
-      {
-        "type": "text",
-        "text": "Go ahead and plate this up."
-      },
-      {
-        "type": "text",
-        "text": "Just get it off the tongs like so."
-      },
-      {
-        "type": "text",
-        "text": "Oh, man."
-      },
-      {
-        "type": "text",
-        "text": "Now to finish a little more pan migliano reggiano."
-      },
-      {
-        "type": "text",
-        "text": "All over, nothing wrong with that."
-      },
-      {
-        "type": "text",
-        "text": "And of course, some of your crispy bacon."
-      },
-      {
-        "type": "text",
-        "text": "Just for an added crunch."
-      },
-      {
-        "type": "text",
-        "text": "That is a bonus no one is going to complain about."
-      },
-      {
-        "type": "text",
-        "text": "Trust me. I mean, how bad do you want to tuck into this treat?"
-      },
-      {
-        "type": "text",
-        "text": "Allow me to try it."
-      },
-      {
-        "type": "text",
-        "text": "Oh, allow me to try it for you."
-      },
-      {
-        "type": "text",
-        "text": "Here we go."
-      },
-      {
-        "type": "text",
-        "text": "A little bacon."
-      },
-      {
-        "type": "text",
-        "text": "Oh, gosh."
-      },
-      {
-        "type": "text",
-        "text": "I see a lot of people who leave my YouTube videos right now."
-      },
-      {
-        "type": "text",
-        "text": "It's such a big mistake."
-      },
-      {
-        "type": "text",
-        "text": "They obviously don't know about the fridge."
-      },
-      {
-        "type": "text",
-        "text": "Oh, God, that's good."
-      },
-      {
-        "type": "text",
-        "text": "You've got to make this."
-      },
-      {
-        "type": "text",
-        "text": "Here's my rolling pin."
-      },
-      {
-        "type": "text",
-        "text": "I just feel like this is what an Italian grandmother would do."
-      },
-      {
-        "type": "text",
-        "text": "Whew."
-      },
-      {
-        "type": "text",
-        "text": "What?"
-      },
-      {
-        "type": "text",
-        "text": "Well, I hope that helped."
-      },
-      {
-        "type": "text",
-        "text": "Until next time, my friends, you know I love you when I'm out."
-      }
-    ]
-  }
-]
-RESPONSE: {
-  "steps": [
-    "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
-    "Heat a pan over medium heat and add a tiny bit of olive oil.",
-    "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
-    "Boil about four quarts of water and add a tablespoon of kosher salt.",
-    "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.",
-    "In a bowl, whisk together three whole eggs and two egg yolks.",
-    "Whisk the grated cheese into the egg mixture.",
-    "Add freshly ground black pepper to the egg and cheese mixture to taste.",
-    "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
-    "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
-    "Turn off the heat under the bacon pan and add the cooked spaghetti to the pan.",
-    "Add the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.",
-    "If needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.",
-    "Plate the pasta and garnish with additional grated cheese and crispy bacon."
-  ]
-}
-MESSAGES: [
-  {
-    "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered."
-  },
-  {
-    "role": "user",
-    "content": [
-      {
-        "type": "text",
-        "text": "## Steps:\nCut about half a pound of thick-cut bacon into three-quarter inch slices.\nHeat a pan over medium heat and add a tiny bit of olive oil.\nAdd the bacon to the pan and slowly render out the fat until the bacon is crispy.\nBoil about four quarts of water and add a tablespoon of kosher salt.\nGrate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\nIn a bowl, whisk together three whole eggs and two egg yolks.\nWhisk the grated cheese into the egg mixture.\nAdd freshly ground black pepper to the egg and cheese mixture to taste.\nOnce the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.\nCook spaghetti in the boiling water until slightly al dente, about 10 minutes.\nTurn off the heat under the bacon pan and add the cooked spaghetti to the pan.\nAdd the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.\nIf needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.\nPlate the pasta and garnish with additional grated cheese and crispy bacon."
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
       }
     ]
   },
@@ -1254,965 +87,31 @@ MESSAGES: [
     "content": [
       {
         "type": "text",
-        "text": "## Contents:\n"
+        "text": "- **Procedural Content**: Wait for No Sizzle\n\t- Description: Wait until there's no sizzle left before proceeding to ensure the bacon is cool enough.\n\t- Reasoning: This ensures the bacon is at the right temperature to avoid cooking the sauce too quickly.\n"
       },
       {
         "type": "text",
-        "text": "0. You need to understand, carbonara does not need cream, or peas, or ham, or whatever else people are putting in it."
-      },
-      {
-        "type": "text",
-        "text": "1. It's so simple!"
-      },
-      {
-        "type": "text",
-        "text": "2. Today, hang out for a second, and you're gonna learn how to do it right."
-      },
-      {
-        "type": "text",
-        "text": "3. Let's not waste any time, now let's go!"
-      },
-      {
-        "type": "text",
-        "text": "4. Traditionally, you're gonna see spaghetti carbonara made with guanciale, which is the jowl, meaning the cheek of a pig that's been cured."
-      },
-      {
-        "type": "text",
-        "text": "5. So for this video, of course, I could have ordered guanciale, but I know most of my audience is American, so I want the most people possible to actually make this, so we're gonna use bacon."
-      },
-      {
-        "type": "text",
-        "text": "6. And thickcut bacon would be best."
-      },
-      {
-        "type": "text",
-        "text": "7. You could also use pancetta."
-      },
-      {
-        "type": "text",
-        "text": "8. So I'll take about a half pound of bacon, and we're gonna slice this just pretty thick, this way."
-      },
-      {
-        "type": "text",
-        "text": "9. That's about three quarters of an inch."
-      },
-      {
-        "type": "text",
-        "text": "10. Turn this pan on to medium heat."
-      },
-      {
-        "type": "text",
-        "text": "11. I'm doing a tiny bit of olive oil, I don't think it's traditional, but when I'm cooking Italian food, it just feels right."
-      },
-      {
-        "type": "text",
-        "text": "12. Then go ahead and break your bacon into that pan, and what we're gonna do here is slowly render out the fat from this bacon, get it nice and crispy."
-      },
-      {
-        "type": "text",
-        "text": "13. We'll use most of it in the pasta, and then we'll actually use some for garnish, because who doesn't like crispy bacon on top?"
-      },
-      {
-        "type": "text",
-        "text": "14. Now, bacon is rendering, pasta water is coming up to a boil, and we're gonna season our pasta water just a little bit, about a tablespoon of salt, kosher salt, into about four quarts of water."
-      },
-      {
-        "type": "text",
-        "text": "15. Usually, I'm gonna put more salt, but because there's so many salty elements in carbonara, I wanna put less salt in the pasta water."
-      },
-      {
-        "type": "text",
-        "text": "16. So first is very important, we need to talk about the cheese."
-      },
-      {
-        "type": "text",
-        "text": "17. Here we have Pecorino Romano, it's a sheep's milk cheese, this one is aged."
-      },
-      {
-        "type": "text",
-        "text": "18. I think this is what is traditionally used when you're making spaghetti carbonara, but as always, if you watch this channel, you know I love ParmigianoReggiano."
-      },
-      {
-        "type": "text",
-        "text": "19. That's not to be confused with Parmesan, make sure it says ParmigianoReggiano, and it's from Italy, and you'll know you have the good stuff."
-      },
-      {
-        "type": "text",
-        "text": "20. So what I'm gonna do is a mixture of both these cheeses, and you want them to be pretty fine, so I'm gonna be using this cheese grater, and if you don't have one of those, just use this setting on a box grater, and just get to shredding."
-      },
-      {
-        "type": "text",
-        "text": "21. I'm gonna do about three ounces of each of these cheeses, so half and half, but as always, with my videos, the full recipe is gonna be down in the description."
-      },
-      {
-        "type": "text",
-        "text": "22. Underneath this video, you just gotta click that little arrow, and it'll open up."
-      },
-      {
-        "type": "text",
-        "text": "23. So here's all our beautiful cheese."
-      },
-      {
-        "type": "text",
-        "text": "24. Okay, now time for the eggs."
-      },
-      {
-        "type": "text",
-        "text": "25. A lot of recipes call for all whole, all yolks."
-      },
-      {
-        "type": "text",
-        "text": "26. I like to do a mixture of both."
-      },
-      {
-        "type": "text",
-        "text": "27. So I'm doing three whole eggs, as well as two egg yolks."
-      },
-      {
-        "type": "text",
-        "text": "28. The way I see it, carbonara is already so rich, it doesn't need all egg yolks."
-      },
-      {
-        "type": "text",
-        "text": "29. Go ahead and whisk that all up, and then we'll start whisking our cheese into our egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "30. And you'll see all that, and it looked like so much cheese, right?"
-      },
-      {
-        "type": "text",
-        "text": "31. But as this breaks down, it won't look like that anymore."
-      },
-      {
-        "type": "text",
-        "text": "32. Add that all in."
-      },
-      {
-        "type": "text",
-        "text": "33. And so now we have a consistency like this."
-      },
-      {
-        "type": "text",
-        "text": "34. Now, this is a very important time for our good friend, Sergeant Gilbert."
-      },
-      {
-        "type": "text",
-        "text": "35. I'm gonna put quite a bit of Gilbert's insides into this egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "36. If you didn't know already, Gilbert is just fresh ground black pepper."
-      },
-      {
-        "type": "text",
-        "text": "37. He's a sentient being, a pepper grinder, who became selfaware in 2020."
-      },
-      {
-        "type": "text",
-        "text": "38. You know, and this is preference."
-      },
-      {
-        "type": "text",
-        "text": "39. Put as much pepper or as little pepper as you like, and whisk it in."
-      },
-      {
-        "type": "text",
-        "text": "40. As you can see, there's a lot of fat coming out of this bacon."
-      },
-      {
-        "type": "text",
-        "text": "41. Just want to turn this occasionally."
-      },
-      {
-        "type": "text",
-        "text": "42. And we are going to be using some, but not all of this fat in the actual spaghetti carbonara."
-      },
-      {
-        "type": "text",
-        "text": "43. Another thing you can do is just take a little bit of that boiling water and add it to the eggs."
-      },
-      {
-        "type": "text",
-        "text": "44. Quickly whisk that in."
-      },
-      {
-        "type": "text",
-        "text": "45. We're kind of equalizing the temperatures here and loosening up this egg mixture a little bit, and it's going to make the whole pasta come together a lot easier in the end."
-      },
-      {
-        "type": "text",
-        "text": "46. I put just about a quarter cup in here."
-      },
-      {
-        "type": "text",
-        "text": "47. Our bacon is almost rendered, so now we'll drop our spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "48. We'll try to do that twisty thing."
-      },
-      {
-        "type": "text",
-        "text": "49. Kind of worked."
-      },
-      {
-        "type": "text",
-        "text": "50. Just get a little bit of water up on it."
-      },
-      {
-        "type": "text",
-        "text": "51. Let that roll."
-      },
-      {
-        "type": "text",
-        "text": "52. Check it on the bacon."
-      },
-      {
-        "type": "text",
-        "text": "53. I turned the heat down in the end."
-      },
-      {
-        "type": "text",
-        "text": "54. Be careful not to overcook this."
-      },
-      {
-        "type": "text",
-        "text": "55. Looks pretty much perfect."
-      },
-      {
-        "type": "text",
-        "text": "56. First, I'm going to take some out for garnish."
-      },
-      {
-        "type": "text",
-        "text": "57. Drain it on a paper towel."
-      },
-      {
-        "type": "text",
-        "text": "58. Now I'm turning off the heat of this pan, and I'm going to drain off most of the fat, all except for about two tablespoons or so."
-      },
-      {
-        "type": "text",
-        "text": "59. And then just set that back over there."
-      },
-      {
-        "type": "text",
-        "text": "60. Remember, now, heat is off."
-      },
-      {
-        "type": "text",
-        "text": "61. This is so important."
-      },
-      {
-        "type": "text",
-        "text": "62. Okay, and of course, we're going to put some olive oil in this pasta."
-      },
-      {
-        "type": "text",
-        "text": "63. No, we're not going to do that."
-      },
-      {
-        "type": "text",
-        "text": "64. Why do people do that?"
-      },
-      {
-        "type": "text",
-        "text": "65. It's a myth."
-      },
-      {
-        "type": "text",
-        "text": "66. It's a myth."
-      },
-      {
-        "type": "text",
-        "text": "67. Just like MSG is going to give you cancer or whatever."
-      },
-      {
-        "type": "text",
-        "text": "68. It's just not true, and it serves no purpose."
-      },
-      {
-        "type": "text",
-        "text": "69. So don't do it."
-      },
-      {
-        "type": "text",
-        "text": "70. Don't do it, okay?"
-      },
-      {
-        "type": "text",
-        "text": "71. Another thing I want to share with you, there are tons of expensive pasta brands out in the world, but honestly, like, I like these cheap Italian brands, like this one, Giacchecco."
-      },
-      {
-        "type": "text",
-        "text": "72. I don't know how to say it, but like, I don't know why."
-      },
-      {
-        "type": "text",
-        "text": "73. I just prefer the cheap one."
-      },
-      {
-        "type": "text",
-        "text": "74. So if anyone's wondering, this is what I use."
-      },
-      {
-        "type": "text",
-        "text": "75. So we'll cook this spaghetti about 10 minutes in this pot, just slightly al dente, and then we'll finish it over in this baking pan."
-      },
-      {
-        "type": "text",
-        "text": "76. Remember, still no heat on this pan."
-      },
-      {
-        "type": "text",
-        "text": "77. I'm going to explain all this soon, but you want to leave this water in this pot."
-      },
-      {
-        "type": "text",
-        "text": "78. This will make sense in a minute."
-      },
-      {
-        "type": "text",
-        "text": "79. So here we go."
-      },
-      {
-        "type": "text",
-        "text": "80. It's been 10 minutes."
-      },
-      {
-        "type": "text",
-        "text": "81. We're just going to use our tongs here."
-      },
-      {
-        "type": "text",
-        "text": "82. Drop that in there."
-      },
-      {
-        "type": "text",
-        "text": "83. Trust me, this spaghetti is generating a ridiculous amount of heat."
-      },
-      {
-        "type": "text",
-        "text": "84. Turn that pasta water down to a simmer."
-      },
-      {
-        "type": "text",
-        "text": "85. Once you have all the pasta out, now we're going to add in that beautiful egg and cheese mixture."
-      },
-      {
-        "type": "text",
-        "text": "86. The whole trick here, and what you really need to keep in mind is that we do not want to scramble these eggs."
-      },
-      {
-        "type": "text",
-        "text": "87. The eggs are going to cook from the heat of this pasta and very gently and beautifully in a velvety, fluffy, creamy way, coat it all up, right?"
-      },
-      {
-        "type": "text",
-        "text": "88. And don't worry, you're not eating raw eggs."
-      },
-      {
-        "type": "text",
-        "text": "89. And gentle with the pasta."
-      },
-      {
-        "type": "text",
-        "text": "90. You don't want to break it."
-      },
-      {
-        "type": "text",
-        "text": "91. Oh, man."
-      },
-      {
-        "type": "text",
-        "text": "92. And the pasta water, the bacon fat, the cheese and egg mixture is now emulsifying all over this pasta."
-      },
-      {
-        "type": "text",
-        "text": "93. You see how creamy this is?"
-      },
-      {
-        "type": "text",
-        "text": "94. I'm also using these La Crusade pans, which I'll link in the description, and they hold a lot of heat."
-      },
-      {
-        "type": "text",
-        "text": "95. So I don't think I even need to do my plan, but I can show you why I left that pasta water on."
-      },
-      {
-        "type": "text",
-        "text": "96. Because if it doesn't thicken up like you like, literally what you can do is set that pan back on top of that pasta water and like a double boil or bainmarie, it will keep cooking the egg mixture."
-      },
-      {
-        "type": "text",
-        "text": "97. But I don't think I even really need to do this."
-      },
-      {
-        "type": "text",
-        "text": "98. But that's a good option, especially if you're using a pan that's not as thick as this."
-      },
-      {
-        "type": "text",
-        "text": "99. Oh, my God."
-      },
-      {
-        "type": "text",
-        "text": "100. Looks so good."
-      },
-      {
-        "type": "text",
-        "text": "101. And if it looks too thick to you, also what you can do is just add a little bit of that pasta water."
-      },
-      {
-        "type": "text",
-        "text": "102. That's going to loosen it up."
-      },
-      {
-        "type": "text",
-        "text": "103. And help establish that creamy sauce that has no cream."
-      },
-      {
-        "type": "text",
-        "text": "104. Done."
-      },
-      {
-        "type": "text",
-        "text": "105. No scramble, nothing."
-      },
-      {
-        "type": "text",
-        "text": "106. Go ahead and plate this up."
-      },
-      {
-        "type": "text",
-        "text": "107. Just get it off the tongs like so."
-      },
-      {
-        "type": "text",
-        "text": "108. Oh, man."
-      },
-      {
-        "type": "text",
-        "text": "109. Now to finish a little more pan migliano reggiano."
-      },
-      {
-        "type": "text",
-        "text": "110. All over, nothing wrong with that."
-      },
-      {
-        "type": "text",
-        "text": "111. And of course, some of your crispy bacon."
-      },
-      {
-        "type": "text",
-        "text": "112. Just for an added crunch."
-      },
-      {
-        "type": "text",
-        "text": "113. That is a bonus no one is going to complain about."
-      },
-      {
-        "type": "text",
-        "text": "114. Trust me. I mean, how bad do you want to tuck into this treat?"
-      },
-      {
-        "type": "text",
-        "text": "115. Allow me to try it."
-      },
-      {
-        "type": "text",
-        "text": "116. Oh, allow me to try it for you."
-      },
-      {
-        "type": "text",
-        "text": "117. Here we go."
-      },
-      {
-        "type": "text",
-        "text": "118. A little bacon."
-      },
-      {
-        "type": "text",
-        "text": "119. Oh, gosh."
-      },
-      {
-        "type": "text",
-        "text": "120. I see a lot of people who leave my YouTube videos right now."
-      },
-      {
-        "type": "text",
-        "text": "121. It's such a big mistake."
-      },
-      {
-        "type": "text",
-        "text": "122. They obviously don't know about the fridge."
-      },
-      {
-        "type": "text",
-        "text": "123. Oh, God, that's good."
-      },
-      {
-        "type": "text",
-        "text": "124. You've got to make this."
-      },
-      {
-        "type": "text",
-        "text": "125. Here's my rolling pin."
-      },
-      {
-        "type": "text",
-        "text": "126. I just feel like this is what an Italian grandmother would do."
-      },
-      {
-        "type": "text",
-        "text": "127. Whew."
-      },
-      {
-        "type": "text",
-        "text": "128. What?"
-      },
-      {
-        "type": "text",
-        "text": "129. Well, I hope that helped."
-      },
-      {
-        "type": "text",
-        "text": "130. Until next time, my friends, you know I love you when I'm out."
+        "text": "- **Procedural Content**: Wait for No Sizzle\n\t- Description: Wait until there's no sizzle left before proceeding to ensure the bacon is cool enough.\n\t- Reasoning: This ensures the bacon is at the right temperature to avoid overcooking the sauce.\n"
       }
     ]
   }
 ]
 RESPONSE: {
-  "segments": [
-    {
-      "step": "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
-      "start_index": 8,
-      "end_index": 9
-    },
-    {
-      "step": "Heat a pan over medium heat and add a tiny bit of olive oil.",
-      "start_index": 10,
-      "end_index": 11
-    },
-    {
-      "step": "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
-      "start_index": 12,
-      "end_index": 13
-    },
-    {
-      "step": "Boil about four quarts of water and add a tablespoon of kosher salt.",
-      "start_index": 14,
-      "end_index": 15
-    },
-    {
-      "step": "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.",
-      "start_index": 16,
-      "end_index": 23
-    },
-    {
-      "step": "In a bowl, whisk together three whole eggs and two egg yolks.",
-      "start_index": 24,
-      "end_index": 29
-    },
-    {
-      "step": "Whisk the grated cheese into the egg mixture.",
-      "start_index": 30,
-      "end_index": 33
-    },
-    {
-      "step": "Add freshly ground black pepper to the egg and cheese mixture to taste.",
-      "start_index": 34,
-      "end_index": 39
-    },
-    {
-      "step": "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
-      "start_index": 40,
-      "end_index": 59
-    },
-    {
-      "step": "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
-      "start_index": 75,
-      "end_index": 80
-    },
-    {
-      "step": "Turn off the heat under the bacon pan and add the cooked spaghetti to the pan.",
-      "start_index": 81,
-      "end_index": 84
-    },
-    {
-      "step": "Add the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.",
-      "start_index": 85,
-      "end_index": 92
-    },
-    {
-      "step": "If needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.",
-      "start_index": 93,
-      "end_index": 103
-    },
-    {
-      "step": "Plate the pasta and garnish with additional grated cheese and crispy bacon.",
-      "start_index": 104,
-      "end_index": 113
-    }
-  ]
+  "title": "Wait for No Sizzle",
+  "description": "Ensure bacon is cool by waiting for no sizzle before adding sauce.",
+  "reasoning": "Prevents the sauce from cooking too quickly or overcooking.",
+  "comparison": "This step is emphasized to control sauce consistency, unlike other methods that might not focus on bacon temperature."
 }
+-->  2
+-->  1
+-->  1
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information."
-  },
-  {
-    "role": "user",
     "content": [
       {
         "type": "text",
-        "text": "Contents:\n"
-      },
-      {
-        "type": "text",
-        "text": "Pasta, cream, bacon."
-      },
-      {
-        "type": "text",
-        "text": "Cream?"
-      },
-      {
-        "type": "text",
-        "text": "Hi guys, we're gonna make spaghetti carbonara, a classic Italian dish."
-      },
-      {
-        "type": "text",
-        "text": "Pasta, cheese, bacon."
-      },
-      {
-        "type": "text",
-        "text": "What's not to love, right?"
-      },
-      {
-        "type": "text",
-        "text": "But it's really controversial."
-      },
-      {
-        "type": "text",
-        "text": "I want to give you what I think is the most authentic recipe."
-      },
-      {
-        "type": "text",
-        "text": "So first up guys, you only need five ingredients."
-      },
-      {
-        "type": "text",
-        "text": "Guanciale."
-      },
-      {
-        "type": "text",
-        "text": "This is the cured cheek of pork."
-      },
-      {
-        "type": "text",
-        "text": "And as you can see, it's all about the fat."
-      },
-      {
-        "type": "text",
-        "text": "It's salted, it's got pepper, it's dried and it's aged."
-      },
-      {
-        "type": "text",
-        "text": "Of course, it's similar to smoked bacon and you can get some pretty good results actually."
-      },
-      {
-        "type": "text",
-        "text": "But you can see this is quite lean."
-      },
-      {
-        "type": "text",
-        "text": "So try and get them to not cut off the fat because you need it."
-      },
-      {
-        "type": "text",
-        "text": "Or there's pancetta."
-      },
-      {
-        "type": "text",
-        "text": "Then, most people use parmesan."
-      },
-      {
-        "type": "text",
-        "text": "But actually, the more classic is pecorino romano."
-      },
-      {
-        "type": "text",
-        "text": "Sheep's cheese."
-      },
-      {
-        "type": "text",
-        "text": "It's crumbly, it's salty, freerange organic egg."
-      },
-      {
-        "type": "text",
-        "text": "Pasta, black pepper and then optional, garlic."
-      },
-      {
-        "type": "text",
-        "text": "So first up guys, grab the pasta by two hands."
-      },
-      {
-        "type": "text",
-        "text": "Twist it into the water."
-      },
-      {
-        "type": "text",
-        "text": "By twisting it, it won't stick together."
-      },
-      {
-        "type": "text",
-        "text": "Put a tiny amount of salt in this water because the cheese and the guanciale is salty."
-      },
-      {
-        "type": "text",
-        "text": "This beautiful pasta takes eight minutes to cook."
-      },
-      {
-        "type": "text",
-        "text": "So I've got my guanciale."
-      },
-      {
-        "type": "text",
-        "text": "I'm gonna remove the skin and I'm gonna take a nice centimetre slice of the guanciale."
-      },
-      {
-        "type": "text",
-        "text": "Roughly chop this to about half centimetre chunks."
-      },
-      {
-        "type": "text",
-        "text": "Now, the pan is cold."
-      },
-      {
-        "type": "text",
-        "text": "Turn it on to a mediumhigh heat."
-      },
-      {
-        "type": "text",
-        "text": "The reason I want it cold is because I want to render the fat out."
-      },
-      {
-        "type": "text",
-        "text": "The guanciale goes in to the pan and this pan is getting hot."
-      },
-      {
-        "type": "text",
-        "text": "Give the garlic a crack and then put it in the pan."
-      },
-      {
-        "type": "text",
-        "text": "As this starts to sizzle, the fat will just pull out some of that perfume from the garlic."
-      },
-      {
-        "type": "text",
-        "text": "Then there's the black pepper."
-      },
-      {
-        "type": "text",
-        "text": "Get your peppercorns in a pestle and mortar."
-      },
-      {
-        "type": "text",
-        "text": "Crack it."
-      },
-      {
-        "type": "text",
-        "text": "Get a little sieve."
-      },
-      {
-        "type": "text",
-        "text": "This is one of the most important little bits and no one really does it, okay."
-      },
-      {
-        "type": "text",
-        "text": "Honestly, this is the outer skin."
-      },
-      {
-        "type": "text",
-        "text": "This is much milder."
-      },
-      {
-        "type": "text",
-        "text": "What we have here is the inside part, the peppercorn, which is hotter."
-      },
-      {
-        "type": "text",
-        "text": "Perfect for a good hot carbonara."
-      },
-      {
-        "type": "text",
-        "text": "The guanciale is getting golden."
-      },
-      {
-        "type": "text",
-        "text": "Now, let's get on to the eggs."
-      },
-      {
-        "type": "text",
-        "text": "Eggs are really, really delicate and if you don't treat these right, you end up with stirfried noodles and we don't want that."
-      },
-      {
-        "type": "text",
-        "text": "I'm gonna take a bowl and I'm gonna crack the egg straight into there and I'm just gonna add a little pecorino to that."
-      },
-      {
-        "type": "text",
-        "text": "So, like 20 grams."
-      },
-      {
-        "type": "text",
-        "text": "Now, we're time sensitive so we're gonna have a little whisk up."
-      },
-      {
-        "type": "text",
-        "text": "We've got dark guanciale."
-      },
-      {
-        "type": "text",
-        "text": "We've got the fat that's come out of it and that's what you want."
-      },
-      {
-        "type": "text",
-        "text": "You want attitude and colour."
-      },
-      {
-        "type": "text",
-        "text": "Now, I'm gonna remove that garlic."
-      },
-      {
-        "type": "text",
-        "text": "Turn the heat off and you're gonna drag the pasta and the water into the pan."
-      },
-      {
-        "type": "text",
-        "text": "Use the water to stop the frying."
-      },
-      {
-        "type": "text",
-        "text": "Bit of water, bit of water."
-      },
-      {
-        "type": "text",
-        "text": "That water and the fat, that is what's going to emulsify to become a creamy sauce."
-      },
-      {
-        "type": "text",
-        "text": "We're not frying anymore."
-      },
-      {
-        "type": "text",
-        "text": "Can you hear that?"
-      },
-      {
-        "type": "text",
-        "text": "Quiet."
-      },
-      {
-        "type": "text",
-        "text": "No frying at all."
-      },
-      {
-        "type": "text",
-        "text": "Only then can we think about adding our egg."
-      },
-      {
-        "type": "text",
-        "text": "As we toss, we add some more liquid."
-      },
-      {
-        "type": "text",
-        "text": "That's the cream."
-      },
-      {
-        "type": "text",
-        "text": "You get the cream through the emulsification of the cooking water and the fat and technique and timing."
-      },
-      {
-        "type": "text",
-        "text": "So, as simple as this is, it's technical."
-      },
-      {
-        "type": "text",
-        "text": "Get your friends, your family, get them around the table."
-      },
-      {
-        "type": "text",
-        "text": "Glass of wine."
-      },
-      {
-        "type": "text",
-        "text": "Look at that guys, look at that."
-      },
-      {
-        "type": "text",
-        "text": "Carbonara and you finish with more pepper."
-      },
-      {
-        "type": "text",
-        "text": "I'm so excited."
-      },
-      {
-        "type": "text",
-        "text": "Spaghetti, carbonara with a beautiful little finishing of pecorino."
-      },
-      {
-        "type": "text",
-        "text": "That is as classic as I can give you guys, from chefs, from nonnas."
-      },
-      {
-        "type": "text",
-        "text": "It's about quality ingredients, the guanciale, the pecorino romana, quality eggs, the pepper, the technique of the pepper, good pasta and then the sensitivity of cooking it right."
-      },
-      {
-        "type": "text",
-        "text": "Come on."
-      },
-      {
-        "type": "text",
-        "text": "There's a little platter for two people and of course, the most important thing when you eat pasta is don't watch it, eat it."
-      },
-      {
-        "type": "text",
-        "text": "Mmm."
-      },
-      {
-        "type": "text",
-        "text": "That my friends, is a thing of joy."
-      }
-    ]
-  }
-]
-RESPONSE: {
-  "steps": [
-    "Gather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.",
-    "Boil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.",
-    "Remove the skin from the guanciale and slice it into 1 cm thick pieces. Chop into 0.5 cm chunks.",
-    "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
-    "Crack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.",
-    "Once the guanciale is golden, remove the garlic from the pan.",
-    "Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.",
-    "Turn off the heat under the pan with guanciale. Drag the cooked pasta and some of its water into the pan to stop frying and start emulsifying the sauce.",
-    "Add the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce through emulsification.",
-    "Finish the dish with more cracked black pepper and a sprinkle of pecorino romano cheese before serving."
-  ]
-}
-MESSAGES: [
-  {
-    "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered."
-  },
-  {
-    "role": "user",
-    "content": [
-      {
-        "type": "text",
-        "text": "## Steps:\nGather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.\nBoil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.\nRemove the skin from the guanciale and slice it into 1 cm thick pieces. Chop into 0.5 cm chunks.\nPlace a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.\nCrack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.\nOnce the guanciale is golden, remove the garlic from the pan.\nCrack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.\nTurn off the heat under the pan with guanciale. Drag the cooked pasta and some of its water into the pan to stop frying and start emulsifying the sauce.\nAdd the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce through emulsification.\nFinish the dish with more cracked black pepper and a sprinkle of pecorino romano cheese before serving."
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
       }
     ]
   },
@@ -2221,708 +120,28 @@ MESSAGES: [
     "content": [
       {
         "type": "text",
-        "text": "## Contents:\n"
+        "text": "- **Procedural Content**: Use of Olive Oil\n\t- Description: Add a tiny bit of olive oil to the pan before cooking the bacon.\n\t- Reasoning: Olive oil is used to prevent the bacon from sticking and to aid in rendering the fat.\n"
       },
       {
         "type": "text",
-        "text": "0. Pasta, cream, bacon."
-      },
-      {
-        "type": "text",
-        "text": "1. Cream?"
-      },
-      {
-        "type": "text",
-        "text": "2. Hi guys, we're gonna make spaghetti carbonara, a classic Italian dish."
-      },
-      {
-        "type": "text",
-        "text": "3. Pasta, cheese, bacon."
-      },
-      {
-        "type": "text",
-        "text": "4. What's not to love, right?"
-      },
-      {
-        "type": "text",
-        "text": "5. But it's really controversial."
-      },
-      {
-        "type": "text",
-        "text": "6. I want to give you what I think is the most authentic recipe."
-      },
-      {
-        "type": "text",
-        "text": "7. So first up guys, you only need five ingredients."
-      },
-      {
-        "type": "text",
-        "text": "8. Guanciale."
-      },
-      {
-        "type": "text",
-        "text": "9. This is the cured cheek of pork."
-      },
-      {
-        "type": "text",
-        "text": "10. And as you can see, it's all about the fat."
-      },
-      {
-        "type": "text",
-        "text": "11. It's salted, it's got pepper, it's dried and it's aged."
-      },
-      {
-        "type": "text",
-        "text": "12. Of course, it's similar to smoked bacon and you can get some pretty good results actually."
-      },
-      {
-        "type": "text",
-        "text": "13. But you can see this is quite lean."
-      },
-      {
-        "type": "text",
-        "text": "14. So try and get them to not cut off the fat because you need it."
-      },
-      {
-        "type": "text",
-        "text": "15. Or there's pancetta."
-      },
-      {
-        "type": "text",
-        "text": "16. Then, most people use parmesan."
-      },
-      {
-        "type": "text",
-        "text": "17. But actually, the more classic is pecorino romano."
-      },
-      {
-        "type": "text",
-        "text": "18. Sheep's cheese."
-      },
-      {
-        "type": "text",
-        "text": "19. It's crumbly, it's salty, freerange organic egg."
-      },
-      {
-        "type": "text",
-        "text": "20. Pasta, black pepper and then optional, garlic."
-      },
-      {
-        "type": "text",
-        "text": "21. So first up guys, grab the pasta by two hands."
-      },
-      {
-        "type": "text",
-        "text": "22. Twist it into the water."
-      },
-      {
-        "type": "text",
-        "text": "23. By twisting it, it won't stick together."
-      },
-      {
-        "type": "text",
-        "text": "24. Put a tiny amount of salt in this water because the cheese and the guanciale is salty."
-      },
-      {
-        "type": "text",
-        "text": "25. This beautiful pasta takes eight minutes to cook."
-      },
-      {
-        "type": "text",
-        "text": "26. So I've got my guanciale."
-      },
-      {
-        "type": "text",
-        "text": "27. I'm gonna remove the skin and I'm gonna take a nice centimetre slice of the guanciale."
-      },
-      {
-        "type": "text",
-        "text": "28. Roughly chop this to about half centimetre chunks."
-      },
-      {
-        "type": "text",
-        "text": "29. Now, the pan is cold."
-      },
-      {
-        "type": "text",
-        "text": "30. Turn it on to a mediumhigh heat."
-      },
-      {
-        "type": "text",
-        "text": "31. The reason I want it cold is because I want to render the fat out."
-      },
-      {
-        "type": "text",
-        "text": "32. The guanciale goes in to the pan and this pan is getting hot."
-      },
-      {
-        "type": "text",
-        "text": "33. Give the garlic a crack and then put it in the pan."
-      },
-      {
-        "type": "text",
-        "text": "34. As this starts to sizzle, the fat will just pull out some of that perfume from the garlic."
-      },
-      {
-        "type": "text",
-        "text": "35. Then there's the black pepper."
-      },
-      {
-        "type": "text",
-        "text": "36. Get your peppercorns in a pestle and mortar."
-      },
-      {
-        "type": "text",
-        "text": "37. Crack it."
-      },
-      {
-        "type": "text",
-        "text": "38. Get a little sieve."
-      },
-      {
-        "type": "text",
-        "text": "39. This is one of the most important little bits and no one really does it, okay."
-      },
-      {
-        "type": "text",
-        "text": "40. Honestly, this is the outer skin."
-      },
-      {
-        "type": "text",
-        "text": "41. This is much milder."
-      },
-      {
-        "type": "text",
-        "text": "42. What we have here is the inside part, the peppercorn, which is hotter."
-      },
-      {
-        "type": "text",
-        "text": "43. Perfect for a good hot carbonara."
-      },
-      {
-        "type": "text",
-        "text": "44. The guanciale is getting golden."
-      },
-      {
-        "type": "text",
-        "text": "45. Now, let's get on to the eggs."
-      },
-      {
-        "type": "text",
-        "text": "46. Eggs are really, really delicate and if you don't treat these right, you end up with stirfried noodles and we don't want that."
-      },
-      {
-        "type": "text",
-        "text": "47. I'm gonna take a bowl and I'm gonna crack the egg straight into there and I'm just gonna add a little pecorino to that."
-      },
-      {
-        "type": "text",
-        "text": "48. So, like 20 grams."
-      },
-      {
-        "type": "text",
-        "text": "49. Now, we're time sensitive so we're gonna have a little whisk up."
-      },
-      {
-        "type": "text",
-        "text": "50. We've got dark guanciale."
-      },
-      {
-        "type": "text",
-        "text": "51. We've got the fat that's come out of it and that's what you want."
-      },
-      {
-        "type": "text",
-        "text": "52. You want attitude and colour."
-      },
-      {
-        "type": "text",
-        "text": "53. Now, I'm gonna remove that garlic."
-      },
-      {
-        "type": "text",
-        "text": "54. Turn the heat off and you're gonna drag the pasta and the water into the pan."
-      },
-      {
-        "type": "text",
-        "text": "55. Use the water to stop the frying."
-      },
-      {
-        "type": "text",
-        "text": "56. Bit of water, bit of water."
-      },
-      {
-        "type": "text",
-        "text": "57. That water and the fat, that is what's going to emulsify to become a creamy sauce."
-      },
-      {
-        "type": "text",
-        "text": "58. We're not frying anymore."
-      },
-      {
-        "type": "text",
-        "text": "59. Can you hear that?"
-      },
-      {
-        "type": "text",
-        "text": "60. Quiet."
-      },
-      {
-        "type": "text",
-        "text": "61. No frying at all."
-      },
-      {
-        "type": "text",
-        "text": "62. Only then can we think about adding our egg."
-      },
-      {
-        "type": "text",
-        "text": "63. As we toss, we add some more liquid."
-      },
-      {
-        "type": "text",
-        "text": "64. That's the cream."
-      },
-      {
-        "type": "text",
-        "text": "65. You get the cream through the emulsification of the cooking water and the fat and technique and timing."
-      },
-      {
-        "type": "text",
-        "text": "66. So, as simple as this is, it's technical."
-      },
-      {
-        "type": "text",
-        "text": "67. Get your friends, your family, get them around the table."
-      },
-      {
-        "type": "text",
-        "text": "68. Glass of wine."
-      },
-      {
-        "type": "text",
-        "text": "69. Look at that guys, look at that."
-      },
-      {
-        "type": "text",
-        "text": "70. Carbonara and you finish with more pepper."
-      },
-      {
-        "type": "text",
-        "text": "71. I'm so excited."
-      },
-      {
-        "type": "text",
-        "text": "72. Spaghetti, carbonara with a beautiful little finishing of pecorino."
-      },
-      {
-        "type": "text",
-        "text": "73. That is as classic as I can give you guys, from chefs, from nonnas."
-      },
-      {
-        "type": "text",
-        "text": "74. It's about quality ingredients, the guanciale, the pecorino romana, quality eggs, the pepper, the technique of the pepper, good pasta and then the sensitivity of cooking it right."
-      },
-      {
-        "type": "text",
-        "text": "75. Come on."
-      },
-      {
-        "type": "text",
-        "text": "76. There's a little platter for two people and of course, the most important thing when you eat pasta is don't watch it, eat it."
-      },
-      {
-        "type": "text",
-        "text": "77. Mmm."
-      },
-      {
-        "type": "text",
-        "text": "78. That my friends, is a thing of joy."
+        "text": "- **Procedural Content**: Add Olive Oil\n\t- Description: A tiny bit of olive oil is added to the pan before cooking the bacon.\n\t- Reasoning: Olive oil helps in rendering the bacon fat and prevents sticking.\n"
       }
     ]
   }
 ]
 RESPONSE: {
-  "segments": [
-    {
-      "step": "Gather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.",
-      "start_index": 2,
-      "end_index": 20
-    },
-    {
-      "step": "Boil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.",
-      "start_index": 21,
-      "end_index": 25
-    },
-    {
-      "step": "Remove the skin from the guanciale and slice it into 1 cm thick pieces. Chop into 0.5 cm chunks.",
-      "start_index": 26,
-      "end_index": 28
-    },
-    {
-      "step": "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
-      "start_index": 29,
-      "end_index": 34
-    },
-    {
-      "step": "Crack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.",
-      "start_index": 35,
-      "end_index": 43
-    },
-    {
-      "step": "Once the guanciale is golden, remove the garlic from the pan.",
-      "start_index": 44,
-      "end_index": 53
-    },
-    {
-      "step": "Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.",
-      "start_index": 45,
-      "end_index": 49
-    },
-    {
-      "step": "Turn off the heat under the pan with guanciale. Drag the cooked pasta and some of its water into the pan to stop frying and start emulsifying the sauce.",
-      "start_index": 54,
-      "end_index": 57
-    },
-    {
-      "step": "Add the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce through emulsification.",
-      "start_index": 58,
-      "end_index": 65
-    },
-    {
-      "step": "Finish the dish with more cracked black pepper and a sprinkle of pecorino romano cheese before serving.",
-      "start_index": 70,
-      "end_index": 74
-    }
-  ]
-}
-Potential ERROR: Overlapping segments Once the guanciale is golden, remove the garlic from the pan. Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.
-Potential ERROR: Overlapping segments Once the guanciale is golden, remove the garlic from the pan. Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.
-Potential ERROR: Overlapping segments Once the guanciale is golden, remove the garlic from the pan. Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.
-Potential ERROR: Overlapping segments Once the guanciale is golden, remove the garlic from the pan. Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.
-MESSAGES: [
-  {
-    "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information."
-  },
-  {
-    "role": "user",
-    "content": [
-      {
-        "type": "text",
-        "text": "Contents:\n"
-      },
-      {
-        "type": "text",
-        "text": "I am Antonio Carluccio."
-      },
-      {
-        "type": "text",
-        "text": "Welcome to my kitchen."
-      },
-      {
-        "type": "text",
-        "text": "I show you how to make the real Carbonara."
-      },
-      {
-        "type": "text",
-        "text": "Most of the people, they get it wrong, and I will show you why."
-      },
-      {
-        "type": "text",
-        "text": "Now, this is boiling water to which we add in the ratio of 10 grams per liter of water, salt."
-      },
-      {
-        "type": "text",
-        "text": "Has to be like this."
-      },
-      {
-        "type": "text",
-        "text": "And immediately then, we put in, has to be boiling, a pasta."
-      },
-      {
-        "type": "text",
-        "text": "In this case, it's sort of spaghettoni, the biggest size of spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "While this is cooking, it takes good 10 minutes, and no oil, please."
-      },
-      {
-        "type": "text",
-        "text": "No oil, because you don't need it."
-      },
-      {
-        "type": "text",
-        "text": "You just need to stir a little bit when it's in it, and that's it."
-      },
-      {
-        "type": "text",
-        "text": "Now, for the original Carbonara, you need the guanciale, which is the cheek, the pork cheek."
-      },
-      {
-        "type": "text",
-        "text": "And the Romans, they're very special in that because they do it, they cure it like ham, or like pancetta, and it's very tender, very tasty and tender."
-      },
-      {
-        "type": "text",
-        "text": "Now, you have to cut it in chunks."
-      },
-      {
-        "type": "text",
-        "text": "You can use naturally also pancetta, the normal pancetta, which is this one here."
-      },
-      {
-        "type": "text",
-        "text": "But I like the guanciale when I have it, obviously."
-      },
-      {
-        "type": "text",
-        "text": "And this is the recipe for two people."
-      },
-      {
-        "type": "text",
-        "text": "Big chunks."
-      },
-      {
-        "type": "text",
-        "text": "The Romans, they are mad for this pasta."
-      },
-      {
-        "type": "text",
-        "text": "If there is a Roman pasta, it is this one here."
-      },
-      {
-        "type": "text",
-        "text": "This is quite a lot for two people, let's see."
-      },
-      {
-        "type": "text",
-        "text": "And the only thing you have to do now to make the sauce is to take good olive oil, put it in the pan."
-      },
-      {
-        "type": "text",
-        "text": "There you are."
-      },
-      {
-        "type": "text",
-        "text": "Put the guanciale into that, and this is the beginning of the sauce, and mostly also the end of it."
-      },
-      {
-        "type": "text",
-        "text": "Because the rest is coming here into that bowl."
-      },
-      {
-        "type": "text",
-        "text": "And now you take some good eggs, and for two people you take two eggs."
-      },
-      {
-        "type": "text",
-        "text": "Oh, lovely colour, look at this."
-      },
-      {
-        "type": "text",
-        "text": "To be a little bit naughty, I take just the yolk, and we beat it."
-      },
-      {
-        "type": "text",
-        "text": "To this, you don't add any, any, any cream."
-      },
-      {
-        "type": "text",
-        "text": "Absolutely forbidden."
-      },
-      {
-        "type": "text",
-        "text": "So this is the beginning of the sauce."
-      },
-      {
-        "type": "text",
-        "text": "So we put a little bit of parmesan."
-      },
-      {
-        "type": "text",
-        "text": "In Roma, they use also pecorino cheese, which is a cheese to be grated."
-      },
-      {
-        "type": "text",
-        "text": "There are fresh pecorino and aged pecorino."
-      },
-      {
-        "type": "text",
-        "text": "But it's lovely to have a little bit of this."
-      },
-      {
-        "type": "text",
-        "text": "Abundant pepper."
-      },
-      {
-        "type": "text",
-        "text": "And another stir."
-      },
-      {
-        "type": "text",
-        "text": "And this is the sauce."
-      },
-      {
-        "type": "text",
-        "text": "I wouldn't put any salt here because the bacon here is quite salty, it's preserved."
-      },
-      {
-        "type": "text",
-        "text": "We reduce it a little bit because I'm going to see what the pasta does."
-      },
-      {
-        "type": "text",
-        "text": "I can see it is still stiff."
-      },
-      {
-        "type": "text",
-        "text": "So I put it back again another three or four minutes."
-      },
-      {
-        "type": "text",
-        "text": "Now here's the bacon that has produced also quite a lot of fat."
-      },
-      {
-        "type": "text",
-        "text": "Should you be not wanting the fat, I show you a little trick."
-      },
-      {
-        "type": "text",
-        "text": "Here we are."
-      },
-      {
-        "type": "text",
-        "text": "And do this."
-      },
-      {
-        "type": "text",
-        "text": "You absorb a little bit of the fat, and you take it off like this."
-      },
-      {
-        "type": "text",
-        "text": "Very simple."
-      },
-      {
-        "type": "text",
-        "text": "So the pasta seems to be doing well here, the taste now should be enough."
-      },
-      {
-        "type": "text",
-        "text": "I switched off the guanciale because it's too hot and this is exactly what I don't want to be too hot."
-      },
-      {
-        "type": "text",
-        "text": "So now I take the pasta and I put it into the, yes, that."
-      },
-      {
-        "type": "text",
-        "text": "And you flavour it like this."
-      },
-      {
-        "type": "text",
-        "text": "You let it cool down in doing this."
-      },
-      {
-        "type": "text",
-        "text": "And it shouldn't be too hot because what is going to happen now should be the temperature enough to coat the egg around the pasta."
-      },
-      {
-        "type": "text",
-        "text": "And now it comes, yes, the resistance, the actual sauce."
-      },
-      {
-        "type": "text",
-        "text": "There you are."
-      },
-      {
-        "type": "text",
-        "text": "And now we stir it like this."
-      },
-      {
-        "type": "text",
-        "text": "You see usually by this stage the heat is so much in the wrong cooking that the eggs become scrambled eggs."
-      },
-      {
-        "type": "text",
-        "text": "Not too scrambly."
-      },
-      {
-        "type": "text",
-        "text": "And this is the carbonara."
-      },
-      {
-        "type": "text",
-        "text": "And now the last touch, which is the embellishment."
-      },
-      {
-        "type": "text",
-        "text": "Parmesan or pecorino, depending what you like."
-      },
-      {
-        "type": "text",
-        "text": "And in my opinion also a nice touch of pepper."
-      },
-      {
-        "type": "text",
-        "text": "This is decoration for me."
-      },
-      {
-        "type": "text",
-        "text": "And this is the real carbonara."
-      },
-      {
-        "type": "text",
-        "text": "The only one."
-      },
-      {
-        "type": "text",
-        "text": "And it's exactly how it should be."
-      },
-      {
-        "type": "text",
-        "text": "Creamy, without adding cream because this is the usual thing."
-      },
-      {
-        "type": "text",
-        "text": "Like this is just fantastic."
-      },
-      {
-        "type": "text",
-        "text": "Cameraman, everybody, you should taste it."
-      },
-      {
-        "type": "text",
-        "text": "It's just wonderful."
-      }
-    ]
-  }
-]
-RESPONSE: {
-  "steps": [
-    "Boil water and add salt at a ratio of 10 grams per liter.",
-    "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
-    "Cut guanciale (or pancetta) into chunks.",
-    "Heat olive oil in a pan and cook the guanciale until it releases fat.",
-    "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
-    "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
-    "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
-    "Stir until the sauce is creamy and coats the pasta.",
-    "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration."
-  ]
+  "title": "Use of Olive Oil",
+  "description": "Add a small amount of olive oil to the pan before cooking bacon to prevent sticking and aid fat rendering.",
+  "reasoning": "Olive oil prevents bacon from sticking and helps render its fat efficiently.",
+  "comparison": "This step is included to ensure bacon cooks properly without sticking, which may not be emphasized in other videos."
 }
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for a task `How to make Pasta Carbonara?` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered."
-  },
-  {
-    "role": "user",
     "content": [
       {
         "type": "text",
-        "text": "## Steps:\nBoil water and add salt at a ratio of 10 grams per liter.\nAdd spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.\nCut guanciale (or pancetta) into chunks.\nHeat olive oil in a pan and cook the guanciale until it releases fat.\nIn a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.\nOnce the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.\nMix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.\nStir until the sauce is creamy and coats the pasta.\nServe with additional grated parmesan or pecorino and a touch of pepper for decoration."
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
       }
     ]
   },
@@ -2931,648 +150,519 @@ MESSAGES: [
     "content": [
       {
         "type": "text",
-        "text": "## Contents:\n"
+        "text": "- **Procedural Content**: Use Thick-Cut Bacon\n\t- Description: Half a pound of thick-cut bacon is used for the recipe.\n\t- Reasoning: Thick-cut bacon provides a substantial texture and flavor to the dish.\n"
       },
       {
         "type": "text",
-        "text": "0. I am Antonio Carluccio."
-      },
-      {
-        "type": "text",
-        "text": "1. Welcome to my kitchen."
-      },
-      {
-        "type": "text",
-        "text": "2. I show you how to make the real Carbonara."
-      },
-      {
-        "type": "text",
-        "text": "3. Most of the people, they get it wrong, and I will show you why."
-      },
-      {
-        "type": "text",
-        "text": "4. Now, this is boiling water to which we add in the ratio of 10 grams per liter of water, salt."
-      },
-      {
-        "type": "text",
-        "text": "5. Has to be like this."
-      },
-      {
-        "type": "text",
-        "text": "6. And immediately then, we put in, has to be boiling, a pasta."
-      },
-      {
-        "type": "text",
-        "text": "7. In this case, it's sort of spaghettoni, the biggest size of spaghetti."
-      },
-      {
-        "type": "text",
-        "text": "8. While this is cooking, it takes good 10 minutes, and no oil, please."
-      },
-      {
-        "type": "text",
-        "text": "9. No oil, because you don't need it."
-      },
-      {
-        "type": "text",
-        "text": "10. You just need to stir a little bit when it's in it, and that's it."
-      },
-      {
-        "type": "text",
-        "text": "11. Now, for the original Carbonara, you need the guanciale, which is the cheek, the pork cheek."
-      },
-      {
-        "type": "text",
-        "text": "12. And the Romans, they're very special in that because they do it, they cure it like ham, or like pancetta, and it's very tender, very tasty and tender."
-      },
-      {
-        "type": "text",
-        "text": "13. Now, you have to cut it in chunks."
-      },
-      {
-        "type": "text",
-        "text": "14. You can use naturally also pancetta, the normal pancetta, which is this one here."
-      },
-      {
-        "type": "text",
-        "text": "15. But I like the guanciale when I have it, obviously."
-      },
-      {
-        "type": "text",
-        "text": "16. And this is the recipe for two people."
-      },
-      {
-        "type": "text",
-        "text": "17. Big chunks."
-      },
-      {
-        "type": "text",
-        "text": "18. The Romans, they are mad for this pasta."
-      },
-      {
-        "type": "text",
-        "text": "19. If there is a Roman pasta, it is this one here."
-      },
-      {
-        "type": "text",
-        "text": "20. This is quite a lot for two people, let's see."
-      },
-      {
-        "type": "text",
-        "text": "21. And the only thing you have to do now to make the sauce is to take good olive oil, put it in the pan."
-      },
-      {
-        "type": "text",
-        "text": "22. There you are."
-      },
-      {
-        "type": "text",
-        "text": "23. Put the guanciale into that, and this is the beginning of the sauce, and mostly also the end of it."
-      },
-      {
-        "type": "text",
-        "text": "24. Because the rest is coming here into that bowl."
-      },
-      {
-        "type": "text",
-        "text": "25. And now you take some good eggs, and for two people you take two eggs."
-      },
-      {
-        "type": "text",
-        "text": "26. Oh, lovely colour, look at this."
-      },
-      {
-        "type": "text",
-        "text": "27. To be a little bit naughty, I take just the yolk, and we beat it."
-      },
-      {
-        "type": "text",
-        "text": "28. To this, you don't add any, any, any cream."
-      },
-      {
-        "type": "text",
-        "text": "29. Absolutely forbidden."
-      },
-      {
-        "type": "text",
-        "text": "30. So this is the beginning of the sauce."
-      },
-      {
-        "type": "text",
-        "text": "31. So we put a little bit of parmesan."
-      },
-      {
-        "type": "text",
-        "text": "32. In Roma, they use also pecorino cheese, which is a cheese to be grated."
-      },
-      {
-        "type": "text",
-        "text": "33. There are fresh pecorino and aged pecorino."
-      },
-      {
-        "type": "text",
-        "text": "34. But it's lovely to have a little bit of this."
-      },
-      {
-        "type": "text",
-        "text": "35. Abundant pepper."
-      },
-      {
-        "type": "text",
-        "text": "36. And another stir."
-      },
-      {
-        "type": "text",
-        "text": "37. And this is the sauce."
-      },
-      {
-        "type": "text",
-        "text": "38. I wouldn't put any salt here because the bacon here is quite salty, it's preserved."
-      },
-      {
-        "type": "text",
-        "text": "39. We reduce it a little bit because I'm going to see what the pasta does."
-      },
-      {
-        "type": "text",
-        "text": "40. I can see it is still stiff."
-      },
-      {
-        "type": "text",
-        "text": "41. So I put it back again another three or four minutes."
-      },
-      {
-        "type": "text",
-        "text": "42. Now here's the bacon that has produced also quite a lot of fat."
-      },
-      {
-        "type": "text",
-        "text": "43. Should you be not wanting the fat, I show you a little trick."
-      },
-      {
-        "type": "text",
-        "text": "44. Here we are."
-      },
-      {
-        "type": "text",
-        "text": "45. And do this."
-      },
-      {
-        "type": "text",
-        "text": "46. You absorb a little bit of the fat, and you take it off like this."
-      },
-      {
-        "type": "text",
-        "text": "47. Very simple."
-      },
-      {
-        "type": "text",
-        "text": "48. So the pasta seems to be doing well here, the taste now should be enough."
-      },
-      {
-        "type": "text",
-        "text": "49. I switched off the guanciale because it's too hot and this is exactly what I don't want to be too hot."
-      },
-      {
-        "type": "text",
-        "text": "50. So now I take the pasta and I put it into the, yes, that."
-      },
-      {
-        "type": "text",
-        "text": "51. And you flavour it like this."
-      },
-      {
-        "type": "text",
-        "text": "52. You let it cool down in doing this."
-      },
-      {
-        "type": "text",
-        "text": "53. And it shouldn't be too hot because what is going to happen now should be the temperature enough to coat the egg around the pasta."
-      },
-      {
-        "type": "text",
-        "text": "54. And now it comes, yes, the resistance, the actual sauce."
-      },
-      {
-        "type": "text",
-        "text": "55. There you are."
-      },
-      {
-        "type": "text",
-        "text": "56. And now we stir it like this."
-      },
-      {
-        "type": "text",
-        "text": "57. You see usually by this stage the heat is so much in the wrong cooking that the eggs become scrambled eggs."
-      },
-      {
-        "type": "text",
-        "text": "58. Not too scrambly."
-      },
-      {
-        "type": "text",
-        "text": "59. And this is the carbonara."
-      },
-      {
-        "type": "text",
-        "text": "60. And now the last touch, which is the embellishment."
-      },
-      {
-        "type": "text",
-        "text": "61. Parmesan or pecorino, depending what you like."
-      },
-      {
-        "type": "text",
-        "text": "62. And in my opinion also a nice touch of pepper."
-      },
-      {
-        "type": "text",
-        "text": "63. This is decoration for me."
-      },
-      {
-        "type": "text",
-        "text": "64. And this is the real carbonara."
-      },
-      {
-        "type": "text",
-        "text": "65. The only one."
-      },
-      {
-        "type": "text",
-        "text": "66. And it's exactly how it should be."
-      },
-      {
-        "type": "text",
-        "text": "67. Creamy, without adding cream because this is the usual thing."
-      },
-      {
-        "type": "text",
-        "text": "68. Like this is just fantastic."
-      },
-      {
-        "type": "text",
-        "text": "69. Cameraman, everybody, you should taste it."
-      },
-      {
-        "type": "text",
-        "text": "70. It's just wonderful."
+        "text": "- **Procedural Content**: Use Thick-Cut Bacon\n\t- Description: Use half a pound of thick-cut bacon for the recipe.\n\t- Reasoning: Thick-cut bacon provides a substantial texture and flavor.\n"
       }
     ]
   }
 ]
 RESPONSE: {
-  "segments": [
-    {
-      "step": "Boil water and add salt at a ratio of 10 grams per liter.",
-      "start_index": 4,
-      "end_index": 5
-    },
-    {
-      "step": "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
-      "start_index": 6,
-      "end_index": 10
-    },
-    {
-      "step": "Cut guanciale (or pancetta) into chunks.",
-      "start_index": 11,
-      "end_index": 17
-    },
-    {
-      "step": "Heat olive oil in a pan and cook the guanciale until it releases fat.",
-      "start_index": 21,
-      "end_index": 23
-    },
-    {
-      "step": "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
-      "start_index": 25,
-      "end_index": 37
-    },
-    {
-      "step": "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
-      "start_index": 49,
-      "end_index": 53
-    },
-    {
-      "step": "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
-      "start_index": 54,
-      "end_index": 58
-    },
-    {
-      "step": "Stir until the sauce is creamy and coats the pasta.",
-      "start_index": 59,
-      "end_index": 59
-    },
-    {
-      "step": "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration.",
-      "start_index": 60,
-      "end_index": 63
-    }
-  ]
+  "title": "Thick-Cut Bacon",
+  "description": "Use half a pound of thick-cut bacon for substantial texture and flavor.",
+  "reasoning": "Thick-cut bacon enhances the dish with its texture and flavor.",
+  "comparison": "The emphasis on thick-cut bacon is consistent across descriptions, highlighting its importance."
+}
+-->  2
+-->  2
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Bacon Fat Management\n\t- Description: Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Managing the bacon fat is crucial for flavor and texture balance in the dish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Drain Most Bacon Fat\n\t- Description: Drain most of the bacon fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Leaving some bacon fat in the pan enhances the flavor of the pasta carbonara.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Drain Most Bacon Fat\n\t- Description: Drain most of the bacon fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Leaving some fat enhances the flavor of the carbonara sauce.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Bacon Fat Management",
+  "description": "Remove crispy bacon for garnish and drain most fat, leaving two tablespoons in the pan.",
+  "reasoning": "Proper fat management is essential for flavor and texture balance in carbonara.",
+  "comparison": "This content emphasizes the importance of leaving some bacon fat for flavor, which may not be highlighted in other videos."
 }
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
   },
   {
     "role": "user",
-    "content": "## Video 1:\nChop bacon into small pieces.\nCook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.\nSeparate egg yolks from the whites and place the yolks in a bowl.\nGrate pecorino romano cheese and add it to the egg yolks.\nAdd black pepper to the egg yolk and cheese mixture and mix well.\nBoil water in a pot, add salt, and cook spaghetti until al dente.\nReserve some pasta water before draining the spaghetti.\nAdd a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.\nTransfer the cooked spaghetti directly from the pot to the pan with bacon.\nMix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.\nIf needed, add more reserved pasta water to achieve the desired sauce consistency.\nFinish with additional black pepper and grated pecorino romano or parmesan cheese before serving."
-  },
-  {
-    "role": "user",
-    "content": "## Video 2:\nCut about half a pound of thick-cut bacon into three-quarter inch slices.\nHeat a pan over medium heat and add a tiny bit of olive oil.\nAdd the bacon to the pan and slowly render out the fat until the bacon is crispy.\nBoil about four quarts of water and add a tablespoon of kosher salt.\nGrate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\nIn a bowl, whisk together three whole eggs and two egg yolks.\nWhisk the grated cheese into the egg mixture.\nAdd freshly ground black pepper to the egg and cheese mixture to taste.\nOnce the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.\nCook spaghetti in the boiling water until slightly al dente, about 10 minutes.\nTurn off the heat under the bacon pan and add the cooked spaghetti to the pan.\nAdd the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.\nIf needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.\nPlate the pasta and garnish with additional grated cheese and crispy bacon."
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Set Aside Bacon Garnish\n\t- Description: Once the bacon is crispy, remove some for garnish.\n\t- Reasoning: Setting aside some bacon for garnish adds a decorative and flavorful touch to the final dish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Set Aside Bacon for Garnish\n\t- Description: Remove some crispy bacon for garnish after cooking.\n\t- Reasoning: Garnishing with bacon adds texture and visual appeal to the dish.\n"
+      }
+    ]
   }
 ]
 RESPONSE: {
-  "agg_steps": [
-    "Chop bacon into small pieces and cook until crispy, then set aside.",
-    "Grate cheese and prepare the egg mixture with cheese and black pepper.",
-    "Boil salted water and cook spaghetti until al dente, reserving some pasta water.",
-    "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce.",
-    "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-  ],
-  "assignments_1": [
-    {
-      "original_step": "Chop bacon into small pieces.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Separate egg yolks from the whites and place the yolks in a bowl.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Grate pecorino romano cheese and add it to the egg yolks.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Add black pepper to the egg yolk and cheese mixture and mix well.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Boil water in a pot, add salt, and cook spaghetti until al dente.",
-      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Reserve some pasta water before draining the spaghetti.",
-      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Add a small amount of reserved pasta water to the egg yolk and cheese mixture to help melt the cheese.",
-      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce."
-    },
-    {
-      "original_step": "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
-      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce."
-    },
-    {
-      "original_step": "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to coat the pasta and create a creamy sauce.",
-      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce."
-    },
-    {
-      "original_step": "If needed, add more reserved pasta water to achieve the desired sauce consistency.",
-      "agg_step": "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-    },
-    {
-      "original_step": "Finish with additional black pepper and grated pecorino romano or parmesan cheese before serving.",
-      "agg_step": "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-    }
-  ],
-  "assignments_2": [
-    {
-      "original_step": "Cut about half a pound of thick-cut bacon into three-quarter inch slices.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Heat a pan over medium heat and add a tiny bit of olive oil.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Boil about four quarts of water and add a tablespoon of kosher salt.",
-      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "In a bowl, whisk together three whole eggs and two egg yolks.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Whisk the grated cheese into the egg mixture.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Add freshly ground black pepper to the egg and cheese mixture to taste.",
-      "agg_step": "Grate cheese and prepare the egg mixture with cheese and black pepper."
-    },
-    {
-      "original_step": "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.",
-      "agg_step": "Chop bacon into small pieces and cook until crispy, then set aside."
-    },
-    {
-      "original_step": "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
-      "agg_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Turn off the heat under the bacon pan and add the cooked spaghetti to the pan.",
-      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce."
-    },
-    {
-      "original_step": "Add the egg and cheese mixture to the spaghetti, stirring gently to avoid scrambling the eggs.",
-      "agg_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce."
-    },
-    {
-      "original_step": "If needed, add a little pasta water to loosen the sauce and achieve a creamy consistency.",
-      "agg_step": "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-    },
-    {
-      "original_step": "Plate the pasta and garnish with additional grated cheese and crispy bacon.",
-      "agg_step": "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-    }
-  ]
+  "title": "Bacon Garnish",
+  "description": "Set aside crispy bacon for garnish after cooking.",
+  "reasoning": "Garnishing with bacon enhances texture, flavor, and visual appeal.",
+  "comparison": "This step emphasizes the importance of using bacon as a garnish, which may not be highlighted in other videos."
+}
+-->  3
+-->  2
+-->  1
+-->  1
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Parmigiano-Reggiano Cheese\n\t- Description: Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\n\t- Reasoning: Adding Parmigiano-Reggiano provides a different flavor profile and enhances the richness of the sauce.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Two Types of Cheese\n\t- Description: Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\n\t- Reasoning: Using two types of cheese adds complexity and depth to the flavor of the carbonara sauce.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Two Cheeses in Carbonara",
+  "description": "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese for the sauce.",
+  "reasoning": "Using both cheeses enhances the flavor complexity and richness of the carbonara sauce.",
+  "comparison": "This approach adds a unique flavor profile by combining two cheeses, which may not be present in simpler recipes."
 }
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
   },
   {
     "role": "user",
-    "content": "## Video 1:\nChop bacon into small pieces and cook until crispy, then set aside.\nGrate cheese and prepare the egg mixture with cheese and black pepper.\nBoil salted water and cook spaghetti until al dente, reserving some pasta water.\nCombine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce.\nAdjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon."
-  },
-  {
-    "role": "user",
-    "content": "## Video 2:\nGather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.\nBoil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.\nRemove the skin from the guanciale and slice it into 1 cm thick pieces. Chop into 0.5 cm chunks.\nPlace a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.\nCrack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.\nOnce the guanciale is golden, remove the garlic from the pan.\nCrack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.\nTurn off the heat under the pan with guanciale. Drag the cooked pasta and some of its water into the pan to stop frying and start emulsifying the sauce.\nAdd the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce through emulsification.\nFinish the dish with more cracked black pepper and a sprinkle of pecorino romano cheese before serving."
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Extra Egg Yolks\n\t- Description: Use three whole eggs and two additional egg yolks for the mixture.\n\t- Reasoning: Extra egg yolks contribute to a richer and creamier sauce.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Whole Eggs and Yolks\n\t- Description: Use three whole eggs and two egg yolks for the mixture.\n\t- Reasoning: Using whole eggs along with yolks adds more volume and richness to the sauce.\n"
+      }
+    ]
   }
 ]
 RESPONSE: {
-  "agg_steps": [
-    "Gather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic.",
-    "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic.",
-    "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper.",
-    "Boil salted water and cook pasta until al dente, reserving some pasta water.",
-    "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed.",
-    "Garnish with additional cheese and black pepper before serving."
-  ],
-  "assignments_1": [
-    {
-      "original_step": "Chop bacon into small pieces and cook until crispy, then set aside.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic."
-    },
-    {
-      "original_step": "Grate cheese and prepare the egg mixture with cheese and black pepper.",
-      "agg_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper."
-    },
-    {
-      "original_step": "Boil salted water and cook spaghetti until al dente, reserving some pasta water.",
-      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Combine cooked spaghetti with bacon and egg mixture, stirring to create a creamy sauce.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Adjust sauce consistency with reserved pasta water if needed and garnish with cheese and bacon.",
-      "agg_step": "Garnish with additional cheese and black pepper before serving."
-    }
-  ],
-  "assignments_2": [
-    {
-      "original_step": "Gather the ingredients: guanciale (or pancetta), pecorino romano cheese, free-range organic eggs, pasta, black pepper, and optionally garlic.",
-      "agg_step": "Gather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic."
-    },
-    {
-      "original_step": "Boil water in a pot and add a small amount of salt. Twist the pasta and add it to the boiling water to prevent sticking. Cook for 8 minutes.",
-      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Remove the skin from the guanciale and slice it into 1 cm thick pieces. Chop into 0.5 cm chunks.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic."
-    },
-    {
-      "original_step": "Place a cold pan on medium-high heat and add the guanciale to render the fat. Optionally, add a cracked garlic clove to the pan for flavor.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic."
-    },
-    {
-      "original_step": "Crack black peppercorns using a pestle and mortar, then sieve to separate the hotter inner part of the peppercorns.",
-      "agg_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper."
-    },
-    {
-      "original_step": "Once the guanciale is golden, remove the garlic from the pan.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic."
-    },
-    {
-      "original_step": "Crack eggs into a bowl and add 20 grams of pecorino romano cheese. Whisk together.",
-      "agg_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper."
-    },
-    {
-      "original_step": "Turn off the heat under the pan with guanciale. Drag the cooked pasta and some of its water into the pan to stop frying and start emulsifying the sauce.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Add the egg and cheese mixture to the pan, tossing the pasta and adding more pasta water as needed to create a creamy sauce through emulsification.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Finish the dish with more cracked black pepper and a sprinkle of pecorino romano cheese before serving.",
-      "agg_step": "Garnish with additional cheese and black pepper before serving."
-    }
-  ]
+  "title": "Extra Egg Yolks",
+  "description": "Use three whole eggs and two additional egg yolks for a richer sauce.",
+  "reasoning": "Extra egg yolks contribute to a richer and creamier sauce.",
+  "comparison": "The use of extra egg yolks is emphasized for enhancing the sauce's richness."
 }
+-->  2
+-->  1
+-->  2
+-->  1
+-->  1
+-->  1
+-->  1
+-->  1
 MESSAGES: [
   {
     "role": "system",
-    "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `How to make Pasta Carbonara?`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to."
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
   },
   {
     "role": "user",
-    "content": "## Video 1:\nGather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic.\nPrepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic.\nGrate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper.\nBoil salted water and cook pasta until al dente, reserving some pasta water.\nCombine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed.\nGarnish with additional cheese and black pepper before serving."
-  },
-  {
-    "role": "user",
-    "content": "## Video 2:\nBoil water and add salt at a ratio of 10 grams per liter.\nAdd spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.\nCut guanciale (or pancetta) into chunks.\nHeat olive oil in a pan and cook the guanciale until it releases fat.\nIn a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.\nOnce the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.\nMix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.\nStir until the sauce is creamy and coats the pasta.\nServe with additional grated parmesan or pecorino and a touch of pepper for decoration."
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use tongs for plating\n\t- Description: Tongs are used to plate the pasta neatly.\n\t- Reasoning: Tongs help in handling the pasta gently to avoid breaking it while plating.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use tongs for plating\n\t- Description: Tongs are used to plate the pasta neatly without breaking it.\n\t- Reasoning: Using tongs helps in handling the pasta gently, maintaining its texture and appearance.\n"
+      }
+    ]
   }
 ]
 RESPONSE: {
-  "agg_steps": [
-    "Gather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic.",
-    "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic or olive oil.",
-    "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper.",
-    "Boil salted water and cook pasta until al dente, reserving some pasta water.",
-    "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed.",
-    "Garnish with additional cheese and black pepper before serving."
-  ],
-  "assignments_1": [
-    {
-      "original_step": "Gather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic.",
-      "agg_step": "Gather all ingredients: bacon or guanciale, cheese, eggs, pasta, black pepper, and optionally garlic."
-    },
-    {
-      "original_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic or olive oil."
-    },
-    {
-      "original_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper.",
-      "agg_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper."
-    },
-    {
-      "original_step": "Boil salted water and cook pasta until al dente, reserving some pasta water.",
-      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Garnish with additional cheese and black pepper before serving.",
-      "agg_step": "Garnish with additional cheese and black pepper before serving."
-    }
-  ],
-  "assignments_2": [
-    {
-      "original_step": "Boil water and add salt at a ratio of 10 grams per liter.",
-      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Add spaghettoni to the boiling water and cook for about 10 minutes, stirring occasionally.",
-      "agg_step": "Boil salted water and cook pasta until al dente, reserving some pasta water."
-    },
-    {
-      "original_step": "Cut guanciale (or pancetta) into chunks.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic or olive oil."
-    },
-    {
-      "original_step": "Heat olive oil in a pan and cook the guanciale until it releases fat.",
-      "agg_step": "Prepare the meat by chopping bacon or guanciale into small pieces and cook until crispy or golden, optionally with garlic or olive oil."
-    },
-    {
-      "original_step": "In a bowl, beat two egg yolks (for two people) and add grated parmesan or pecorino cheese and abundant pepper.",
-      "agg_step": "Grate cheese and prepare the egg mixture by whisking eggs with cheese and black pepper."
-    },
-    {
-      "original_step": "Once the pasta is cooked, drain it and add it to the pan with guanciale, allowing it to cool slightly.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Mix the pasta with the egg mixture, ensuring the pasta is not too hot to avoid scrambling the eggs.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Stir until the sauce is creamy and coats the pasta.",
-      "agg_step": "Combine cooked pasta with the meat and egg mixture, stirring to create a creamy sauce, using reserved pasta water to adjust consistency if needed."
-    },
-    {
-      "original_step": "Serve with additional grated parmesan or pecorino and a touch of pepper for decoration.",
-      "agg_step": "Garnish with additional cheese and black pepper before serving."
-    }
-  ]
+  "title": "Use tongs for plating",
+  "description": "Tongs are used to plate pasta neatly and gently.",
+  "reasoning": "Tongs prevent breaking the pasta, preserving its texture and appearance.",
+  "comparison": "This method emphasizes gentle handling to maintain pasta integrity."
 }
+-->  1
+-->  2
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Fine Grater for Cheese\n\t- Description: Use a fine grater for the cheese to ensure it incorporates well into the egg mixture.\n\t- Reasoning: A fine grater helps the cheese blend smoothly into the mixture, preventing clumps.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Fine Grater for Cheese\n\t- Description: Use a fine grater for the cheese to ensure it incorporates well into the egg mixture.\n\t- Reasoning: A fine grater helps the cheese blend smoothly into the mixture, preventing clumps.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Fine Grater for Cheese",
+  "description": "Use a fine grater to ensure cheese blends smoothly into the egg mixture.",
+  "reasoning": "A fine grater prevents clumps by allowing the cheese to incorporate well.",
+  "comparison": "This specific technique may not be emphasized in other videos."
+}
+-->  2
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Kosher Salt Specifically\n\t- Description: Boil about four quarts of water and add a tablespoon of kosher salt.\n\t- Reasoning: Kosher salt is used for its texture and flavor, which may differ from regular table salt.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Kosher Salt\n\t- Description: Boil about four quarts of water and add a tablespoon of kosher salt.\n\t- Reasoning: Kosher salt is used for its texture and flavor, which is preferred by some cooks.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Kosher Salt",
+  "description": "Boil four quarts of water and add a tablespoon of kosher salt for its texture and flavor.",
+  "reasoning": "Kosher salt is preferred for its texture and flavor, enhancing the dish.",
+  "comparison": "The emphasis on kosher salt highlights its distinct qualities over regular table salt."
+}
+-->  2
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cook for 10 Minutes\n\t- Description: Cook the spaghetti in boiling water for about 10 minutes until it is slightly al dente.\n\t- Reasoning: Cooking for 10 minutes ensures the pasta is slightly al dente, which is ideal for carbonara.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cook Spaghetti Al Dente\n\t- Description: Cook the spaghetti in boiling water for about 10 minutes until it is slightly al dente.\n\t- Reasoning: Cooking to al dente ensures the pasta holds its shape and texture when mixed with the sauce.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cooking Spaghetti",
+  "description": "Cook spaghetti in boiling water for 10 minutes until al dente.",
+  "reasoning": "Cooking to al dente ensures the pasta holds its shape and texture for carbonara.",
+  "comparison": "The focus is on achieving the right texture for the pasta."
+}
+-->  2
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use a Timer for Precision\n\t- Description: Use a timer to ensure the spaghetti is cooked for exactly 10 minutes to achieve the desired texture.\n\t- Reasoning: Using a timer helps achieve the perfect texture by preventing overcooking or undercooking.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use a Timer for Cooking\n\t- Description: Use a timer to ensure the spaghetti is cooked for exactly 10 minutes to achieve the desired texture.\n\t- Reasoning: Using a timer helps achieve consistent results and prevents overcooking.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use a Timer",
+  "description": "Set a timer to cook spaghetti for exactly 10 minutes for perfect texture.",
+  "reasoning": "Ensures precise cooking time to avoid overcooking or undercooking.",
+  "comparison": "Emphasizes the importance of timing for consistent pasta texture."
+}
+-->  2
+-->  1
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Turn Off Heat First\n\t- Description: Turn off the heat under the bacon pan before adding the spaghetti.\n\t- Reasoning: Turning off the heat prevents the eggs from scrambling when mixed with the hot pasta.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Turn Off Heat\n\t- Description: Turn off the heat under the bacon pan before adding the spaghetti and egg mixture.\n\t- Reasoning: Turning off the heat prevents the eggs from scrambling when mixed with the hot pasta.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Turn Off Heat",
+  "description": "Turn off the heat under the bacon pan before adding the spaghetti and egg mixture to prevent scrambling.",
+  "reasoning": "Turning off the heat ensures the eggs do not scramble when combined with the hot pasta.",
+  "comparison": "This step emphasizes the importance of controlling heat to maintain the desired texture of the carbonara sauce."
+}
+-->  2
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Tongs for Stirring\n\t- Description: Tongs are used for transferring and stirring the spaghetti.\n\t- Reasoning: Tongs allow for better control and gentle mixing of the pasta with the sauce.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Tongs for Stirring\n\t- Description: Tongs are used for transferring spaghetti and stirring the mixture.\n\t- Reasoning: Tongs allow for gentle mixing without breaking the pasta.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Tongs for Stirring",
+  "description": "Tongs are used to transfer and gently stir spaghetti with the sauce.",
+  "reasoning": "Tongs provide better control and prevent breaking the pasta during mixing.",
+  "comparison": "This method emphasizes gentle handling of pasta, which may not be highlighted in other videos."
+}
+-->  2
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Crispy Bacon Pieces\n\t- Description: Add crispy bacon pieces on top of the pasta as a garnish.\n\t- Reasoning: The crispy bacon adds a crunchy texture and savory flavor to the dish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Crispy Bacon\n\t- Description: Crispy bacon pieces are added as a garnish on top of the pasta.\n\t- Reasoning: The crispy bacon adds a crunchy texture and enhances the flavor of the dish.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crispy Bacon Garnish",
+  "description": "Add crispy bacon pieces on top of the pasta as a garnish for texture and flavor.",
+  "reasoning": "Crispy bacon provides a crunchy texture and savory flavor, enhancing the dish.",
+  "comparison": "This content focuses on the garnish aspect, which may not be emphasized in other videos."
+}
+-->  2
+-->  1
+-->  1
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use crispy bacon pieces\n\t- Description: Crispy bacon pieces are used as a garnish for the pasta.\n\t- Reasoning: Bacon adds a crunchy texture and a savory flavor to the dish, enhancing its taste.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use crispy bacon pieces\n\t- Description: Crispy bacon pieces are used as a garnish on top of the pasta.\n\t- Reasoning: The crispy bacon adds a crunchy texture and a savory flavor to the dish, enhancing the overall taste experience.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crispy Bacon Garnish",
+  "description": "Crispy bacon pieces are used as a garnish for the pasta to add texture and flavor.",
+  "reasoning": "Bacon provides a crunchy texture and savory flavor, enhancing the dish's taste.",
+  "comparison": "This content focuses on using bacon as a garnish, which may differ from other methods of incorporating bacon."
+}
+-->  2
+-->  1
+-->  1
+-->  1
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Remove Garlic After Cooking\n\t- Description: The garlic is removed from the pan once the guanciale is golden.\n\t- Reasoning: Removing the garlic prevents it from overpowering the dish with its flavor.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Remove Garlic After Cooking\n\t- Description: The garlic is removed from the pan once the guanciale is golden.\n\t- Reasoning: Removing garlic prevents it from overpowering the dish with its flavor.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Remove Garlic",
+  "description": "Remove garlic from the pan after cooking guanciale until golden.",
+  "reasoning": "To prevent garlic from overpowering the dish with its flavor.",
+  "comparison": "This step is included to balance the flavors, ensuring garlic does not dominate."
+}
+-->  1
+-->  2
+-->  1
+-->  1
+-->  1
+-->  1
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `How to make Pasta Carbonara?`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Black Peppercorns\n\t- Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This step is included to enhance the flavor profile of the carbonara with a spicier kick.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Crush and Sift Peppercorns\n\t- Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This method enhances the heat and flavor of the pepper used in the carbonara.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Crush Black Peppercorns\n\t- Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This step is included to enhance the flavor by using the hotter part of the peppercorns, which is often overlooked.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crushing Black Peppercorns",
+  "description": "Crush black peppercorns with a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin for enhanced flavor.",
+  "reasoning": "This technique is used to intensify the spiciness and flavor of the carbonara by utilizing the hotter part of the peppercorns.",
+  "comparison": "This method focuses on maximizing the heat and flavor of the pepper, which is not commonly detailed in other recipes."
+}
+MESSAGES: 

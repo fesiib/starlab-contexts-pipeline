@@ -1,6 +1,6 @@
 from helpers import get_response_pydantic, extend_contents
 
-from pydantic_models.organization import SummarizedAlignmentSchema, NotableInformationSchema, HookSchema
+from pydantic_models.organization import SummarizedAlignmentSchema, NotableInformationSchema, HookSchema, SummarizedAlignmentSchema2
 
 def get_alignments_summary_v2(contents, task):
     messages = [
@@ -54,4 +54,23 @@ def get_hook_v2(contents, task):
     ]
 
     response = get_response_pydantic(messages, HookSchema)
+    return response
+
+
+def get_notable_v4(contents, task):
+    messages = [
+        {
+            "role": "system",
+            "content": [{
+                "type": "text",
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents of how-to videos for task `{task}`. You are given the descriptions of `notable procedural content` in a video with respect to other video(s). Provide a concise summary of the descriptions.".format(task=task)
+            }],
+        },
+        {
+            "role": "user",
+            "content": extend_contents(contents),
+        }
+    ]
+
+    response = get_response_pydantic(messages, SummarizedAlignmentSchema2)
     return response

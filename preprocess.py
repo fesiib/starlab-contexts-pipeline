@@ -346,9 +346,9 @@ def setup_ds(task_id):
 
     ds.process_videos()
     
-    # ds.generate_alignments()
+    ds.generate_alignments()
 
-    # ds.find_notables()
+    ds.find_notables()
 
     # ds.generate_hooks()
     

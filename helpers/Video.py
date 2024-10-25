@@ -166,6 +166,36 @@ class Video:
             return [content for content in summary["context"]] + [content]
         return []
 
+    def get_subgoal_summary_multimodal_contents(self, title) -> list:
+        contents = []
+        for index, summary in enumerate(self.subgoal_summaries):
+            if summary["title"] != title:
+                continue
+            for k, v in summary.items():
+                text = ""
+                frame_paths = []
+
+                if k.endswith("_content_ids") or k.endswith("_frame_paths") or k == "frame_paths":
+                    continue
+                key = k.capitalize().replace("_", " ")
+                if isinstance(v, str):
+                    ## v is string
+                    text += f"- **{key}**: {v}\n"
+                else:
+                    ## v is list
+                    text += f"- **{key}**: {'; '.join(v)}\n"
+                if f"{k}_frame_paths" in summary:
+                    frame_paths = [*summary[f"{k}_frame_paths"]]
+                
+                contents.append({
+                    "id": f"{self.video_id}-subgoal-summary-{index}-{k}",
+                    "title": summary["title"],
+                    "text": text,
+                    "frame_paths": frame_paths,
+                })
+        return contents
+
+
     def get_subgoal_contents(self, title, as_parent=False) -> list:
         contents = []
         subgoals = self.get_subgoals(title)
