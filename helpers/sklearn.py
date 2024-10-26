@@ -209,12 +209,10 @@ def cluster_tagged_texts(texts, tags, tries=5):
 
     return labels
 
-def cluster_conservative(texts):
+def clustering_custom(texts, similarity_threshold):
     """
     cluster texts that have `high` similarity
     """
-
-    SIMILARITY_THRESHOLD = 0.9
 
     if len(texts) <= 1:
         return [0 for _ in range(len(texts))]
@@ -238,7 +236,7 @@ def cluster_conservative(texts):
         for j in range(i+1, len(texts)):
             if visited[j]:
                 continue
-            if similarities[i][j] >= SIMILARITY_THRESHOLD:
+            if similarities[i][j] >= similarity_threshold:
                 visited[j] = True
                 labels[j] = labels[i]
     return labels

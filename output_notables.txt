@@ -1,0 +1,1215 @@
+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
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Bacon Instead of Guanciale\n\t- Content Description: Bacon is used as the meat for the dish instead of guanciale.\n\t- Reasoning: Bacon is a more commonly available ingredient and can be used as a substitute for guanciale.\n\t- Comparison to Other Tutorials: Video 2 uses guanciale, which is traditional for carbonara, while Video 1 uses bacon.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Bacon Instead of Guanciale\n\t- Content Description: Bacon is used as the meat for the dish instead of guanciale or pancetta.\n\t- Reasoning: Bacon is a more commonly available ingredient and can be used as a substitute for guanciale.\n\t- Comparison to Other Tutorials: Video 2 uses guanciale or pancetta, which are traditional ingredients for carbonara.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Bacon as Substitute",
+  "description": "Bacon is used instead of guanciale or pancetta for the meat in carbonara.",
+  "reasoning": "Bacon is more widely available and serves as a practical substitute for traditional ingredients.",
+  "comparison": "Other tutorials use guanciale or pancetta, which are more traditional but less accessible."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Yolk Separation Tips\n\t- Content Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: These tips help in efficiently separating yolks without breaking them.\n\t- Comparison to Other Tutorials: Video 2 does not provide specific tips for separating yolks.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Separate Egg Yolks Method\n\t- Content Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: This method is included to provide viewers with a reliable technique for separating egg yolks, which is crucial for the sauce's texture.\n\t- Comparison to Other Tutorials: Video 2 does not specify a method for separating egg yolks, focusing instead on cracking eggs directly into a bowl.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Separate Egg Yolks Method\n\t- Content Description: Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks.\n\t- Reasoning: This tip helps viewers effectively separate egg yolks from whites.\n\t- Comparison to Other Tutorials: Video 2 does not provide specific methods for separating egg yolks.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Egg Yolk Separation Tips",
+  "description": "Tips for separating egg yolks using thumb or back and forth method.",
+  "reasoning": "To help viewers efficiently separate yolks without breaking them, ensuring the sauce's texture.",
+  "comparison": "Other tutorials may not provide specific yolk separation methods, focusing on simpler egg handling."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cool Bacon Before Adding Sauce\n\t- Content Description: The bacon is cooled slightly before adding the egg-based sauce to prevent overcooking.\n\t- Reasoning: Cooling the bacon helps to avoid scrambling the eggs in the sauce.\n\t- Comparison to Other Tutorials: Video 2 does not mention cooling the meat before adding the sauce.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cool Bacon Before Proceeding\n\t- Content Description: After cooking, the bacon is cooled slightly before proceeding to the next step.\n\t- Reasoning: Cooling the bacon prevents the egg-based sauce from overcooking when added.\n\t- Comparison to Other Tutorials: Video 2 does not mention cooling the meat before proceeding.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cooling Bacon",
+  "description": "The bacon is cooled slightly before adding the egg-based sauce to prevent overcooking.",
+  "reasoning": "Cooling the bacon helps to avoid scrambling the eggs in the sauce.",
+  "comparison": "Some tutorials do not mention cooling the meat before adding the sauce."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Wait for No Sizzle\n\t- Content Description: Wait until there's no sizzle left before proceeding to ensure the bacon is cool enough.\n\t- Reasoning: This ensures the bacon is at the right temperature to avoid cooking the sauce too quickly.\n\t- Comparison to Other Tutorials: Video 2 does not include this tip about waiting for the sizzle to stop.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Wait for No Sizzle\n\t- Content Description: Wait until there's no sizzle left before proceeding to ensure the bacon is cool enough.\n\t- Reasoning: This ensures the bacon is at the right temperature to avoid overcooking the sauce.\n\t- Comparison to Other Tutorials: Video 2 does not provide this tip about waiting for the sizzle to stop.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Wait for No Sizzle",
+  "description": "Wait until the bacon stops sizzling to ensure it's cool enough.",
+  "reasoning": "This prevents the bacon from cooking the sauce too quickly or overcooking it.",
+  "comparison": "This tip is not included in some other tutorials."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Olive Oil\n\t- Content Description: Add a tiny bit of olive oil to the pan before cooking the bacon.\n\t- Reasoning: Olive oil is used to prevent the bacon from sticking and to aid in rendering the fat.\n\t- Comparison to Other Tutorials: Video 1 does not mention using olive oil when cooking the bacon.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Olive Oil\n\t- Content Description: A tiny bit of olive oil is added to the pan before cooking the bacon.\n\t- Reasoning: Olive oil helps in rendering the bacon fat and prevents sticking.\n\t- Comparison to Other Tutorials: Video 2 does not mention using olive oil.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use of Olive Oil",
+  "description": "Add a small amount of olive oil to the pan before cooking bacon to prevent sticking and aid fat rendering.",
+  "reasoning": "Including olive oil helps ensure the bacon cooks evenly without sticking to the pan, enhancing the overall texture and flavor.",
+  "comparison": "Some tutorials omit this step, possibly assuming the bacon's own fat is sufficient to prevent sticking."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Thick-Cut Bacon\n\t- Content Description: Half a pound of thick-cut bacon is used for the recipe.\n\t- Reasoning: Thick-cut bacon provides a substantial texture and flavor to the dish.\n\t- Comparison to Other Tutorials: Video 2 uses guanciale instead of bacon.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Thick-Cut Bacon\n\t- Content Description: Use half a pound of thick-cut bacon for the recipe.\n\t- Reasoning: Thick-cut bacon provides a substantial texture and flavor.\n\t- Comparison to Other Tutorials: Video 2 uses guanciale or pancetta instead of bacon.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Thick-Cut Bacon",
+  "description": "Half a pound of thick-cut bacon is used for its texture and flavor.",
+  "reasoning": "Thick-cut bacon adds substantial texture and flavor to the dish, enhancing the overall taste experience.",
+  "comparison": "Other tutorials may use guanciale or pancetta, which are traditional Italian choices, offering a different flavor profile."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Bacon Fat Management\n\t- Content Description: Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Managing the bacon fat is crucial for flavor and texture balance in the dish.\n\t- Comparison to Other Tutorials: Video 1 does not mention setting aside bacon for garnish or managing the fat amount left in the pan.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Drain Most Bacon Fat\n\t- Content Description: Drain most of the bacon fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Leaving some bacon fat in the pan enhances the flavor of the pasta carbonara.\n\t- Comparison to Other Tutorials: This step is not mentioned in Video 2.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Drain Most Bacon Fat\n\t- Content Description: Most of the bacon fat is drained, leaving about two tablespoons in the pan.\n\t- Reasoning: Draining excess fat prevents the dish from becoming too greasy.\n\t- Comparison to Other Tutorials: Video 2 does not mention draining fat.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Drain Most Bacon Fat\n\t- Content Description: Drain most of the bacon fat, leaving about two tablespoons in the pan.\n\t- Reasoning: Leaving some fat enhances the flavor of the carbonara sauce.\n\t- Comparison to Other Tutorials: Video 2 suggests absorbing excess fat with a paper towel instead of draining.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Bacon Fat Management",
+  "description": "Remove some bacon for garnish and drain most fat, leaving two tablespoons in the pan.",
+  "reasoning": "Managing bacon fat is crucial for flavor and texture balance in carbonara.",
+  "comparison": "Other tutorials may not mention setting aside bacon for garnish or suggest using a paper towel to absorb excess fat."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Set Aside Bacon Garnish\n\t- Content Description: Once the bacon is crispy, remove some for garnish.\n\t- Reasoning: Setting aside some bacon for garnish adds a decorative and flavorful touch to the final dish.\n\t- Comparison to Other Tutorials: This step is not mentioned in Video 2.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Set Aside Bacon for Garnish\n\t- Content Description: Some bacon is removed from the pan to be used as garnish later.\n\t- Reasoning: Setting aside bacon for garnish adds a crispy texture to the final dish.\n\t- Comparison to Other Tutorials: Video 2 does not mention setting aside guanciale for garnish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Set Aside Bacon for Garnish\n\t- Content Description: Remove some crispy bacon for garnish after cooking.\n\t- Reasoning: Garnishing with bacon adds texture and visual appeal to the dish.\n\t- Comparison to Other Tutorials: Video 2 does not mention setting aside meat for garnish.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Bacon Garnish",
+  "description": "Set aside crispy bacon for garnish after cooking.",
+  "reasoning": "Including bacon as a garnish enhances the dish's texture and visual appeal.",
+  "comparison": "This step is not included in some other tutorials, which do not mention setting aside meat for garnish."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Parmigiano-Reggiano Cheese\n\t- Content Description: Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\n\t- Reasoning: Adding Parmigiano-Reggiano provides a different flavor profile and enhances the richness of the sauce.\n\t- Comparison to Other Tutorials: Video 1 uses only Pecorino Romano cheese.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Two Types of Cheese\n\t- Content Description: Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese.\n\t- Reasoning: Using two types of cheese adds complexity and depth to the flavor of the carbonara sauce.\n\t- Comparison to Other Tutorials: Video 2 only uses Pecorino cheese, not Parmigiano-Reggiano.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Two Types of Cheese\n\t- Content Description: Grate and use both Pecorino Romano and Parmigiano-Reggiano cheese.\n\t- Reasoning: Combining two types of cheese adds complexity and depth to the flavor.\n\t- Comparison to Other Tutorials: Video 2 allows for either parmesan or pecorino, not specifying both.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Two Cheeses",
+  "description": "Grate three ounces each of Pecorino Romano and Parmigiano-Reggiano cheese for the sauce.",
+  "reasoning": "Combining two types of cheese enhances the flavor complexity and richness of the carbonara sauce.",
+  "comparison": "Other tutorials often use only Pecorino Romano or allow for either cheese, not specifying both."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Extra Egg Yolks\n\t- Content Description: Use three whole eggs and two additional egg yolks for the mixture.\n\t- Reasoning: Extra egg yolks contribute to a richer and creamier sauce.\n\t- Comparison to Other Tutorials: Video 2 does not specify using extra egg yolks.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Whole Eggs and Yolks\n\t- Content Description: Use three whole eggs and two egg yolks for the mixture.\n\t- Reasoning: Using whole eggs along with yolks adds more volume and richness to the sauce.\n\t- Comparison to Other Tutorials: Video 2 uses only two egg yolks, which results in a different texture and richness.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Egg Yolks for Creaminess",
+  "description": "Use three whole eggs and two additional egg yolks for a richer sauce.",
+  "reasoning": "Extra egg yolks enhance the creaminess and richness of the carbonara sauce.",
+  "comparison": "Other tutorials may not use extra yolks, affecting the sauce's texture and richness."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tools in the step $meta$ sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Tongs for plating the pasta\n\t- Content Description: Use tongs to transfer the pasta to a serving dish neatly.\n\t- Reasoning: Tongs are recommended to handle the pasta gently and maintain its integrity during plating.\n\t- Comparison to Other Tutorials: Video 1 does not specify the use of tongs for plating the pasta.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use tongs for plating\n\t- Content Description: Tongs are used to plate the pasta neatly.\n\t- Reasoning: Tongs help in handling the pasta gently to avoid breaking it while plating.\n\t- Comparison to Other Tutorials: Video 2 does not specify the use of tongs for plating the pasta.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use tongs for plating\n\t- Content Description: Tongs are used to plate the pasta neatly without breaking it.\n\t- Reasoning: Using tongs helps in handling the pasta gently, maintaining its texture and appearance.\n\t- Comparison to Other Tutorials: Video 2 does not specify any tools for plating the pasta.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Tongs for plating",
+  "description": "Use tongs to transfer pasta to a serving dish neatly and gently.",
+  "reasoning": "Tongs are included to handle pasta gently, preserving its texture and appearance during plating.",
+  "comparison": "Other tutorials do not specify using tongs for plating, or mention no specific tools."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Fine Grater for Cheese\n\t- Content Description: Use a fine grater for the cheese to ensure it incorporates well into the egg mixture.\n\t- Reasoning: A fine grater helps the cheese blend smoothly into the mixture, preventing clumps.\n\t- Comparison to Other Tutorials: Video 2 does not mention the type of grater to use.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Fine Grater for Cheese\n\t- Content Description: Use a fine grater for the cheese to ensure it incorporates well into the egg mixture.\n\t- Reasoning: A fine grater helps the cheese blend smoothly into the mixture, preventing clumps.\n\t- Comparison to Other Tutorials: Video 2 does not specify the type of grater to use.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Fine Grater for Cheese",
+  "description": "Use a fine grater to ensure cheese incorporates well into the egg mixture.",
+  "reasoning": "A fine grater prevents clumps by helping the cheese blend smoothly into the mixture.",
+  "comparison": "Other tutorials do not specify the type of grater to use."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Kosher Salt Specifically\n\t- Content Description: Boil about four quarts of water and add a tablespoon of kosher salt.\n\t- Reasoning: Kosher salt is used for its texture and flavor, which may differ from regular table salt.\n\t- Comparison to Other Tutorials: Video 2 mentions using a small amount of salt but does not specify kosher salt.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Kosher Salt\n\t- Content Description: Boil about four quarts of water and add a tablespoon of kosher salt.\n\t- Reasoning: Kosher salt is used for its texture and flavor, which is preferred by some cooks.\n\t- Comparison to Other Tutorials: Video 2 uses a specific salt-to-water ratio instead of specifying kosher salt.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Kosher Salt",
+  "description": "Boil four quarts of water and add a tablespoon of kosher salt for its texture and flavor.",
+  "reasoning": "Kosher salt is preferred for its unique texture and flavor, enhancing the pasta's taste.",
+  "comparison": "Other tutorials may not specify kosher salt, focusing instead on a general salt-to-water ratio."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cook for 10 Minutes\n\t- Content Description: Cook the spaghetti in boiling water for about 10 minutes until it is slightly al dente.\n\t- Reasoning: Cooking for 10 minutes ensures the pasta is slightly al dente, which is ideal for carbonara.\n\t- Comparison to Other Tutorials: Video 2 suggests cooking for 8 minutes, which is a shorter time.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cook Spaghetti Al Dente\n\t- Content Description: Cook the spaghetti in boiling water for about 10 minutes until it is slightly al dente.\n\t- Reasoning: Cooking to al dente ensures the pasta holds its shape and texture when mixed with the sauce.\n\t- Comparison to Other Tutorials: Video 2 does not specify cooking to al dente, just until ready.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cook Pasta Al Dente",
+  "description": "Boil spaghetti for 10 minutes until slightly al dente.",
+  "reasoning": "Ensures pasta holds shape and texture for carbonara sauce.",
+  "comparison": "Other tutorials suggest shorter cooking times or don't specify al dente."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use a Timer for Precision\n\t- Content Description: Use a timer to ensure the spaghetti is cooked for exactly 10 minutes to achieve the desired texture.\n\t- Reasoning: Using a timer helps achieve the perfect texture by preventing overcooking or undercooking.\n\t- Comparison to Other Tutorials: Video 2 does not mention using a timer.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use a Timer for Cooking\n\t- Content Description: Use a timer to ensure the spaghetti is cooked for exactly 10 minutes to achieve the desired texture.\n\t- Reasoning: Using a timer helps achieve consistent results and prevents overcooking.\n\t- Comparison to Other Tutorials: Video 2 does not mention using a timer.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use a Timer",
+  "description": "Set a timer for 10 minutes to cook spaghetti to the perfect texture.",
+  "reasoning": "Ensures precise cooking time for ideal texture and consistency.",
+  "comparison": "Other tutorials may not emphasize using a timer for precision."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Add Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Turn Off Heat First\n\t- Content Description: Turn off the heat under the bacon pan before adding the spaghetti.\n\t- Reasoning: Turning off the heat prevents the eggs from scrambling when mixed with the hot pasta.\n\t- Comparison to Other Tutorials: Video 2 also emphasizes turning off the heat but does not specify doing it before adding the spaghetti.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Turn Off Heat\n\t- Content Description: Turn off the heat under the bacon pan before adding the spaghetti and egg mixture.\n\t- Reasoning: Turning off the heat prevents the eggs from scrambling when mixed with the hot pasta.\n\t- Comparison to Other Tutorials: Video 2 emphasizes cooling the pasta instead of turning off the heat.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Turn Off Heat",
+  "description": "Turn off the heat before adding spaghetti and egg mixture to prevent scrambling.",
+  "reasoning": "This step ensures the eggs do not scramble, maintaining a creamy texture.",
+  "comparison": "Other tutorials may focus on cooling the pasta instead of turning off the heat."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tools in the step Add Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Tongs for Stirring\n\t- Content Description: Tongs are used for transferring and stirring the spaghetti.\n\t- Reasoning: Tongs allow for better control and gentle mixing of the pasta with the sauce.\n\t- Comparison to Other Tutorials: Video 2 does not specify using tongs for stirring.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Tongs for Stirring\n\t- Content Description: Tongs are used for transferring spaghetti and stirring the mixture.\n\t- Reasoning: Tongs allow for gentle mixing without breaking the pasta.\n\t- Comparison to Other Tutorials: Video 2 mentions a mixing bowl but not tongs.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Tongs for Stirring",
+  "description": "Tongs are used to transfer and gently stir spaghetti with the sauce.",
+  "reasoning": "Tongs provide better control and prevent breaking the pasta during mixing.",
+  "comparison": "Other tutorials may not specify using tongs, focusing on different tools like a mixing bowl."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Garnish and Serve sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Crispy Bacon Pieces\n\t- Content Description: Add crispy bacon pieces on top of the pasta as a garnish.\n\t- Reasoning: The crispy bacon adds a crunchy texture and savory flavor to the dish.\n\t- Comparison to Other Tutorials: Video 2 does not mention using bacon as a garnish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Crispy Bacon\n\t- Content Description: Crispy bacon pieces are added as a garnish on top of the pasta.\n\t- Reasoning: The crispy bacon adds a crunchy texture and enhances the flavor of the dish.\n\t- Comparison to Other Tutorials: Video 2 does not mention using crispy bacon as a garnish.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crispy Bacon Garnish",
+  "description": "Add crispy bacon pieces on top of the pasta for garnish.",
+  "reasoning": "Crispy bacon provides a crunchy texture and enhances the dish's savory flavor.",
+  "comparison": "Some tutorials do not include bacon as a garnish."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tools in the step Garnish and Serve sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Plate with Tongs\n\t- Content Description: Use tongs to transfer the pasta to a serving dish neatly.\n\t- Reasoning: Using tongs helps in plating the pasta without breaking it.\n\t- Comparison to Other Tutorials: Video 2 does not specify using tongs for plating.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Tongs for Plating\n\t- Content Description: Tongs are used to neatly plate the pasta.\n\t- Reasoning: Using tongs helps in plating the pasta neatly without breaking it.\n\t- Comparison to Other Tutorials: Video 2 does not specify using tongs for plating.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Tongs for Plating",
+  "description": "Use tongs to transfer pasta to a serving dish neatly without breaking it.",
+  "reasoning": "Tongs allow for careful handling of pasta, maintaining its integrity and presentation.",
+  "comparison": "Other tutorials may not specify using tongs, potentially leading to less neat plating."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step $meta$ sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use crispy bacon pieces\n\t- Content Description: Crispy bacon pieces are used as a garnish for the pasta.\n\t- Reasoning: Bacon adds a crunchy texture and a savory flavor to the dish, enhancing its taste.\n\t- Comparison to Other Tutorials: Video 2 does not mention using bacon as a garnish, focusing instead on black pepper and pecorino cheese.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use crispy bacon pieces\n\t- Content Description: Crispy bacon pieces are used as a garnish on top of the pasta.\n\t- Reasoning: The crispy bacon adds a crunchy texture and a savory flavor to the dish, enhancing the overall taste experience.\n\t- Comparison to Other Tutorials: Video 2 does not mention using bacon as a garnish, focusing instead on cheese and pepper.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crispy Bacon Garnish",
+  "description": "Crispy bacon pieces are used as a garnish for pasta carbonara, adding texture and flavor.",
+  "reasoning": "Bacon provides a crunchy texture and savory flavor, enhancing the dish's taste.",
+  "comparison": "Other tutorials may focus on cheese and pepper instead of bacon as a garnish."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Guanciale and Garlic\n\t- Content Description: Guanciale and a garlic clove are used for preparing the meat.\n\t- Reasoning: Guanciale is the traditional meat for carbonara, and garlic adds flavor.\n\t- Comparison to Other Tutorials: Video 1 uses bacon and does not include garlic.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Guanciale and Garlic\n\t- Content Description: Guanciale and a garlic clove are used for the recipe.\n\t- Reasoning: Guanciale is a traditional ingredient for carbonara, and garlic adds flavor.\n\t- Comparison to Other Tutorials: Video 1 uses bacon and does not mention garlic.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Guanciale and Garlic",
+  "description": "Guanciale and garlic are used to prepare the meat for carbonara.",
+  "reasoning": "Guanciale is the traditional choice for carbonara, and garlic enhances the flavor.",
+  "comparison": "Some tutorials use bacon instead of guanciale and omit garlic."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Start with Cold Pan\n\t- Content Description: The guanciale is placed in a cold pan to render the fat slowly.\n\t- Reasoning: Starting with a cold pan allows the fat to render out slowly, enhancing flavor.\n\t- Comparison to Other Tutorials: Video 1 does not mention starting with a cold pan.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cold Pan Technique\n\t- Content Description: Start with a cold pan to render the fat from guanciale slowly.\n\t- Reasoning: A cold pan allows the fat to render out slowly, enhancing the flavor.\n\t- Comparison to Other Tutorials: Video 2 starts with heating olive oil, not a cold pan.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cold Pan Technique",
+  "description": "Start with a cold pan to slowly render guanciale fat.",
+  "reasoning": "This technique enhances the flavor by allowing the fat to render out slowly.",
+  "comparison": "Other tutorials may start with a heated pan or use olive oil, not focusing on slow fat rendering."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Remove Garlic After Cooking\n\t- Content Description: The garlic is removed from the pan once the guanciale is golden.\n\t- Reasoning: Removing the garlic prevents it from overpowering the dish with its flavor.\n\t- Comparison to Other Tutorials: Video 1 does not include garlic, so this step is not present.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Remove Garlic After Cooking\n\t- Content Description: The garlic is removed from the pan once the guanciale is golden.\n\t- Reasoning: Removing garlic prevents it from overpowering the dish with its flavor.\n\t- Comparison to Other Tutorials: Video 1 does not mention using or removing garlic.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Remove Garlic After Browning\n\t- Content Description: Remove the garlic once the guanciale is golden to prevent overpowering flavor.\n\t- Reasoning: This ensures the garlic flavor is balanced and not too strong.\n\t- Comparison to Other Tutorials: Video 2 does not include garlic, so this step is not present.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Remove Garlic",
+  "description": "Remove garlic from the pan once the guanciale is golden to prevent overpowering flavor.",
+  "reasoning": "This step ensures the garlic flavor is balanced and does not dominate the dish.",
+  "comparison": "Some tutorials do not include garlic, so this step is omitted."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Black Peppercorns\n\t- Content Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This step is included to enhance the flavor profile of the carbonara with a spicier kick.\n\t- Comparison to Other Tutorials: Video 1 does not include black peppercorns in the egg mixture preparation.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Crush and Sift Peppercorns\n\t- Content Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This method enhances the heat and flavor of the pepper used in the carbonara.\n\t- Comparison to Other Tutorials: Video 1 uses pre-ground black pepper without sifting.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Crush Black Peppercorns\n\t- Content Description: Crush black peppercorns using a pestle and mortar, then sift to separate the hotter inner part from the milder outer skin.\n\t- Reasoning: This step is included to enhance the flavor by using the hotter part of the peppercorns, which is often overlooked.\n\t- Comparison to Other Tutorials: Video 2 does not mention crushing and sifting peppercorns, focusing instead on using abundant pepper.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Crush and Sift Peppercorns",
+  "description": "Crush black peppercorns and sift to separate the hotter inner part from the milder outer skin.",
+  "reasoning": "This step is included to enhance the flavor profile of the carbonara with a spicier kick by using the hotter part of the peppercorns.",
+  "comparison": "Other tutorials either do not include black peppercorns in the egg mixture or use pre-ground pepper without sifting."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Whisking Eggs and Cheese\n\t- Content Description: Crack the eggs into a bowl and add about 20 grams of pecorino cheese, then whisk them together.\n\t- Reasoning: This method is included to ensure the ingredients are well combined for a smooth sauce.\n\t- Comparison to Other Tutorials: Video 1 uses separated yolks and grated cheese, not specifying the use of a whisk.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Whisk Eggs and Cheese\n\t- Content Description: Crack the eggs into a bowl and add about 20 grams of pecorino cheese, then whisk them together.\n\t- Reasoning: Whisking ensures a smooth mixture, crucial for the sauce's texture.\n\t- Comparison to Other Tutorials: Video 2 uses only egg yolks, not whole eggs, which changes the texture and richness of the sauce.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Whisking Eggs and Cheese",
+  "description": "Crack eggs into a bowl, add 20g pecorino cheese, and whisk together.",
+  "reasoning": "Ensures ingredients are well combined for a smooth sauce.",
+  "comparison": "Other tutorials use only yolks or don't specify whisking, affecting texture."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Only Pecorino Cheese\n\t- Content Description: Add about 20 grams of Pecorino cheese to the egg mixture.\n\t- Reasoning: Using only Pecorino cheese simplifies the recipe and focuses on its distinct flavor.\n\t- Comparison to Other Tutorials: Video 1 uses both Pecorino Romano and Parmigiano-Reggiano cheeses.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Pecorino Cheese\n\t- Content Description: Add about 20 grams of pecorino cheese to the egg mixture.\n\t- Reasoning: Pecorino cheese is a traditional ingredient in Carbonara, providing a distinct flavor.\n\t- Comparison to Other Tutorials: Video 2 allows for either parmesan or pecorino cheese, not specifying a preference.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Pecorino Cheese",
+  "description": "Add 20 grams of Pecorino cheese to the egg mixture for flavor.",
+  "reasoning": "Pecorino cheese is traditional and provides a distinct flavor, simplifying the recipe by focusing on one cheese.",
+  "comparison": "Other tutorials use a mix of cheeses or allow for alternatives, while this one specifies only Pecorino."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Twist Pasta to Prevent Sticking\n\t- Content Description: Grab the pasta by two hands, twist it into the boiling water, and cook for 8 minutes.\n\t- Reasoning: Twisting the pasta helps prevent it from sticking together during cooking.\n\t- Comparison to Other Tutorials: Video 1 does not mention twisting the pasta.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Twist Pasta into Water\n\t- Content Description: Grab the pasta by two hands, twist it into the boiling water, and cook for 8 minutes.\n\t- Reasoning: Twisting the pasta helps prevent it from sticking together during cooking.\n\t- Comparison to Other Tutorials: Video 2 suggests stirring occasionally to prevent sticking, rather than twisting the pasta.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Twist Pasta Technique",
+  "description": "Twist pasta into boiling water to prevent sticking, cook for 8 minutes.",
+  "reasoning": "Twisting helps keep the pasta strands separate, reducing the chance of them sticking together during cooking.",
+  "comparison": "Other tutorials suggest stirring occasionally instead of twisting to prevent sticking."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Add Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Pecorino Cheese\n\t- Content Description: The video specifies using Pecorino cheese in the egg mixture.\n\t- Reasoning: Pecorino cheese is traditionally used in carbonara for its distinct flavor.\n\t- Comparison to Other Tutorials: Video 1 does not specify the type of cheese used in the egg mixture.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Pecorino Cheese\n\t- Content Description: Pecorino cheese is used in the egg mixture.\n\t- Reasoning: Pecorino cheese adds a distinct flavor and creaminess to the carbonara sauce.\n\t- Comparison to Other Tutorials: Video 2 does not specify the use of Pecorino cheese in the egg mixture.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Pecorino Cheese",
+  "description": "The video specifies using Pecorino cheese in the egg mixture for its distinct flavor.",
+  "reasoning": "Pecorino cheese is traditionally used in carbonara for its unique taste and creaminess, enhancing the sauce's flavor profile.",
+  "comparison": "Other tutorials do not specify the type of cheese, missing the traditional aspect of using Pecorino."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Add Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Stir Quickly After Adding\n\t- Content Description: Stir the pasta quickly after adding the egg mixture to prevent scrambling.\n\t- Reasoning: Quick stirring helps to evenly coat the pasta and prevent the eggs from cooking too much.\n\t- Comparison to Other Tutorials: Video 1 emphasizes gentle stirring but does not specify quick stirring.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Stir Quickly Off Heat\n\t- Content Description: Stir the egg mixture into the pasta quickly while off the heat.\n\t- Reasoning: Stirring quickly off the heat prevents the eggs from scrambling and ensures a smooth sauce.\n\t- Comparison to Other Tutorials: Video 2 emphasizes cooling the pasta instead of stirring quickly off heat.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Quick Stirring Technique",
+  "description": "Stir the pasta quickly after adding the egg mixture to prevent scrambling and ensure a smooth sauce.",
+  "reasoning": "Quick stirring is crucial to evenly coat the pasta and prevent the eggs from cooking too much, maintaining a creamy texture.",
+  "comparison": "Some tutorials focus on gentle stirring or cooling the pasta instead of quick stirring off heat."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Garnish and Serve sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Cracked Black Pepper\n\t- Content Description: Finish the dish with additional cracked black pepper before serving.\n\t- Reasoning: Cracked black pepper adds a spicy kick and enhances the flavor.\n\t- Comparison to Other Tutorials: Video 1 does not mention using black pepper as a garnish.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Cracked Black Pepper\n\t- Content Description: Finish the dish with additional cracked black pepper before serving.\n\t- Reasoning: Cracked black pepper adds a distinct texture and flavor to the dish, enhancing its authenticity.\n\t- Comparison to Other Tutorials: Video 2 mentions pepper but does not specify cracked black pepper.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cracked Black Pepper Garnish",
+  "description": "Finish the dish with cracked black pepper for added flavor and texture.",
+  "reasoning": "Cracked black pepper enhances the dish's flavor and authenticity with its spicy kick and texture.",
+  "comparison": "Some tutorials do not mention using black pepper, or do not specify using cracked black pepper."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Guanciale or Pancetta\n\t- Content Description: Guanciale or pancetta is used as the meat for the dish instead of bacon.\n\t- Reasoning: Guanciale or pancetta are traditional ingredients for authentic carbonara.\n\t- Comparison to Other Tutorials: Video 1 uses bacon, which is a less traditional choice.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Guanciale or Pancetta\n\t- Content Description: Use guanciale or pancetta instead of bacon.\n\t- Reasoning: Guanciale or pancetta is more traditional for carbonara, offering a distinct flavor.\n\t- Comparison to Other Tutorials: Video 1 uses thick-cut bacon instead.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Use Guanciale or Pancetta",
+  "description": "Guanciale or pancetta is recommended over bacon for carbonara.",
+  "reasoning": "These meats are traditional and provide an authentic flavor to the dish.",
+  "comparison": "Some tutorials use bacon, which is less traditional."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Olive Oil for Cooking\n\t- Content Description: Olive oil is added to the pan before cooking the guanciale or pancetta.\n\t- Reasoning: Olive oil helps in cooking the meat evenly and adds flavor.\n\t- Comparison to Other Tutorials: Video 1 does not mention using olive oil when cooking the bacon.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use of Olive Oil\n\t- Content Description: Heat olive oil in a pan before adding guanciale or pancetta.\n\t- Reasoning: Olive oil is used to start the cooking process and add flavor.\n\t- Comparison to Other Tutorials: Video 1 does not use olive oil, starting with a cold pan instead.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Olive Oil for Cooking",
+  "description": "Add olive oil to the pan before cooking guanciale or pancetta.",
+  "reasoning": "Olive oil ensures even cooking and enhances flavor.",
+  "comparison": "Some tutorials start with a cold pan without olive oil."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Prepare Meat sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Absorb Excess Fat with Towel\n\t- Content Description: If there's too much fat, it can be absorbed with a paper towel.\n\t- Reasoning: This helps control the amount of fat in the dish, making it less greasy.\n\t- Comparison to Other Tutorials: Video 1 does not mention absorbing excess fat with a paper towel.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Absorb Excess Fat with Towel\n\t- Content Description: Use a paper towel to absorb excess fat if desired.\n\t- Reasoning: This method allows control over the amount of fat in the dish.\n\t- Comparison to Other Tutorials: Video 1 suggests draining the fat instead.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Absorb Excess Fat\n\t- Content Description: Use a paper towel to absorb excess fat if desired.\n\t- Reasoning: This step is included to reduce the amount of fat in the dish if preferred.\n\t- Comparison to Other Tutorials: Video 1 does not mention absorbing excess fat.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Absorb Excess Fat",
+  "description": "Use a paper towel to absorb excess fat from the meat.",
+  "reasoning": "Included to control and reduce the amount of fat, making the dish less greasy.",
+  "comparison": "Other tutorials suggest draining fat instead of absorbing it with a towel."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Add Abundant Pepper\n\t- Content Description: Add abundant pepper to the egg mixture.\n\t- Reasoning: Pepper adds spice and enhances the flavor of the carbonara sauce.\n\t- Comparison to Other Tutorials: Video 1 does not mention adding pepper to the mixture.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Abundant Pepper\n\t- Content Description: Add abundant pepper to the mixture.\n\t- Reasoning: Using a lot of pepper enhances the flavor and adds a spicy kick.\n\t- Comparison to Other Tutorials: Video 1 suggests adjusting pepper to taste, which may result in less pepper being used.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Abundant Pepper in Mixture\n\t- Content Description: Add abundant pepper to the egg and cheese mixture.\n\t- Reasoning: Pepper is a key flavor component in Carbonara, enhancing the dish's spiciness.\n\t- Comparison to Other Tutorials: Video 1 focuses on using the hotter inner part of the peppercorns, not specifying the quantity as 'abundant.'\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Abundant Pepper Addition",
+  "description": "Add abundant pepper to the egg mixture for flavor enhancement.",
+  "reasoning": "Pepper is crucial for adding spice and enhancing the overall flavor of the carbonara sauce.",
+  "comparison": "Other tutorials suggest adjusting pepper to taste or focus on using specific parts of the peppercorns, leading to less emphasis on quantity."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Prepare Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: No Cream in Mixture\n\t- Content Description: Do not add any cream to the mixture as it is not part of the traditional recipe.\n\t- Reasoning: This tip emphasizes maintaining the traditional method of making carbonara.\n\t- Comparison to Other Tutorials: Video 1 does not mention cream, but Video 2 explicitly advises against it.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: No Cream in Mixture\n\t- Content Description: Do not add any cream to the mixture as it is not part of the traditional recipe.\n\t- Reasoning: Emphasizing the traditional method ensures authenticity in the recipe.\n\t- Comparison to Other Tutorials: Video 1 does not mention cream, but Video 2 explicitly advises against it.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: No Cream in Mixture\n\t- Content Description: Do not add any cream to the mixture as it is not part of the traditional recipe.\n\t- Reasoning: This tip emphasizes the authenticity of the Carbonara recipe, which traditionally does not include cream.\n\t- Comparison to Other Tutorials: Video 1 does not mention cream, but this video explicitly advises against it.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "No Cream in Carbonara",
+  "description": "Do not add cream to the egg mixture to maintain the traditional Carbonara recipe.",
+  "reasoning": "To emphasize the authenticity and traditional method of making Carbonara, which does not include cream.",
+  "comparison": "Some tutorials do not mention cream, while others explicitly advise against using it to maintain authenticity."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about instructions in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Salt-to-Water Ratio\n\t- Content Description: Boil water and add salt at a ratio of 10 grams per liter.\n\t- Reasoning: A specific salt-to-water ratio ensures consistent seasoning of the pasta.\n\t- Comparison to Other Tutorials: Video 1 uses a tablespoon of kosher salt without a specific ratio.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Salt Ratio Specification\n\t- Content Description: Add salt at a ratio of 10 grams per liter of water.\n\t- Reasoning: This provides a precise measurement for consistent flavor enhancement.\n\t- Comparison to Other Tutorials: Video 1 suggests adding a small amount of salt without a specific ratio.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Salt-to-Water Ratio",
+  "description": "Boil water with 10 grams of salt per liter for pasta.",
+  "reasoning": "Ensures consistent seasoning and flavor of the pasta.",
+  "comparison": "Other tutorials use non-specific salt amounts, lacking precise measurement."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Cook Pasta sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Do Not Add Oil\n\t- Content Description: Do not add oil to the water as it is unnecessary and can prevent sauce from sticking to the pasta.\n\t- Reasoning: Avoiding oil ensures the sauce adheres better to the pasta.\n\t- Comparison to Other Tutorials: Video 1 does not mention oil at all.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: No Oil in Water Tip\n\t- Content Description: Do not add oil to the water as it is unnecessary and can prevent sauce from sticking to the pasta.\n\t- Reasoning: This tip is included to ensure the sauce adheres well to the pasta.\n\t- Comparison to Other Tutorials: Video 1 does not mention adding or avoiding oil in the water.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Avoid Oil in Water",
+  "description": "Do not add oil to pasta water to ensure sauce sticks to pasta.",
+  "reasoning": "Including this tip helps achieve better sauce adherence to the pasta.",
+  "comparison": "Other tutorials may not mention oil, missing this adherence tip."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about tips in the step Add Egg Mixture sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cool Pasta Before Mixing\n\t- Content Description: Ensure the pasta has cooled down sufficiently before adding the egg mixture.\n\t- Reasoning: Cooling the pasta prevents the eggs from scrambling when mixed.\n\t- Comparison to Other Tutorials: Video 1 focuses on turning off the heat rather than cooling the pasta.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Cool Pasta Before Mixing\n\t- Content Description: Ensure the pasta has cooled down sufficiently before adding the egg mixture.\n\t- Reasoning: Cooling the pasta prevents the eggs from scrambling when mixed.\n\t- Comparison to Other Tutorials: Video 1 focuses on stirring quickly off the heat rather than cooling the pasta.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cool Pasta Before Mixing",
+  "description": "Ensure pasta is cool before adding egg mixture to prevent scrambling.",
+  "reasoning": "Included to prevent the eggs from scrambling by reducing the pasta's temperature.",
+  "comparison": "Other tutorials suggest turning off the heat or stirring quickly instead of cooling the pasta."
+}
+MESSAGES: [
+  {
+    "role": "system",
+    "content": [
+      {
+        "type": "text",
+        "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `How to make Pasta Carbonara?`. You are given pieces of `notable or interesting procedural contents` about materials in the step $meta$ sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons."
+      }
+    ]
+  },
+  {
+    "role": "user",
+    "content": [
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Use Pecorino cheese option\n\t- Content Description: Pecorino cheese is offered as an alternative to Parmesan for garnishing.\n\t- Reasoning: Pecorino cheese provides a different flavor profile, allowing for personal preference in taste.\n\t- Comparison to Other Tutorials: Video 1 only mentions Parmigiano Reggiano cheese, not offering Pecorino as an option.\n"
+      },
+      {
+        "type": "text",
+        "text": "- **Procedural Content**: Option of parmesan or pecorino\n\t- Content Description: The video allows the use of either parmesan or pecorino cheese for garnishing.\n\t- Reasoning: Offering a choice between cheeses allows for personal preference and flexibility in flavor.\n\t- Comparison to Other Tutorials: Video 1 specifies only pecorino cheese, while Video 2 offers a choice.\n"
+      }
+    ]
+  }
+]
+RESPONSE: {
+  "title": "Cheese Options",
+  "description": "The tutorial offers Pecorino as an alternative to Parmesan for garnishing Pasta Carbonara.",
+  "reasoning": "Including Pecorino provides viewers with a choice, catering to different taste preferences and enhancing the dish's flavor profile.",
+  "comparison": "Unlike some tutorials that specify only one type of cheese, this tutorial offers flexibility by allowing either Pecorino or Parmesan."
+}

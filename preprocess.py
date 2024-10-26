@@ -350,7 +350,7 @@ def setup_ds(task_id):
 
     ds.find_notables()
 
-    # ds.generate_hooks()
+    ds.generate_hooks()
     
     # ds.classify_alignments()
 
