@@ -265,19 +265,23 @@ def export(task_id, ds):
         if approach in ds.alignment_sets:
             output["hooks"][approach] = []
             if f"hooks_{approach}" in ds.hooks:
-                output["hooks"][approach] += fix_hooks(ds.hooks[f"hooks_{approach}"], "hook")
+                # output["hooks"][approach] += fix_hooks(ds.hooks[f"hooks_{approach}"], "hook")
+                output["hooks"][approach] += ds.hooks[f"hooks_{approach}"]
             if f"notables_{approach}" in ds.hooks:
-                output["hooks"][approach] += fix_hooks(ds.hooks[f"notables_{approach}"], "notable")
-            output["hooks"][approach] += fix_raw_alignments(ds.alignment_sets[approach])
+                # output["hooks"][approach] += fix_hooks(ds.hooks[f"notables_{approach}"], "notable")
+                output["hooks"][approach] += ds.hooks[f"notables_{approach}"]
+            # output["hooks"][approach] += fix_raw_alignments(ds.alignment_sets[approach])
 
     for baseline in BASELINES:
         if baseline in ds.alignment_sets:
             output["hooks"][baseline] = []
             if f"hooks_{baseline}" in ds.hooks:
-                output["hooks"][baseline] += fix_hooks(ds.hooks[f"hooks_{baseline}"], "hook")
+                # output["hooks"][baseline] += fix_hooks(ds.hooks[f"hooks_{baseline}"], "hook")
+                output["hooks"][baseline] += ds.hooks[f"hooks_{baseline}"]
             if f"notables_{baseline}" in ds.hooks:
-                output["hooks"][baseline] += fix_hooks(ds.hooks[f"notables_{baseline}"], "notable")
-            output["hooks"][baseline] += fix_raw_alignments(ds.alignment_sets[baseline])
+                # output["hooks"][baseline] += fix_hooks(ds.hooks[f"notables_{baseline}"], "notable")
+                output["hooks"][baseline] += ds.hooks[f"notables_{baseline}"]
+            # output["hooks"][baseline] += fix_raw_alignments(ds.alignment_sets[baseline])
 
     filename = f"{PATH}{task_id}/output.json"
     with open(filename, "w") as file:
