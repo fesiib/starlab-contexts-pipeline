@@ -86,11 +86,12 @@ def segment_video_v4(contents, steps, task):
 
     for segment in response["segments"]:
         start = segment["start_index"]
-        finish = segment["end_index"]
+        finish = segment["end_index"] + 1
+        step = segment["step"]
         for i in range(start, finish):
             if contents_coverage[i] != "":
-                print("Potential ERROR: Overlapping segments", contents_coverage[i], segment["step"])
-            contents_coverage[i] = segment["step"]
+                print("Potential ERROR: Overlapping segments", contents_coverage[i], step)
+            contents_coverage[i] = step
     segments = []
     for index, content in enumerate(contents):
         cur_step = contents_coverage[index]

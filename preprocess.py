@@ -87,7 +87,7 @@ def pre_process_videos(video_links):
             continue
     return videos
 
-def setup_ds(task_id):
+def process_task(task_id):
     metadata_path = "./metadata.json"
     task_desc = None
     video_pool = None
@@ -144,13 +144,11 @@ def setup_ds(task_id):
 
     ds.process_videos()
     
-    ds.generate_alignments()
+    # ds.generate_alignments()
 
-    ds.find_notables()
+    # ds.find_notables()
 
-    ds.generate_hooks()
-
-    export(task_id, ds)
+    # ds.generate_hooks()
     return ds
 
 def parse_args(args):
@@ -164,8 +162,8 @@ def parse_args(args):
 def main(args=["-t", "test"]):
     parsed_args = parse_args(args)
     task_id = parsed_args.task_id
-    ds = setup_ds(task_id)
+    ds = process_task(task_id)
+    export(task_id, ds)
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
     main()

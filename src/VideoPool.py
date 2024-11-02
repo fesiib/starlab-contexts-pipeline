@@ -7,7 +7,7 @@ from helpers import random_uid
 
 from helpers.prompts_segmentation import define_steps_v4, extract_subgoals_v4, align_steps_v4, segment_video_v4
 
-from helpers.prompts_summarization import get_step_summary_v4
+from helpers.prompts_summarization import get_step_summary_v4, get_subgoal_summary_v4
 
 from helpers.prompts_comparison import get_transcript_alignments_v3
 from helpers.prompts_comparison import get_subgoal_alignments_v4, get_steps_alignments_v4
@@ -100,6 +100,7 @@ class VideoPool:
             ## initial subgoals
             if len(video.subgoals) == 0:
                 segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
+                print(json.dumps(segments, indent=2))
                 for index, subgoal in enumerate(segments):
                     video.subgoals.append({
                         "id": f"{video.video_id}-subgoal-{index}",
@@ -110,7 +111,7 @@ class VideoPool:
                         "frame_paths": subgoal["frame_paths"],
                         "content_ids": subgoal["content_ids"],
                     })
-                ## re-segment based on the new subgoals TODO: move under if
+                ## re-segment based on the new subgoals
                 subgoal_assignment = [""] * len(video.subgoals)
                 for index, step in enumerate(video.subgoals):
                     for subgoal in self.subgoals:
@@ -145,8 +146,21 @@ class VideoPool:
                 for subgoal in video.subgoals:
                     if subgoal["title"] == "":
                         continue
-                    summary = get_step_summary_v4(video.get_all_contents(),
-                        subgoal["original_steps"], self.task)
+                    ### Extract per steps
+                    # summary = get_step_summary_v4(video.get_all_contents(), subgoal["original_steps"], self.task)
+
+                    ## Extract per step & combine
+
+                    ### Extract per subgoal
+                    subgoal_desc = ""
+                    for subgoal_def in self.subgoals:
+                        if subgoal_def["title"] == subgoal["title"]:
+                            subgoal_desc = subgoal_def["title"] + ": " + subgoal_def["description"]
+                            break
+                    if subgoal_desc == "":
+                        continue
+                    summary = get_subgoal_summary_v4(video.get_all_contents(),
+                        subgoal_desc, self.task)
                     for key in summary:
                         if not key.endswith("_content_ids"):
                             continue
