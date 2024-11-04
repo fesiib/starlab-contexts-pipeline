@@ -180,10 +180,10 @@ class Video:
                 key = k.capitalize().replace("_", " ")
                 if isinstance(v, str):
                     ## v is string
-                    text += f"- **{key}**: {v}\n"
+                    text += f"- **{key}**: {v}"
                 else:
                     ## v is list
-                    text += f"- **{key}**: {'; '.join(v)}\n"
+                    text += f"- **{key}**: {'; '.join(v)}"
                 if f"{k}_frame_paths" in summary:
                     frame_paths = [*summary[f"{k}_frame_paths"]]
                 
