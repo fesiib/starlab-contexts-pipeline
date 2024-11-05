@@ -51,11 +51,13 @@ def export(task_id, ds):
         "task": ds.task,
         "videos": videos,
         "subgoal_definitions": ds.subgoals,
-        "hooks": {}
+        "hooks": {},
+        "comparisons": {},
     }
 
     for approach in APPROACHES:
         if approach in ds.alignment_sets:
+            output["comparisons"][approach] = ds.alignment_sets[approach]
             output["hooks"][approach] = []
             if f"hooks_{approach}" in ds.hooks:
                 output["hooks"][approach] += ds.hooks[f"hooks_{approach}"]
@@ -64,6 +66,7 @@ def export(task_id, ds):
 
     for baseline in BASELINES:
         if baseline in ds.alignment_sets:
+            output["comparisons"][baseline] = ds.alignment_sets[baseline]
             output["hooks"][baseline] = []
             if f"hooks_{baseline}" in ds.hooks:
                 output["hooks"][baseline] += ds.hooks[f"hooks_{baseline}"]
@@ -148,7 +151,7 @@ def process_task(task_id):
 
     ds.find_notables()
 
-    ds.generate_hooks()
+    # ds.generate_hooks()
     return ds
 
 def parse_args(args):
@@ -167,11 +170,6 @@ def main(args=["-t", "carbonara"]):
 
     if ds is None:
         return
-    
-    ## carbonara:
-    ## remove-obj: 
-    cur_video_id = ""
-    other_video_id = ""
 
 
 if __name__ == "__main__":

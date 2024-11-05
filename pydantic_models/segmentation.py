@@ -12,27 +12,35 @@ class TranscriptAssignmentsSchema(BaseModel):
 class StepsSchema(BaseModel):
     steps: list[str] = Field(..., title="A comprehensive list of steps to achieve the task.")
 
-class AggStepMappingSchema(BaseModel):
-    original_step: str = Field(..., title="The original step from one of the lists.")
-    agg_step: str = Field(..., title="The aggregated step that the original step is mapped to.")
+# class AggStepMappingSchema(BaseModel):
+#     original_step: str = Field(..., title="The original step from one of the lists.")
+#     agg_step: str = Field(..., title="The aggregated step that the original step is mapped to.")
+
+class AggStepSchema(BaseModel):
+    agg_step: str = Field(..., title="The aggregated step.")
+    original_steps_1: list[int] = Field(..., title="The list of ids of original steps from the video 1 that are mapped to the aggregated step.")
+    original_steps_2: list[int] = Field(..., title="The list of ids of original steps from the video 2 that are mapped to the aggregated step.")
 
 class AggStepsSchema(BaseModel):
-    agg_steps: list[str] = Field(..., title="The list of aggregated steps to achieve the task.")
-    assignments_1: list[AggStepMappingSchema] = Field(..., title="The mapping of original steps in the first list to aggregated steps.")
-    assignments_2: list[AggStepMappingSchema] = Field(..., title="The mapping of original steps in the second list to aggregated steps.")
+    agg_steps: list[AggStepSchema] = Field(..., title="The list of aggregated steps to achieve the task.")
 
+    # agg_steps: list[str] = Field(..., title="The list of aggregated steps to achieve the task.")
+    # assignments_1: list[AggStepMappingSchema] = Field(..., title="The mapping of original steps in the first list to aggregated steps.")
+    # assignments_2: list[AggStepMappingSchema] = Field(..., title="The mapping of original steps in the second list to aggregated steps.")
 
-class AggSubgoalMappingSchema(BaseModel):
-    step: str = Field(..., title="The step that the subgoal is mapped to.")
-    subgoal: str = Field(..., title="The subgoal that the step is mapped to.")
 
 class AggSubgoalSchema(BaseModel):
     title: str = Field(..., title="A 1 to 3 words title of the subgoal")
     description: str = Field(..., title="The description of the subgoal that specifies the information it should cover in tutorial videos")
+    original_steps: list[int] = Field(..., title="The list of ids of original steps that are mapped to the subgoal.")
+
+# class AggSubgoalMappingSchema(BaseModel):
+#     step: str = Field(..., title="The step that the subgoal is mapped to.")
+#     subgoal: str = Field(..., title="The subgoal that the step is mapped to.")
 
 class AggSubgoalsSchema(BaseModel):
     subgoals: list[AggSubgoalSchema] = Field(..., title="The list of subgoals with their steps")
-    assignments: list[AggSubgoalMappingSchema] = Field(..., title="The mapping of steps to subgoals")
+    # assignments: list[AggSubgoalMappingSchema] = Field(..., title="The mapping of steps to subgoals")
 
 def get_segmentation_schema_v4(titles):
     if not titles:

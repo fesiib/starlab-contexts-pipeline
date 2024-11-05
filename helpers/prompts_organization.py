@@ -2,13 +2,13 @@ from helpers import get_response_pydantic, extend_contents
 
 from pydantic_models.organization import SummarizedAlignmentSchema2, GroupsSchema, GroupSchema
 
-def get_notable_v4(contents, subgoal, aspect, task):
+def get_notable_v4(vid, contents, subgoal, aspect, task):
     messages = [
         {
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from a single tutorial. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons.".format(task=task, aspect=aspect, subgoal=subgoal)
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from the tutorial `{vid}`. It also contains comparison of each content with other tutorials about the same task. Provide a concise summary of the contents and its descriptions, reasonings (i.e., why is it in the video?), and comparisons.".format(task=task, aspect=aspect, subgoal=subgoal, vid=vid)
             }],
         },
         {
@@ -20,13 +20,13 @@ def get_notable_v4(contents, subgoal, aspect, task):
     response = get_response_pydantic(messages, SummarizedAlignmentSchema2)
     return response
 
-def get_hook_v4(contents, subgoal, relation, aspect, task):
+def get_hook_v4(vid, contents, subgoal, relation, aspect, task):
     messages = [
         {
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of {relation} `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from other tutorials. It also contains comparison of each content to the current tutorial. Analyze the given contents and create a title that captures the essence of the information and sparks interest in the new content or overall comparison. Then, provide a concise summary of the contents and its descriptions and comparisons.".format(task=task, relation=relation, aspect=aspect, subgoal=subgoal)
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of {relation} `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from other tutorials. It also contains comparison of each content to the current tutorial `{vid}`. Analyze the given contents and create a title that captures the essence of the information and sparks interest in the new content or overall comparison. Then, provide a concise summary of the contents and its descriptions and comparisons.".format(task=task, relation=relation, aspect=aspect, subgoal=subgoal, vid=vid)
             }],
         },
         {
@@ -38,13 +38,13 @@ def get_hook_v4(contents, subgoal, relation, aspect, task):
     response = get_response_pydantic(messages, GroupSchema)
     return response
 
-def get_hooks_v4(contents, subgoal, relation, aspect, task):
+def get_hooks_v4(vid, contents, subgoal, relation, aspect, task):
     messages = [
         {
             "role": "system",
             "content": [{
                 "type": "text",
-                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of {relation} `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from other tutorials. It also contains comparison of each content to the current tutorial. Identify and combine similar pieces of contents and create a short and informative titles for each group of contents. Then, provide short summaries for each group in terms of descriptions and comparisons.".format(task=task, relation=relation, aspect=aspect, subgoal=subgoal)
+                "text": "You are a helpful assistant specializing in analyzing and summarizing procedural contents from tutorials for the task `{task}`. You are given pieces of {relation} `notable or interesting procedural contents` about {aspect} in the step {subgoal} sourced from other tutorials. It also contains comparison of each content to the current tutorial `{vid}`. Identify and combine similar pieces of contents and create a short and informative titles for each group of contents. Then, provide short summaries for each group in terms of descriptions and comparisons. If needed, refer to each video by their ID.".format(task=task, relation=relation, aspect=aspect, subgoal=subgoal, vid=vid)
             }],
         },
         {

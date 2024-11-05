@@ -60,7 +60,7 @@ def assign_transcripts_v4(contents, subgoals, task):
 
 def segment_video_v4(contents, steps, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that the all the procedurally important parts of the narration are covered.".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}` and a set of steps, segment the entire video based on the steps. Start from the beginning of the video (i.e., 0-th sentence) and sequentially assign matching relevant step label to each subsequent segment of the narration. Make sure that all the procedurally important parts of the narration are covered.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -135,8 +135,8 @@ def define_steps_v4(contents, task):
     return steps
 
 def align_steps_v4(sequence1, sequence2, task):
-    sequence1_str = "\n".join(sequence1)
-    sequence2_str = "\n".join(sequence2)
+    sequence1_str = "\n".join([f"{i}. {step}" for i, step in enumerate(sequence1)])
+    sequence2_str = "\n".join([f"{i}. {step}" for i, step in enumerate(sequence2)])
     messages = [
         {"role": "system", "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `{task}`. Given two lists of steps from two tutorial videos about the task, aggregate them into a single list of steps. Combine similar steps or steps that have the same overall goal. Focus on the essence of the steps and avoid including unnecessary details. Make sure to include all the steps from both videos and specify which aggregated step they belong to.".format(task=task)},
         {"role": "user", "content": f"## Video 1:\n{sequence1_str}"},
@@ -144,52 +144,86 @@ def align_steps_v4(sequence1, sequence2, task):
     ]
     
     response = get_response_pydantic(messages, AggStepsSchema)
-    if len(response["assignments_1"]) != len(sequence1) or len(response["assignments_2"]) != len(sequence2):
-        print("ERROR: Length of assignments_1 does not match the length of sequence1")
+    steps = response["agg_steps"]
+    coverage_1 = [0] * len(sequence1)
+    coverage_2 = [0] * len(sequence2)
+    for step in steps:
+        original_steps_1 = []
+        original_steps_2 = []
+        for a in step['original_steps_1']:
+            original_steps_1.append(sequence1[a])
+            if coverage_1[a] == 1:
+                print("ERROR: Original step from sequence 1 already covered:", sequence1[a])
+            coverage_1[a] = 1
+        for a in step['original_steps_2']:
+            original_steps_2.append(sequence2[a])
+            if coverage_2[a] == 1:
+                print("ERROR: Original step from sequence 2 already covered:", sequence2[a])
+            coverage_2[a] = 1
+        step['original_steps_1'] = original_steps_1
+        step['original_steps_2'] = original_steps_2
+    if sum(coverage_1) != len(sequence1) or sum(coverage_2) != len(sequence2):
+        print("ERROR: Not all steps covered")
 
-    steps = []
-    for agg_step in response["agg_steps"]:
-        steps.append({
-            "aggregated": agg_step,
-            "original_list_1": [],
-            "original_list_2": []
-        })
+
+    # if len(response["assignments_1"]) != len(sequence1) or len(response["assignments_2"]) != len(sequence2):
+    #     print("ERROR: Length of assignments_1 does not match the length of sequence1")
+
+    # steps = []
+    # for agg_step in response["agg_steps"]:
+    #     steps.append({
+    #         "agg_step": agg_step,
+    #         "original_steps_1": [],
+    #         "original_steps_2": []
+    #     })
         
-    for assignments, original_list in [
-        ("assignments_1", "original_list_1"),
-        ("assignments_2", "original_list_2")
-    ]:
-        for a in response[assignments]:
-            found = 0
-            for subgoal in steps:
-                if a["agg_step"] == subgoal["aggregated"]:
-                    subgoal[original_list].append(a["original_step"])
-                    found += 1
-            if found == 0:
-                print("ERROR: Original step from sequence not found in agg_steps")
-            if found > 1:
-                print("ERROR: Original step from sequence found in multiple agg_steps")
+    # for assignments, original_steps in [
+    #     ("assignments_1", "original_steps_1"),
+    #     ("assignments_2", "original_steps_2")
+    # ]:
+    #     for a in response[assignments]:
+    #         found = 0
+    #         for subgoal in steps:
+    #             if a["agg_step"] == subgoal["agg_step"]:
+    #                 subgoal[original_steps].append(a["original_step"])
+    #                 found += 1
+    #         if found == 0:
+    #             print("ERROR: Original step from sequence not found in agg_steps")
+    #         if found > 1:
+    #             print("ERROR: Original step from sequence found in multiple agg_steps")
     return steps
 
 def extract_subgoals_v4(steps, task):
+    steps_str = "\n".join([f"{i}. {step}" for i, step in enumerate(steps)])
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial content. You are given a set of generalized steps to perform the task `{task}`. Identify and extract subgoals within this procedure. Each subgoal should represent a distinct, meaningful intermediate stage or outcome within the procedure. Label each subgoal concisely in 1 to 3 words, ensuring each term is both informative and distinct.”".format(task=task)},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial content. You are given a set of generalized steps to perform the task `{task}`. Identify and extract subgoals within this procedure. Each subgoal should represent a distinct, meaningful intermediate stage or outcome within the procedure. Label each subgoal concisely in 1 to 3 words, ensuring each term is both informative and distinct.".format(task=task)},
         {
             "role": "user",
-            "content": "## Generalized Steps:\n" + "\n".join(steps)
+            "content": "## Generalized Steps:\n" + steps_str
         }
     ]
     
     response = get_response_pydantic(messages, AggSubgoalsSchema)
     subgoals = response["subgoals"]
-    assignments = response["assignments"]
+    coverage = [0] * len(steps)
     for subgoal in subgoals:
-        subgoal["original_steps"] = []
-        found = 0
-        for a in assignments:
-            if a["subgoal"] == subgoal["title"]:
-                subgoal["original_steps"].append(a["step"])
-                found += 1
-        if found == 0:
-            print("ERROR: Subgoal not found in assignments")
+        original_steps = []
+        for a in subgoal["original_steps"]:
+            original_steps.append(steps[a])
+            if coverage[a] == 1:
+                print("ERROR: Original step already covered:", steps[a])
+            coverage[a] = 1
+        subgoal["original_steps"] = original_steps
+    if sum(coverage) != len(steps):
+        print("ERROR: Not all steps covered")
+    # assignments = response["assignments"]
+    # for subgoal in subgoals:
+    #     subgoal["original_steps"] = []
+    #     found = 0
+    #     for a in assignments:
+    #         if a["subgoal"] == subgoal["title"]:
+    #             subgoal["original_steps"].append(a["step"])
+    #             found += 1
+    #     if found == 0:
+    #         print("ERROR: Subgoal not found in assignments")
     return subgoals

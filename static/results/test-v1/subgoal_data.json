@@ -1,0 +1,69 @@
+[
+  {
+    "title": "Prepare Ingredients",
+    "description": "Chop bacon into small pieces, grate cheese, and prepare the egg mixture.",
+    "original_steps": [
+      "Cut about half a pound of thick-cut bacon into three-quarter inch pieces.",
+      "Heat a pan over medium heat and add a tiny bit of olive oil (optional).",
+      "Add the bacon to the pan and slowly render out the fat until the bacon is crispy.",
+      "Once the bacon is crispy, remove some for garnish and drain most of the fat, leaving about two tablespoons in the pan. Turn off the heat.",
+      "Chop bacon into small pieces.",
+      "Cook the bacon in a pan until crispy, then turn off the heat and let it cool slightly.",
+      "Grate three ounces each of Pecorino Romano and Parmigiano Reggiano cheese.",
+      "In a bowl, whisk together three whole eggs and two egg yolks.",
+      "Mix the grated cheeses into the egg mixture.",
+      "Add fresh ground black pepper to the egg and cheese mixture to taste.",
+      "Separate egg yolks from egg whites and place the yolks in a bowl.",
+      "Grate pecorino romano cheese and add it to the egg yolks.",
+      "Add freshly ground black pepper to the egg yolk and cheese mixture."
+    ]
+  },
+  {
+    "title": "Cook Bacon",
+    "description": "Cook the chopped bacon until it is crispy.",
+    "original_steps": []
+  },
+  {
+    "title": "Cook Spaghetti",
+    "description": "Boil water, add salt, and cook the spaghetti until it is al dente.",
+    "original_steps": [
+      "Boil about four quarts of water and add a tablespoon of kosher salt.",
+      "Cook spaghetti in the boiling water until slightly al dente, about 10 minutes.",
+      "Boil water in a pot, add salt, and cook spaghetti until al dente."
+    ]
+  },
+  {
+    "title": "Reserve Pasta Water",
+    "description": "Reserve some of the pasta water before draining the spaghetti.",
+    "original_steps": [
+      "Reserve some pasta water before draining the spaghetti."
+    ]
+  },
+  {
+    "title": "Combine Ingredients",
+    "description": "Combine the cooked spaghetti with the bacon and egg mixture to create a creamy sauce.",
+    "original_steps": [
+      "Transfer the cooked spaghetti to the pan with the bacon using tongs, leaving the pasta water in the pot.",
+      "Add the egg and cheese mixture to the hot spaghetti, stirring gently to coat the pasta without scrambling the eggs.",
+      "Add a small amount of pasta water to the egg yolk and cheese mixture to help melt the cheese.",
+      "Transfer the cooked spaghetti directly from the pot to the pan with bacon.",
+      "Mix the spaghetti with the bacon and then add the egg yolk mixture, stirring quickly to create a creamy sauce."
+    ]
+  },
+  {
+    "title": "Adjust Sauce",
+    "description": "Adjust the sauce consistency with the reserved pasta water if needed.",
+    "original_steps": [
+      "If the sauce is too thick, add a little reserved pasta water to loosen it.",
+      "Add more pasta water if needed to achieve the desired sauce consistency."
+    ]
+  },
+  {
+    "title": "Finish and Serve",
+    "description": "Finish the dish with additional cheese and black pepper before serving.",
+    "original_steps": [
+      "Plate the pasta and garnish with more grated Parmigiano Reggiano and crispy bacon.",
+      "Finish with additional grated pecorino romano and black pepper before serving."
+    ]
+  }
+]

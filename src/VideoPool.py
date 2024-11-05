@@ -7,10 +7,10 @@ from helpers import random_uid
 
 from helpers.prompts_segmentation import define_steps_v4, extract_subgoals_v4, align_steps_v4, segment_video_v4
 
-from helpers.prompts_summarization import get_step_summary_v4, get_subgoal_summary_v4
+from helpers.prompts_summarization import get_subgoal_summary_v4
 
 from helpers.prompts_comparison import get_transcript_alignments_v3
-from helpers.prompts_comparison import get_subgoal_alignments_v4, get_steps_alignments_v4
+from helpers.prompts_comparison import get_subgoal_alignments_v4
 
 from helpers.prompts_organization import get_notable_v4, get_hooks_v4, get_hook_v4
 
@@ -66,15 +66,15 @@ class VideoPool:
                 
                 new_agg_steps = []
                 for new_agg_step in agg_sequence:
-                    original_steps = new_agg_step["original_list_2"]
+                    original_steps = new_agg_step["original_steps_2"]
                     
-                    for old_step in new_agg_step["original_list_1"]:
+                    for old_step in new_agg_step["original_steps_1"]:
                         for agg_step in agg_steps:
                             if agg_step["step"] == old_step:
                                 original_steps += agg_step["original_steps"]
                                 break
                     new_agg_steps.append({
-                        "step": new_agg_step["aggregated"],
+                        "step": new_agg_step["agg_step"],
                         "original_steps": original_steps,
                     })
                 agg_steps = new_agg_steps
@@ -171,23 +171,23 @@ class VideoPool:
                     summary = {
                         "title": subgoal["title"],
                         **summary,
-                        "outcome_frame_paths": [],
+                        "outcomes_frame_paths": [],
                         "materials_frame_paths": [],
                         "tools_frame_paths": [],
                     }
-                    if len(summary["outcome"]) > 0:
-                        summary["outcome_frame_paths"] = clip_similar_per_text([*summary["outcome"]], summary["frame_paths"])
+                    if len(summary["outcomes"]) > 0:
+                        summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
                     if len(summary["materials"]) > 0:
                         summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
                     if len(summary["tools"]) > 0:
                         summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
                     video.subgoal_summaries.append(summary)
 
-            cannot_be_empty = ["instructions", "explanation", "tips"]
-            for subgoal_summary in video.subgoal_summaries:
-                for key in cannot_be_empty:
-                    if len(subgoal_summary[key+"_content_ids"]) == 0:
-                        subgoal_summary[key] = ""
+                cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
+                for subgoal_summary in video.subgoal_summaries:
+                    for key in cannot_be_empty:
+                        if len(subgoal_summary[key + "_content_ids"]) == 0:
+                            subgoal_summary[key] = ""
 
     def __reformat_alignments_v2(self, alignments, video1, video2):
         for alignment in alignments:
@@ -228,7 +228,7 @@ class VideoPool:
                     if len(contents1) == 0 or len(contents2) == 0:
                         continue
                     subgoal_alignments_1, subgoal_alignments_2 = get_subgoal_alignments_v4(
-                        contents1, contents2, subgoal_def["title"], self.task
+                        video1.video_id, video2.video_id, contents1, contents2, subgoal_def["title"], self.task
                     )
                     for alignment in [*subgoal_alignments_1, *subgoal_alignments_2]:
                         alignment["subgoal_title"] = subgoal_def["title"]
@@ -240,18 +240,18 @@ class VideoPool:
                     ))
                 
                 ### between meta
-                meta_alignments_1, meta_alignments_2 = get_steps_alignments_v4(
-                    contents1, contents2, self.task
-                )
-                for alignment in [*meta_alignments_1, *meta_alignments_2]:
-                    alignment["subgoal_title"] = META_TITLE
+                # meta_alignments_1, meta_alignments_2 = get_steps_alignments_v4(
+                #     video1.video_id, video2.video_id, video1.steps, video2.steps, self.task
+                # )
+                # for alignment in [*meta_alignments_1, *meta_alignments_2]:
+                #     alignment["subgoal_title"] = META_TITLE
                 
-                alignments_1.extend(self.__reformat_alignments_v2(
-                    meta_alignments_1, video1, video2
-                ))
-                alignments_2.extend(self.__reformat_alignments_v2(
-                    meta_alignments_2, video2, video1
-                ))
+                # alignments_1.extend(self.__reformat_alignments_v2(
+                #     meta_alignments_1, video1, video2
+                # ))
+                # alignments_2.extend(self.__reformat_alignments_v2(
+                #     meta_alignments_2, video2, video1
+                # ))
                     
                 self.alignment_sets[approach].append({
                     "alignments": alignments_1,
@@ -273,22 +273,34 @@ class VideoPool:
         self.alignment_sets[approach] = []
         for v1_idx, video1 in enumerate(self.videos):
             for v2_idx, video2 in enumerate(self.videos):
-                if v1_idx == v2_idx:
+                if v1_idx >= v2_idx:
                     continue
                 ### between meta
                 contents1 = video1.get_all_contents()
                 contents2 = video2.get_all_contents()
                 if len(contents1) == 0 or len(contents2) == 0:
                     continue
-                meta_alignments = get_transcript_alignments_v3(
-                    contents1, contents2, self.task
+                
+                meta_alignments_1, meta_alignments_2 = get_transcript_alignments_v3(
+                    video1.video_id, video2.video_id, contents1, contents2, self.task, tries=3
                 )
-                for alignment in meta_alignments:
+                for alignment in [*meta_alignments_1, *meta_alignments_2]:
                     alignment["subgoal_title"] = META_TITLE
+                
+                alignments_1 = self.__reformat_alignments_v2(
+                    meta_alignments_1, video1, video2
+                )
+                alignments_2 = self.__reformat_alignments_v2(
+                    meta_alignments_2, video2, video1
+                )
 
                 self.alignment_sets[approach].append({
-                    "alignments": self.__reformat_alignments(meta_alignments, video1, video2),
+                    "alignments": alignments_1,
                     "video_id": video1.video_id,
+                })
+                self.alignment_sets[approach].append({
+                    "alignments": alignments_2,
+                    "video_id": video2.video_id,
                 })
 
     def generate_alignments(self):
@@ -346,13 +358,14 @@ class VideoPool:
                 seconds = max(seconds, link["seconds"])
             return seconds
         
-        def __get_notable_links_contents(links):
+        def __get_notable_links_contents(vid, links):
             contents = []
             for link in links:
-                text = "- **Procedural Content**: " + link["title"] + "\n"
+                text = ""
+                text += f"- **Procedural Content from `{vid}`**: " + link["title"] + "\n"
                 text += "\t- Content Description: " + link["description"] + "\n"
                 text += "\t- Reasoning: " + link['reasoning'] + "\n"
-                text += "\t- Comparison to Other Tutorials: " + link['comparison'] + "\n"    
+                text += f"\t- Comparison to Tutorial `{link['other_video_id']}`: " + link['comparison'] + "\n"    
                 contents.append({
                     "type": "text",
                     "text": text
@@ -411,8 +424,8 @@ class VideoPool:
                             "comparison": links[0]["comparison"],
                         }
 
-                    contents = __get_notable_links_contents(links)
-                    summary = get_notable_v4(contents, subgoal, aspect, self.task)
+                    contents = __get_notable_links_contents(video_id, links)
+                    summary = get_notable_v4(video_id, contents, subgoal, aspect, self.task)
                     return summary
                 new_notables = self.__cluster_v2(alignments, SIMILARITY_THRESHOLD_NOTABLE, __link_to_text, __get_notable)
 
@@ -506,6 +519,7 @@ class VideoPool:
                     "uniqueness": notable["uniqueness"],
                     "step_aspect_complexity": notable["step_aspect_complexity"],
                     "other_seconds": notable["seconds"],
+                    "links": notable["links"],
                 })
 
         def __calculate_hook_importance(links):
@@ -515,13 +529,13 @@ class VideoPool:
                 importance = max(importance, link["importance"])
             return importance
     
-        def __get_hook_links_contents(links):
+        def __get_hook_links_contents(vid, links):
             contents = []
             for link in links:
-                text = "- **Procedural Content**: " + link["title"] + "\n"
+                text = f"- **Procedural Content from `{link['other_video_id']}`**: " + link["title"] + "\n"
                 text += "\t- Content Description: " + link["description"] + "\n"
                 # text += "\t- Reasoning: " + link['reasoning'] + "\n"
-                text += "\t- Comparison to Current Tutorial: " + link['comparison'] + "\n"  
+                text += f"\t- Comparison to Tutorial `{vid}`: " + link['comparison'] + "\n"  
                 contents.append({
                     "type": "text",
                     "text": text
@@ -543,8 +557,8 @@ class VideoPool:
                 continue
             new_hooks = []
             if approach == "llm":
-                contents = __get_hook_links_contents(links)
-                new_hooks = get_hooks_v4(contents, subgoal, relation, aspect, self.task)
+                contents = __get_hook_links_contents(video_id, links)
+                new_hooks = get_hooks_v4(video_id, contents, subgoal, relation, aspect, self.task)
             else:
                 ### clustering
                 def __get_hook(links):
@@ -557,8 +571,8 @@ class VideoPool:
                             "description": links[0]["description"],
                             "comparison": links[0]["comparison"],
                         }
-                    contents = __get_hook_links_contents(links)
-                    summary = get_hook_v4(contents, subgoal, relation, aspect, self.task)
+                    contents = __get_hook_links_contents(video_id, links)
+                    summary = get_hook_v4(video_id, contents, subgoal, relation, aspect, self.task)
                     return summary
                 new_hooks = self.__cluster_v2(links, SIMILARITY_THRESHOLD_HOOK, __link_to_text, __get_hook)
 

@@ -1,0 +1,3510 @@
+{
+  "notables_approach_1": [
+    {
+      "id": "notable-75p4UHRIMcU-46d768eb-8ad3-4e24-b7ea-4649b6da419e",
+      "video_id": "75p4UHRIMcU",
+      "title": "Use of knife",
+      "description": "A knife is used to chop the bacon before cooking.",
+      "reasoning": "Chopping the bacon before cooking allows for more even cooking and easier handling.",
+      "comparison": "The other video does not mention using a knife, possibly because it suggests breaking the bacon into pieces directly in the pan.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-0bd52547-4214-40c3-b9c3-a0c9a81242df",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Use of knife",
+          "description": "A knife is used to chop the bacon before cooking.",
+          "reasoning": "Chopping the bacon before cooking allows for more even cooking and easier handling.",
+          "comparison": "The other video does not mention using a knife, possibly because it suggests breaking the bacon into pieces directly in the pan.",
+          "aspect": "tools",
+          "subgoal": "Prepare Bacon",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 18.686117037604838
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 18.686117037604838
+    },
+    {
+      "id": "notable-75p4UHRIMcU-2e9e6990-c7f6-4629-9cc1-2ab78e308fa5",
+      "video_id": "75p4UHRIMcU",
+      "title": "Chop bacon before cooking",
+      "description": "The bacon is chopped before being cooked in the pan.",
+      "reasoning": "Chopping before cooking allows for more even cooking and easier handling of the bacon pieces.",
+      "comparison": "The other video suggests breaking the bacon into pieces directly in the pan, which may lead to uneven sizes and cooking.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-e5b451eb-c292-456f-ab10-8bbcac2c0c63",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Chop bacon before cooking",
+          "description": "The bacon is chopped before being cooked in the pan.",
+          "reasoning": "Chopping before cooking allows for more even cooking and easier handling of the bacon pieces.",
+          "comparison": "The other video suggests breaking the bacon into pieces directly in the pan, which may lead to uneven sizes and cooking.",
+          "aspect": "instructions",
+          "subgoal": "Prepare Bacon",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 159.82104545608254
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 159.82104545608254
+    },
+    {
+      "id": "notable-75p4UHRIMcU-158ba2fb-f82a-4dd0-8190-cfd34f3b3c1e",
+      "video_id": "75p4UHRIMcU",
+      "title": "Non-traditional bacon use",
+      "description": "Bacon is used instead of guanciale because this is not a traditional carbonara recipe.",
+      "reasoning": "The tutorial clarifies the choice of bacon to set expectations about the recipe's authenticity.",
+      "comparison": "The other video does not mention the traditional ingredient guanciale, possibly focusing solely on the bacon preparation.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-cfda8b5a-e2ed-4ac2-a515-bf0c82968531",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Non-traditional bacon use",
+          "description": "Bacon is used instead of guanciale because this is not a traditional carbonara recipe.",
+          "reasoning": "The tutorial clarifies the choice of bacon to set expectations about the recipe's authenticity.",
+          "comparison": "The other video does not mention the traditional ingredient guanciale, possibly focusing solely on the bacon preparation.",
+          "aspect": "explanations",
+          "subgoal": "Prepare Bacon",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 26.514841218271123
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 26.514841218271123
+    },
+    {
+      "id": "notable-75p4UHRIMcU-ae79904f-4ba8-41b0-a69a-9c7d1a2f89d7",
+      "video_id": "75p4UHRIMcU",
+      "title": "Stir bacon occasionally",
+      "description": "Stirring occasionally ensures the bacon is cooked evenly.",
+      "reasoning": "The tutorial includes this tip to prevent uneven cooking and burning of the bacon.",
+      "comparison": "The other video does not mention stirring, possibly assuming the bacon will cook evenly without intervention.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-efe268c5-de03-4c8b-974c-cc9faa35e5b9",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Stir bacon occasionally",
+          "description": "Stirring occasionally ensures the bacon is cooked evenly.",
+          "reasoning": "The tutorial includes this tip to prevent uneven cooking and burning of the bacon.",
+          "comparison": "The other video does not mention stirring, possibly assuming the bacon will cook evenly without intervention.",
+          "aspect": "tips",
+          "subgoal": "Prepare Bacon",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 159.82104545608254
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 159.82104545608254
+    },
+    {
+      "id": "notable-75p4UHRIMcU-b6c7724e-37b4-4ee6-9677-ee98f70a3880",
+      "video_id": "75p4UHRIMcU",
+      "title": "Turn off burner to cool bacon",
+      "description": "Turning off the burner and letting the bacon cool prevents overcooking the egg-based sauce later.",
+      "reasoning": "This tip is included to ensure the bacon does not continue cooking and affect the sauce's texture.",
+      "comparison": "The other video does not mention this step, possibly assuming immediate use of the bacon or different timing in the recipe.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-7e439a3e-fab4-4bfc-ac9b-475b913e190a",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Turn off burner to cool bacon",
+          "description": "Turning off the burner and letting the bacon cool prevents overcooking the egg-based sauce later.",
+          "reasoning": "This tip is included to ensure the bacon does not continue cooking and affect the sauce's texture.",
+          "comparison": "The other video does not mention this step, possibly assuming immediate use of the bacon or different timing in the recipe.",
+          "aspect": "tips",
+          "subgoal": "Prepare Bacon",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 161.0530588013387
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 161.0530588013387
+    },
+    {
+      "id": "notable-75p4UHRIMcU-70731736-cac8-483f-b284-3eb6df6b70aa",
+      "video_id": "75p4UHRIMcU",
+      "title": "Specific number of spaghetti pieces",
+      "description": "Add 156 pieces of spaghetti to the boiling water.",
+      "reasoning": "The specific number might be used for portion control or demonstration purposes.",
+      "comparison": "The other video does not specify the number of spaghetti pieces, focusing instead on general instructions.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-79448e93-5491-4e3c-a1bf-430f12f6b150",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Specific number of spaghetti pieces",
+          "description": "Add 156 pieces of spaghetti to the boiling water.",
+          "reasoning": "The specific number might be used for portion control or demonstration purposes.",
+          "comparison": "The other video does not specify the number of spaghetti pieces, focusing instead on general instructions.",
+          "aspect": "instructions",
+          "subgoal": "Cook Spaghetti",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 147.92311124595642
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 147.92311124595642
+    },
+    {
+      "id": "notable-75p4UHRIMcU-6497b684-0de0-49b6-8589-8722c4cf6313",
+      "video_id": "75p4UHRIMcU",
+      "title": "Stirring to prevent sticking",
+      "description": "Keep stirring the spaghetti initially to prevent it from sticking together.",
+      "reasoning": "This tip is important for ensuring the spaghetti cooks evenly and does not clump together.",
+      "comparison": "The other video does not emphasize the importance of stirring to prevent sticking.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-2a466151-b212-4310-825b-fe5bf5da809f",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Stirring to prevent sticking",
+          "description": "Keep stirring the spaghetti initially to prevent it from sticking together.",
+          "reasoning": "This tip is important for ensuring the spaghetti cooks evenly and does not clump together.",
+          "comparison": "The other video does not emphasize the importance of stirring to prevent sticking.",
+          "aspect": "tips",
+          "subgoal": "Cook Spaghetti",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 155.98033950842313
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 155.98033950842313
+    },
+    {
+      "id": "notable-75p4UHRIMcU-0aa0ac83-83cf-41b3-aa6a-f3b26a438534",
+      "video_id": "75p4UHRIMcU",
+      "title": "Breaking spaghetti is a crime",
+      "description": "Breaking spaghetti in half is considered a crime in Italy and can ruin the texture of the pasta.",
+      "reasoning": "This warning is more cultural and focuses on maintaining traditional cooking methods.",
+      "comparison": "The other video does not mention this cultural aspect or the impact on texture.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-339cb47b-9f59-474f-8a11-7ee870616fb2",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Breaking spaghetti is a crime",
+          "description": "Breaking spaghetti in half is considered a crime in Italy and can ruin the texture of the pasta.",
+          "reasoning": "This warning is more cultural and focuses on maintaining traditional cooking methods.",
+          "comparison": "The other video does not mention this cultural aspect or the impact on texture.",
+          "aspect": "warnings",
+          "subgoal": "Cook Spaghetti",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 155.98033950842313
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 155.98033950842313
+    },
+    {
+      "id": "notable-75p4UHRIMcU-c23f5549-e658-4779-aa65-a324b2cf84ab",
+      "video_id": "75p4UHRIMcU",
+      "title": "Spoon or tongs for mixing",
+      "description": "The video suggests using a spoon or tongs for mixing the ingredients.",
+      "reasoning": "This video provides options for tools to use when mixing, which can be helpful for viewers who may not have tongs.",
+      "comparison": "The other video specifically mentions using tongs, without suggesting alternatives.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-3c6fe4a2-d27f-4812-b1af-cef67a9d2e5f",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Spoon or tongs for mixing",
+          "description": "The video suggests using a spoon or tongs for mixing the ingredients.",
+          "reasoning": "This video provides options for tools to use when mixing, which can be helpful for viewers who may not have tongs.",
+          "comparison": "The other video specifically mentions using tongs, without suggesting alternatives.",
+          "aspect": "tools",
+          "subgoal": "Combine Ingredients",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 174.61977538225398
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 174.61977538225398
+    },
+    {
+      "id": "notable-75p4UHRIMcU-7660c228-bd7f-4012-baba-fac807c6f745",
+      "video_id": "75p4UHRIMcU",
+      "title": "Optional low heat step",
+      "description": "Optionally, put the pan on low heat to thicken the sauce.",
+      "reasoning": "This video provides an optional step to adjust the sauce consistency, offering flexibility in the cooking process.",
+      "comparison": "The other video does not mention using low heat as an option, focusing instead on using pasta water to adjust consistency.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-0a89acee-6f43-4850-936b-e43cd48366f3",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Optional low heat step",
+          "description": "Optionally, put the pan on low heat to thicken the sauce.",
+          "reasoning": "This video provides an optional step to adjust the sauce consistency, offering flexibility in the cooking process.",
+          "comparison": "The other video does not mention using low heat as an option, focusing instead on using pasta water to adjust consistency.",
+          "aspect": "instructions",
+          "subgoal": "Combine Ingredients",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 191.2820723976717
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 191.2820723976717
+    },
+    {
+      "id": "notable-75p4UHRIMcU-7ec80cee-7389-41ab-9c9a-759ffded3f2d",
+      "video_id": "75p4UHRIMcU",
+      "title": "Grater for cheese",
+      "description": "The video uses a grater to grate cheese over the pasta.",
+      "reasoning": "Grating cheese directly over the pasta ensures even distribution.",
+      "comparison": "The other video does not mention using a grater, possibly assuming pre-grated cheese.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-d76a678d-0005-4853-bf30-c3b5ba34865b",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Grater for cheese",
+          "description": "The video uses a grater to grate cheese over the pasta.",
+          "reasoning": "Grating cheese directly over the pasta ensures even distribution.",
+          "comparison": "The other video does not mention using a grater, possibly assuming pre-grated cheese.",
+          "aspect": "tools",
+          "subgoal": "Garnish and Serve",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 239.0346968839498
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 239.0346968839498
+    },
+    {
+      "id": "notable-75p4UHRIMcU-53881826-f774-4a57-a29a-6df8295373aa",
+      "video_id": "75p4UHRIMcU",
+      "title": "Freshly grated cheese and pepper",
+      "description": "The video suggests using freshly grated cheese and freshly ground pepper for the best flavor.",
+      "reasoning": "Freshly grated cheese and ground pepper have more intense flavors.",
+      "comparison": "The other video does not emphasize the freshness of the cheese and pepper.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-02374afb-e2a0-40bc-9c00-0ec1c109aca4",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Freshly grated cheese and pepper",
+          "description": "The video suggests using freshly grated cheese and freshly ground pepper for the best flavor.",
+          "reasoning": "Freshly grated cheese and ground pepper have more intense flavors.",
+          "comparison": "The other video does not emphasize the freshness of the cheese and pepper.",
+          "aspect": "tips",
+          "subgoal": "Garnish and Serve",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 211.96503713693312
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 211.96503713693312
+    },
+    {
+      "id": "notable-75p4UHRIMcU-2bd213db-1feb-42fb-b2e6-ef8c5d87d991",
+      "video_id": "75p4UHRIMcU",
+      "title": "Avoid overpowering flavors",
+      "description": "The video warns not to add too much cheese or pepper as it can overpower the dish.",
+      "reasoning": "Balancing flavors is crucial to avoid overwhelming the dish's taste.",
+      "comparison": "The other video does not mention this warning, possibly assuming viewer discretion.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-4511eec1-3ded-4217-9fa4-85095d8e76fc",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Avoid overpowering flavors",
+          "description": "The video warns not to add too much cheese or pepper as it can overpower the dish.",
+          "reasoning": "Balancing flavors is crucial to avoid overwhelming the dish's taste.",
+          "comparison": "The other video does not mention this warning, possibly assuming viewer discretion.",
+          "aspect": "warnings",
+          "subgoal": "Garnish and Serve",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 211.96503713693312
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 211.96503713693312
+    },
+    {
+      "id": "notable-75p4UHRIMcU-c42941d6-4084-4ec4-ad99-405df339f72f",
+      "video_id": "75p4UHRIMcU",
+      "title": "Pecorino or Parmesan cheese",
+      "description": "The video uses Pecorino or Parmesan cheese for garnishing.",
+      "reasoning": "The choice of cheese can vary based on regional preferences or availability. Pecorino is traditional in some Carbonara recipes.",
+      "comparison": "The other video specifically uses Parmigiano Reggiano cheese, which is a type of Parmesan but more specific.",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-c38f5bde-6feb-4e85-a2e3-d94796f7c25c",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Pecorino or Parmesan cheese",
+          "description": "The video uses Pecorino or Parmesan cheese for garnishing.",
+          "reasoning": "The choice of cheese can vary based on regional preferences or availability. Pecorino is traditional in some Carbonara recipes.",
+          "comparison": "The other video specifically uses Parmigiano Reggiano cheese, which is a type of Parmesan but more specific.",
+          "aspect": "materials",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-dzyXBU3dIys-a8112216-cbe7-4c06-8a82-e558669c4a82",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use of olive oil",
+      "description": "Olive oil is used in the pan when cooking the bacon.",
+      "reasoning": "The tutorial includes olive oil to help render the bacon fat more evenly and prevent sticking.",
+      "comparison": "The other video does not mention using olive oil, possibly assuming the bacon's own fat is sufficient for cooking.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-0997e0c7-74c6-40e2-aa5d-714f4bbbcab0",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use of olive oil",
+          "description": "Olive oil is used in the pan when cooking the bacon.",
+          "reasoning": "The tutorial includes olive oil to help render the bacon fat more evenly and prevent sticking.",
+          "comparison": "The other video does not mention using olive oil, possibly assuming the bacon's own fat is sufficient for cooking.",
+          "aspect": "materials",
+          "subgoal": "Prepare Bacon",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 45.32422644142213
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 45.32422644142213
+    },
+    {
+      "id": "notable-dzyXBU3dIys-93f38277-7f6d-4354-8013-6283681bc659",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use of paper towel",
+      "description": "A paper towel is used to drain the bacon after cooking.",
+      "reasoning": "Draining on a paper towel helps remove excess grease, making the bacon crispier and less oily.",
+      "comparison": "The other video does not mention using a paper towel, possibly assuming the bacon is drained in the pan or not at all.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-c9c1d8b6-2864-4969-a0b9-7ddbafc2f8b4",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use of paper towel",
+          "description": "A paper towel is used to drain the bacon after cooking.",
+          "reasoning": "Draining on a paper towel helps remove excess grease, making the bacon crispier and less oily.",
+          "comparison": "The other video does not mention using a paper towel, possibly assuming the bacon is drained in the pan or not at all.",
+          "aspect": "tools",
+          "subgoal": "Prepare Bacon",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 50.777601165771486
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 50.777601165771486
+    },
+    {
+      "id": "notable-dzyXBU3dIys-addf0779-3e5d-473e-b058-b25f11bde0f7",
+      "video_id": "dzyXBU3dIys",
+      "title": "Slice bacon into thick pieces",
+      "description": "The bacon is sliced into thick pieces, about three-quarters of an inch, before cooking.",
+      "reasoning": "Thick slices may provide a different texture and flavor profile, which the tutorial aims to achieve.",
+      "comparison": "The other video does not specify the thickness of the bacon slices, suggesting a more general approach to chopping.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-237a7614-b596-4142-b406-6f12e426f6af",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Slice bacon into thick pieces",
+          "description": "The bacon is sliced into thick pieces, about three-quarters of an inch, before cooking.",
+          "reasoning": "Thick slices may provide a different texture and flavor profile, which the tutorial aims to achieve.",
+          "comparison": "The other video does not specify the thickness of the bacon slices, suggesting a more general approach to chopping.",
+          "aspect": "instructions",
+          "subgoal": "Prepare Bacon",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 33.41632714563487
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 33.41632714563487
+    },
+    {
+      "id": "notable-dzyXBU3dIys-3405825f-0f8f-44e3-96d8-01b556db6ca1",
+      "video_id": "dzyXBU3dIys",
+      "title": "Render fat slowly",
+      "description": "The bacon is cooked slowly to render out the fat.",
+      "reasoning": "Slow rendering ensures the bacon becomes crispy without burning, enhancing the texture and flavor.",
+      "comparison": "The other video does not emphasize slow rendering, possibly assuming a quicker cooking process.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-d49b02bd-0e0d-4f90-ba6c-d6e2fa006e08",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Render fat slowly",
+          "description": "The bacon is cooked slowly to render out the fat.",
+          "reasoning": "Slow rendering ensures the bacon becomes crispy without burning, enhancing the texture and flavor.",
+          "comparison": "The other video does not emphasize slow rendering, possibly assuming a quicker cooking process.",
+          "aspect": "instructions",
+          "subgoal": "Prepare Bacon",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 194.6031721811446
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 194.6031721811446
+    },
+    {
+      "id": "notable-dzyXBU3dIys-38843fb2-2a81-48f8-a9be-b5697afeb977",
+      "video_id": "dzyXBU3dIys",
+      "title": "Thick cut bacon preferred",
+      "description": "Thick cut bacon is recommended for better texture and flavor.",
+      "reasoning": "The tutorial suggests thick cut bacon to enhance the dish's overall texture and taste.",
+      "comparison": "The other video does not specify the cut of bacon, possibly assuming any cut will suffice.",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-ed758aa9-151a-4ecb-9601-974df002c4e8",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Thick cut bacon preferred",
+          "description": "Thick cut bacon is recommended for better texture and flavor.",
+          "reasoning": "The tutorial suggests thick cut bacon to enhance the dish's overall texture and taste.",
+          "comparison": "The other video does not specify the cut of bacon, possibly assuming any cut will suffice.",
+          "aspect": "tips",
+          "subgoal": "Prepare Bacon",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 33.41632714563487
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 33.41632714563487
+    },
+    {
+      "id": "notable-dzyXBU3dIys-6a508d57-cabb-4c02-adb6-304e5cbf37fc",
+      "video_id": "dzyXBU3dIys",
+      "title": "Kosher salt",
+      "description": "Kosher salt is used instead of regular salt.",
+      "reasoning": "The use of kosher salt might be a preference for its texture and flavor profile.",
+      "comparison": "The other video uses regular salt, which is more common in general cooking.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-5ecb4e99-7299-48ac-bffd-af6efc16be06",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Kosher salt",
+          "description": "Kosher salt is used instead of regular salt.",
+          "reasoning": "The use of kosher salt might be a preference for its texture and flavor profile.",
+          "comparison": "The other video uses regular salt, which is more common in general cooking.",
+          "aspect": "materials",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 67.4996915431838
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 67.4996915431838
+    },
+    {
+      "id": "notable-dzyXBU3dIys-d812d092-ebb1-4a6a-98d0-022d09a544e9",
+      "video_id": "dzyXBU3dIys",
+      "title": "Tongs",
+      "description": "Tongs are used to handle the spaghetti.",
+      "reasoning": "Tongs provide a convenient way to handle and remove spaghetti from the pot without draining the water.",
+      "comparison": "The other video does not mention using tongs, which might be less convenient for handling spaghetti.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-ef38366b-af1a-462c-bc2c-244f9739882e",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Tongs",
+          "description": "Tongs are used to handle the spaghetti.",
+          "reasoning": "Tongs provide a convenient way to handle and remove spaghetti from the pot without draining the water.",
+          "comparison": "The other video does not mention using tongs, which might be less convenient for handling spaghetti.",
+          "aspect": "tools",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-af944d16-a216-4638-ac4e-e322779ca2a1",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use tongs to remove spaghetti",
+      "description": "Use tongs to remove the spaghetti from the pot, leaving the water in the pot.",
+      "reasoning": "This method allows for easy handling of the spaghetti and retains the pasta water for later use.",
+      "comparison": "The other video does not mention using tongs or retaining pasta water.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-5b62c7e2-5b57-4bab-8cc9-85ca377ba1c1",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use tongs to remove spaghetti",
+          "description": "Use tongs to remove the spaghetti from the pot, leaving the water in the pot.",
+          "reasoning": "This method allows for easy handling of the spaghetti and retains the pasta water for later use.",
+          "comparison": "The other video does not mention using tongs or retaining pasta water.",
+          "aspect": "instructions",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-0079a9cb-1655-4092-aec9-872020d359fa",
+      "video_id": "dzyXBU3dIys",
+      "title": "Cooking time and doneness",
+      "description": "Cook the spaghetti for about 10 minutes until it is slightly al dente.",
+      "reasoning": "The specific time and doneness are given to ensure the spaghetti is not overcooked, as it will continue cooking in the sauce.",
+      "comparison": "The other video does not specify a cooking time or mention the spaghetti will continue cooking in the sauce.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-b93fa6f3-4e25-44f9-b952-4e119a2ab76d",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Cooking time and doneness",
+          "description": "Cook the spaghetti for about 10 minutes until it is slightly al dente.",
+          "reasoning": "The specific time and doneness are given to ensure the spaghetti is not overcooked, as it will continue cooking in the sauce.",
+          "comparison": "The other video does not specify a cooking time or mention the spaghetti will continue cooking in the sauce.",
+          "aspect": "instructions",
+          "subgoal": "Cook Spaghetti",
+          "relation": "alternative",
+          "importance": 4.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-5627e367-c4be-4012-a81b-36fdfb572792",
+      "video_id": "dzyXBU3dIys",
+      "title": "Less salt due to salty elements",
+      "description": "The pasta water is seasoned with less salt because carbonara has many salty elements.",
+      "reasoning": "This explanation helps viewers understand the reason for using less salt, which is important for balancing flavors in the final dish.",
+      "comparison": "The other video does not mention adjusting salt levels based on the dish's overall saltiness.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-d18333f3-02d5-4f5e-a0d6-45dc1dcded66",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Less salt due to salty elements",
+          "description": "The pasta water is seasoned with less salt because carbonara has many salty elements.",
+          "reasoning": "This explanation helps viewers understand the reason for using less salt, which is important for balancing flavors in the final dish.",
+          "comparison": "The other video does not mention adjusting salt levels based on the dish's overall saltiness.",
+          "aspect": "explanations",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 79.01172838712993
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 79.01172838712993
+    },
+    {
+      "id": "notable-dzyXBU3dIys-918f8eb2-b4d0-41e2-a126-b1bc6b15469f",
+      "video_id": "dzyXBU3dIys",
+      "title": "Slightly al dente for further cooking",
+      "description": "The spaghetti is cooked slightly al dente because it will finish cooking in the sauce.",
+      "reasoning": "This explanation is important for ensuring the pasta is not overcooked by the time the dish is complete.",
+      "comparison": "The other video does not mention this reason for cooking the pasta slightly al dente.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-6850a33f-74a1-4eed-9c0a-67f47f728b59",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Slightly al dente for further cooking",
+          "description": "The spaghetti is cooked slightly al dente because it will finish cooking in the sauce.",
+          "reasoning": "This explanation is important for ensuring the pasta is not overcooked by the time the dish is complete.",
+          "comparison": "The other video does not mention this reason for cooking the pasta slightly al dente.",
+          "aspect": "explanations",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-260dd500-c66e-4008-80be-a5a7cfffaf1f",
+      "video_id": "dzyXBU3dIys",
+      "title": "Retain pasta water",
+      "description": "Leave the pasta water in the pot after removing the spaghetti to use later for adjusting sauce consistency.",
+      "reasoning": "This tip is useful for achieving the right sauce consistency in the final dish.",
+      "comparison": "The other video does not mention retaining pasta water for sauce adjustment.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-3485e6b2-79f9-4b96-895c-4914e883935d",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Retain pasta water",
+          "description": "Leave the pasta water in the pot after removing the spaghetti to use later for adjusting sauce consistency.",
+          "reasoning": "This tip is useful for achieving the right sauce consistency in the final dish.",
+          "comparison": "The other video does not mention retaining pasta water for sauce adjustment.",
+          "aspect": "tips",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-d0b61ad2-f555-4749-b9fd-37a662260b7e",
+      "video_id": "dzyXBU3dIys",
+      "title": "Do not overcook spaghetti",
+      "description": "Be careful not to overcook the spaghetti as it will continue to cook when mixed with the sauce.",
+      "reasoning": "This warning is crucial for ensuring the pasta is not too soft in the final dish.",
+      "comparison": "The other video does not mention the risk of overcooking due to further cooking in the sauce.",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-e9a564f4-e080-4445-8e24-07901e46bd7c",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Do not overcook spaghetti",
+          "description": "Be careful not to overcook the spaghetti as it will continue to cook when mixed with the sauce.",
+          "reasoning": "This warning is crucial for ensuring the pasta is not too soft in the final dish.",
+          "comparison": "The other video does not mention the risk of overcooking due to further cooking in the sauce.",
+          "aspect": "warnings",
+          "subgoal": "Cook Spaghetti",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 288.21413886278197
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 288.21413886278197
+    },
+    {
+      "id": "notable-dzyXBU3dIys-86a76031-b4c0-4e12-bed2-2d6fc8e87337",
+      "video_id": "dzyXBU3dIys",
+      "title": "Parmigiano Reggiano cheese",
+      "description": "Parmigiano Reggiano cheese is used in addition to Pecorino Romano.",
+      "reasoning": "The inclusion of Parmigiano Reggiano provides a different flavor profile and texture to the sauce.",
+      "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano cheese, not mentioning Parmigiano Reggiano.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-e5eff7c3-789c-427e-b320-c9664ff9482d",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Parmigiano Reggiano cheese",
+          "description": "Parmigiano Reggiano cheese is used in addition to Pecorino Romano.",
+          "reasoning": "The inclusion of Parmigiano Reggiano provides a different flavor profile and texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano cheese, not mentioning Parmigiano Reggiano.",
+          "aspect": "materials",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 89.81684423747815
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 89.81684423747815
+    },
+    {
+      "id": "notable-dzyXBU3dIys-47b3b5b0-ac64-4d3b-bbd1-bbc78c3f6639",
+      "video_id": "dzyXBU3dIys",
+      "title": "Whole eggs",
+      "description": "Three whole eggs are used in addition to egg yolks.",
+      "reasoning": "Using whole eggs adds more volume and a different texture to the sauce.",
+      "comparison": "Video 75p4UHRIMcU uses only egg yolks, not whole eggs.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-f030c1b8-e53b-4303-be96-0fde451faec0",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Whole eggs",
+          "description": "Three whole eggs are used in addition to egg yolks.",
+          "reasoning": "Using whole eggs adds more volume and a different texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU uses only egg yolks, not whole eggs.",
+          "aspect": "materials",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 143.99859458521792
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 143.99859458521792
+    },
+    {
+      "id": "notable-dzyXBU3dIys-7759522c-8671-4dea-aef0-ea5930291daa",
+      "video_id": "dzyXBU3dIys",
+      "title": "Whisk",
+      "description": "A whisk is used to combine the eggs and cheese into a smooth mixture.",
+      "reasoning": "A whisk helps achieve a smooth and well-mixed consistency for the sauce.",
+      "comparison": "Video 75p4UHRIMcU does not mention using a whisk, only a cheese grater.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-d41af0cf-20ff-4f33-a399-816bf1d0603a",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Whisk",
+          "description": "A whisk is used to combine the eggs and cheese into a smooth mixture.",
+          "reasoning": "A whisk helps achieve a smooth and well-mixed consistency for the sauce.",
+          "comparison": "Video 75p4UHRIMcU does not mention using a whisk, only a cheese grater.",
+          "aspect": "tools",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 153.89304905941611
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 153.89304905941611
+    },
+    {
+      "id": "notable-dzyXBU3dIys-df4fda62-e2c9-4d75-849c-d04694ba3392",
+      "video_id": "dzyXBU3dIys",
+      "title": "Smooth egg mixture",
+      "description": "The outcome is a smooth mixture of eggs and cheese.",
+      "reasoning": "The smoothness is emphasized to ensure the sauce coats the pasta evenly.",
+      "comparison": "Video 75p4UHRIMcU describes a creamy consistency but does not emphasize smoothness.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "outcomes",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-14efccb7-0d97-4053-b144-68592df905db",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Smooth egg mixture",
+          "description": "The outcome is a smooth mixture of eggs and cheese.",
+          "reasoning": "The smoothness is emphasized to ensure the sauce coats the pasta evenly.",
+          "comparison": "Video 75p4UHRIMcU describes a creamy consistency but does not emphasize smoothness.",
+          "aspect": "outcomes",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 153.89304905941611
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 153.89304905941611
+    },
+    {
+      "id": "notable-dzyXBU3dIys-e99006cc-290f-4fa0-8e12-f6541e0dd97f",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use of whole eggs",
+      "description": "Combine three whole eggs with two egg yolks and whisk them together.",
+      "reasoning": "This step is included to add volume and a different texture to the sauce.",
+      "comparison": "Video 75p4UHRIMcU only instructs to use egg yolks, not whole eggs.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-eacfb0d5-b33f-441e-b459-e9f8844fb064",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use of whole eggs",
+          "description": "Combine three whole eggs with two egg yolks and whisk them together.",
+          "reasoning": "This step is included to add volume and a different texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU only instructs to use egg yolks, not whole eggs.",
+          "aspect": "instructions",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 143.99859458521792
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 143.99859458521792
+    },
+    {
+      "id": "notable-dzyXBU3dIys-984c6283-bf8a-4a88-bed3-29742986fb5f",
+      "video_id": "dzyXBU3dIys",
+      "title": "Gradual cheese addition",
+      "description": "Gradually whisk the grated cheese into the egg mixture until smooth.",
+      "reasoning": "Gradual addition helps in achieving a smooth and well-incorporated mixture.",
+      "comparison": "Video 75p4UHRIMcU does not specify the gradual addition of cheese.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-575e4873-cade-4e94-b56b-7247d6437814",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Gradual cheese addition",
+          "description": "Gradually whisk the grated cheese into the egg mixture until smooth.",
+          "reasoning": "Gradual addition helps in achieving a smooth and well-incorporated mixture.",
+          "comparison": "Video 75p4UHRIMcU does not specify the gradual addition of cheese.",
+          "aspect": "instructions",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 153.89304905941611
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 153.89304905941611
+    },
+    {
+      "id": "notable-dzyXBU3dIys-9a69408e-b7c1-44c3-85a2-ac6ce76d9815",
+      "video_id": "dzyXBU3dIys",
+      "title": "Balanced flavor with two cheeses",
+      "description": "Using both Pecorino Romano and Parmigiano Reggiano achieves a balanced flavor.",
+      "reasoning": "The combination of two cheeses provides a more complex flavor profile.",
+      "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano and does not mention balancing flavors with another cheese.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-8280c2d0-b07a-4b13-b1d0-22f0ace43b03",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Balanced flavor with two cheeses",
+          "description": "Using both Pecorino Romano and Parmigiano Reggiano achieves a balanced flavor.",
+          "reasoning": "The combination of two cheeses provides a more complex flavor profile.",
+          "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano and does not mention balancing flavors with another cheese.",
+          "aspect": "explanations",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 102.61333092222823
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 102.61333092222823
+    },
+    {
+      "id": "notable-dzyXBU3dIys-69b75921-cda5-40d8-ae9e-86b81b204aed",
+      "video_id": "dzyXBU3dIys",
+      "title": "Richness with whole eggs",
+      "description": "Whole eggs and egg yolks provide richness without being overly heavy.",
+      "reasoning": "This explanation justifies the use of whole eggs in addition to yolks.",
+      "comparison": "Video 75p4UHRIMcU does not explain the use of whole eggs as it only uses yolks.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-1ad83bbe-0c00-473a-a86f-a69c8c6324f8",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Richness with whole eggs",
+          "description": "Whole eggs and egg yolks provide richness without being overly heavy.",
+          "reasoning": "This explanation justifies the use of whole eggs in addition to yolks.",
+          "comparison": "Video 75p4UHRIMcU does not explain the use of whole eggs as it only uses yolks.",
+          "aspect": "explanations",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 148.45366485209405
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 148.45366485209405
+    },
+    {
+      "id": "notable-dzyXBU3dIys-18bbcd9e-68ed-4ebf-afe3-4f9dc70b0f19",
+      "video_id": "dzyXBU3dIys",
+      "title": "Box grater alternative",
+      "description": "Use the fine setting on a box grater if a cheese grater is unavailable.",
+      "reasoning": "This tip provides an alternative tool for grating cheese.",
+      "comparison": "Video 75p4UHRIMcU humorously suggests using a drill, but does not mention a box grater.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-9b4f9d62-03e4-4c1c-9587-421b4bc9bfc9",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Box grater alternative",
+          "description": "Use the fine setting on a box grater if a cheese grater is unavailable.",
+          "reasoning": "This tip provides an alternative tool for grating cheese.",
+          "comparison": "Video 75p4UHRIMcU humorously suggests using a drill, but does not mention a box grater.",
+          "aspect": "tips",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 110.13344721433495
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 110.13344721433495
+    },
+    {
+      "id": "notable-dzyXBU3dIys-9e073250-5a5b-400d-9477-e24a50d861c1",
+      "video_id": "dzyXBU3dIys",
+      "title": "Adjust pepper to taste",
+      "description": "Adjust the amount of black pepper according to your taste preference.",
+      "reasoning": "This tip allows for personal customization of the dish's flavor.",
+      "comparison": "Video 75p4UHRIMcU does not mention adjusting pepper to taste.",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-5708a16b-1c9e-4913-b0e4-30aa95363aa8",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Adjust pepper to taste",
+          "description": "Adjust the amount of black pepper according to your taste preference.",
+          "reasoning": "This tip allows for personal customization of the dish's flavor.",
+          "comparison": "Video 75p4UHRIMcU does not mention adjusting pepper to taste.",
+          "aspect": "tips",
+          "subgoal": "Prepare Cheese and Eggs",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 190.38145645805028
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 2,
+      "uniqueness": 0.5,
+      "seconds": 190.38145645805028
+    },
+    {
+      "id": "notable-dzyXBU3dIys-d837be44-aa89-48e5-bf5d-239302e0031c",
+      "video_id": "dzyXBU3dIys",
+      "title": "Egg mixture details",
+      "description": "The egg mixture includes eggs, cheese, and black pepper.",
+      "reasoning": "This video specifies the components of the egg mixture to provide clarity on what it consists of.",
+      "comparison": "The other video mentions an egg mixture but does not specify its components.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-36877e20-0422-4566-9444-7f2f0f100aab",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Egg mixture details",
+          "description": "The egg mixture includes eggs, cheese, and black pepper.",
+          "reasoning": "This video specifies the components of the egg mixture to provide clarity on what it consists of.",
+          "comparison": "The other video mentions an egg mixture but does not specify its components.",
+          "aspect": "materials",
+          "subgoal": "Combine Ingredients",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 319.0889880121971
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 319.0889880121971
+    },
+    {
+      "id": "notable-dzyXBU3dIys-402e88a3-5028-4c29-b51c-007877969933",
+      "video_id": "dzyXBU3dIys",
+      "title": "Velvety, fluffy sauce",
+      "description": "The outcome is a velvety, fluffy, creamy sauce without scrambling the eggs.",
+      "reasoning": "This video emphasizes the texture of the sauce to highlight the quality of the final dish.",
+      "comparison": "The other video describes the sauce as creamy but does not emphasize the velvety and fluffy texture.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "outcomes",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-b9cd181b-2aeb-4ab0-ae93-c89b783d133b",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Velvety, fluffy sauce",
+          "description": "The outcome is a velvety, fluffy, creamy sauce without scrambling the eggs.",
+          "reasoning": "This video emphasizes the texture of the sauce to highlight the quality of the final dish.",
+          "comparison": "The other video describes the sauce as creamy but does not emphasize the velvety and fluffy texture.",
+          "aspect": "outcomes",
+          "subgoal": "Combine Ingredients",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 329.59610027737085
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 329.59610027737085
+    },
+    {
+      "id": "notable-dzyXBU3dIys-9818279b-a49a-4274-83ac-e31d35d7a740",
+      "video_id": "dzyXBU3dIys",
+      "title": "Simmering pasta water",
+      "description": "If the sauce doesn't thicken as desired, place the pan over simmering pasta water to gently heat it further.",
+      "reasoning": "This tip provides an alternative method to thicken the sauce without direct heat, which can help prevent scrambling the eggs.",
+      "comparison": "The other video does not mention this method, focusing on using low heat directly on the pan.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-30212cbc-adec-4ccf-b8ec-132e5bf0406e",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Simmering pasta water",
+          "description": "If the sauce doesn't thicken as desired, place the pan over simmering pasta water to gently heat it further.",
+          "reasoning": "This tip provides an alternative method to thicken the sauce without direct heat, which can help prevent scrambling the eggs.",
+          "comparison": "The other video does not mention this method, focusing on using low heat directly on the pan.",
+          "aspect": "tips",
+          "subgoal": "Combine Ingredients",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 371.3453795147426
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 371.3453795147426
+    },
+    {
+      "id": "notable-dzyXBU3dIys-39dfa1fd-9328-4630-a088-1742e5ee740d",
+      "video_id": "dzyXBU3dIys",
+      "title": "Be gentle with pasta",
+      "description": "Be gentle with the pasta to avoid breaking it.",
+      "reasoning": "This warning helps maintain the integrity of the pasta, ensuring a better texture in the final dish.",
+      "comparison": "The other video does not mention this warning, possibly assuming viewers will handle the pasta carefully.",
+      "subgoal": "Combine Ingredients",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-08cc2eb2-5b4e-477e-a225-f8a4ac3ac9b5",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Be gentle with pasta",
+          "description": "Be gentle with the pasta to avoid breaking it.",
+          "reasoning": "This warning helps maintain the integrity of the pasta, ensuring a better texture in the final dish.",
+          "comparison": "The other video does not mention this warning, possibly assuming viewers will handle the pasta carefully.",
+          "aspect": "warnings",
+          "subgoal": "Combine Ingredients",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 344.6103685167101
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 344.6103685167101
+    },
+    {
+      "id": "notable-dzyXBU3dIys-e29b08f3-79b8-40b2-a5f0-0082ce633bc4",
+      "video_id": "dzyXBU3dIys",
+      "title": "Parmigiano Reggiano cheese",
+      "description": "The video specifies using Parmigiano Reggiano cheese for garnishing.",
+      "reasoning": "The video might prefer Parmigiano Reggiano for its specific flavor profile.",
+      "comparison": "The other video mentions using Pecorino or Parmesan cheese, which is a broader category.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-23004415-3b50-4eb8-bbf0-f90d771bb265",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Parmigiano Reggiano cheese",
+          "description": "The video specifies using Parmigiano Reggiano cheese for garnishing.",
+          "reasoning": "The video might prefer Parmigiano Reggiano for its specific flavor profile.",
+          "comparison": "The other video mentions using Pecorino or Parmesan cheese, which is a broader category.",
+          "aspect": "materials",
+          "subgoal": "Garnish and Serve",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 417.3301948098575
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 417.3301948098575
+    },
+    {
+      "id": "notable-dzyXBU3dIys-e4b4acba-eab1-42ca-b510-f2eafbd303a7",
+      "video_id": "dzyXBU3dIys",
+      "title": "Tongs for plating",
+      "description": "The video uses tongs to plate the pasta.",
+      "reasoning": "Tongs are used to neatly plate the pasta without breaking it.",
+      "comparison": "The other video does not mention using tongs for plating.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-b07cd09d-6842-4e05-a2cd-706963128645",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Tongs for plating",
+          "description": "The video uses tongs to plate the pasta.",
+          "reasoning": "Tongs are used to neatly plate the pasta without breaking it.",
+          "comparison": "The other video does not mention using tongs for plating.",
+          "aspect": "tools",
+          "subgoal": "Garnish and Serve",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 411.97029854910716
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 411.97029854910716
+    },
+    {
+      "id": "notable-dzyXBU3dIys-1621ddfa-2708-4625-b203-aa9f237867e8",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use tongs for plating",
+      "description": "The video instructs to use tongs to plate the pasta before garnishing.",
+      "reasoning": "Using tongs helps in neatly plating the pasta without breaking it.",
+      "comparison": "The other video does not mention this step, focusing only on garnishing.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-eab6d83e-a4e3-4483-8ec5-2641f69e136a",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use tongs for plating",
+          "description": "The video instructs to use tongs to plate the pasta before garnishing.",
+          "reasoning": "Using tongs helps in neatly plating the pasta without breaking it.",
+          "comparison": "The other video does not mention this step, focusing only on garnishing.",
+          "aspect": "instructions",
+          "subgoal": "Garnish and Serve",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 411.97029854910716
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 411.97029854910716
+    },
+    {
+      "id": "notable-dzyXBU3dIys-f1ad5f88-9f6e-4f7b-ada2-73f44a552a72",
+      "video_id": "dzyXBU3dIys",
+      "title": "Texture contrast",
+      "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+      "reasoning": "Highlighting texture contrast can enhance the viewer's understanding of the dish's appeal.",
+      "comparison": "The other video does not mention texture contrast, focusing on flavor enhancement.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-174ed268-d275-4b0c-8bc5-c06bf301e72e",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Texture contrast",
+          "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+          "reasoning": "Highlighting texture contrast can enhance the viewer's understanding of the dish's appeal.",
+          "comparison": "The other video does not mention texture contrast, focusing on flavor enhancement.",
+          "aspect": "explanations",
+          "subgoal": "Garnish and Serve",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 425.8838057745071
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 425.8838057745071
+    },
+    {
+      "id": "notable-dzyXBU3dIys-d158c2dd-152c-4e57-bc25-074370bbf22b",
+      "video_id": "dzyXBU3dIys",
+      "title": "Crispy bacon texture",
+      "description": "The video suggests ensuring the bacon is crispy for a pleasant texture contrast.",
+      "reasoning": "Crispy bacon provides a better texture contrast with the creamy pasta.",
+      "comparison": "The other video does not emphasize the texture of the bacon.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-2ebd78a0-8f49-4a63-bdf1-bfabd4c5ceb0",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Crispy bacon texture",
+          "description": "The video suggests ensuring the bacon is crispy for a pleasant texture contrast.",
+          "reasoning": "Crispy bacon provides a better texture contrast with the creamy pasta.",
+          "comparison": "The other video does not emphasize the texture of the bacon.",
+          "aspect": "tips",
+          "subgoal": "Garnish and Serve",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 425.8838057745071
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 425.8838057745071
+    },
+    {
+      "id": "notable-dzyXBU3dIys-556fadeb-b94e-4f2f-b533-eb7cf98b04f7",
+      "video_id": "dzyXBU3dIys",
+      "title": "Gentle plating",
+      "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+      "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+      "comparison": "The other video does not mention this warning, possibly assuming careful handling.",
+      "subgoal": "Garnish and Serve",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-c7a468ba-ade8-43f9-a98b-f369446662e2",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Gentle plating",
+          "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+          "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+          "comparison": "The other video does not mention this warning, possibly assuming careful handling.",
+          "aspect": "warnings",
+          "subgoal": "Garnish and Serve",
+          "relation": "additional",
+          "importance": 2.0,
+          "seconds": 474.11935182601684
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 474.11935182601684
+    },
+    {
+      "id": "notable-dzyXBU3dIys-03b5cde0-e4ac-413c-83fe-3634bbdcad83",
+      "video_id": "dzyXBU3dIys",
+      "title": "Tongs for plating",
+      "description": "The video uses tongs for plating the pasta.",
+      "reasoning": "Tongs can be used for better control when plating pasta, ensuring it is presented neatly.",
+      "comparison": "The other video does not mention using tongs, possibly assuming plating is done with a fork or spoon.",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-04ba0d0b-7a79-4687-92ec-932191f5f792",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Tongs for plating",
+          "description": "The video uses tongs for plating the pasta.",
+          "reasoning": "Tongs can be used for better control when plating pasta, ensuring it is presented neatly.",
+          "comparison": "The other video does not mention using tongs, possibly assuming plating is done with a fork or spoon.",
+          "aspect": "tools",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-43055feb-a6fe-4e09-a145-87c4e96a9437",
+      "video_id": "dzyXBU3dIys",
+      "title": "Use tongs for plating",
+      "description": "The video instructs to use tongs for plating the pasta.",
+      "reasoning": "Using tongs can help in neatly arranging the pasta on the plate.",
+      "comparison": "The other video does not specify the use of tongs for plating.",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-8644467a-dc58-4c7a-9367-bfafad56cddf",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Use tongs for plating",
+          "description": "The video instructs to use tongs for plating the pasta.",
+          "reasoning": "Using tongs can help in neatly arranging the pasta on the plate.",
+          "comparison": "The other video does not specify the use of tongs for plating.",
+          "aspect": "instructions",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-620199f8-d0f8-4ab1-9a9c-35f0a89735dc",
+      "video_id": "dzyXBU3dIys",
+      "title": "Texture contrast explanation",
+      "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+      "reasoning": "Highlighting the texture contrast can enhance the viewer's understanding of the dish's appeal.",
+      "comparison": "The other video focuses on flavor and presentation enhancement without mentioning texture contrast.",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-6a9e0ff5-8be8-433e-92c7-eba728ae410d",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Texture contrast explanation",
+          "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+          "reasoning": "Highlighting the texture contrast can enhance the viewer's understanding of the dish's appeal.",
+          "comparison": "The other video focuses on flavor and presentation enhancement without mentioning texture contrast.",
+          "aspect": "explanations",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-cc614de1-4ab9-4831-ba66-bff4fa15f453",
+      "video_id": "dzyXBU3dIys",
+      "title": "Crispy bacon tip",
+      "description": "The video suggests ensuring the bacon is crispy before using it as a garnish.",
+      "reasoning": "Crispy bacon provides a better texture contrast and flavor.",
+      "comparison": "The other video emphasizes using freshly grated cheese and ground pepper for flavor, not focusing on bacon texture.",
+      "subgoal": "$meta$",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-834568c8-d736-4aa3-8f36-e7f1f22e3a02",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Crispy bacon tip",
+          "description": "The video suggests ensuring the bacon is crispy before using it as a garnish.",
+          "reasoning": "Crispy bacon provides a better texture contrast and flavor.",
+          "comparison": "The other video emphasizes using freshly grated cheese and ground pepper for flavor, not focusing on bacon texture.",
+          "aspect": "tips",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-65bb1bdf-4fa0-4fca-bf5d-66ed6c66a573",
+      "video_id": "dzyXBU3dIys",
+      "title": "Gentle plating warning",
+      "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+      "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+      "comparison": "The other video warns against overpowering the dish with too much cheese or pepper, focusing on flavor balance.",
+      "subgoal": "$meta$",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-0eeb3476-31fd-4360-b102-2c779d386d9b",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Gentle plating warning",
+          "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+          "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+          "comparison": "The other video warns against overpowering the dish with too much cheese or pepper, focusing on flavor balance.",
+          "aspect": "warnings",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    }
+  ],
+  "notables_baseline_1": [
+    {
+      "id": "notable-75p4UHRIMcU-dfd8f448-2793-4b3a-826b-4d16ac532df2",
+      "video_id": "75p4UHRIMcU",
+      "title": "Parmigiano Reggiano",
+      "description": "The video uses a mixture of Pecorino Romano and Parmigiano Reggiano cheeses for the carbonara.",
+      "reasoning": "The creator prefers the flavor combination of both cheeses and wants to provide an option that might be more accessible to viewers.",
+      "comparison": "The other video only mentions Pecorino Romano, sticking to a more traditional approach.",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-2c3bee6d-9787-4a9e-9342-051ed34c5789",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Parmigiano Reggiano",
+          "description": "The video uses a mixture of Pecorino Romano and Parmigiano Reggiano cheeses for the carbonara.",
+          "reasoning": "The creator prefers the flavor combination of both cheeses and wants to provide an option that might be more accessible to viewers.",
+          "comparison": "The other video only mentions Pecorino Romano, sticking to a more traditional approach.",
+          "aspect": "materials",
+          "subgoal": "$meta$",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-75p4UHRIMcU-aaf56253-dd44-4ad7-9494-f80f4bd8f89c",
+      "video_id": "75p4UHRIMcU",
+      "title": "Cheese Grater",
+      "description": "The video suggests using a cheese grater or a box grater to finely grate the cheese.",
+      "reasoning": "The creator wants to ensure the cheese is finely grated for better integration into the sauce.",
+      "comparison": "The other video humorously suggests using a drill to grate cheese, which is impractical.",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-689115c8-860c-418c-b979-18c7ead42d3d",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Cheese Grater",
+          "description": "The video suggests using a cheese grater or a box grater to finely grate the cheese.",
+          "reasoning": "The creator wants to ensure the cheese is finely grated for better integration into the sauce.",
+          "comparison": "The other video humorously suggests using a drill to grate cheese, which is impractical.",
+          "aspect": "tools",
+          "subgoal": "$meta$",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-75p4UHRIMcU-d69eb7cd-4906-412a-bd1c-9cb957dd89e4",
+      "video_id": "75p4UHRIMcU",
+      "title": "Mixing Cheese and Eggs",
+      "description": "The video instructs to whisk cheese into the egg mixture to create a creamy sauce.",
+      "reasoning": "The creator wants to ensure the cheese is well incorporated into the sauce for a smooth texture.",
+      "comparison": "The other video does not provide detailed instructions on mixing cheese and eggs.",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-86acfe5b-59b7-4f90-9bc3-5f6adcdad516",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Mixing Cheese and Eggs",
+          "description": "The video instructs to whisk cheese into the egg mixture to create a creamy sauce.",
+          "reasoning": "The creator wants to ensure the cheese is well incorporated into the sauce for a smooth texture.",
+          "comparison": "The other video does not provide detailed instructions on mixing cheese and eggs.",
+          "aspect": "instructions",
+          "subgoal": "$meta$",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-75p4UHRIMcU-c27ac279-d895-43b3-a0d6-d18ab47c8331",
+      "video_id": "75p4UHRIMcU",
+      "title": "No Olive Oil Myth",
+      "description": "The video explains that adding olive oil to pasta water is a myth and serves no purpose.",
+      "reasoning": "The creator wants to debunk common cooking myths to improve the viewer's cooking technique.",
+      "comparison": "The other video does not address this myth, focusing more on humor and entertainment.",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-46214b00-b6cf-43a6-be23-3be28d61cf15",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "No Olive Oil Myth",
+          "description": "The video explains that adding olive oil to pasta water is a myth and serves no purpose.",
+          "reasoning": "The creator wants to debunk common cooking myths to improve the viewer's cooking technique.",
+          "comparison": "The other video does not address this myth, focusing more on humor and entertainment.",
+          "aspect": "explanations",
+          "subgoal": "$meta$",
+          "relation": "additional",
+          "importance": 3.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-75p4UHRIMcU-7f5c0659-4e9b-4a0d-a559-88d1a58facbf",
+      "video_id": "75p4UHRIMcU",
+      "title": "Pasta Water for Sauce",
+      "description": "The video suggests using pasta water to adjust the sauce's consistency if it becomes too thick.",
+      "reasoning": "The creator wants to ensure the sauce has the right texture and doesn't become too thick or dry.",
+      "comparison": "The other video mentions pasta water but focuses more on humor than practical tips.",
+      "subgoal": "$meta$",
+      "aspect": "tips",
+      "links": [
+        {
+          "id": "link-75p4UHRIMcU-97118f2b-7157-4c4f-a381-866c4d982b6d",
+          "other_video_id": "dzyXBU3dIys",
+          "title": "Pasta Water for Sauce",
+          "description": "The video suggests using pasta water to adjust the sauce's consistency if it becomes too thick.",
+          "reasoning": "The creator wants to ensure the sauce has the right texture and doesn't become too thick or dry.",
+          "comparison": "The other video mentions pasta water but focuses more on humor than practical tips.",
+          "aspect": "tips",
+          "subgoal": "$meta$",
+          "relation": "additional",
+          "importance": 4.0,
+          "seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 295.1199951171875
+    },
+    {
+      "id": "notable-dzyXBU3dIys-5e92524f-d2e8-4c51-a8b3-a88fa40491b4",
+      "video_id": "dzyXBU3dIys",
+      "title": "Guanciale vs Bacon",
+      "description": "The video humorously points out that using bacon instead of guanciale means it's not a traditional carbonara.",
+      "reasoning": "The creator uses humor to emphasize the traditional ingredient of guanciale, even though they use bacon.",
+      "comparison": "The other video acknowledges the traditional use of guanciale but opts for bacon for accessibility reasons.",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-ae7fd32f-b88c-4b6b-8210-c21fac304a26",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Guanciale vs Bacon",
+          "description": "The video humorously points out that using bacon instead of guanciale means it's not a traditional carbonara.",
+          "reasoning": "The creator uses humor to emphasize the traditional ingredient of guanciale, even though they use bacon.",
+          "comparison": "The other video acknowledges the traditional use of guanciale but opts for bacon for accessibility reasons.",
+          "aspect": "materials",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-9fa8360a-ffc4-46b6-9a1f-74c8be5959a9",
+      "video_id": "dzyXBU3dIys",
+      "title": "Drill for Grating Cheese",
+      "description": "The video humorously suggests using a drill to grate cheese, which is impractical.",
+      "reasoning": "The creator uses humor to entertain while discussing the process of grating cheese.",
+      "comparison": "The other video provides a practical approach by recommending a cheese grater or box grater.",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-90a68d63-442b-4b5b-94b2-d67b81d5ae2a",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Drill for Grating Cheese",
+          "description": "The video humorously suggests using a drill to grate cheese, which is impractical.",
+          "reasoning": "The creator uses humor to entertain while discussing the process of grating cheese.",
+          "comparison": "The other video provides a practical approach by recommending a cheese grater or box grater.",
+          "aspect": "tools",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 1.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 1.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-62b5e462-76a6-42f1-a915-682d1a27e587",
+      "video_id": "dzyXBU3dIys",
+      "title": "Not Carbonara Outcome",
+      "description": "The video repeatedly emphasizes that the dish being made is not carbonara, despite resembling it.",
+      "reasoning": "The creator uses humor to highlight deviations from traditional carbonara, such as using bacon instead of guanciale.",
+      "comparison": "The other video aims to make a version of carbonara that is accessible but still respects traditional elements.",
+      "subgoal": "$meta$",
+      "aspect": "outcomes",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-821f5589-0e6f-4f5c-84d4-e03481bc8bd0",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Not Carbonara Outcome",
+          "description": "The video repeatedly emphasizes that the dish being made is not carbonara, despite resembling it.",
+          "reasoning": "The creator uses humor to highlight deviations from traditional carbonara, such as using bacon instead of guanciale.",
+          "comparison": "The other video aims to make a version of carbonara that is accessible but still respects traditional elements.",
+          "aspect": "outcomes",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-c3ef90b2-c172-4c2e-8c7b-d65f501a1961",
+      "video_id": "dzyXBU3dIys",
+      "title": "Breaking Spaghetti",
+      "description": "The video humorously warns against breaking spaghetti, claiming it renders it inedible.",
+      "reasoning": "The creator uses humor to emphasize the importance of keeping spaghetti whole, a common Italian cooking practice.",
+      "comparison": "The other video does not mention breaking spaghetti, focusing instead on cooking it properly.",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-7793b6c6-10d8-4511-b428-032a610d547e",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Breaking Spaghetti",
+          "description": "The video humorously warns against breaking spaghetti, claiming it renders it inedible.",
+          "reasoning": "The creator uses humor to emphasize the importance of keeping spaghetti whole, a common Italian cooking practice.",
+          "comparison": "The other video does not mention breaking spaghetti, focusing instead on cooking it properly.",
+          "aspect": "instructions",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 2.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-df9e3dca-0805-4a33-9599-082f00933656",
+      "video_id": "dzyXBU3dIys",
+      "title": "Pasta Water for Thirst",
+      "description": "The video humorously claims that pasta water is added so you don't have to stop for a drink while eating.",
+      "reasoning": "The creator uses humor to explain the addition of pasta water, which is actually for emulsifying the sauce.",
+      "comparison": "The other video provides a practical explanation for using pasta water to adjust sauce consistency.",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-a3932eed-b50a-4ddc-8bf2-267112184607",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Pasta Water for Thirst",
+          "description": "The video humorously claims that pasta water is added so you don't have to stop for a drink while eating.",
+          "reasoning": "The creator uses humor to explain the addition of pasta water, which is actually for emulsifying the sauce.",
+          "comparison": "The other video provides a practical explanation for using pasta water to adjust sauce consistency.",
+          "aspect": "explanations",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 1.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 1.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    },
+    {
+      "id": "notable-dzyXBU3dIys-17a8e213-42bb-480a-a74b-0ebf2c87cbe6",
+      "video_id": "dzyXBU3dIys",
+      "title": "Overcooking Eggs Warning",
+      "description": "The video warns against overcooking the egg-based sauce by ensuring the pan is cool enough.",
+      "reasoning": "The creator wants to prevent viewers from scrambling the eggs, which would ruin the sauce.",
+      "comparison": "The other video also emphasizes not scrambling the eggs but does not focus on cooling the pan as much.",
+      "subgoal": "$meta$",
+      "aspect": "warnings",
+      "links": [
+        {
+          "id": "link-dzyXBU3dIys-91da5b9b-2302-4c78-ba03-490c22c75a0b",
+          "other_video_id": "75p4UHRIMcU",
+          "title": "Overcooking Eggs Warning",
+          "description": "The video warns against overcooking the egg-based sauce by ensuring the pan is cool enough.",
+          "reasoning": "The creator wants to prevent viewers from scrambling the eggs, which would ruin the sauce.",
+          "comparison": "The other video also emphasizes not scrambling the eggs but does not focus on cooling the pan as much.",
+          "aspect": "warnings",
+          "subgoal": "$meta$",
+          "relation": "alternative",
+          "importance": 3.0,
+          "seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0,
+      "step_aspect_complexity": 1,
+      "uniqueness": 0.5,
+      "seconds": 495.20001220703125
+    }
+  ],
+  "hooks_approach_1": [
+    {
+      "id": "hook-dzyXBU3dIys-14efd286-25a6-48f8-aa10-a6b0117d4d09",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tools",
+      "relation": "alternative",
+      "title": "Alternative Tools",
+      "description": "A knife is used to chop the bacon before cooking.",
+      "comparison": "The other video does not mention using a knife, possibly because it suggests breaking the bacon into pieces directly in the pan.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-46d768eb-8ad3-4e24-b7ea-4649b6da419e",
+          "title": "Use of knife",
+          "description": "A knife is used to chop the bacon before cooking.",
+          "reasoning": "Chopping the bacon before cooking allows for more even cooking and easier handling.",
+          "comparison": "The other video does not mention using a knife, possibly because it suggests breaking the bacon into pieces directly in the pan.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "tools",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 18.686117037604838
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-3f925675-cbdd-4b14-b55f-ecad4efa8d37",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Prepare Bacon",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "The bacon is chopped before being cooked in the pan.",
+      "comparison": "The other video suggests breaking the bacon into pieces directly in the pan, which may lead to uneven sizes and cooking.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-2e9e6990-c7f6-4629-9cc1-2ab78e308fa5",
+          "title": "Chop bacon before cooking",
+          "description": "The bacon is chopped before being cooked in the pan.",
+          "reasoning": "Chopping before cooking allows for more even cooking and easier handling of the bacon pieces.",
+          "comparison": "The other video suggests breaking the bacon into pieces directly in the pan, which may lead to uneven sizes and cooking.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 159.82104545608254
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-83f17e73-34ce-453e-b4d1-ba4144bbc76d",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Prepare Bacon",
+      "aspect": "explanations",
+      "relation": "alternative",
+      "title": "Alternative Explanations",
+      "description": "Bacon is used instead of guanciale because this is not a traditional carbonara recipe.",
+      "comparison": "The other video does not mention the traditional ingredient guanciale, possibly focusing solely on the bacon preparation.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-158ba2fb-f82a-4dd0-8190-cfd34f3b3c1e",
+          "title": "Non-traditional bacon use",
+          "description": "Bacon is used instead of guanciale because this is not a traditional carbonara recipe.",
+          "reasoning": "The tutorial clarifies the choice of bacon to set expectations about the recipe's authenticity.",
+          "comparison": "The other video does not mention the traditional ingredient guanciale, possibly focusing solely on the bacon preparation.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "explanations",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 26.514841218271123
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-3a6a0821-2c85-4108-b5be-b13707054885",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tips",
+      "relation": "alternative",
+      "title": "Alternative Tips",
+      "description": "Stirring occasionally ensures the bacon is cooked evenly. Turning off the burner and letting the bacon cool prevents overcooking the egg-based sauce later.",
+      "comparison": "The other video does not mention stirring, possibly assuming the bacon will cook evenly without intervention. The other video does not mention this step, possibly assuming immediate use of the bacon or different timing in the recipe.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-b6c7724e-37b4-4ee6-9677-ee98f70a3880",
+          "title": "Turn off burner to cool bacon",
+          "description": "Turning off the burner and letting the bacon cool prevents overcooking the egg-based sauce later.",
+          "reasoning": "This tip is included to ensure the bacon does not continue cooking and affect the sauce's texture.",
+          "comparison": "The other video does not mention this step, possibly assuming immediate use of the bacon or different timing in the recipe.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "tips",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 161.0530588013387
+        },
+        {
+          "id": "notable-75p4UHRIMcU-ae79904f-4ba8-41b0-a69a-9c7d1a2f89d7",
+          "title": "Stir bacon occasionally",
+          "description": "Stirring occasionally ensures the bacon is cooked evenly.",
+          "reasoning": "The tutorial includes this tip to prevent uneven cooking and burning of the bacon.",
+          "comparison": "The other video does not mention stirring, possibly assuming the bacon will cook evenly without intervention.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "tips",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 159.82104545608254
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-dc912815-e968-4786-972f-8fe8a9dc8c24",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "Add 156 pieces of spaghetti to the boiling water.",
+      "comparison": "The other video does not specify the number of spaghetti pieces, focusing instead on general instructions.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-70731736-cac8-483f-b284-3eb6df6b70aa",
+          "title": "Specific number of spaghetti pieces",
+          "description": "Add 156 pieces of spaghetti to the boiling water.",
+          "reasoning": "The specific number might be used for portion control or demonstration purposes.",
+          "comparison": "The other video does not specify the number of spaghetti pieces, focusing instead on general instructions.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 147.92311124595642
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-af975653-6038-4dc5-87dd-d121c1165fb6",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tips",
+      "relation": "alternative",
+      "title": "Alternative Tips",
+      "description": "Keep stirring the spaghetti initially to prevent it from sticking together.",
+      "comparison": "The other video does not emphasize the importance of stirring to prevent sticking.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-6497b684-0de0-49b6-8589-8722c4cf6313",
+          "title": "Stirring to prevent sticking",
+          "description": "Keep stirring the spaghetti initially to prevent it from sticking together.",
+          "reasoning": "This tip is important for ensuring the spaghetti cooks evenly and does not clump together.",
+          "comparison": "The other video does not emphasize the importance of stirring to prevent sticking.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "tips",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 155.98033950842313
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-b20fa8c8-5093-47a0-9959-12a8520c450e",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "warnings",
+      "relation": "alternative",
+      "title": "Alternative Warnings",
+      "description": "Breaking spaghetti in half is considered a crime in Italy and can ruin the texture of the pasta.",
+      "comparison": "The other video does not mention this cultural aspect or the impact on texture.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-0aa0ac83-83cf-41b3-aa6a-f3b26a438534",
+          "title": "Breaking spaghetti is a crime",
+          "description": "Breaking spaghetti in half is considered a crime in Italy and can ruin the texture of the pasta.",
+          "reasoning": "This warning is more cultural and focuses on maintaining traditional cooking methods.",
+          "comparison": "The other video does not mention this cultural aspect or the impact on texture.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "warnings",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 155.98033950842313
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-3c3d16aa-8cfb-445d-9404-0ca3dcba2589",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Combine Ingredients",
+      "aspect": "tools",
+      "relation": "alternative",
+      "title": "Alternative Tools",
+      "description": "The video suggests using a spoon or tongs for mixing the ingredients.",
+      "comparison": "The other video specifically mentions using tongs, without suggesting alternatives.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-c23f5549-e658-4779-aa65-a324b2cf84ab",
+          "title": "Spoon or tongs for mixing",
+          "description": "The video suggests using a spoon or tongs for mixing the ingredients.",
+          "reasoning": "This video provides options for tools to use when mixing, which can be helpful for viewers who may not have tongs.",
+          "comparison": "The other video specifically mentions using tongs, without suggesting alternatives.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "tools",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 174.61977538225398
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-4b261155-1858-45da-af98-a677396502dd",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Combine Ingredients",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "Optionally, put the pan on low heat to thicken the sauce.",
+      "comparison": "The other video does not mention using low heat as an option, focusing instead on using pasta water to adjust consistency.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-7660c228-bd7f-4012-baba-fac807c6f745",
+          "title": "Optional low heat step",
+          "description": "Optionally, put the pan on low heat to thicken the sauce.",
+          "reasoning": "This video provides an optional step to adjust the sauce consistency, offering flexibility in the cooking process.",
+          "comparison": "The other video does not mention using low heat as an option, focusing instead on using pasta water to adjust consistency.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 191.2820723976717
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-23f4432f-6f9c-41dc-8220-6fc1ad35ea3d",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tools",
+      "relation": "alternative",
+      "title": "Alternative Tools",
+      "description": "The video uses a grater to grate cheese over the pasta.",
+      "comparison": "The other video does not mention using a grater, possibly assuming pre-grated cheese.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-7ec80cee-7389-41ab-9c9a-759ffded3f2d",
+          "title": "Grater for cheese",
+          "description": "The video uses a grater to grate cheese over the pasta.",
+          "reasoning": "Grating cheese directly over the pasta ensures even distribution.",
+          "comparison": "The other video does not mention using a grater, possibly assuming pre-grated cheese.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "tools",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 239.0346968839498
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-27a07426-56e2-4951-a4a8-8f7fc368cfd5",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tips",
+      "relation": "alternative",
+      "title": "Alternative Tips",
+      "description": "The video suggests using freshly grated cheese and freshly ground pepper for the best flavor.",
+      "comparison": "The other video does not emphasize the freshness of the cheese and pepper.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-53881826-f774-4a57-a29a-6df8295373aa",
+          "title": "Freshly grated cheese and pepper",
+          "description": "The video suggests using freshly grated cheese and freshly ground pepper for the best flavor.",
+          "reasoning": "Freshly grated cheese and ground pepper have more intense flavors.",
+          "comparison": "The other video does not emphasize the freshness of the cheese and pepper.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "tips",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 211.96503713693312
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-21ea6c72-ee2b-4ed4-9151-b4c68d0a3c5d",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "Garnish and Serve",
+      "aspect": "warnings",
+      "relation": "alternative",
+      "title": "Alternative Warnings",
+      "description": "The video warns not to add too much cheese or pepper as it can overpower the dish.",
+      "comparison": "The other video does not mention this warning, possibly assuming viewer discretion.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-2bd213db-1feb-42fb-b2e6-ef8c5d87d991",
+          "title": "Avoid overpowering flavors",
+          "description": "The video warns not to add too much cheese or pepper as it can overpower the dish.",
+          "reasoning": "Balancing flavors is crucial to avoid overwhelming the dish's taste.",
+          "comparison": "The other video does not mention this warning, possibly assuming viewer discretion.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "warnings",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 211.96503713693312
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-9463f577-ead9-4d73-8e07-b095e7cacc01",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "relation": "alternative",
+      "title": "Alternative Materials",
+      "description": "The video uses Pecorino or Parmesan cheese for garnishing.",
+      "comparison": "The other video specifically uses Parmigiano Reggiano cheese, which is a type of Parmesan but more specific.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-c42941d6-4084-4ec4-ad99-405df339f72f",
+          "title": "Pecorino or Parmesan cheese",
+          "description": "The video uses Pecorino or Parmesan cheese for garnishing.",
+          "reasoning": "The choice of cheese can vary based on regional preferences or availability. Pecorino is traditional in some Carbonara recipes.",
+          "comparison": "The other video specifically uses Parmigiano Reggiano cheese, which is a type of Parmesan but more specific.",
+          "subgoal": "$meta$",
+          "aspect": "materials",
+          "relation": "alternative",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-a5ee4422-17d9-495f-b90f-b1987c2e9384",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Bacon",
+      "aspect": "materials",
+      "relation": "additional",
+      "title": "Additional Materials",
+      "description": "Olive oil is used in the pan when cooking the bacon.",
+      "comparison": "The other video does not mention using olive oil, possibly assuming the bacon's own fat is sufficient for cooking.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-a8112216-cbe7-4c06-8a82-e558669c4a82",
+          "title": "Use of olive oil",
+          "description": "Olive oil is used in the pan when cooking the bacon.",
+          "reasoning": "The tutorial includes olive oil to help render the bacon fat more evenly and prevent sticking.",
+          "comparison": "The other video does not mention using olive oil, possibly assuming the bacon's own fat is sufficient for cooking.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 45.32422644142213
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-5b93623e-b912-4ebb-bac0-ea4e18025e3d",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tools",
+      "relation": "additional",
+      "title": "Additional Tools",
+      "description": "A paper towel is used to drain the bacon after cooking.",
+      "comparison": "The other video does not mention using a paper towel, possibly assuming the bacon is drained in the pan or not at all.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-93f38277-7f6d-4354-8013-6283681bc659",
+          "title": "Use of paper towel",
+          "description": "A paper towel is used to drain the bacon after cooking.",
+          "reasoning": "Draining on a paper towel helps remove excess grease, making the bacon crispier and less oily.",
+          "comparison": "The other video does not mention using a paper towel, possibly assuming the bacon is drained in the pan or not at all.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "tools",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 50.777601165771486
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-2247208c-7cf3-488f-abab-bc1ccf1e8db4",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Bacon",
+      "aspect": "instructions",
+      "relation": "additional",
+      "title": "Additional Instructions",
+      "description": "The bacon is sliced into thick pieces, about three-quarters of an inch, before cooking. The bacon is cooked slowly to render out the fat.",
+      "comparison": "The other video does not specify the thickness of the bacon slices, suggesting a more general approach to chopping. The other video does not emphasize slow rendering, possibly assuming a quicker cooking process.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-3405825f-0f8f-44e3-96d8-01b556db6ca1",
+          "title": "Render fat slowly",
+          "description": "The bacon is cooked slowly to render out the fat.",
+          "reasoning": "Slow rendering ensures the bacon becomes crispy without burning, enhancing the texture and flavor.",
+          "comparison": "The other video does not emphasize slow rendering, possibly assuming a quicker cooking process.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 194.6031721811446
+        },
+        {
+          "id": "notable-dzyXBU3dIys-addf0779-3e5d-473e-b058-b25f11bde0f7",
+          "title": "Slice bacon into thick pieces",
+          "description": "The bacon is sliced into thick pieces, about three-quarters of an inch, before cooking.",
+          "reasoning": "Thick slices may provide a different texture and flavor profile, which the tutorial aims to achieve.",
+          "comparison": "The other video does not specify the thickness of the bacon slices, suggesting a more general approach to chopping.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 33.41632714563487
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-c2564f78-abba-4c2c-806b-a57cc5a081fd",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Bacon",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "Thick cut bacon is recommended for better texture and flavor.",
+      "comparison": "The other video does not specify the cut of bacon, possibly assuming any cut will suffice.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-38843fb2-2a81-48f8-a9be-b5697afeb977",
+          "title": "Thick cut bacon preferred",
+          "description": "Thick cut bacon is recommended for better texture and flavor.",
+          "reasoning": "The tutorial suggests thick cut bacon to enhance the dish's overall texture and taste.",
+          "comparison": "The other video does not specify the cut of bacon, possibly assuming any cut will suffice.",
+          "subgoal": "Prepare Bacon",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 33.41632714563487
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-2150b9df-b4a0-4c1b-bc9b-e087b09ff6c4",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "materials",
+      "relation": "additional",
+      "title": "Additional Materials",
+      "description": "Kosher salt is used instead of regular salt.",
+      "comparison": "The other video uses regular salt, which is more common in general cooking.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-6a508d57-cabb-4c02-adb6-304e5cbf37fc",
+          "title": "Kosher salt",
+          "description": "Kosher salt is used instead of regular salt.",
+          "reasoning": "The use of kosher salt might be a preference for its texture and flavor profile.",
+          "comparison": "The other video uses regular salt, which is more common in general cooking.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 67.4996915431838
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-a454ded4-e6e5-4905-9d20-4aca79119cb5",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tools",
+      "relation": "additional",
+      "title": "Additional Tools",
+      "description": "Tongs are used to handle the spaghetti.",
+      "comparison": "The other video does not mention using tongs, which might be less convenient for handling spaghetti.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-d812d092-ebb1-4a6a-98d0-022d09a544e9",
+          "title": "Tongs",
+          "description": "Tongs are used to handle the spaghetti.",
+          "reasoning": "Tongs provide a convenient way to handle and remove spaghetti from the pot without draining the water.",
+          "comparison": "The other video does not mention using tongs, which might be less convenient for handling spaghetti.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "tools",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-d0d28184-83c3-43c2-8ecf-184b9c770809",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "relation": "additional",
+      "title": "Additional Instructions",
+      "description": "Use tongs to remove the spaghetti from the pot, leaving the water in the pot.",
+      "comparison": "The other video does not mention using tongs or retaining pasta water.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-af944d16-a216-4638-ac4e-e322779ca2a1",
+          "title": "Use tongs to remove spaghetti",
+          "description": "Use tongs to remove the spaghetti from the pot, leaving the water in the pot.",
+          "reasoning": "This method allows for easy handling of the spaghetti and retains the pasta water for later use.",
+          "comparison": "The other video does not mention using tongs or retaining pasta water.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-ce37b800-f490-451f-94da-23de7f203dbc",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "Cook the spaghetti for about 10 minutes until it is slightly al dente.",
+      "comparison": "The other video does not specify a cooking time or mention the spaghetti will continue cooking in the sauce.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-0079a9cb-1655-4092-aec9-872020d359fa",
+          "title": "Cooking time and doneness",
+          "description": "Cook the spaghetti for about 10 minutes until it is slightly al dente.",
+          "reasoning": "The specific time and doneness are given to ensure the spaghetti is not overcooked, as it will continue cooking in the sauce.",
+          "comparison": "The other video does not specify a cooking time or mention the spaghetti will continue cooking in the sauce.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 288.21413886278197
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-00ef6f34-88e2-45f0-98c6-af5bf508a4d0",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "explanations",
+      "relation": "additional",
+      "title": "Additional Explanations",
+      "description": "The pasta water is seasoned with less salt because carbonara has many salty elements. The spaghetti is cooked slightly al dente because it will finish cooking in the sauce.",
+      "comparison": "The other video does not mention adjusting salt levels based on the dish's overall saltiness. The other video does not mention this reason for cooking the pasta slightly al dente.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-918f8eb2-b4d0-41e2-a126-b1bc6b15469f",
+          "title": "Slightly al dente for further cooking",
+          "description": "The spaghetti is cooked slightly al dente because it will finish cooking in the sauce.",
+          "reasoning": "This explanation is important for ensuring the pasta is not overcooked by the time the dish is complete.",
+          "comparison": "The other video does not mention this reason for cooking the pasta slightly al dente.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 288.21413886278197
+        },
+        {
+          "id": "notable-dzyXBU3dIys-5627e367-c4be-4012-a81b-36fdfb572792",
+          "title": "Less salt due to salty elements",
+          "description": "The pasta water is seasoned with less salt because carbonara has many salty elements.",
+          "reasoning": "This explanation helps viewers understand the reason for using less salt, which is important for balancing flavors in the final dish.",
+          "comparison": "The other video does not mention adjusting salt levels based on the dish's overall saltiness.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 79.01172838712993
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-f55276a9-84d4-46f9-abd4-35e1fa41368e",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "Leave the pasta water in the pot after removing the spaghetti to use later for adjusting sauce consistency.",
+      "comparison": "The other video does not mention retaining pasta water for sauce adjustment.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-260dd500-c66e-4008-80be-a5a7cfffaf1f",
+          "title": "Retain pasta water",
+          "description": "Leave the pasta water in the pot after removing the spaghetti to use later for adjusting sauce consistency.",
+          "reasoning": "This tip is useful for achieving the right sauce consistency in the final dish.",
+          "comparison": "The other video does not mention retaining pasta water for sauce adjustment.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 288.21413886278197
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-df96ef79-eeac-427e-ad00-c9de6cc6c77b",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Cook Spaghetti",
+      "aspect": "warnings",
+      "relation": "additional",
+      "title": "Additional Warnings",
+      "description": "Be careful not to overcook the spaghetti as it will continue to cook when mixed with the sauce.",
+      "comparison": "The other video does not mention the risk of overcooking due to further cooking in the sauce.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-d0b61ad2-f555-4749-b9fd-37a662260b7e",
+          "title": "Do not overcook spaghetti",
+          "description": "Be careful not to overcook the spaghetti as it will continue to cook when mixed with the sauce.",
+          "reasoning": "This warning is crucial for ensuring the pasta is not too soft in the final dish.",
+          "comparison": "The other video does not mention the risk of overcooking due to further cooking in the sauce.",
+          "subgoal": "Cook Spaghetti",
+          "aspect": "warnings",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 288.21413886278197
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-882ed9be-d680-43ab-afdd-95559d3e8845",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "materials",
+      "relation": "additional",
+      "title": "Additional Materials",
+      "description": "Parmigiano Reggiano cheese is used in addition to Pecorino Romano. Three whole eggs are used in addition to egg yolks.",
+      "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano cheese, not mentioning Parmigiano Reggiano. Video 75p4UHRIMcU uses only egg yolks, not whole eggs.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-86a76031-b4c0-4e12-bed2-2d6fc8e87337",
+          "title": "Parmigiano Reggiano cheese",
+          "description": "Parmigiano Reggiano cheese is used in addition to Pecorino Romano.",
+          "reasoning": "The inclusion of Parmigiano Reggiano provides a different flavor profile and texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano cheese, not mentioning Parmigiano Reggiano.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 89.81684423747815
+        },
+        {
+          "id": "notable-dzyXBU3dIys-47b3b5b0-ac64-4d3b-bbd1-bbc78c3f6639",
+          "title": "Whole eggs",
+          "description": "Three whole eggs are used in addition to egg yolks.",
+          "reasoning": "Using whole eggs adds more volume and a different texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU uses only egg yolks, not whole eggs.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 143.99859458521792
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-560bc045-1111-4018-9724-5fa818851da8",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "tools",
+      "relation": "additional",
+      "title": "Additional Tools",
+      "description": "A whisk is used to combine the eggs and cheese into a smooth mixture.",
+      "comparison": "Video 75p4UHRIMcU does not mention using a whisk, only a cheese grater.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-7759522c-8671-4dea-aef0-ea5930291daa",
+          "title": "Whisk",
+          "description": "A whisk is used to combine the eggs and cheese into a smooth mixture.",
+          "reasoning": "A whisk helps achieve a smooth and well-mixed consistency for the sauce.",
+          "comparison": "Video 75p4UHRIMcU does not mention using a whisk, only a cheese grater.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "tools",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 153.89304905941611
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-3a126de0-4be3-4eb7-83d5-dda7ddc53a87",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "outcomes",
+      "relation": "additional",
+      "title": "Additional Outcomes",
+      "description": "The outcome is a smooth mixture of eggs and cheese.",
+      "comparison": "Video 75p4UHRIMcU describes a creamy consistency but does not emphasize smoothness.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-df4fda62-e2c9-4d75-849c-d04694ba3392",
+          "title": "Smooth egg mixture",
+          "description": "The outcome is a smooth mixture of eggs and cheese.",
+          "reasoning": "The smoothness is emphasized to ensure the sauce coats the pasta evenly.",
+          "comparison": "Video 75p4UHRIMcU describes a creamy consistency but does not emphasize smoothness.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "outcomes",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 153.89304905941611
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-ed0d54af-6b11-4af9-983a-49e7724eb8b4",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "instructions",
+      "relation": "additional",
+      "title": "Additional Instructions",
+      "description": "Combine three whole eggs with two egg yolks and whisk them together. Gradually whisk the grated cheese into the egg mixture until smooth.",
+      "comparison": "Video 75p4UHRIMcU only instructs to use egg yolks, not whole eggs. Video 75p4UHRIMcU does not specify the gradual addition of cheese.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-e99006cc-290f-4fa0-8e12-f6541e0dd97f",
+          "title": "Use of whole eggs",
+          "description": "Combine three whole eggs with two egg yolks and whisk them together.",
+          "reasoning": "This step is included to add volume and a different texture to the sauce.",
+          "comparison": "Video 75p4UHRIMcU only instructs to use egg yolks, not whole eggs.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 143.99859458521792
+        },
+        {
+          "id": "notable-dzyXBU3dIys-984c6283-bf8a-4a88-bed3-29742986fb5f",
+          "title": "Gradual cheese addition",
+          "description": "Gradually whisk the grated cheese into the egg mixture until smooth.",
+          "reasoning": "Gradual addition helps in achieving a smooth and well-incorporated mixture.",
+          "comparison": "Video 75p4UHRIMcU does not specify the gradual addition of cheese.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 153.89304905941611
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-af6439d7-7ebc-43a3-b193-b47120f5c3ee",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "explanations",
+      "relation": "additional",
+      "title": "Additional Explanations",
+      "description": "Using both Pecorino Romano and Parmigiano Reggiano achieves a balanced flavor. Whole eggs and egg yolks provide richness without being overly heavy.",
+      "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano and does not mention balancing flavors with another cheese. Video 75p4UHRIMcU does not explain the use of whole eggs as it only uses yolks.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-9a69408e-b7c1-44c3-85a2-ac6ce76d9815",
+          "title": "Balanced flavor with two cheeses",
+          "description": "Using both Pecorino Romano and Parmigiano Reggiano achieves a balanced flavor.",
+          "reasoning": "The combination of two cheeses provides a more complex flavor profile.",
+          "comparison": "Video 75p4UHRIMcU only uses Pecorino Romano and does not mention balancing flavors with another cheese.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 102.61333092222823
+        },
+        {
+          "id": "notable-dzyXBU3dIys-69b75921-cda5-40d8-ae9e-86b81b204aed",
+          "title": "Richness with whole eggs",
+          "description": "Whole eggs and egg yolks provide richness without being overly heavy.",
+          "reasoning": "This explanation justifies the use of whole eggs in addition to yolks.",
+          "comparison": "Video 75p4UHRIMcU does not explain the use of whole eggs as it only uses yolks.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 148.45366485209405
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-dcbed0c0-2975-4640-a876-d3f146b89e19",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Prepare Cheese and Eggs",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "Use the fine setting on a box grater if a cheese grater is unavailable. Adjust the amount of black pepper according to your taste preference.",
+      "comparison": "Video 75p4UHRIMcU humorously suggests using a drill, but does not mention a box grater. Video 75p4UHRIMcU does not mention adjusting pepper to taste.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-18bbcd9e-68ed-4ebf-afe3-4f9dc70b0f19",
+          "title": "Box grater alternative",
+          "description": "Use the fine setting on a box grater if a cheese grater is unavailable.",
+          "reasoning": "This tip provides an alternative tool for grating cheese.",
+          "comparison": "Video 75p4UHRIMcU humorously suggests using a drill, but does not mention a box grater.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 110.13344721433495
+        },
+        {
+          "id": "notable-dzyXBU3dIys-9e073250-5a5b-400d-9477-e24a50d861c1",
+          "title": "Adjust pepper to taste",
+          "description": "Adjust the amount of black pepper according to your taste preference.",
+          "reasoning": "This tip allows for personal customization of the dish's flavor.",
+          "comparison": "Video 75p4UHRIMcU does not mention adjusting pepper to taste.",
+          "subgoal": "Prepare Cheese and Eggs",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 2,
+          "other_seconds": 190.38145645805028
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-26a1df4e-abbf-4bda-bab5-e3b72e24d07e",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Combine Ingredients",
+      "aspect": "materials",
+      "relation": "additional",
+      "title": "Additional Materials",
+      "description": "The egg mixture includes eggs, cheese, and black pepper.",
+      "comparison": "The other video mentions an egg mixture but does not specify its components.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-d837be44-aa89-48e5-bf5d-239302e0031c",
+          "title": "Egg mixture details",
+          "description": "The egg mixture includes eggs, cheese, and black pepper.",
+          "reasoning": "This video specifies the components of the egg mixture to provide clarity on what it consists of.",
+          "comparison": "The other video mentions an egg mixture but does not specify its components.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 319.0889880121971
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-7e1e59be-44d1-4b57-af42-8d1c7607d216",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Combine Ingredients",
+      "aspect": "outcomes",
+      "relation": "additional",
+      "title": "Additional Outcomes",
+      "description": "The outcome is a velvety, fluffy, creamy sauce without scrambling the eggs.",
+      "comparison": "The other video describes the sauce as creamy but does not emphasize the velvety and fluffy texture.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-402e88a3-5028-4c29-b51c-007877969933",
+          "title": "Velvety, fluffy sauce",
+          "description": "The outcome is a velvety, fluffy, creamy sauce without scrambling the eggs.",
+          "reasoning": "This video emphasizes the texture of the sauce to highlight the quality of the final dish.",
+          "comparison": "The other video describes the sauce as creamy but does not emphasize the velvety and fluffy texture.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "outcomes",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 329.59610027737085
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-0415486d-f57c-4b10-98c7-e73766a91f6b",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Combine Ingredients",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "If the sauce doesn't thicken as desired, place the pan over simmering pasta water to gently heat it further.",
+      "comparison": "The other video does not mention this method, focusing on using low heat directly on the pan.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-9818279b-a49a-4274-83ac-e31d35d7a740",
+          "title": "Simmering pasta water",
+          "description": "If the sauce doesn't thicken as desired, place the pan over simmering pasta water to gently heat it further.",
+          "reasoning": "This tip provides an alternative method to thicken the sauce without direct heat, which can help prevent scrambling the eggs.",
+          "comparison": "The other video does not mention this method, focusing on using low heat directly on the pan.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 371.3453795147426
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-dcddecce-a2af-4e72-80cc-222827e8bfc6",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Combine Ingredients",
+      "aspect": "warnings",
+      "relation": "additional",
+      "title": "Additional Warnings",
+      "description": "Be gentle with the pasta to avoid breaking it.",
+      "comparison": "The other video does not mention this warning, possibly assuming viewers will handle the pasta carefully.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-39dfa1fd-9328-4630-a088-1742e5ee740d",
+          "title": "Be gentle with pasta",
+          "description": "Be gentle with the pasta to avoid breaking it.",
+          "reasoning": "This warning helps maintain the integrity of the pasta, ensuring a better texture in the final dish.",
+          "comparison": "The other video does not mention this warning, possibly assuming viewers will handle the pasta carefully.",
+          "subgoal": "Combine Ingredients",
+          "aspect": "warnings",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 344.6103685167101
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-776de5fc-882c-44b5-bb4c-67b1e763de2f",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "materials",
+      "relation": "alternative",
+      "title": "Alternative Materials",
+      "description": "The video specifies using Parmigiano Reggiano cheese for garnishing.",
+      "comparison": "The other video mentions using Pecorino or Parmesan cheese, which is a broader category.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-e29b08f3-79b8-40b2-a5f0-0082ce633bc4",
+          "title": "Parmigiano Reggiano cheese",
+          "description": "The video specifies using Parmigiano Reggiano cheese for garnishing.",
+          "reasoning": "The video might prefer Parmigiano Reggiano for its specific flavor profile.",
+          "comparison": "The other video mentions using Pecorino or Parmesan cheese, which is a broader category.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "materials",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 417.3301948098575
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-d4182e70-ee12-40c2-8d31-e6fd4b4ded0d",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tools",
+      "relation": "additional",
+      "title": "Additional Tools",
+      "description": "The video uses tongs to plate the pasta.",
+      "comparison": "The other video does not mention using tongs for plating.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-e4b4acba-eab1-42ca-b510-f2eafbd303a7",
+          "title": "Tongs for plating",
+          "description": "The video uses tongs to plate the pasta.",
+          "reasoning": "Tongs are used to neatly plate the pasta without breaking it.",
+          "comparison": "The other video does not mention using tongs for plating.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "tools",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 411.97029854910716
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-d8d020f2-4ef6-4368-a58b-5eb92626c360",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "The video instructs to use tongs to plate the pasta before garnishing.",
+      "comparison": "The other video does not mention this step, focusing only on garnishing.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-1621ddfa-2708-4625-b203-aa9f237867e8",
+          "title": "Use tongs for plating",
+          "description": "The video instructs to use tongs to plate the pasta before garnishing.",
+          "reasoning": "Using tongs helps in neatly plating the pasta without breaking it.",
+          "comparison": "The other video does not mention this step, focusing only on garnishing.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 411.97029854910716
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-50358220-8dad-4108-8080-a319dbcbc2d1",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "explanations",
+      "relation": "additional",
+      "title": "Additional Explanations",
+      "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+      "comparison": "The other video does not mention texture contrast, focusing on flavor enhancement.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-f1ad5f88-9f6e-4f7b-ada2-73f44a552a72",
+          "title": "Texture contrast",
+          "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+          "reasoning": "Highlighting texture contrast can enhance the viewer's understanding of the dish's appeal.",
+          "comparison": "The other video does not mention texture contrast, focusing on flavor enhancement.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 425.8838057745071
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-0a469b1f-19d2-4864-92e6-2405983e2584",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "The video suggests ensuring the bacon is crispy for a pleasant texture contrast.",
+      "comparison": "The other video does not emphasize the texture of the bacon.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-d158c2dd-152c-4e57-bc25-074370bbf22b",
+          "title": "Crispy bacon texture",
+          "description": "The video suggests ensuring the bacon is crispy for a pleasant texture contrast.",
+          "reasoning": "Crispy bacon provides a better texture contrast with the creamy pasta.",
+          "comparison": "The other video does not emphasize the texture of the bacon.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 425.8838057745071
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-4fed2f2c-34c3-4324-8637-44b377a10fe9",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "Garnish and Serve",
+      "aspect": "warnings",
+      "relation": "additional",
+      "title": "Additional Warnings",
+      "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+      "comparison": "The other video does not mention this warning, possibly assuming careful handling.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-556fadeb-b94e-4f2f-b533-eb7cf98b04f7",
+          "title": "Gentle plating",
+          "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+          "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+          "comparison": "The other video does not mention this warning, possibly assuming careful handling.",
+          "subgoal": "Garnish and Serve",
+          "aspect": "warnings",
+          "relation": "additional",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 474.11935182601684
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-b4b1c6dc-b0a8-4c8c-af4d-5f072281f615",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "relation": "alternative",
+      "title": "Alternative Tools",
+      "description": "The video uses tongs for plating the pasta.",
+      "comparison": "The other video does not mention using tongs, possibly assuming plating is done with a fork or spoon.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-03b5cde0-e4ac-413c-83fe-3634bbdcad83",
+          "title": "Tongs for plating",
+          "description": "The video uses tongs for plating the pasta.",
+          "reasoning": "Tongs can be used for better control when plating pasta, ensuring it is presented neatly.",
+          "comparison": "The other video does not mention using tongs, possibly assuming plating is done with a fork or spoon.",
+          "subgoal": "$meta$",
+          "aspect": "tools",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-4e6b4a6f-ab6b-45d3-87ca-3dee7f095b41",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "The video instructs to use tongs for plating the pasta.",
+      "comparison": "The other video does not specify the use of tongs for plating.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-43055feb-a6fe-4e09-a145-87c4e96a9437",
+          "title": "Use tongs for plating",
+          "description": "The video instructs to use tongs for plating the pasta.",
+          "reasoning": "Using tongs can help in neatly arranging the pasta on the plate.",
+          "comparison": "The other video does not specify the use of tongs for plating.",
+          "subgoal": "$meta$",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-a5e06cfb-f5b5-4c87-bdf6-4bcad0a8f1ac",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "relation": "alternative",
+      "title": "Alternative Explanations",
+      "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+      "comparison": "The other video focuses on flavor and presentation enhancement without mentioning texture contrast.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-620199f8-d0f8-4ab1-9a9c-35f0a89735dc",
+          "title": "Texture contrast explanation",
+          "description": "The video explains that crispy bacon adds a satisfying texture contrast to the creamy pasta.",
+          "reasoning": "Highlighting the texture contrast can enhance the viewer's understanding of the dish's appeal.",
+          "comparison": "The other video focuses on flavor and presentation enhancement without mentioning texture contrast.",
+          "subgoal": "$meta$",
+          "aspect": "explanations",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-9d53bde0-21f7-4fe9-8531-f74f062b2ed0",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "tips",
+      "relation": "alternative",
+      "title": "Alternative Tips",
+      "description": "The video suggests ensuring the bacon is crispy before using it as a garnish.",
+      "comparison": "The other video emphasizes using freshly grated cheese and ground pepper for flavor, not focusing on bacon texture.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-cc614de1-4ab9-4831-ba66-bff4fa15f453",
+          "title": "Crispy bacon tip",
+          "description": "The video suggests ensuring the bacon is crispy before using it as a garnish.",
+          "reasoning": "Crispy bacon provides a better texture contrast and flavor.",
+          "comparison": "The other video emphasizes using freshly grated cheese and ground pepper for flavor, not focusing on bacon texture.",
+          "subgoal": "$meta$",
+          "aspect": "tips",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-ea3fb888-e657-4f4d-bb12-72c62231a59e",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "warnings",
+      "relation": "alternative",
+      "title": "Alternative Warnings",
+      "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+      "comparison": "The other video warns against overpowering the dish with too much cheese or pepper, focusing on flavor balance.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-65bb1bdf-4fa0-4fca-bf5d-66ed6c66a573",
+          "title": "Gentle plating warning",
+          "description": "The video warns to be gentle when plating the pasta to avoid breaking it.",
+          "reasoning": "Being gentle helps maintain the pasta's appearance and texture.",
+          "comparison": "The other video warns against overpowering the dish with too much cheese or pepper, focusing on flavor balance.",
+          "subgoal": "$meta$",
+          "aspect": "warnings",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0
+    }
+  ],
+  "hooks_baseline_1": [
+    {
+      "id": "hook-dzyXBU3dIys-3778d95e-d676-4f00-b3b5-b98510266261",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "relation": "additional",
+      "title": "Additional Materials",
+      "description": "The video uses a mixture of Pecorino Romano and Parmigiano Reggiano cheeses for the carbonara.",
+      "comparison": "The other video only mentions Pecorino Romano, sticking to a more traditional approach.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-dfd8f448-2793-4b3a-826b-4d16ac532df2",
+          "title": "Parmigiano Reggiano",
+          "description": "The video uses a mixture of Pecorino Romano and Parmigiano Reggiano cheeses for the carbonara.",
+          "reasoning": "The creator prefers the flavor combination of both cheeses and wants to provide an option that might be more accessible to viewers.",
+          "comparison": "The other video only mentions Pecorino Romano, sticking to a more traditional approach.",
+          "subgoal": "$meta$",
+          "aspect": "materials",
+          "relation": "additional",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-837c6597-4dfe-4282-a73e-ff289f6bffa4",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "relation": "additional",
+      "title": "Additional Tools",
+      "description": "The video suggests using a cheese grater or a box grater to finely grate the cheese.",
+      "comparison": "The other video humorously suggests using a drill to grate cheese, which is impractical.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-aaf56253-dd44-4ad7-9494-f80f4bd8f89c",
+          "title": "Cheese Grater",
+          "description": "The video suggests using a cheese grater or a box grater to finely grate the cheese.",
+          "reasoning": "The creator wants to ensure the cheese is finely grated for better integration into the sauce.",
+          "comparison": "The other video humorously suggests using a drill to grate cheese, which is impractical.",
+          "subgoal": "$meta$",
+          "aspect": "tools",
+          "relation": "additional",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-605f7c5a-7be2-4d16-b662-809a6c6d5898",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "relation": "additional",
+      "title": "Additional Instructions",
+      "description": "The video instructs to whisk cheese into the egg mixture to create a creamy sauce.",
+      "comparison": "The other video does not provide detailed instructions on mixing cheese and eggs.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-d69eb7cd-4906-412a-bd1c-9cb957dd89e4",
+          "title": "Mixing Cheese and Eggs",
+          "description": "The video instructs to whisk cheese into the egg mixture to create a creamy sauce.",
+          "reasoning": "The creator wants to ensure the cheese is well incorporated into the sauce for a smooth texture.",
+          "comparison": "The other video does not provide detailed instructions on mixing cheese and eggs.",
+          "subgoal": "$meta$",
+          "aspect": "instructions",
+          "relation": "additional",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-311b67db-fb0b-4e48-912b-e95d3f938cdb",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "relation": "additional",
+      "title": "Additional Explanations",
+      "description": "The video explains that adding olive oil to pasta water is a myth and serves no purpose.",
+      "comparison": "The other video does not address this myth, focusing more on humor and entertainment.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-c27ac279-d895-43b3-a0d6-d18ab47c8331",
+          "title": "No Olive Oil Myth",
+          "description": "The video explains that adding olive oil to pasta water is a myth and serves no purpose.",
+          "reasoning": "The creator wants to debunk common cooking myths to improve the viewer's cooking technique.",
+          "comparison": "The other video does not address this myth, focusing more on humor and entertainment.",
+          "subgoal": "$meta$",
+          "aspect": "explanations",
+          "relation": "additional",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-dzyXBU3dIys-7d8c8a50-4cd9-4ade-9274-20b91a23663c",
+      "video_id": "dzyXBU3dIys",
+      "subgoal": "$meta$",
+      "aspect": "tips",
+      "relation": "additional",
+      "title": "Additional Tips",
+      "description": "The video suggests using pasta water to adjust the sauce's consistency if it becomes too thick.",
+      "comparison": "The other video mentions pasta water but focuses more on humor than practical tips.",
+      "links": [
+        {
+          "id": "notable-75p4UHRIMcU-7f5c0659-4e9b-4a0d-a559-88d1a58facbf",
+          "title": "Pasta Water for Sauce",
+          "description": "The video suggests using pasta water to adjust the sauce's consistency if it becomes too thick.",
+          "reasoning": "The creator wants to ensure the sauce has the right texture and doesn't become too thick or dry.",
+          "comparison": "The other video mentions pasta water but focuses more on humor than practical tips.",
+          "subgoal": "$meta$",
+          "aspect": "tips",
+          "relation": "additional",
+          "other_video_id": "75p4UHRIMcU",
+          "importance": 4.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 295.1199951171875
+        }
+      ],
+      "importance": 4.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-8d807efb-166c-4da3-b0e8-c742497b0a3d",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "materials",
+      "relation": "alternative",
+      "title": "Alternative Materials",
+      "description": "The video humorously points out that using bacon instead of guanciale means it's not a traditional carbonara.",
+      "comparison": "The other video acknowledges the traditional use of guanciale but opts for bacon for accessibility reasons.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-5e92524f-d2e8-4c51-a8b3-a88fa40491b4",
+          "title": "Guanciale vs Bacon",
+          "description": "The video humorously points out that using bacon instead of guanciale means it's not a traditional carbonara.",
+          "reasoning": "The creator uses humor to emphasize the traditional ingredient of guanciale, even though they use bacon.",
+          "comparison": "The other video acknowledges the traditional use of guanciale but opts for bacon for accessibility reasons.",
+          "subgoal": "$meta$",
+          "aspect": "materials",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-6a3d16a3-01c8-4148-bde4-f1e1071d5c02",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "tools",
+      "relation": "alternative",
+      "title": "Alternative Tools",
+      "description": "The video humorously suggests using a drill to grate cheese, which is impractical.",
+      "comparison": "The other video provides a practical approach by recommending a cheese grater or box grater.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-9fa8360a-ffc4-46b6-9a1f-74c8be5959a9",
+          "title": "Drill for Grating Cheese",
+          "description": "The video humorously suggests using a drill to grate cheese, which is impractical.",
+          "reasoning": "The creator uses humor to entertain while discussing the process of grating cheese.",
+          "comparison": "The other video provides a practical approach by recommending a cheese grater or box grater.",
+          "subgoal": "$meta$",
+          "aspect": "tools",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 1.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 1.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-f6a88438-a7cd-437e-a630-2f9ae9765f7e",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "outcomes",
+      "relation": "alternative",
+      "title": "Alternative Outcomes",
+      "description": "The video repeatedly emphasizes that the dish being made is not carbonara, despite resembling it.",
+      "comparison": "The other video aims to make a version of carbonara that is accessible but still respects traditional elements.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-62b5e462-76a6-42f1-a915-682d1a27e587",
+          "title": "Not Carbonara Outcome",
+          "description": "The video repeatedly emphasizes that the dish being made is not carbonara, despite resembling it.",
+          "reasoning": "The creator uses humor to highlight deviations from traditional carbonara, such as using bacon instead of guanciale.",
+          "comparison": "The other video aims to make a version of carbonara that is accessible but still respects traditional elements.",
+          "subgoal": "$meta$",
+          "aspect": "outcomes",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-31bcf453-70ee-41d8-bfda-3ee9d7cf7705",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "instructions",
+      "relation": "alternative",
+      "title": "Alternative Instructions",
+      "description": "The video humorously warns against breaking spaghetti, claiming it renders it inedible.",
+      "comparison": "The other video does not mention breaking spaghetti, focusing instead on cooking it properly.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-c3ef90b2-c172-4c2e-8c7b-d65f501a1961",
+          "title": "Breaking Spaghetti",
+          "description": "The video humorously warns against breaking spaghetti, claiming it renders it inedible.",
+          "reasoning": "The creator uses humor to emphasize the importance of keeping spaghetti whole, a common Italian cooking practice.",
+          "comparison": "The other video does not mention breaking spaghetti, focusing instead on cooking it properly.",
+          "subgoal": "$meta$",
+          "aspect": "instructions",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 2.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 2.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-b01907ca-0cf8-452c-83ae-fb8fd47ae069",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "explanations",
+      "relation": "alternative",
+      "title": "Alternative Explanations",
+      "description": "The video humorously claims that pasta water is added so you don't have to stop for a drink while eating.",
+      "comparison": "The other video provides a practical explanation for using pasta water to adjust sauce consistency.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-df9e3dca-0805-4a33-9599-082f00933656",
+          "title": "Pasta Water for Thirst",
+          "description": "The video humorously claims that pasta water is added so you don't have to stop for a drink while eating.",
+          "reasoning": "The creator uses humor to explain the addition of pasta water, which is actually for emulsifying the sauce.",
+          "comparison": "The other video provides a practical explanation for using pasta water to adjust sauce consistency.",
+          "subgoal": "$meta$",
+          "aspect": "explanations",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 1.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 1.0
+    },
+    {
+      "id": "hook-75p4UHRIMcU-cbbfbb26-2b37-4604-9b35-352c350cc903",
+      "video_id": "75p4UHRIMcU",
+      "subgoal": "$meta$",
+      "aspect": "warnings",
+      "relation": "alternative",
+      "title": "Alternative Warnings",
+      "description": "The video warns against overcooking the egg-based sauce by ensuring the pan is cool enough.",
+      "comparison": "The other video also emphasizes not scrambling the eggs but does not focus on cooling the pan as much.",
+      "links": [
+        {
+          "id": "notable-dzyXBU3dIys-17a8e213-42bb-480a-a74b-0ebf2c87cbe6",
+          "title": "Overcooking Eggs Warning",
+          "description": "The video warns against overcooking the egg-based sauce by ensuring the pan is cool enough.",
+          "reasoning": "The creator wants to prevent viewers from scrambling the eggs, which would ruin the sauce.",
+          "comparison": "The other video also emphasizes not scrambling the eggs but does not focus on cooling the pan as much.",
+          "subgoal": "$meta$",
+          "aspect": "warnings",
+          "relation": "alternative",
+          "other_video_id": "dzyXBU3dIys",
+          "importance": 3.0,
+          "uniqueness": 0.5,
+          "step_aspect_complexity": 1,
+          "other_seconds": 495.20001220703125
+        }
+      ],
+      "importance": 3.0
+    }
+  ]
+}
