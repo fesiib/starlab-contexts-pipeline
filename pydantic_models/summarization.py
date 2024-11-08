@@ -55,5 +55,38 @@ class SubgoalSummarySchema(BaseModel):
     tips_content_ids: list[int] = Field(..., title="A list of narration ids that mention the tips.")
     warnings: str = Field(..., title="The warnings presented in the tutorial that can help avoid mistakes when completing the subgoal/stage.")
     warnings_content_ids: list[int] = Field(..., title="A list of narration ids that mention the warnings.")
-    
 
+
+class ObjectSchema(BaseModel):
+    object_name: str = Field(..., title="The name of the object.")
+    caption: str = Field(..., title="The visual description of the object that starts with `A photo of a `.")
+    description: str = Field(..., title="The detailed description of the object based on the narration.")
+    content_ids: list[int] = Field(..., title="A list of narration ids that describe the object.")
+
+class StepSchema(BaseModel):
+    description: str = Field(..., title="The detailed description of the performed step.")
+    instructions: str = Field(..., title="The instructions presented in the tutorial for completing the step.")
+    instructions_content_ids: list[int] = Field(..., title="A list of narration ids that mention the instructions.")
+    explanations: str = Field(..., title="The justifications and reasons presented in the tutorial for performing the step.")
+    explanations_content_ids: list[int] = Field(..., title="A list of narration ids that mention the explanations.")
+    tips: str = Field(..., title="The tips presented in the tutorial that can help in completing the step easier, faster, or more efficiently.")
+    tips_content_ids: list[int] = Field(..., title="A list of narration ids that mention the tips.")
+    warnings: str = Field(..., title="The warnings presented in the tutorial that can help avoid mistakes when performing the step.")
+    warnings_content_ids: list[int] = Field(..., title="A list of narration ids that mention the warnings.")
+
+
+class StructuredSubgoalSummarySchema(BaseModel):
+    # "materials", "outcome", "setting", "instructions", "explanation", "tips", "tools"
+
+    ### context
+    # subgoal: str = Field(..., title="The detailed description of the subgoal/stage based on the narration.")
+    # subgoal_content_ids: list[int] = Field(..., title="A list of narration ids that mention the subgoal.")
+    materials: list[ObjectSchema] = Field(..., title="A comprehensive list of materials or ingredients used in the tutorial to complete the subgoal/stage.")
+
+    tools: list[ObjectSchema] = Field(..., title="A comprehensive list of tools or equipments used in the tutorial to complete the the subgoal/stage.")
+
+    outcomes: list[ObjectSchema] = Field(..., title="A comprehensive list of the outcomes or results of completing the subgoal/stage.")
+
+    steps: list[StepSchema] = Field(..., title="A list of steps to complete the subgoal/stage.")
+    # setting: str = Field(..., title="The context in which the step is performed, including the location, time, and other relevant details.")
+    # setting_content_ids: list[int] = Field(..., title="A list of narration ids that mention the setting.")

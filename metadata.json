@@ -1,5 +1,19 @@
 {
-    "test": {
+    "test-code": {
+        "title": "How to implement binary search?",
+        "videos": [
+            "https://www.youtube.com/watch?v=tgVSkMA8joQ",
+            "https://www.youtube.com/watch?v=P3YID7liBug"
+        ]
+    },
+    "test-photoshop": {
+        "title": "How to remove objects from an image in PhotoShop?",
+        "videos": [
+            "https://www.youtube.com/watch?v=cTM853qX7cM",
+            "https://www.youtube.com/watch?v=WmDG0xp2liA"
+        ]
+    },
+    "test-carbonara": {
         "title": "How to make Pasta Carbonara?",
         "videos": [
             "https://www.youtube.com/watch?v=75p4UHRIMcU",
@@ -15,7 +29,7 @@
             "https://www.youtube.com/watch?v=3AAdKl1UYZs"
         ]
     },
-    "remove-objects": {
+    "photoshop": {
         "title": "How to remove objects from an image in PhotoShop?",
         "videos": [
             "https://www.youtube.com/watch?v=cTM853qX7cM",

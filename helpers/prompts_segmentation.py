@@ -1,6 +1,8 @@
-from helpers import get_response_pydantic, extend_contents
+from helpers import get_response_pydantic, extend_contents, random_uid
 
 from pydantic_models.segmentation import StepsSchema, AggStepsSchema, TranscriptAssignmentsSchema, get_segmentation_schema_v4, AggSubgoalsSchema
+
+from pydantic_models.segmentation import SubgoalSegmentationSchema, SubgoalSchema
 
 def assign_transcripts_v4(contents, subgoals, task):
     messages = [
@@ -227,3 +229,87 @@ def extract_subgoals_v4(steps, task):
     #     if found == 0:
     #         print("ERROR: Subgoal not found in assignments")
     return subgoals
+
+
+
+## V5
+def extract_subgoals_v5(contents, task):
+    messages = [
+        {"role": "system", "content": ("You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}`, extract a sequence of `subgoals` performed to complete the task and segment the video according to these subgoals. `Subogoals` must satisfy following criteria:\n1. Represent important intermediate stages within a procedural task.\n2. Capture the main objective of the stage without being tied to a single tool, material, or approach.\n3. Have a consistent level of detail and complexity.\n4. Unique and non-overlapping in purpose.\n5. Collectively cover all pieces of useful procedural information.".format(task=task))},
+        {
+            "role": "user",
+            "content": [{
+                "type": "text",
+                "text": f"## Contents:\n"
+            }] + extend_contents(contents, include_ids=True),
+        },
+    ]
+
+    response = get_response_pydantic(messages, SubgoalSegmentationSchema)
+
+    contents_coverage = [""] * len(contents)
+    response["segments"] = sorted(response["segments"], key=lambda x: x["start_index"])
+
+    mapping = {
+        "": {
+            "title": "",
+            "description": ""
+        }
+    }
+
+    for segment in response["segments"]:
+        start = segment["start_index"]
+        finish = segment["end_index"] + 1
+        id = f"segment-{random_uid()}"
+        mapping[id] = {
+            "title": segment["title"],
+            "description": segment["description"],
+        }
+        for i in range(start, finish):
+            if contents_coverage[i] != "":
+                prev_id = contents_coverage[i]                
+                print("Potential ERROR: Overlapping segments", mapping[prev_id], mapping[id])
+            contents_coverage[i] = id
+    segments = []
+    for index, content in enumerate(contents):
+        id = contents_coverage[index]
+        if len(segments) > 0 and segments[-1]["id"] == id:
+            ### Extend the current segment
+            segments[-1]["finish"] = content["finish"]
+            segments[-1]["text"] += " " + content["text"]
+            segments[-1]["frame_paths"] += [*content["frame_paths"]]
+            segments[-1]["content_ids"].append(content["id"])
+        else:
+            ### Start a new segment
+            if len(segments) > 0:
+                new_start = (content["start"] + segments[-1]["finish"]) / 2
+                segments[-1]["finish"] = new_start
+            else:
+                new_start = content["start"]
+            segments.append({
+                "id": id,
+                "start": new_start,
+                "finish": content["finish"],
+                "title": mapping[id]["title"],
+                "description": mapping[id]["description"],
+                "text": content["text"],
+                "frame_paths": [*content["frame_paths"]],
+                "content_ids": [content["id"]],
+            })
+    return segments
+
+def aggregate_subgoals_v5(subgoals, task):
+    subgoals_str = "\n".join(subgoals)
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial content. You are given a set of subgoals about the task `{task}`. Analyze and aggregate these subgoals into a new subgoal that can cover all the information that can be attributed to provided subgoals.".format(task=task)},
+        {
+            "role": "user",
+            "content": [{
+                "type": "text",
+                "text": f"## Subgoals:\n{subgoals_str}"
+            }]
+        },
+    ]
+    
+    response = get_response_pydantic(messages, SubgoalSchema)
+    return response

@@ -1,20 +1,22 @@
 import json
 
-from src import META_TITLE, SIMILARITY_THRESHOLD_NOTABLE, SIMILARITY_THRESHOLD_HOOK
+from src import SIMILARITY_THRESHOLD_SUBGOAL, SIMILARITY_THRESHOLD_NOTABLE, SIMILARITY_THRESHOLD_HOOK, META_TITLE
 
 from helpers import APPROACHES, BASELINES
 from helpers import random_uid
 
 from helpers.prompts_segmentation import define_steps_v4, extract_subgoals_v4, align_steps_v4, segment_video_v4
 
-from helpers.prompts_summarization import get_subgoal_summary_v4
+from helpers.prompts_segmentation import extract_subgoals_v5, aggregate_subgoals_v5 
+
+from helpers.prompts_summarization import get_subgoal_summary_v4, get_step_summary_v4
 
 from helpers.prompts_comparison import get_transcript_alignments_v3
 from helpers.prompts_comparison import get_subgoal_alignments_v4
 
 from helpers.prompts_organization import get_notable_v4, get_hooks_v4, get_hook_v4
 
-from helpers.clip import clip_similar_per_text
+from helpers.clip import clip_similar_per_text, ClipModel
 from helpers.bert import clustering_custom
 
 class VideoPool:
@@ -36,7 +38,168 @@ class VideoPool:
         return None
 
     def process_videos(self):
-        self.__process_videos_v4()
+        # self.__process_videos_v4()
+        self.__process_videos_v5()
+
+    def __process_videos_v5(self):
+        ### Directly extract subgoals and segments. Do more explicit clustering
+        def __subgoal_to_text(subgoal):
+            return f"{subgoal['title']}: {subgoal['description']}"
+
+        ### Define initial subgoals
+        for video in self.videos:
+            if len(video.subgoals) == 0:
+                video.subgoals = extract_subgoals_v5(video.get_all_contents(), self.task)
+
+        if len(self.subgoals) == 0:
+            all_subgoals = []
+            for video in self.videos:
+                for subgoal in video.subgoals:
+                    if subgoal["title"] == "":
+                        continue
+                    all_subgoals.append({
+                        "subgoal_id": subgoal["id"],
+                        "title": subgoal["title"],
+                        "description": subgoal["description"],
+                        "original_subgoals": [{
+                            "id": subgoal["id"],
+                            "title": subgoal["title"],
+                            "description": subgoal["description"],
+                        }],
+                    })
+            self.subgoals = []
+            ### iterate until no clusters contain only one subgoal!
+            while True:
+                print("## Clustering: ", self.subgoals)
+                cluster_items = []
+                if len(self.subgoals) == 0:
+                    cluster_items = [*all_subgoals]
+                else:
+                    cluster_items = [*self.subgoals]
+
+                if len(cluster_items) < 1:
+                    break
+                cluster_texts = [
+                    __subgoal_to_text(subgoal) for subgoal in cluster_items
+                ]
+
+                ### Clustering
+                cluster_labels = clustering_custom(cluster_texts, SIMILARITY_THRESHOLD_SUBGOAL)
+                clusters = {}
+                for index, label in enumerate(cluster_labels):
+                    if label not in clusters:
+                        clusters[label] = []
+                    clusters[label].append(index)
+                
+                ### Aggregate subgoals
+                self.subgoals = []
+                aggregated_at_least_once = False
+                for cluster in clusters.values():
+                    if len(cluster) < 1:
+                        continue
+                    cur_items = [cluster_items[index] for index in cluster]
+                    if len(cur_items) > 1:
+                        original_subgoals = []
+                        subgoals_to_aggregate = []
+                        for subgoal in cur_items:
+                            subgoals_to_aggregate.append(__subgoal_to_text(subgoal))
+                            original_subgoals += subgoal["original_subgoals"]
+                        aggregated = aggregate_subgoals_v5(subgoals_to_aggregate, self.task)
+                        agg_subgoal = {
+                            "title": aggregated["title"],
+                            "description": aggregated["description"],
+                            "original_subgoals": original_subgoals,
+                        }
+                        aggregated_at_least_once = True
+                    else:
+                        agg_subgoal = {
+                            "title": cur_items[0]["title"],
+                            "description": cur_items[0]["description"],
+                            "original_subgoals": cur_items[0]["original_subgoals"],
+                        }
+                    self.subgoals.append({
+                        "subgoal_id": random_uid(),
+                        "title": agg_subgoal["title"],
+                        "description": agg_subgoal["description"],
+                        "original_subgoals": agg_subgoal["original_subgoals"],
+                    })
+                if not aggregated_at_least_once:
+                    break
+            
+            ### Re-assign subgoals to videos
+            for video in self.videos:
+                cur_subgoals = []
+                for subgoal in video.subgoals:
+                    new_subgoal = {
+                        **subgoal,
+                        "subgoal_id": "",
+                        "original_subgoals": [subgoal],
+                    }
+                    if subgoal["title"] != "":
+                        for subgoal_def in self.subgoals:
+                            is_same = False
+                            for original_subgoal in subgoal_def["original_subgoals"]:
+                                if subgoal["id"] == original_subgoal["id"]:
+                                    is_same = True
+                                    break
+                            if is_same:
+                                new_subgoal["subgoal_id"] = subgoal_def["subgoal_id"]
+                                new_subgoal["title"] = subgoal_def["title"]
+                                new_subgoal["description"] = subgoal_def["description"]
+                                break
+                    else:
+                        ### Assign empty subgoals to the last one
+                        if len(cur_subgoals) > 0:
+                            new_subgoal["subgoal_id"] = cur_subgoals[-1]["subgoal_id"]
+
+                    if (
+                        len(cur_subgoals) > 0 and
+                        cur_subgoals[-1]["subgoal_id"] == new_subgoal["subgoal_id"]
+                    ):
+                        cur_subgoals[-1]["finish"] = new_subgoal["finish"]
+                        cur_subgoals[-1]["text"] += " " + new_subgoal["text"]
+                        cur_subgoals[-1]["frame_paths"] += new_subgoal["frame_paths"]
+                        cur_subgoals[-1]["content_ids"] += new_subgoal["content_ids"]
+                        cur_subgoals[-1]["original_subgoals"] += new_subgoal["original_subgoals"]
+                    else:
+                        cur_subgoals.append({
+                            **new_subgoal,
+                        })
+                video.subgoals = cur_subgoals
+        print("## Subgoals: ", self.subgoals)
+        print("## Videos: ", [video.subgoals for video in self.videos])
+        ### Extract useful information for each step
+        for video in self.videos:
+            if video.subgoal_summaries == {}:
+                for subgoal_def in self.subgoals:
+                    subgoal_frame_paths = []
+                    ### Extract per steps
+                    video_subgoals = []
+                    for video_subgoal in video.subgoals:
+                        if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
+                            video_subgoals.append(video_subgoal)
+                            subgoal_frame_paths += video_subgoal["frame_paths"]
+                    
+                    if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
+                        print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
+                        continue
+
+                    clip_model = ClipModel(subgoal_frame_paths)
+
+                    summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
+
+                    for parent_key in summary:
+                        for obj in summary[parent_key]:
+                            if "frame_paths" in obj:
+                                texts = obj["frame_paths"]
+                                obj["frame_paths"] = clip_model.find_similar_per_text(texts)
+
+                    summary = {
+                        "title": subgoal_def["title"],
+                        **summary,
+                    }
+                    video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
+
 
     def __process_videos_v4(self):
         ### Extract steps per video
@@ -140,54 +303,96 @@ class VideoPool:
                         })
                 video.subgoals = new_video_subgoals
 
-            ### extract useful information for each step
-            if len(video.subgoal_summaries) == 0:
-                video.subgoal_summaries = []
-                for subgoal in video.subgoals:
-                    if subgoal["title"] == "":
+            # ### extract useful information for each step
+            # TODO: remove this
+            # if len(video.subgoal_summaries) == 0:
+            video.subgoal_summaries = {}
+            
+            clip_model = ClipModel([frame["path"] for frame in video.frames.values()])
+
+            for subgoal in self.subgoals:
+                title = subgoal["title"]
+                ### Extract per steps
+                cur_steps = []
+                for video_subgoal in video.subgoals:
+                    if video_subgoal["title"] == title:
+                        for step in video_subgoal["original_steps"]:
+                            if step != "":
+                                cur_steps.append(step)
+                summary = get_step_summary_v4(video.get_all_contents(), title, cur_steps, self.task)
+
+                if summary is None:
+                    print(f"Warning: {video.video_id} has no subgoal {title}")
+                    continue
+
+                ## Extract per step & combine
+
+                ### Extract per subgoal
+                # subgoal_desc = title + ": " + subgoal["description"]
+                # if subgoal_desc == "":
+                #     continue
+                # summary = get_subgoal_summary_v4(video.get_all_contents(),
+                #     subgoal_desc, self.task)
+                
+                for parent_key in summary:
+                    for obj in summary[parent_key]:
+                        for key in obj:
+                            if not key.endswith("_content_ids"):
+                                continue
+                            new_content_ids = []
+                            for id in obj:
+                                new_content_ids.append(f"{video.video_id}-{id}")
+                            obj[key] = new_content_ids
+                for parent_key in summary:
+                    if parent_key not in ["outcomes", "materials", "tools"]:
                         continue
-                    ### Extract per steps
-                    # summary = get_step_summary_v4(video.get_all_contents(), subgoal["original_steps"], self.task)
-
-                    ## Extract per step & combine
-
-                    ### Extract per subgoal
-                    subgoal_desc = ""
-                    for subgoal_def in self.subgoals:
-                        if subgoal_def["title"] == subgoal["title"]:
-                            subgoal_desc = subgoal_def["title"] + ": " + subgoal_def["description"]
-                            break
-                    if subgoal_desc == "":
-                        continue
-                    summary = get_subgoal_summary_v4(video.get_all_contents(),
-                        subgoal_desc, self.task)
-                    for key in summary:
-                        if not key.endswith("_content_ids"):
-                            continue
-                        new_content_ids = []
-                        for id in summary[key]:
-                            new_content_ids.append(f"{video.video_id}-{id}")
-                        summary[key] = new_content_ids
-                    summary = {
-                        "title": subgoal["title"],
-                        **summary,
-                        "outcomes_frame_paths": [],
-                        "materials_frame_paths": [],
-                        "tools_frame_paths": [],
-                    }
-                    if len(summary["outcomes"]) > 0:
-                        summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
-                    if len(summary["materials"]) > 0:
-                        summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
-                    if len(summary["tools"]) > 0:
-                        summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
-                    video.subgoal_summaries.append(summary)
-
+                    if len(summary[parent_key]) > 0:
+                        for obj in summary[parent_key]:
+                            obj["frame_paths"] = clip_model.find_similar_per_text([
+                                obj["caption"]
+                                ])
+                
+                ### Check non-empty
                 cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
-                for subgoal_summary in video.subgoal_summaries:
+                for obj in summary["steps"]:
                     for key in cannot_be_empty:
-                        if len(subgoal_summary[key + "_content_ids"]) == 0:
-                            subgoal_summary[key] = ""
+                        if key + "_content_ids" not in obj:
+                            continue
+                        if len(obj[key + "_content_ids"]) == 0:
+                            obj[key] = ""
+                summary = {
+                    "title": title,
+                    **summary,
+                }
+
+                ### OLD
+                # for key in summary:
+                #     if not key.endswith("_content_ids"):
+                #         continue
+                #     new_content_ids = []
+                #     for id in summary[key]:
+                #         new_content_ids.append(f"{video.video_id}-{id}")
+                #     summary[key] = new_content_ids
+                # summary = {
+                #     "title": title,
+                #     **summary,
+                #     "outcomes_frame_paths": [],
+                #     "materials_frame_paths": [],
+                #     "tools_frame_paths": [],
+                # }
+                # if len(summary["outcomes"]) > 0:
+                #     summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
+                # if len(summary["materials"]) > 0:
+                #     summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
+                # if len(summary["tools"]) > 0:
+                #     summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
+
+                # cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
+                # for key in cannot_be_empty:
+                #     if len(summary[key + "_content_ids"]) == 0:
+                #         summary[key] = ""
+
+                video.subgoal_summaries[title] = summary
 
     def __reformat_alignments_v2(self, alignments, video1, video2):
         for alignment in alignments:

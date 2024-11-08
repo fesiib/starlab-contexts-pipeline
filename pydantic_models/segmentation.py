@@ -64,5 +64,15 @@ def get_segmentation_schema_v4(titles):
 
     return SegmentationSchema
 
-    
-    
+## V5
+
+class SubgoalSchema(BaseModel):
+    title: str = Field(..., title="A 1 to 3 words title of the subgoal")
+    description: str = Field(..., title="A subgoal description that specifies the procedural information it should contain in potentially different tutorial videos about the similar task.")
+
+class SubgoalSegmentSchema(SubgoalSchema):
+    start_index: int = Field(..., title="The start index of the subgoal segment in the transcript")
+    end_index: int = Field(..., title="The end index of the subgoal segment in the transcript")
+
+class SubgoalSegmentationSchema(BaseModel):
+    segments: list[SubgoalSegmentSchema] = Field(..., title="The comprehensive list of subgoal-based segments in the video.")

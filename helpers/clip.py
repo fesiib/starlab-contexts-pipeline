@@ -16,13 +16,14 @@ def clip_embed_image(image_paths):
     image_features /= image_features.norm(dim=-1, keepdim=True)
     return image_features
 
-
 def clip_embed_text(texts):
     """
     Embed a text using a CLIP model
     """
+    # prefix = "A photo of "
+    prefix = ""
 
-    embeddings = torch.cat([clip.tokenize([text]) for text in texts]).to(device)
+    embeddings = torch.cat([clip.tokenize([prefix + text.lower()]) for text in texts]).to(device)
     with torch.no_grad():
         text_features = model.encode_text(embeddings)
     text_features /= text_features.norm(dim=-1, keepdim=True)
@@ -46,3 +47,28 @@ def clip_similar_per_text(texts, image_paths, top_k=1):
         return [image_paths[idx] for idx in indices]
     else:
         return [[image_paths[idx] for idx in idxs] for idxs in indices]
+    
+
+class ClipModel:
+    image_paths = []
+    image_embeddings = []
+
+    def __init__(self, image_paths):
+        self.image_paths = image_paths
+        self.image_embeddings = clip_embed_image(image_paths)
+
+    def find_similar_per_text(self, texts, top_k=1):
+        text_embedding = clip_embed_text(texts)
+        similarity = (self.image_embeddings @ text_embedding.T).softmax(dim=0)
+        values, indices = similarity.T.topk(1)
+        # print(values, indices)
+        indices = indices.squeeze(1).tolist()
+        if top_k == 1:
+            return [self.image_paths[idx] for idx in indices]
+        else:
+            return [[self.image_paths[idx] for idx in idxs] for idxs in indices]
+        
+    def get_scores_per_text(self, texts):
+        text_embedding = clip_embed_text(texts)
+        similarity = (self.image_embeddings @ text_embedding.T).softmax(dim=0)
+        return similarity.tolist()

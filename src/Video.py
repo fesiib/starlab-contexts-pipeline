@@ -20,7 +20,7 @@ class Video:
     subgoals = []
 
     meta_summary = None
-    subgoal_summaries = []
+    subgoal_summaries = {}
 
     sentence_embeddings = []
 
@@ -34,7 +34,7 @@ class Video:
         self.sentences = []
         self.subgoals = []
         self.meta_summary = None
-        self.subgoal_summaries = []
+        self.subgoal_summaries = {}
         self.metadata = {}
         self.sentence_embeddings = []
 
@@ -76,9 +76,12 @@ class Video:
         self.sentences = sorted(self.sentences, key=lambda x: x["start"])
 
         for index, sentence in enumerate(self.sentences):
-            frame_sec = round((sentence["start"] + sentence["finish"]) / 2)
-            if frame_sec in self.frames:
-                sentence["frame_paths"].append(self.frames[frame_sec]["path"])
+            for frame_sec in range(round(sentence["start"]), round(sentence["finish"] + 1)):
+                if frame_sec in self.frames:
+                    sentence["frame_paths"].append(self.frames[frame_sec]["path"])
+            # frame_sec = round((sentence["start"] + sentence["finish"]) / 2)
+            # if frame_sec in self.frames:
+            #     sentence["frame_paths"].append(self.frames[frame_sec]["path"])
             sentence["id"] = f"{self.video_id}-{index}"
     
     def get_subgoals(self, title):
@@ -129,70 +132,69 @@ class Video:
         }]
 
     def get_subgoal_summary_contents(self, title, as_parent=False) -> list:
-        for index, summary in enumerate(self.subgoal_summaries):
-            if summary["title"] != title:
+        if title not in self.subgoal_summaries:
+            return []
+        summary = self.subgoal_summaries[title]
+        text = ""
+        if as_parent:
+            ### indicate that this is a parent
+            text += f"- **Parent Subgoal**: {summary['title']}\n"
+        else:
+            ### add the contents
+            text += f"- **Subgoal Contents**:\n"
+        quotes = {}
+        for k, v in summary.items():
+            if k.endswith("_quotes"):
+                quotes[k[:-7]] = v
+        for k, v in summary.items():
+            if k not in quotes:
                 continue
-            text = ""
-            if as_parent:
-                ### indicate that this is a parent
-                text += f"- **Parent Subgoal**: {summary['title']}\n"
-            else:
-                ### add the contents
-                text += f"- **Subgoal Contents**:\n"
-            quotes = {}
-            for k, v in summary.items():
-                if k.endswith("_quotes"):
-                    quotes[k[:-7]] = v
-            for k, v in summary.items():
-                if k not in quotes:
-                    continue
-                if as_parent and k != "outcome":
-                    continue
-                key = k.capitalize().replace("_", " ")
-                value = v if isinstance(v, str) else ", ".join(v)
-                text += f"\t- **{key}**: {value}\n"
-                if len(quotes[k]) > 0 and not as_parent:
-                    text += f"\t- **{key} Quotes**:"
-                    text += "; ".join([f"`{quote}`" for quote in quotes[k]])
-                    text += "\n"
-            content = {
-                "id": f"{self.video_id}-subgoal-summary-{index}",
-                "title": summary["title"],
-                "text": text,
-                "frame_paths": [path for path in summary["frame_paths"]],
-            }
-            if as_parent:
-                return [content]
-            return [content for content in summary["context"]] + [content]
-        return []
+            if as_parent and k != "outcome":
+                continue
+            key = k.capitalize().replace("_", " ")
+            value = v if isinstance(v, str) else ", ".join(v)
+            text += f"\t- **{key}**: {value}\n"
+            if len(quotes[k]) > 0 and not as_parent:
+                text += f"\t- **{key} Quotes**:"
+                text += "; ".join([f"`{quote}`" for quote in quotes[k]])
+                text += "\n"
+        content = {
+            "id": f"{self.video_id}-subgoal-summary-{title}",
+            "title": title,
+            "text": text,
+            "frame_paths": [path for path in summary["frame_paths"]],
+        }
+        if as_parent:
+            return [content]
+        return [content for content in summary["context"]] + [content]
 
     def get_subgoal_summary_multimodal_contents(self, title) -> list:
+        if title not in self.subgoal_summaries:
+            return []
+        summary = self.subgoal_summaries[title]
         contents = []
-        for index, summary in enumerate(self.subgoal_summaries):
-            if summary["title"] != title:
-                continue
-            for k, v in summary.items():
-                text = ""
-                frame_paths = []
+        for k, v in summary.items():
+            text = ""
+            frame_paths = []
 
-                if k.endswith("_content_ids") or k.endswith("_frame_paths") or k == "frame_paths":
-                    continue
-                key = k.capitalize().replace("_", " ")
-                if isinstance(v, str):
-                    ## v is string
-                    text += f"- **{key}**: {v}\n"
-                else:
-                    ## v is list
-                    text += f"- **{key}**: {'; '.join(v)}\n"
-                if f"{k}_frame_paths" in summary:
-                    frame_paths = [*summary[f"{k}_frame_paths"]]
-                
-                contents.append({
-                    "id": f"{self.video_id}-subgoal-summary-{index}-{k}",
-                    "title": summary["title"],
-                    "text": text,
-                    "frame_paths": frame_paths,
-                })
+            if k.endswith("_content_ids") or k.endswith("_frame_paths") or k == "frame_paths":
+                continue
+            key = k.capitalize().replace("_", " ")
+            if isinstance(v, str):
+                ## v is string
+                text += f"- **{key}**: {v}\n"
+            else:
+                ## v is list
+                text += f"- **{key}**: {'; '.join(v)}\n"
+            if f"{k}_frame_paths" in summary:
+                frame_paths = [*summary[f"{k}_frame_paths"]]
+            
+            contents.append({
+                "id": f"{self.video_id}-subgoal-summary-{title}-{k}",
+                "title": summary["title"],
+                "text": text,
+                "frame_paths": frame_paths,
+            })
         return contents
 
 
@@ -324,12 +326,6 @@ class Video:
             for index, subgoal in enumerate(result["subgoals"]):
                 subgoal["original_title"] = subgoal["title"]
                 subgoal["title"] = subgoal["original_title"] + "-" + str(index)
-            
-            for index, subgoal_summary in enumerate(result["subgoal_summaries"]):
-                for subgoal in result["subgoals"]:
-                    if subgoal_summary["title"] == subgoal["original_title"]:
-                        subgoal_summary["original_title"] = subgoal["original_title"]
-                        subgoal_summary["title"] = subgoal["title"]
         return result
 
     def from_dict(self, 
