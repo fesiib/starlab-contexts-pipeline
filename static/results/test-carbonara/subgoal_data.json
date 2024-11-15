@@ -1,172 +1,137 @@
 [
   {
-    "subgoal_id": "5f03ba74-3dde-48e9-bc87-d5ab9e0c5e2c",
-    "title": "Prepare Bacon",
-    "description": "Chop and cook bacon as a substitute for guanciale, which is traditionally used in carbonara.",
-    "original_subgoals": [
-      {
-        "id": "segment-40f2f0be-04b5-459b-9e80-5677dc58908d",
-        "title": "Prepare Bacon",
-        "description": "Chop and cook bacon as a substitute for guanciale, which is traditionally used in carbonara."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "0f5d0dc0-c11c-4647-82ab-7809e541c055",
-    "title": "Prepare Egg Mixture",
-    "description": "Separate egg yolks and mix with grated cheese to create the sauce base.",
-    "original_subgoals": [
-      {
-        "id": "segment-2d6fe70e-9e40-4719-b1e8-8b8195af706e",
-        "title": "Prepare Egg Mixture",
-        "description": "Separate egg yolks and mix with grated cheese to create the sauce base."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "91ac006d-5784-4cb7-b646-0c419c7ee1a0",
-    "title": "Cook Spaghetti",
-    "description": "Boil spaghetti in salted water until al dente, ensuring it doesn't stick together.",
-    "original_subgoals": [
-      {
-        "id": "segment-6150d759-68b3-4709-88a2-9d07334e5263",
-        "title": "Cook Spaghetti",
-        "description": "Boil spaghetti in salted water until al dente, ensuring it doesn't stick together."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "640172f1-1349-406b-9af3-8ae7ae6ebd70",
-    "title": "Combine Ingredients",
-    "description": "Demonstrate how to mix the cooked pasta with the bacon, egg, and cheese mixture. Ensure the eggs do not scramble by stirring quickly and adding reserved pasta water gradually to achieve a creamy consistency.",
-    "original_subgoals": [
-      {
-        "id": "segment-0fcb0427-a087-4964-af2b-3085cb819111",
-        "title": "Combine Ingredients",
-        "description": "Mix cooked spaghetti with bacon and egg mixture, adding pasta water to achieve a creamy consistency."
-      },
-      {
-        "id": "segment-98c168cb-0cfb-4a48-8282-bf570d63786d",
-        "title": "Combine Ingredients",
-        "description": "Show how to combine the cooked pasta with the egg and cheese mixture, ensuring the eggs do not scramble, and achieve a creamy texture."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "17544331-2afd-4465-a3cd-72cc60f4d1b3",
-    "title": "Finish and Serve",
-    "description": "Finish the dish with additional cheese and pepper, and serve the pasta.",
-    "original_subgoals": [
-      {
-        "id": "segment-e550cece-aad8-4849-a460-6fa919e9150d",
-        "title": "Finish and Serve",
-        "description": "Finish the dish with additional cheese and pepper, and serve the pasta."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "6614da41-b578-481f-b31e-412729b3dcff",
+    "subgoal_id": "subgoal-b3833730-a1f5-4aaf-bb79-608f30977e18",
     "title": "Introduction",
     "description": "Introduce the concept of traditional Pasta Carbonara and clarify common misconceptions about its ingredients.",
     "original_subgoals": [
       {
-        "id": "segment-c136431a-0716-4d88-9e0f-8c729f3de252",
+        "id": "segment-d66ff552-f91d-4553-8008-7f5685858e36",
         "title": "Introduction",
         "description": "Introduce the concept of traditional Pasta Carbonara and clarify common misconceptions about its ingredients."
       }
     ]
   },
   {
-    "subgoal_id": "98805cab-3443-4505-b87d-704f9c11079b",
+    "subgoal_id": "subgoal-7c27d3cf-9370-477c-a6e8-da01dd1859f9",
     "title": "Prepare Meat",
-    "description": "Discuss the choice of meat for the dish, such as guanciale, bacon, or pancetta, and demonstrate how to prepare it for cooking.",
+    "description": "Discuss the choice of meat for the dish, such as guanciale, bacon, or pancetta, and demonstrate how to prepare and cook it for incorporation into the pasta.",
     "original_subgoals": [
       {
-        "id": "segment-2603bef3-950b-4032-9dc6-6016b58ea88a",
+        "id": "segment-617bb929-6424-46a2-9ad6-f7e408c31a51",
         "title": "Prepare Meat",
         "description": "Discuss the choice of meat for the dish, such as guanciale, bacon, or pancetta, and demonstrate how to prepare it for cooking."
+      },
+      {
+        "id": "segment-489f531e-c4ba-45e3-8326-52e45eef09a4",
+        "title": "Render Bacon",
+        "description": "Demonstrate how to render the bacon, including managing the heat and fat, and preparing it for incorporation into the pasta."
+      },
+      {
+        "id": "segment-a4039315-04f0-4c3c-9629-482e4aa95e2b",
+        "title": "Prepare Bacon",
+        "description": "Chop and cook bacon as a substitute for guanciale, which is traditionally used in carbonara."
       }
     ]
   },
   {
-    "subgoal_id": "e224d5ae-c50c-4b2e-9309-e5b3107d6231",
+    "subgoal_id": "subgoal-af240a6d-c93f-4b65-beec-47d0c1b70e4e",
     "title": "Prepare Pasta Water",
-    "description": "Explain how to properly season the pasta water, considering the salty elements in Carbonara.",
+    "description": "Explain how to properly season the pasta water, considering the saltiness of other ingredients in the dish.",
     "original_subgoals": [
       {
-        "id": "segment-2761e392-55a0-4502-8f77-a36507229178",
+        "id": "segment-308c1eaf-c75c-49fc-bb13-011691f28d43",
         "title": "Prepare Pasta Water",
-        "description": "Explain how to properly season the pasta water, considering the salty elements in Carbonara."
+        "description": "Explain how to properly season the pasta water, considering the saltiness of other ingredients in the dish."
       }
     ]
   },
   {
-    "subgoal_id": "88a053a5-e7e1-4300-aba4-ab9a09fc3225",
+    "subgoal_id": "subgoal-8997002f-f51d-4fd9-89cc-448f877fb5ae",
     "title": "Prepare Cheese",
-    "description": "Introduce the types of cheese used in Carbonara, such as Pecorino Romano and Parmigiano Reggiano, and demonstrate how to grate and mix them.",
+    "description": "Introduce the types of cheese used in Carbonara, such as Pecorino Romano and Parmigiano Reggiano, and demonstrate how to grate them.",
     "original_subgoals": [
       {
-        "id": "segment-f7b2391a-6fc0-4716-b51b-715592c218c8",
+        "id": "segment-ff5b24f3-1488-4ceb-a659-a0185994abdf",
         "title": "Prepare Cheese",
-        "description": "Introduce the types of cheese used in Carbonara, such as Pecorino Romano and Parmigiano Reggiano, and demonstrate how to grate and mix them."
+        "description": "Introduce the types of cheese used in Carbonara, such as Pecorino Romano and Parmigiano Reggiano, and demonstrate how to grate them."
       }
     ]
   },
   {
-    "subgoal_id": "2d561027-8ac0-4638-8c68-a1f2ea9e4895",
+    "subgoal_id": "subgoal-a335b7ea-cd4b-4f5f-90d3-9b3bc3acaa5c",
     "title": "Prepare Egg Mixture",
-    "description": "Explain the composition of the egg mixture, including the use of whole eggs and yolks, and how to combine it with the cheese and seasonings.",
+    "description": "Explain the composition of the egg mixture, including the use of whole eggs and yolks, and how to combine it with the grated cheese and seasonings to create the sauce base.",
     "original_subgoals": [
       {
-        "id": "segment-06de36d3-8b38-4a20-87fa-014168e0c41a",
+        "id": "segment-a571d163-fe4d-4f18-aa61-0b148fcb6406",
         "title": "Prepare Egg Mixture",
         "description": "Explain the composition of the egg mixture, including the use of whole eggs and yolks, and how to combine it with the cheese and seasonings."
-      }
-    ]
-  },
-  {
-    "subgoal_id": "083f4833-397d-4c02-9d84-8be1ce12996b",
-    "title": "Render Bacon",
-    "description": "Demonstrate how to render the bacon, manage the fat, and prepare it for incorporation into the pasta.",
-    "original_subgoals": [
+      },
       {
-        "id": "segment-a4778c04-58ce-4923-a570-cae2cb89ce61",
-        "title": "Render Bacon",
-        "description": "Demonstrate how to render the bacon, manage the fat, and prepare it for incorporation into the pasta."
+        "id": "segment-6c6f233b-ad00-4f2e-84a1-8dadfce82fdf",
+        "title": "Prepare Egg Mixture",
+        "description": "Separate egg yolks and mix with grated cheese to create the sauce base."
       }
     ]
   },
   {
-    "subgoal_id": "fae8d73e-617f-44f8-a4ed-6202185c4606",
+    "subgoal_id": "subgoal-99bc9c06-cac7-460e-a48c-9118b127c3a7",
     "title": "Cook Pasta",
-    "description": "Guide on cooking the pasta to al dente and preparing it for mixing with the sauce.",
+    "description": "Provide instructions on cooking the pasta, such as spaghetti, to the right texture (al dente) and preparing it for mixing with the sauce.",
     "original_subgoals": [
       {
-        "id": "segment-0512818d-c624-4c1e-8234-9398b46843eb",
+        "id": "segment-18680984-ba85-40ac-9689-a9faf91fbbba",
         "title": "Cook Pasta",
-        "description": "Guide on cooking the pasta to al dente and preparing it for mixing with the sauce."
+        "description": "Provide instructions on cooking the pasta to the right texture and preparing it for mixing with the sauce."
+      },
+      {
+        "id": "segment-8a7bdaf3-ac43-432d-9381-d5154a1d4d0c",
+        "title": "Cook Spaghetti",
+        "description": "Boil spaghetti in salted water until al dente, ensuring it doesn't stick together."
       }
     ]
   },
   {
-    "subgoal_id": "102cd576-45cc-4d2e-a511-6025f51786fe",
-    "title": "Plate and Garnish",
-    "description": "Demonstrate how to plate the finished Carbonara and add garnishes like extra cheese and crispy bacon.",
+    "subgoal_id": "subgoal-42c1b7fb-3b9e-4cc9-a4dc-6aaebfe5cfb6",
+    "title": "Combine Ingredients",
+    "description": "Show how to combine the cooked pasta with the egg and cheese mixture and the cooked meat, ensuring the eggs do not scramble, and achieve a creamy consistency by adding pasta water as needed.",
     "original_subgoals": [
       {
-        "id": "segment-0d289f45-4580-400f-be47-c18ebec81580",
-        "title": "Plate and Garnish",
-        "description": "Demonstrate how to plate the finished Carbonara and add garnishes like extra cheese and crispy bacon."
+        "id": "segment-3524bbe8-830d-40b6-80e7-6177f6b776c2",
+        "title": "Combine Ingredients",
+        "description": "Show how to combine the cooked pasta with the egg and cheese mixture, ensuring the eggs do not scramble, and achieve a creamy consistency."
+      },
+      {
+        "id": "segment-cbbb7486-026e-4643-9dda-97e7af2d74ad",
+        "title": "Combine Ingredients",
+        "description": "Mix cooked spaghetti with bacon and egg mixture, adding pasta water to achieve a creamy consistency."
       }
     ]
   },
   {
-    "subgoal_id": "b6fc8218-c5a2-4654-96b6-6582ad58b2cd",
+    "subgoal_id": "subgoal-bc0d9a46-a4c9-47eb-9672-4c0812bda5a3",
+    "title": "Finish and Serve",
+    "description": "Demonstrate how to plate the finished Pasta Carbonara, including adding garnishes like extra cheese and crispy bacon, and finish with additional cheese and pepper before serving.",
+    "original_subgoals": [
+      {
+        "id": "segment-11f42a44-775d-40b8-a053-279d55484a6c",
+        "title": "Plate and Serve",
+        "description": "Demonstrate how to plate the finished Pasta Carbonara, including adding garnishes like extra cheese and crispy bacon."
+      },
+      {
+        "id": "segment-c62620f9-289a-4f14-ac2b-15b00b1f9c87",
+        "title": "Finish and Serve",
+        "description": "Finish the dish with additional cheese and pepper, and serve the pasta."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "subgoal-5743702f-68ab-4db1-9f55-fcdee758f0ce",
     "title": "Conclusion",
     "description": "Conclude the tutorial with a tasting and final thoughts on the dish.",
     "original_subgoals": [
       {
-        "id": "segment-8986125f-0777-4b6d-8de0-5ffcf5e0461a",
+        "id": "segment-f0b40cbd-d782-4aac-b455-390794e7131d",
         "title": "Conclusion",
         "description": "Conclude the tutorial with a tasting and final thoughts on the dish."
       }

@@ -4,6 +4,39 @@ from helpers import get_response_pydantic, get_response_pydantic_with_message, e
 
 INCLUDE_IMAGES = False
 
+def schema_based_comparison_level_1(aspects, vid1, vid2, contents1, contents2, subgoal, task):
+    ### Level 1: Compare only the core procedural information and identify what's new in each video.
+    aspects_str = ", ".join(aspects)
+
+    messages = [
+        {
+            "role": "system",
+            "content": [{
+                "type": "text",
+                "text": "You are a helpful assistant specializing in analyzing and comparing procedural content across different how-to videos about the task `{task}`. Given the `{aspects_str}` from two videos for subgoal `{subgoal}`, compare the information from each video, and (1) map similar contents and (2) identify new contents presented in each video. Identify contents one-by-one focusing on one specific piece of information at a time, avoid combining multiple procedural details together. If needed, refer to each video by their ID (e.g., `{vid1}`).".format(task=task, subgoal=subgoal, vid1=vid1, aspects_str=aspects_str)
+            }],
+        },
+        {
+            "role": "user",
+            "content": [{
+                "type": "text",
+                "text": f"## `{vid1}`:"
+            }] + extend_contents(contents1, include_images=INCLUDE_IMAGES),
+        },
+        {
+            "role": "user",
+            "content": [{
+                "type": "text",
+                "text": f"## `{vid2}`:"
+            }] + extend_contents(contents2, include_images=INCLUDE_IMAGES),
+        },
+    ]
+
+    response = get_response_pydantic(messages, AlignmentsPerAspectSchema)
+    
+    alignments_1, alignments_2 = transform_alignments(response, vid1, vid2)
+    return alignments_1, alignments_2
+
 def get_subgoal_alignments_v4(vid1, vid2, contents1, contents2, subgoal, task):
     messages = [
         {

@@ -7,7 +7,7 @@ from helpers import random_uid
 
 from helpers.prompts_segmentation import define_steps_v4, extract_subgoals_v4, align_steps_v4, segment_video_v4
 
-from helpers.prompts_segmentation import extract_subgoals_v5, aggregate_subgoals_v5 
+from helpers.prompts_segmentation import extract_subgoal_segments_v5, aggregate_subgoals_v5, aggregate_subgoal_set_v5
 
 from helpers.prompts_summarization import get_subgoal_summary_v4, get_step_summary_v4
 
@@ -49,82 +49,38 @@ class VideoPool:
         ### Define initial subgoals
         for video in self.videos:
             if len(video.subgoals) == 0:
-                video.subgoals = extract_subgoals_v5(video.get_all_contents(), self.task)
+                video.subgoals = extract_subgoal_segments_v5(video.get_all_contents(), self.task)
 
         if len(self.subgoals) == 0:
-            all_subgoals = []
             for video in self.videos:
+                contents = []
                 for subgoal in video.subgoals:
                     if subgoal["title"] == "":
                         continue
-                    all_subgoals.append({
+                    contents.append({
                         "subgoal_id": subgoal["id"],
                         "title": subgoal["title"],
                         "description": subgoal["description"],
+                        "text": __subgoal_to_text(subgoal),
                         "original_subgoals": [{
                             "id": subgoal["id"],
                             "title": subgoal["title"],
                             "description": subgoal["description"],
                         }],
                     })
-            self.subgoals = []
-            ### iterate until no clusters contain only one subgoal!
-            while True:
-                print("## Clustering: ", self.subgoals)
-                cluster_items = []
                 if len(self.subgoals) == 0:
-                    cluster_items = [*all_subgoals]
+                    self.subgoals = [*contents]
+                    continue
                 else:
-                    cluster_items = [*self.subgoals]
-
-                if len(cluster_items) < 1:
-                    break
-                cluster_texts = [
-                    __subgoal_to_text(subgoal) for subgoal in cluster_items
-                ]
-
-                ### Clustering
-                cluster_labels = clustering_custom(cluster_texts, SIMILARITY_THRESHOLD_SUBGOAL)
-                clusters = {}
-                for index, label in enumerate(cluster_labels):
-                    if label not in clusters:
-                        clusters[label] = []
-                    clusters[label].append(index)
-                
-                ### Aggregate subgoals
-                self.subgoals = []
-                aggregated_at_least_once = False
-                for cluster in clusters.values():
-                    if len(cluster) < 1:
-                        continue
-                    cur_items = [cluster_items[index] for index in cluster]
-                    if len(cur_items) > 1:
-                        original_subgoals = []
-                        subgoals_to_aggregate = []
-                        for subgoal in cur_items:
-                            subgoals_to_aggregate.append(__subgoal_to_text(subgoal))
-                            original_subgoals += subgoal["original_subgoals"]
-                        aggregated = aggregate_subgoals_v5(subgoals_to_aggregate, self.task)
-                        agg_subgoal = {
-                            "title": aggregated["title"],
-                            "description": aggregated["description"],
-                            "original_subgoals": original_subgoals,
-                        }
-                        aggregated_at_least_once = True
-                    else:
-                        agg_subgoal = {
-                            "title": cur_items[0]["title"],
-                            "description": cur_items[0]["description"],
-                            "original_subgoals": cur_items[0]["original_subgoals"],
-                        }
-                    self.subgoals.append({
-                        "subgoal_id": random_uid(),
-                        "title": agg_subgoal["title"],
-                        "description": agg_subgoal["description"],
-                        "original_subgoals": agg_subgoal["original_subgoals"],
-                    })
-                if not aggregated_at_least_once:
-                    break
+                    for subgoal in self.subgoals:
+                        contents.append({
+                            "subgoal_id": subgoal["subgoal_id"],
+                            "title": subgoal["title"],
+                            "description": subgoal["description"],
+                            "text": __subgoal_to_text(subgoal),
+                            "original_subgoals": [*subgoal["original_subgoals"]],
+                        })
+                self.subgoals = aggregate_subgoal_set_v5(contents, self.task)
             
             ### Re-assign subgoals to videos
             for video in self.videos:
@@ -166,39 +122,37 @@ class VideoPool:
                             **new_subgoal,
                         })
                 video.subgoals = cur_subgoals
-        print("## Subgoals: ", self.subgoals)
-        print("## Videos: ", [video.subgoals for video in self.videos])
-        ### Extract useful information for each step
-        for video in self.videos:
-            if video.subgoal_summaries == {}:
-                for subgoal_def in self.subgoals:
-                    subgoal_frame_paths = []
-                    ### Extract per steps
-                    video_subgoals = []
-                    for video_subgoal in video.subgoals:
-                        if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
-                            video_subgoals.append(video_subgoal)
-                            subgoal_frame_paths += video_subgoal["frame_paths"]
+        # ### Extract useful information for each step
+        # for video in self.videos:
+        #     if video.subgoal_summaries == {}:
+        #         for subgoal_def in self.subgoals:
+        #             subgoal_frame_paths = []
+        #             ### Extract per steps
+        #             video_subgoals = []
+        #             for video_subgoal in video.subgoals:
+        #                 if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
+        #                     video_subgoals.append(video_subgoal)
+        #                     subgoal_frame_paths += video_subgoal["frame_paths"]
                     
-                    if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
-                        print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
-                        continue
+        #             if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
+        #                 print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
+        #                 continue
 
-                    clip_model = ClipModel(subgoal_frame_paths)
+        #             clip_model = ClipModel(subgoal_frame_paths)
 
-                    summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
+        #             summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
 
-                    for parent_key in summary:
-                        for obj in summary[parent_key]:
-                            if "frame_paths" in obj:
-                                texts = obj["frame_paths"]
-                                obj["frame_paths"] = clip_model.find_similar_per_text(texts)
+        #             for parent_key in summary:
+        #                 for obj in summary[parent_key]:
+        #                     if "frame_paths" in obj:
+        #                         texts = obj["frame_paths"]
+        #                         obj["frame_paths"] = clip_model.find_similar_per_text(texts)
 
-                    summary = {
-                        "title": subgoal_def["title"],
-                        **summary,
-                    }
-                    video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
+        #             summary = {
+        #                 "title": subgoal_def["title"],
+        #                 **summary,
+        #             }
+        #             video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
 
 
     def __process_videos_v4(self):
@@ -409,7 +363,7 @@ class VideoPool:
             del alignment["description"]
         return alignments
 
-    ### APPROACH 1 (CLASSIFICATION + IMPORTANCE + AGGREGATION_PER_RELATION_AND_CLASS)
+    ### APPROACH 1 - Compare INPUT/METHOD/OUTPUT separately?
     def __generate_alignments_1(self):
         approach = APPROACHES[0]
         if len(self.videos) < 2:
@@ -421,15 +375,18 @@ class VideoPool:
         self.alignment_sets[approach] = []
         for v1_idx, video1 in enumerate(self.videos):
             for v2_idx, video2 in enumerate(self.videos):
-                # TODO: check one-by-one generation!
                 if v1_idx >= v2_idx:
                     continue
                 alignments_1 = []
                 alignments_2 = []
                 ### between subgoals
                 for subgoal_def in self.subgoals:
-                    contents1 = video1.get_subgoal_summary_multimodal_contents(subgoal_def["title"])
-                    contents2 = video2.get_subgoal_summary_multimodal_contents(subgoal_def["title"])
+                    ### compare input
+                    ### compare method
+                    ### compare output
+
+                    contents1 = video1.get_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
+                    contents2 = video2.get_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
                     if len(contents1) == 0 or len(contents2) == 0:
                         continue
                     subgoal_alignments_1, subgoal_alignments_2 = get_subgoal_alignments_v4(
@@ -443,20 +400,6 @@ class VideoPool:
                     alignments_2.extend(self.__reformat_alignments_v2(
                         subgoal_alignments_2, video2, video1
                     ))
-                
-                ### between meta
-                # meta_alignments_1, meta_alignments_2 = get_steps_alignments_v4(
-                #     video1.video_id, video2.video_id, video1.steps, video2.steps, self.task
-                # )
-                # for alignment in [*meta_alignments_1, *meta_alignments_2]:
-                #     alignment["subgoal_title"] = META_TITLE
-                
-                # alignments_1.extend(self.__reformat_alignments_v2(
-                #     meta_alignments_1, video1, video2
-                # ))
-                # alignments_2.extend(self.__reformat_alignments_v2(
-                #     meta_alignments_2, video2, video1
-                # ))
                     
                 self.alignment_sets[approach].append({
                     "alignments": alignments_1,
@@ -836,3 +779,303 @@ class VideoPool:
                 continue
             if f"hooks_{baseline}" not in self.hooks:
                 self.hooks[f"hooks_{baseline}"] = self.__generate_hooks_v2(self.hooks[f"notables_{baseline}"])
+
+
+"""
+{
+    "title": "Prepare Egg Mixture",
+    "materials": [
+        {
+        "object_name": "Pecorino Romano cheese",
+        "caption": "A photo of a block of Pecorino Romano cheese.",
+        "description": "Pecorino Romano is a sheep's milk cheese, traditionally used in spaghetti carbonara. It is aged and has a strong, salty flavor.",
+        "content_ids": [
+            "dzyXBU3dIys-18"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/159.jpg"
+        ]
+        },
+        {
+        "object_name": "Parmigiano Reggiano cheese",
+        "caption": "A photo of a block of Parmigiano Reggiano cheese.",
+        "description": "Parmigiano Reggiano is a hard, granular cheese from Italy. It is not to be confused with Parmesan and is known for its rich, savory flavor.",
+        "content_ids": [
+            "dzyXBU3dIys-19",
+            "dzyXBU3dIys-20"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/159.jpg"
+        ]
+        },
+        {
+        "object_name": "Eggs",
+        "caption": "A photo of whole eggs and egg yolks in a bowl.",
+        "description": "The recipe uses a mixture of three whole eggs and two egg yolks to create a rich base for the carbonara sauce.",
+        "content_ids": [
+            "dzyXBU3dIys-26",
+            "dzyXBU3dIys-27",
+            "dzyXBU3dIys-28"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/143.jpg"
+        ]
+        },
+        {
+        "object_name": "Fresh ground black pepper",
+        "caption": "A photo of a pepper grinder labeled as 'Gilbert'.",
+        "description": "Fresh ground black pepper is used to season the egg and cheese mixture. The amount can be adjusted according to personal preference.",
+        "content_ids": [
+            "dzyXBU3dIys-36",
+            "dzyXBU3dIys-37",
+            "dzyXBU3dIys-39"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/175.jpg"
+        ]
+        }
+    ],
+    "tools": [
+        {
+        "object_name": "Cheese grater",
+        "caption": "A photo of a cheese grater with fine grating holes.",
+        "description": "A cheese grater is used to finely grate the Pecorino Romano and Parmigiano Reggiano cheeses for the sauce.",
+        "content_ids": [
+            "dzyXBU3dIys-21"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/145.jpg"
+        ]
+        },
+        {
+        "object_name": "Whisk",
+        "caption": "A photo of a whisk used for mixing ingredients.",
+        "description": "A whisk is used to combine the eggs, cheese, and pepper into a smooth mixture.",
+        "content_ids": [
+            "dzyXBU3dIys-30",
+            "dzyXBU3dIys-40"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/166.jpg"
+        ]
+        }
+    ],
+    "outcomes": [
+        {
+        "object_name": "Egg and cheese mixture",
+        "caption": "A photo of a bowl containing a smooth, creamy egg and cheese mixture.",
+        "description": "The egg and cheese mixture serves as the base for the carbonara sauce, which will coat the pasta.",
+        "content_ids": [
+            "dzyXBU3dIys-34"
+        ],
+        "frame_paths": [
+            "static/database/dzyXBU3dIys.mp4_frames/172.jpg"
+        ]
+        }
+    ],
+    "steps": [
+        {
+        "description": "Grate the Pecorino Romano and Parmigiano Reggiano cheeses finely using a cheese grater.",
+        "instructions": "Use a cheese grater to finely grate about three ounces each of Pecorino Romano and Parmigiano Reggiano cheeses.",
+        "instructions_content_ids": [
+            "dzyXBU3dIys-21",
+            "dzyXBU3dIys-22"
+        ],
+        "explanations": "Finely grated cheese will melt more easily into the egg mixture, creating a smooth sauce.",
+        "explanations_content_ids": [
+            "dzyXBU3dIys-21"
+        ],
+        "tips": "If you don't have a cheese grater, use the fine setting on a box grater.",
+        "tips_content_ids": [
+            "dzyXBU3dIys-21"
+        ],
+        "warnings": "",
+        "warnings_content_ids": []
+        },
+        {
+        "description": "Prepare the egg mixture by combining whole eggs and egg yolks.",
+        "instructions": "Crack three whole eggs and add two additional egg yolks into a bowl.",
+        "instructions_content_ids": [
+            "dzyXBU3dIys-28"
+        ],
+        "explanations": "Using a combination of whole eggs and yolks provides richness without making the sauce too heavy.",
+        "explanations_content_ids": [
+            "dzyXBU3dIys-29"
+        ],
+        "tips": "",
+        "tips_content_ids": [],
+        "warnings": "",
+        "warnings_content_ids": []
+        },
+        {
+        "description": "Whisk the eggs and gradually incorporate the grated cheese.",
+        "instructions": "Whisk the eggs until smooth, then gradually add the grated cheese while continuing to whisk.",
+        "instructions_content_ids": [
+            "dzyXBU3dIys-30",
+            "dzyXBU3dIys-33"
+        ],
+        "explanations": "Gradually adding the cheese helps it incorporate smoothly into the eggs, preventing clumps.",
+        "explanations_content_ids": [
+            "dzyXBU3dIys-31",
+            "dzyXBU3dIys-32"
+        ],
+        "tips": "",
+        "tips_content_ids": [],
+        "warnings": "",
+        "warnings_content_ids": []
+        },
+        {
+        "description": "Season the egg and cheese mixture with fresh ground black pepper.",
+        "instructions": "Add fresh ground black pepper to the egg and cheese mixture to taste, and whisk it in.",
+        "instructions_content_ids": [
+            "dzyXBU3dIys-36",
+            "dzyXBU3dIys-40"
+        ],
+        "explanations": "Black pepper adds flavor and a bit of heat to the sauce, balancing the richness of the cheese and eggs.",
+        "explanations_content_ids": [
+            "dzyXBU3dIys-39"
+        ],
+        "tips": "Adjust the amount of pepper according to your preference.",
+        "tips_content_ids": [
+            "dzyXBU3dIys-39"
+        ],
+        "warnings": "",
+        "warnings_content_ids": []
+        },
+        {
+        "description": "Loosen the egg mixture with a bit of hot pasta water.",
+        "instructions": "Add about a quarter cup of hot pasta water to the egg mixture and whisk quickly.",
+        "instructions_content_ids": [
+            "dzyXBU3dIys-44",
+            "dzyXBU3dIys-45",
+            "dzyXBU3dIys-47"
+        ],
+        "explanations": "Adding hot pasta water helps to equalize the temperature and loosen the mixture, making it easier to coat the pasta evenly.",
+        "explanations_content_ids": [
+            "dzyXBU3dIys-46"
+        ],
+        "tips": "",
+        "tips_content_ids": [],
+        "warnings": "",
+        "warnings_content_ids": []
+}
+
+{
+        "title": "Prepare Egg Mixture",
+        "materials": [
+          {
+            "object_name": "Egg yolks",
+            "caption": "A photo of egg yolks separated from the whites.",
+            "description": "Egg yolks are used as the base for the sauce in carbonara. They provide richness and help create a creamy texture when combined with cheese and pasta water.",
+            "content_ids": [
+              "75p4UHRIMcU-11",
+              "75p4UHRIMcU-29"
+            ],
+            "frame_paths": [
+              "static/database/75p4UHRIMcU.mp4_frames/54.jpg"
+            ]
+          },
+          {
+            "object_name": "Pecorino Romano cheese",
+            "caption": "A photo of grated Pecorino Romano cheese.",
+            "description": "Pecorino Romano is a hard, salty Italian cheese made from sheep's milk. It is grated and mixed with egg yolks to form the base of the carbonara sauce.",
+            "content_ids": [
+              "75p4UHRIMcU-17",
+              "75p4UHRIMcU-29"
+            ],
+            "frame_paths": [
+              "static/database/75p4UHRIMcU.mp4_frames/86.jpg"
+            ]
+          },
+          {
+            "object_name": "Black pepper",
+            "caption": "A photo of ground black pepper.",
+            "description": "Black pepper is used to season the egg and cheese mixture, adding a bit of spice and enhancing the overall flavor of the dish.",
+            "content_ids": [
+              "75p4UHRIMcU-30"
+            ],
+            "frame_paths": [
+              "static/database/75p4UHRIMcU.mp4_frames/74.jpg"
+            ]
+          }
+        ],
+        "tools": [
+          {
+            "object_name": "Grater",
+            "caption": "A photo of a cheese grater.",
+            "description": "A grater is used to shred the Pecorino Romano cheese into fine pieces that can easily be mixed with the egg yolks.",
+            "content_ids": [
+              "75p4UHRIMcU-28"
+            ],
+            "frame_paths": [
+              "static/database/75p4UHRIMcU.mp4_frames/72.jpg"
+            ]
+          }
+        ],
+        "outcomes": [
+          {
+            "object_name": "Egg and cheese mixture",
+            "caption": "A photo of a bowl containing a mixture of egg yolks, grated cheese, and pepper.",
+            "description": "The egg and cheese mixture serves as the base for the carbonara sauce. It is creamy and rich, ready to be combined with pasta and bacon to create the final dish.",
+            "content_ids": [
+              "75p4UHRIMcU-29",
+              "75p4UHRIMcU-30"
+            ],
+            "frame_paths": [
+              "static/database/75p4UHRIMcU.mp4_frames/100.jpg"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "description": "Separate the egg yolks from the whites and place them in a bowl.",
+            "instructions": "Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks from the whites.",
+            "instructions_content_ids": [
+              "75p4UHRIMcU-13",
+              "75p4UHRIMcU-14"
+            ],
+            "explanations": "Egg yolks are used for their richness and ability to create a creamy sauce when combined with cheese and pasta water.",
+            "explanations_content_ids": [
+              "75p4UHRIMcU-11"
+            ],
+            "tips": "Make sure not to accidentally use egg whites, as they are not needed for the sauce.",
+            "tips_content_ids": [
+              "75p4UHRIMcU-12"
+            ],
+            "warnings": "",
+            "warnings_content_ids": []
+          },
+          {
+            "description": "Grate the Pecorino Romano cheese and add it to the egg yolks.",
+            "instructions": "Use a grater to shred the Pecorino Romano cheese and mix it into the egg yolks.",
+            "instructions_content_ids": [
+              "75p4UHRIMcU-28",
+              "75p4UHRIMcU-29"
+            ],
+            "explanations": "The cheese adds flavor and helps thicken the sauce when combined with the egg yolks.",
+            "explanations_content_ids": [
+              "75p4UHRIMcU-17"
+            ],
+            "tips": "If you want to shred your Pecorino more easily, you can use a drill with a screw, although this is not a traditional method.",
+            "tips_content_ids": [
+              "75p4UHRIMcU-21"
+            ],
+            "warnings": "",
+            "warnings_content_ids": []
+          },
+          {
+            "description": "Season the egg and cheese mixture with black pepper.",
+            "instructions": "Add a generous amount of black pepper to the mixture and stir to combine.",
+            "instructions_content_ids": [
+              "75p4UHRIMcU-30"
+            ],
+            "explanations": "Black pepper adds a bit of spice and enhances the overall flavor of the sauce.",
+            "explanations_content_ids": [
+              "75p4UHRIMcU-30"
+            ],
+            "tips": "",
+            "tips_content_ids": [],
+            "warnings": "",
+            "warnings_content_ids": []
+    }
+"""

@@ -2,7 +2,7 @@ from helpers import get_response_pydantic, extend_contents, random_uid
 
 from pydantic_models.segmentation import StepsSchema, AggStepsSchema, TranscriptAssignmentsSchema, get_segmentation_schema_v4, AggSubgoalsSchema
 
-from pydantic_models.segmentation import SubgoalSegmentationSchema, SubgoalSchema
+from pydantic_models.segmentation import SubgoalSegmentationSchema, SubgoalSchema, AggregatedSubgoalsSchema, SubgoalsSchema
 
 def assign_transcripts_v4(contents, subgoals, task):
     messages = [
@@ -233,9 +233,9 @@ def extract_subgoals_v4(steps, task):
 
 
 ## V5
-def extract_subgoals_v5(contents, task):
+def extract_subgoal_segments_v5(contents, task):
     messages = [
-        {"role": "system", "content": ("You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}`, extract a sequence of `subgoals` performed to complete the task and segment the video according to these subgoals. `Subogoals` must satisfy following criteria:\n1. Represent important intermediate stages within a procedural task.\n2. Capture the main objective of the stage without being tied to a single tool, material, or approach.\n3. Have a consistent level of detail and complexity.\n4. Unique and non-overlapping in purpose.\n5. Collectively cover all pieces of useful procedural information.".format(task=task))},
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorials. Based on the narration of a tutorial video for the task `{task}`:\n(1) extract a sequence of `subgoals` performed to complete the task;\n(2) segment the video according to these `subgoals`;\n`Subgoals` are high-level objectives in the procedural task that are generalized and do not depend on variations in materials, tools, methods, or expected outcomes. Do not include non-procedural segments such as `Introduction` or `Conclusion`.".format(task=task)},
         {
             "role": "user",
             "content": [{
@@ -298,6 +298,7 @@ def extract_subgoals_v5(contents, task):
             })
     return segments
 
+
 def aggregate_subgoals_v5(subgoals, task):
     subgoals_str = "\n".join(subgoals)
     messages = [
@@ -313,3 +314,54 @@ def aggregate_subgoals_v5(subgoals, task):
     
     response = get_response_pydantic(messages, SubgoalSchema)
     return response
+
+def aggregate_subgoal_set_v5(contents, task):
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant specializing in analyzing procedural content across different how-to videos about task `{task}`. Given a set of subgoals collected from different tutorial videos about the task, (1) identify subgoals that have the same high-level purpose or objective, (2) merge each set of similar subgoals. Make sure that merged subgoals have consistent level of complexity and detail, and their descriptions capture all information variations in different tutorials. Ensure that all the original subgoals are captured in the final set of merged subgoals.".format(task=task)},
+        {
+            "role": "user",
+            "content": [{
+                "type": "text",
+                "text": f"## Subgoals:\n"
+            }] + extend_contents(contents, include_ids=True),
+        },
+    ]
+
+    response = get_response_pydantic(messages, AggregatedSubgoalsSchema)
+
+    subgoals = []
+    covered = [0] * len(contents)
+    for subgoal in response["subgoals"]:
+        new_subgoal = {
+            "subgoal_id": f"subgoal-{random_uid()}",
+            "title": subgoal["title"],
+            "description": subgoal["description"],
+            "original_subgoals": []
+        }
+        if len(subgoal["original_subgoal_ids"]) == 0:
+            print("ERROR: Empty original subgoal ids", subgoal)
+            continue
+
+        for i in subgoal["original_subgoal_ids"]:
+            if covered[i] == 1:
+                print("ERROR: Original subgoal already covered:", contents[i])
+                continue
+            covered[i] = 1
+            for original_subgoal in contents[i]["original_subgoals"]:
+                new_subgoal["original_subgoals"].append({
+                    "id": original_subgoal["id"],
+                    "title": original_subgoal["title"],
+                    "description": original_subgoal["description"]
+                })
+        subgoals.append(new_subgoal)
+
+    for i in range(len(contents)):
+        if covered[i] == 0:
+            print("ERROR: Original subgoal not covered:", contents[i])
+            subgoals.append({
+                "subgoal_id": f"subgoal-{random_uid()}",
+                "title": contents[i]["title"],
+                "description": contents[i]["description"],
+                "original_subgoals": [*contents[i]["original_subgoals"]]
+            })
+    return subgoals

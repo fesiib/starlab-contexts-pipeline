@@ -74,5 +74,14 @@ class SubgoalSegmentSchema(SubgoalSchema):
     start_index: int = Field(..., title="The start index of the subgoal segment in the transcript")
     end_index: int = Field(..., title="The end index of the subgoal segment in the transcript")
 
+class AggregatedSubgoalSchema(SubgoalSchema):
+    original_subgoal_ids: list[int] = Field(..., title="The list of ids of original subgoals that are mapped to the aggregated subgoal.")
+
+class SubgoalsSchema(BaseModel):
+    subgoals: list[SubgoalSchema] = Field(..., title="The list of subgoals to achieve the task.")
+
 class SubgoalSegmentationSchema(BaseModel):
     segments: list[SubgoalSegmentSchema] = Field(..., title="The comprehensive list of subgoal-based segments in the video.")
+
+class AggregatedSubgoalsSchema(BaseModel):
+    subgoals: list[AggregatedSubgoalSchema] = Field(..., title="The list of aggregated subgoals with their original subgoals.")

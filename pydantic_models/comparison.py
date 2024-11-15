@@ -28,6 +28,13 @@ class AlignmentsPerAspectSchema(BaseModel):
     warnings: AlignmentsPerRelationSchema = Field(..., title="the new contents related to warnings presented in the tutorial that can help avoid mistakes when completing the subgoal.")
     other: AlignmentsPerRelationSchema = Field(..., title="the new contents related to other procedural aspects.")
 
+# class MappingSchema(BaseModel):
+#     tutorial_1_
+
+# class GeneralAlignmentSchema(BaseModel):
+#     new_contents: 
+
+
 def transform_alignments(response, vid1, vid2):
     alignments_1 = []
     alignments_2 = []
