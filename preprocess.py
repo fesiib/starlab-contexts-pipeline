@@ -147,11 +147,11 @@ def process_task(task_id):
 
     ds.process_videos()
     
-    # ds.generate_alignments()
+    ds.generate_alignments()
 
-    # ds.find_notables()
+    ds.find_notables()
 
-    # ds.generate_hooks()
+    ds.generate_hooks()
     return ds
 
 def parse_args(args):

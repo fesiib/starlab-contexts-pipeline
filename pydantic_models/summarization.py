@@ -58,13 +58,13 @@ class SubgoalSummarySchema(BaseModel):
 
 
 class ObjectSchema(BaseModel):
-    object_name: str = Field(..., title="The name of the object.")
+    name: str = Field(..., title="The name of the object.")
     caption: str = Field(..., title="The visual description of the object that starts with `A photo of a `.")
     description: str = Field(..., title="The detailed description of the object based on the narration.")
     content_ids: list[int] = Field(..., title="A list of narration ids that describe the object.")
 
 class StepSchema(BaseModel):
-    explanation: str = Field(..., title="The reasoning on why this step is considered a single action and split out from other steps.")
+    # explanation: str = Field(..., title="The reasoning on why this step is considered a single action and split out from other steps.")
     description: str = Field(..., title="The description of the step that specifies the single action to be performed, the tools used, and the materials required.")
     
     instructions: str = Field(..., title="The instructions presented in the tutorial for completing the step.")

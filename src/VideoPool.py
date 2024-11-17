@@ -95,239 +95,239 @@ class VideoPool:
                         })
                         subgoal["subgoal_id"] = new_subgoals[-1]["subgoal_id"]
                 self.subgoals = new_subgoals
-        # ### Extract useful information for each step
-        # for video in self.videos:
-        #     full_video_frame_paths = [frame["path"] for frame in video.frames.values()]
-        #     full_video_clip = ClipModel(full_video_frame_paths)
-        #     if video.subgoal_summaries == {}:
-        #         for subgoal_def in self.subgoals:
-        #             subgoal_frame_paths = []
-        #             ### Extract per steps
-        #             video_subgoals = []
-        #             for video_subgoal in video.subgoals:
-        #                 if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
-        #                     video_subgoals.append(video_subgoal)
-        #                     subgoal_frame_paths += [*video_subgoal["frame_paths"]]
-                    
-        #             if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
-        #                 print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
-        #                 continue
-
-        #             subgoal_clip = ClipModel(subgoal_frame_paths)
-
-        #             summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
-
-        #             if summary is None:
-        #                 print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
-        #                 continue
-                    
-        #             for parent_key in summary:
-        #                 for obj in summary[parent_key]:
-        #                     if "frame_paths" not in obj:
-        #                         continue
-        #                     texts = obj["frame_paths"]
-        #                     if parent_key == "outcomes":
-        #                         obj["frame_paths"] = subgoal_clip.find_similar_per_text(texts)
-        #                     else:
-        #                         obj["frame_paths"] = full_video_clip.find_similar_per_text(texts)
-        #             summary = {
-        #                 "title": subgoal_def["title"],
-        #                 **summary,
-        #             }
-        #             video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
-
-    def __process_videos_v4(self):
-        ### Extract steps per video
+        ### Extract useful information for each step
         for video in self.videos:
-            if len(video.steps) == 0:
-                video.steps = define_steps_v4(video.get_all_contents(), self.task)
-
-        ### Cluster steps ands define subgoals
-        if len(self.subgoals) == 0:
-            sequences = []
-            for video in self.videos:
-                sequences.append(video.steps)
-                
-            ## ASSUMPTION: as we go over all videos, the steps will get calibrated
-            agg_steps = []
-            for step in sequences[0]:
-                agg_steps.append({
-                    "step": step,
-                    "original_steps": [step],
-                })
-            for new_sequence in sequences[1:]:
-                old_sequence = []
-                for step in agg_steps:
-                    old_sequence.append(step["step"])
-                
-                agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
-                
-                new_agg_steps = []
-                for new_agg_step in agg_sequence:
-                    original_steps = new_agg_step["original_steps_2"]
+            full_video_frame_paths = [frame["path"] for frame in video.frames.values()]
+            full_video_clip = ClipModel(full_video_frame_paths)
+            if video.subgoal_summaries == {}:
+                for subgoal_def in self.subgoals:
+                    subgoal_frame_paths = []
+                    ### Extract per steps
+                    video_subgoals = []
+                    for video_subgoal in video.subgoals:
+                        if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
+                            video_subgoals.append(video_subgoal)
+                            subgoal_frame_paths += [*video_subgoal["frame_paths"]]
                     
-                    for old_step in new_agg_step["original_steps_1"]:
-                        for agg_step in agg_steps:
-                            if agg_step["step"] == old_step:
-                                original_steps += agg_step["original_steps"]
-                                break
-                    new_agg_steps.append({
-                        "step": new_agg_step["agg_step"],
-                        "original_steps": original_steps,
-                    })
-                agg_steps = new_agg_steps
-            ### TODO: Turn the sequence of aggregated steps into subgoals
-            subgoals = extract_subgoals_v4([s["step"] for s in agg_steps], self.task)
-            self.subgoals = []
-            for subgoal in subgoals:
-                original_steps = []
-                for step in subgoal["original_steps"]:
-                    for agg_step in agg_steps:
-                        if agg_step["step"] == step:
-                            original_steps.extend(agg_step["original_steps"])
-                            break
-
-                self.subgoals.append({
-                    "title": subgoal["title"],
-                    "description": subgoal["description"],
-                    "original_steps": original_steps,
-                })
-        
-        ### Segment each video based on the appropriate subgoals --> does not work too well...
-        for video in self.videos:
-            ## initial subgoals
-            if len(video.subgoals) == 0:
-                segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
-                print(json.dumps(segments, indent=2))
-                for index, subgoal in enumerate(segments):
-                    video.subgoals.append({
-                        "id": f"{video.video_id}-subgoal-{index}",
-                        "title": subgoal["title"],
-                        "start": subgoal["start"],
-                        "finish": subgoal["finish"],
-                        "text": subgoal["text"],
-                        "frame_paths": subgoal["frame_paths"],
-                        "content_ids": subgoal["content_ids"],
-                    })
-                ## re-segment based on the new subgoals
-                subgoal_assignment = [""] * len(video.subgoals)
-                for index, step in enumerate(video.subgoals):
-                    for subgoal in self.subgoals:
-                        if step["title"] in subgoal["original_steps"]:
-                            if subgoal_assignment[index] != "":
-                                print(f"Warning: {video.video_id} - {step['title']} is assigned to {subgoal_assignment[index]} and {subgoal['title']}")
-                            subgoal_assignment[index] = subgoal["title"]
-                new_video_subgoals = []
-                for index, step in enumerate(video.subgoals):
-                    if len(new_video_subgoals) > 0 and (new_video_subgoals[-1]["title"] == subgoal_assignment[index] or subgoal_assignment[index] == ""):
-                        new_video_subgoals[-1]["finish"] = step["finish"]
-                        new_video_subgoals[-1]["text"] += " " + step["text"]
-                        new_video_subgoals[-1]["frame_paths"] += step["frame_paths"]
-                        new_video_subgoals[-1]["content_ids"] += step["content_ids"]
-                        new_video_subgoals[-1]["original_steps"].append(step["title"])
-                    else:
-                        new_video_subgoals.append({
-                            "id": step["id"],
-                            "title": subgoal_assignment[index],
-                            "start": step["start"],
-                            "finish": step["finish"],
-                            "text": step["text"],
-                            "frame_paths": step["frame_paths"],
-                            "content_ids": step["content_ids"],
-                            "original_steps": [step["title"]],
-                        })
-                video.subgoals = new_video_subgoals
-
-            # ### extract useful information for each step
-            # TODO: remove this
-            # if len(video.subgoal_summaries) == 0:
-            video.subgoal_summaries = {}
-            
-            clip_model = ClipModel([frame["path"] for frame in video.frames.values()])
-
-            for subgoal in self.subgoals:
-                title = subgoal["title"]
-                ### Extract per steps
-                cur_steps = []
-                for video_subgoal in video.subgoals:
-                    if video_subgoal["title"] == title:
-                        for step in video_subgoal["original_steps"]:
-                            if step != "":
-                                cur_steps.append(step)
-                summary = get_step_summary_v4(video.get_all_contents(), title, cur_steps, self.task)
-
-                if summary is None:
-                    print(f"Warning: {video.video_id} has no subgoal {title}")
-                    continue
-
-                ## Extract per step & combine
-
-                ### Extract per subgoal
-                # subgoal_desc = title + ": " + subgoal["description"]
-                # if subgoal_desc == "":
-                #     continue
-                # summary = get_subgoal_summary_v4(video.get_all_contents(),
-                #     subgoal_desc, self.task)
-                
-                for parent_key in summary:
-                    for obj in summary[parent_key]:
-                        for key in obj:
-                            if not key.endswith("_content_ids"):
-                                continue
-                            new_content_ids = []
-                            for id in obj:
-                                new_content_ids.append(f"{video.video_id}-{id}")
-                            obj[key] = new_content_ids
-                for parent_key in summary:
-                    if parent_key not in ["outcomes", "materials", "tools"]:
+                    if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
+                        print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
                         continue
-                    if len(summary[parent_key]) > 0:
+
+                    subgoal_clip = ClipModel(subgoal_frame_paths)
+
+                    summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
+
+                    if summary is None:
+                        print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
+                        continue
+                    
+                    for parent_key in summary:
                         for obj in summary[parent_key]:
-                            obj["frame_paths"] = clip_model.find_similar_per_text([
-                                obj["caption"]
-                                ])
+                            if "frame_paths" not in obj:
+                                continue
+                            texts = obj["frame_paths"]
+                            if parent_key == "outcomes":
+                                obj["frame_paths"] = subgoal_clip.find_similar_per_text(texts)
+                            else:
+                                obj["frame_paths"] = full_video_clip.find_similar_per_text(texts)
+                    summary = {
+                        "title": subgoal_def["title"],
+                        **summary,
+                    }
+                    video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
+
+    # def __process_videos_v4(self):
+    #     ### Extract steps per video
+    #     for video in self.videos:
+    #         if len(video.steps) == 0:
+    #             video.steps = define_steps_v4(video.get_all_contents(), self.task)
+
+    #     ### Cluster steps ands define subgoals
+    #     if len(self.subgoals) == 0:
+    #         sequences = []
+    #         for video in self.videos:
+    #             sequences.append(video.steps)
                 
-                ### Check non-empty
-                cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
-                for obj in summary["steps"]:
-                    for key in cannot_be_empty:
-                        if key + "_content_ids" not in obj:
-                            continue
-                        if len(obj[key + "_content_ids"]) == 0:
-                            obj[key] = ""
-                summary = {
-                    "title": title,
-                    **summary,
-                }
+    #         ## ASSUMPTION: as we go over all videos, the steps will get calibrated
+    #         agg_steps = []
+    #         for step in sequences[0]:
+    #             agg_steps.append({
+    #                 "step": step,
+    #                 "original_steps": [step],
+    #             })
+    #         for new_sequence in sequences[1:]:
+    #             old_sequence = []
+    #             for step in agg_steps:
+    #                 old_sequence.append(step["step"])
+                
+    #             agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
+                
+    #             new_agg_steps = []
+    #             for new_agg_step in agg_sequence:
+    #                 original_steps = new_agg_step["original_steps_2"]
+                    
+    #                 for old_step in new_agg_step["original_steps_1"]:
+    #                     for agg_step in agg_steps:
+    #                         if agg_step["step"] == old_step:
+    #                             original_steps += agg_step["original_steps"]
+    #                             break
+    #                 new_agg_steps.append({
+    #                     "step": new_agg_step["agg_step"],
+    #                     "original_steps": original_steps,
+    #                 })
+    #             agg_steps = new_agg_steps
+    #         ### TODO: Turn the sequence of aggregated steps into subgoals
+    #         subgoals = extract_subgoals_v4([s["step"] for s in agg_steps], self.task)
+    #         self.subgoals = []
+    #         for subgoal in subgoals:
+    #             original_steps = []
+    #             for step in subgoal["original_steps"]:
+    #                 for agg_step in agg_steps:
+    #                     if agg_step["step"] == step:
+    #                         original_steps.extend(agg_step["original_steps"])
+    #                         break
 
-                ### OLD
-                # for key in summary:
-                #     if not key.endswith("_content_ids"):
-                #         continue
-                #     new_content_ids = []
-                #     for id in summary[key]:
-                #         new_content_ids.append(f"{video.video_id}-{id}")
-                #     summary[key] = new_content_ids
-                # summary = {
-                #     "title": title,
-                #     **summary,
-                #     "outcomes_frame_paths": [],
-                #     "materials_frame_paths": [],
-                #     "tools_frame_paths": [],
-                # }
-                # if len(summary["outcomes"]) > 0:
-                #     summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
-                # if len(summary["materials"]) > 0:
-                #     summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
-                # if len(summary["tools"]) > 0:
-                #     summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
+    #             self.subgoals.append({
+    #                 "title": subgoal["title"],
+    #                 "description": subgoal["description"],
+    #                 "original_steps": original_steps,
+    #             })
+        
+    #     ### Segment each video based on the appropriate subgoals --> does not work too well...
+    #     for video in self.videos:
+    #         ## initial subgoals
+    #         if len(video.subgoals) == 0:
+    #             segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
+    #             print(json.dumps(segments, indent=2))
+    #             for index, subgoal in enumerate(segments):
+    #                 video.subgoals.append({
+    #                     "id": f"{video.video_id}-subgoal-{index}",
+    #                     "title": subgoal["title"],
+    #                     "start": subgoal["start"],
+    #                     "finish": subgoal["finish"],
+    #                     "text": subgoal["text"],
+    #                     "frame_paths": subgoal["frame_paths"],
+    #                     "content_ids": subgoal["content_ids"],
+    #                 })
+    #             ## re-segment based on the new subgoals
+    #             subgoal_assignment = [""] * len(video.subgoals)
+    #             for index, step in enumerate(video.subgoals):
+    #                 for subgoal in self.subgoals:
+    #                     if step["title"] in subgoal["original_steps"]:
+    #                         if subgoal_assignment[index] != "":
+    #                             print(f"Warning: {video.video_id} - {step['title']} is assigned to {subgoal_assignment[index]} and {subgoal['title']}")
+    #                         subgoal_assignment[index] = subgoal["title"]
+    #             new_video_subgoals = []
+    #             for index, step in enumerate(video.subgoals):
+    #                 if len(new_video_subgoals) > 0 and (new_video_subgoals[-1]["title"] == subgoal_assignment[index] or subgoal_assignment[index] == ""):
+    #                     new_video_subgoals[-1]["finish"] = step["finish"]
+    #                     new_video_subgoals[-1]["text"] += " " + step["text"]
+    #                     new_video_subgoals[-1]["frame_paths"] += step["frame_paths"]
+    #                     new_video_subgoals[-1]["content_ids"] += step["content_ids"]
+    #                     new_video_subgoals[-1]["original_steps"].append(step["title"])
+    #                 else:
+    #                     new_video_subgoals.append({
+    #                         "id": step["id"],
+    #                         "title": subgoal_assignment[index],
+    #                         "start": step["start"],
+    #                         "finish": step["finish"],
+    #                         "text": step["text"],
+    #                         "frame_paths": step["frame_paths"],
+    #                         "content_ids": step["content_ids"],
+    #                         "original_steps": [step["title"]],
+    #                     })
+    #             video.subgoals = new_video_subgoals
 
-                # cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
-                # for key in cannot_be_empty:
-                #     if len(summary[key + "_content_ids"]) == 0:
-                #         summary[key] = ""
+    #         # ### extract useful information for each step
+    #         # TODO: remove this
+    #         # if len(video.subgoal_summaries) == 0:
+    #         video.subgoal_summaries = {}
+            
+    #         clip_model = ClipModel([frame["path"] for frame in video.frames.values()])
 
-                video.subgoal_summaries[title] = summary
+    #         for subgoal in self.subgoals:
+    #             title = subgoal["title"]
+    #             ### Extract per steps
+    #             cur_steps = []
+    #             for video_subgoal in video.subgoals:
+    #                 if video_subgoal["title"] == title:
+    #                     for step in video_subgoal["original_steps"]:
+    #                         if step != "":
+    #                             cur_steps.append(step)
+    #             summary = get_step_summary_v4(video.get_all_contents(), title, cur_steps, self.task)
+
+    #             if summary is None:
+    #                 print(f"Warning: {video.video_id} has no subgoal {title}")
+    #                 continue
+
+    #             ## Extract per step & combine
+
+    #             ### Extract per subgoal
+    #             # subgoal_desc = title + ": " + subgoal["description"]
+    #             # if subgoal_desc == "":
+    #             #     continue
+    #             # summary = get_subgoal_summary_v4(video.get_all_contents(),
+    #             #     subgoal_desc, self.task)
+                
+    #             for parent_key in summary:
+    #                 for obj in summary[parent_key]:
+    #                     for key in obj:
+    #                         if not key.endswith("_content_ids"):
+    #                             continue
+    #                         new_content_ids = []
+    #                         for id in obj:
+    #                             new_content_ids.append(f"{video.video_id}-{id}")
+    #                         obj[key] = new_content_ids
+    #             for parent_key in summary:
+    #                 if parent_key not in ["outcomes", "materials", "tools"]:
+    #                     continue
+    #                 if len(summary[parent_key]) > 0:
+    #                     for obj in summary[parent_key]:
+    #                         obj["frame_paths"] = clip_model.find_similar_per_text([
+    #                             obj["caption"]
+    #                             ])
+                
+    #             ### Check non-empty
+    #             cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
+    #             for obj in summary["steps"]:
+    #                 for key in cannot_be_empty:
+    #                     if key + "_content_ids" not in obj:
+    #                         continue
+    #                     if len(obj[key + "_content_ids"]) == 0:
+    #                         obj[key] = ""
+    #             summary = {
+    #                 "title": title,
+    #                 **summary,
+    #             }
+
+    #             ### OLD
+    #             # for key in summary:
+    #             #     if not key.endswith("_content_ids"):
+    #             #         continue
+    #             #     new_content_ids = []
+    #             #     for id in summary[key]:
+    #             #         new_content_ids.append(f"{video.video_id}-{id}")
+    #             #     summary[key] = new_content_ids
+    #             # summary = {
+    #             #     "title": title,
+    #             #     **summary,
+    #             #     "outcomes_frame_paths": [],
+    #             #     "materials_frame_paths": [],
+    #             #     "tools_frame_paths": [],
+    #             # }
+    #             # if len(summary["outcomes"]) > 0:
+    #             #     summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
+    #             # if len(summary["materials"]) > 0:
+    #             #     summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
+    #             # if len(summary["tools"]) > 0:
+    #             #     summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
+
+    #             # cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
+    #             # for key in cannot_be_empty:
+    #             #     if len(summary[key + "_content_ids"]) == 0:
+    #             #         summary[key] = ""
+
+    #             video.subgoal_summaries[title] = summary
 
     def __reformat_alignments_v2(self, alignments, video1, video2):
         for alignment in alignments:
@@ -360,14 +360,9 @@ class VideoPool:
                     continue
                 alignments_1 = []
                 alignments_2 = []
-                ### between subgoals
                 for subgoal_def in self.subgoals:
-                    ### compare input
-                    ### compare method
-                    ### compare output
-
-                    contents1 = video1.get_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
-                    contents2 = video2.get_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
+                    contents1 = video1.get_structured_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
+                    contents2 = video2.get_structured_subgoal_summary_multimodal_contents(subgoal_def["subgoal_id"])
                     if len(contents1) == 0 or len(contents2) == 0:
                         continue
                     subgoal_alignments_1, subgoal_alignments_2 = get_subgoal_alignments_v4(
@@ -760,303 +755,3 @@ class VideoPool:
                 continue
             if f"hooks_{baseline}" not in self.hooks:
                 self.hooks[f"hooks_{baseline}"] = self.__generate_hooks_v2(self.hooks[f"notables_{baseline}"])
-
-
-"""
-{
-    "title": "Prepare Egg Mixture",
-    "materials": [
-        {
-        "object_name": "Pecorino Romano cheese",
-        "caption": "A photo of a block of Pecorino Romano cheese.",
-        "description": "Pecorino Romano is a sheep's milk cheese, traditionally used in spaghetti carbonara. It is aged and has a strong, salty flavor.",
-        "content_ids": [
-            "dzyXBU3dIys-18"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/159.jpg"
-        ]
-        },
-        {
-        "object_name": "Parmigiano Reggiano cheese",
-        "caption": "A photo of a block of Parmigiano Reggiano cheese.",
-        "description": "Parmigiano Reggiano is a hard, granular cheese from Italy. It is not to be confused with Parmesan and is known for its rich, savory flavor.",
-        "content_ids": [
-            "dzyXBU3dIys-19",
-            "dzyXBU3dIys-20"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/159.jpg"
-        ]
-        },
-        {
-        "object_name": "Eggs",
-        "caption": "A photo of whole eggs and egg yolks in a bowl.",
-        "description": "The recipe uses a mixture of three whole eggs and two egg yolks to create a rich base for the carbonara sauce.",
-        "content_ids": [
-            "dzyXBU3dIys-26",
-            "dzyXBU3dIys-27",
-            "dzyXBU3dIys-28"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/143.jpg"
-        ]
-        },
-        {
-        "object_name": "Fresh ground black pepper",
-        "caption": "A photo of a pepper grinder labeled as 'Gilbert'.",
-        "description": "Fresh ground black pepper is used to season the egg and cheese mixture. The amount can be adjusted according to personal preference.",
-        "content_ids": [
-            "dzyXBU3dIys-36",
-            "dzyXBU3dIys-37",
-            "dzyXBU3dIys-39"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/175.jpg"
-        ]
-        }
-    ],
-    "tools": [
-        {
-        "object_name": "Cheese grater",
-        "caption": "A photo of a cheese grater with fine grating holes.",
-        "description": "A cheese grater is used to finely grate the Pecorino Romano and Parmigiano Reggiano cheeses for the sauce.",
-        "content_ids": [
-            "dzyXBU3dIys-21"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/145.jpg"
-        ]
-        },
-        {
-        "object_name": "Whisk",
-        "caption": "A photo of a whisk used for mixing ingredients.",
-        "description": "A whisk is used to combine the eggs, cheese, and pepper into a smooth mixture.",
-        "content_ids": [
-            "dzyXBU3dIys-30",
-            "dzyXBU3dIys-40"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/166.jpg"
-        ]
-        }
-    ],
-    "outcomes": [
-        {
-        "object_name": "Egg and cheese mixture",
-        "caption": "A photo of a bowl containing a smooth, creamy egg and cheese mixture.",
-        "description": "The egg and cheese mixture serves as the base for the carbonara sauce, which will coat the pasta.",
-        "content_ids": [
-            "dzyXBU3dIys-34"
-        ],
-        "frame_paths": [
-            "static/database/dzyXBU3dIys.mp4_frames/172.jpg"
-        ]
-        }
-    ],
-    "steps": [
-        {
-        "description": "Grate the Pecorino Romano and Parmigiano Reggiano cheeses finely using a cheese grater.",
-        "instructions": "Use a cheese grater to finely grate about three ounces each of Pecorino Romano and Parmigiano Reggiano cheeses.",
-        "instructions_content_ids": [
-            "dzyXBU3dIys-21",
-            "dzyXBU3dIys-22"
-        ],
-        "explanations": "Finely grated cheese will melt more easily into the egg mixture, creating a smooth sauce.",
-        "explanations_content_ids": [
-            "dzyXBU3dIys-21"
-        ],
-        "tips": "If you don't have a cheese grater, use the fine setting on a box grater.",
-        "tips_content_ids": [
-            "dzyXBU3dIys-21"
-        ],
-        "warnings": "",
-        "warnings_content_ids": []
-        },
-        {
-        "description": "Prepare the egg mixture by combining whole eggs and egg yolks.",
-        "instructions": "Crack three whole eggs and add two additional egg yolks into a bowl.",
-        "instructions_content_ids": [
-            "dzyXBU3dIys-28"
-        ],
-        "explanations": "Using a combination of whole eggs and yolks provides richness without making the sauce too heavy.",
-        "explanations_content_ids": [
-            "dzyXBU3dIys-29"
-        ],
-        "tips": "",
-        "tips_content_ids": [],
-        "warnings": "",
-        "warnings_content_ids": []
-        },
-        {
-        "description": "Whisk the eggs and gradually incorporate the grated cheese.",
-        "instructions": "Whisk the eggs until smooth, then gradually add the grated cheese while continuing to whisk.",
-        "instructions_content_ids": [
-            "dzyXBU3dIys-30",
-            "dzyXBU3dIys-33"
-        ],
-        "explanations": "Gradually adding the cheese helps it incorporate smoothly into the eggs, preventing clumps.",
-        "explanations_content_ids": [
-            "dzyXBU3dIys-31",
-            "dzyXBU3dIys-32"
-        ],
-        "tips": "",
-        "tips_content_ids": [],
-        "warnings": "",
-        "warnings_content_ids": []
-        },
-        {
-        "description": "Season the egg and cheese mixture with fresh ground black pepper.",
-        "instructions": "Add fresh ground black pepper to the egg and cheese mixture to taste, and whisk it in.",
-        "instructions_content_ids": [
-            "dzyXBU3dIys-36",
-            "dzyXBU3dIys-40"
-        ],
-        "explanations": "Black pepper adds flavor and a bit of heat to the sauce, balancing the richness of the cheese and eggs.",
-        "explanations_content_ids": [
-            "dzyXBU3dIys-39"
-        ],
-        "tips": "Adjust the amount of pepper according to your preference.",
-        "tips_content_ids": [
-            "dzyXBU3dIys-39"
-        ],
-        "warnings": "",
-        "warnings_content_ids": []
-        },
-        {
-        "description": "Loosen the egg mixture with a bit of hot pasta water.",
-        "instructions": "Add about a quarter cup of hot pasta water to the egg mixture and whisk quickly.",
-        "instructions_content_ids": [
-            "dzyXBU3dIys-44",
-            "dzyXBU3dIys-45",
-            "dzyXBU3dIys-47"
-        ],
-        "explanations": "Adding hot pasta water helps to equalize the temperature and loosen the mixture, making it easier to coat the pasta evenly.",
-        "explanations_content_ids": [
-            "dzyXBU3dIys-46"
-        ],
-        "tips": "",
-        "tips_content_ids": [],
-        "warnings": "",
-        "warnings_content_ids": []
-}
-
-{
-        "title": "Prepare Egg Mixture",
-        "materials": [
-          {
-            "object_name": "Egg yolks",
-            "caption": "A photo of egg yolks separated from the whites.",
-            "description": "Egg yolks are used as the base for the sauce in carbonara. They provide richness and help create a creamy texture when combined with cheese and pasta water.",
-            "content_ids": [
-              "75p4UHRIMcU-11",
-              "75p4UHRIMcU-29"
-            ],
-            "frame_paths": [
-              "static/database/75p4UHRIMcU.mp4_frames/54.jpg"
-            ]
-          },
-          {
-            "object_name": "Pecorino Romano cheese",
-            "caption": "A photo of grated Pecorino Romano cheese.",
-            "description": "Pecorino Romano is a hard, salty Italian cheese made from sheep's milk. It is grated and mixed with egg yolks to form the base of the carbonara sauce.",
-            "content_ids": [
-              "75p4UHRIMcU-17",
-              "75p4UHRIMcU-29"
-            ],
-            "frame_paths": [
-              "static/database/75p4UHRIMcU.mp4_frames/86.jpg"
-            ]
-          },
-          {
-            "object_name": "Black pepper",
-            "caption": "A photo of ground black pepper.",
-            "description": "Black pepper is used to season the egg and cheese mixture, adding a bit of spice and enhancing the overall flavor of the dish.",
-            "content_ids": [
-              "75p4UHRIMcU-30"
-            ],
-            "frame_paths": [
-              "static/database/75p4UHRIMcU.mp4_frames/74.jpg"
-            ]
-          }
-        ],
-        "tools": [
-          {
-            "object_name": "Grater",
-            "caption": "A photo of a cheese grater.",
-            "description": "A grater is used to shred the Pecorino Romano cheese into fine pieces that can easily be mixed with the egg yolks.",
-            "content_ids": [
-              "75p4UHRIMcU-28"
-            ],
-            "frame_paths": [
-              "static/database/75p4UHRIMcU.mp4_frames/72.jpg"
-            ]
-          }
-        ],
-        "outcomes": [
-          {
-            "object_name": "Egg and cheese mixture",
-            "caption": "A photo of a bowl containing a mixture of egg yolks, grated cheese, and pepper.",
-            "description": "The egg and cheese mixture serves as the base for the carbonara sauce. It is creamy and rich, ready to be combined with pasta and bacon to create the final dish.",
-            "content_ids": [
-              "75p4UHRIMcU-29",
-              "75p4UHRIMcU-30"
-            ],
-            "frame_paths": [
-              "static/database/75p4UHRIMcU.mp4_frames/100.jpg"
-            ]
-          }
-        ],
-        "steps": [
-          {
-            "description": "Separate the egg yolks from the whites and place them in a bowl.",
-            "instructions": "Use the classic hold the yolk with your thumb trick or the back and forth method to separate the yolks from the whites.",
-            "instructions_content_ids": [
-              "75p4UHRIMcU-13",
-              "75p4UHRIMcU-14"
-            ],
-            "explanations": "Egg yolks are used for their richness and ability to create a creamy sauce when combined with cheese and pasta water.",
-            "explanations_content_ids": [
-              "75p4UHRIMcU-11"
-            ],
-            "tips": "Make sure not to accidentally use egg whites, as they are not needed for the sauce.",
-            "tips_content_ids": [
-              "75p4UHRIMcU-12"
-            ],
-            "warnings": "",
-            "warnings_content_ids": []
-          },
-          {
-            "description": "Grate the Pecorino Romano cheese and add it to the egg yolks.",
-            "instructions": "Use a grater to shred the Pecorino Romano cheese and mix it into the egg yolks.",
-            "instructions_content_ids": [
-              "75p4UHRIMcU-28",
-              "75p4UHRIMcU-29"
-            ],
-            "explanations": "The cheese adds flavor and helps thicken the sauce when combined with the egg yolks.",
-            "explanations_content_ids": [
-              "75p4UHRIMcU-17"
-            ],
-            "tips": "If you want to shred your Pecorino more easily, you can use a drill with a screw, although this is not a traditional method.",
-            "tips_content_ids": [
-              "75p4UHRIMcU-21"
-            ],
-            "warnings": "",
-            "warnings_content_ids": []
-          },
-          {
-            "description": "Season the egg and cheese mixture with black pepper.",
-            "instructions": "Add a generous amount of black pepper to the mixture and stir to combine.",
-            "instructions_content_ids": [
-              "75p4UHRIMcU-30"
-            ],
-            "explanations": "Black pepper adds a bit of spice and enhances the overall flavor of the sauce.",
-            "explanations_content_ids": [
-              "75p4UHRIMcU-30"
-            ],
-            "tips": "",
-            "tips_content_ids": [],
-            "warnings": "",
-            "warnings_content_ids": []
-    }
-"""

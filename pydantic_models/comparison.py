@@ -25,8 +25,8 @@ class AlignmentsPerAspectSchema(BaseModel):
     instructions: AlignmentsPerRelationSchema = Field(..., title="the new contents related to instructions presented in the tutorial for completing the subgoal.")
     explanations: AlignmentsPerRelationSchema = Field(..., title="the new contents related to justifications and reasons presented in the tutorial for performing the steps/instructions for completing the subgoal.")
     tips: AlignmentsPerRelationSchema = Field(..., title="the new contents related to tips presented in the tutorial that can help in completing the subgoal easier, faster, or more efficiently.")
-    warnings: AlignmentsPerRelationSchema = Field(..., title="the new contents related to warnings presented in the tutorial that can help avoid mistakes when completing the subgoal.")
-    other: AlignmentsPerRelationSchema = Field(..., title="the new contents related to other procedural aspects.")
+    # warnings: AlignmentsPerRelationSchema = Field(..., title="the new contents related to warnings presented in the tutorial that can help avoid mistakes when completing the subgoal.")
+    # other: AlignmentsPerRelationSchema = Field(..., title="the new contents related to other procedural aspects.")
 
 # class MappingSchema(BaseModel):
 #     tutorial_1_

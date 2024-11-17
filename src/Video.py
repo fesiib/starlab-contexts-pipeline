@@ -197,6 +197,47 @@ class Video:
             })
         return contents
 
+    def get_structured_subgoal_summary_multimodal_contents(self, subgoal_id) -> list:
+        if subgoal_id not in self.subgoal_summaries:
+            return []
+        summary = self.subgoal_summaries[subgoal_id]
+        contents = []
+        for parent_k, items in summary.items():
+            if parent_k == "title" or parent_k == "frame_paths":
+                continue
+
+            text = ""
+            frame_paths = []
+
+            text += f"- {parent_k.capitalize()}: "
+
+            if len(items) == 0:
+                text += "None\n"
+                continue
+            text += "\n"
+
+            if parent_k == "steps":
+                for idx, item in enumerate(items):
+                    for k, v in item.items():
+                        if k.endswith("_content_ids"):
+                            continue
+                        if k == "description":
+                            text += f"\t- **Step {idx + 1}:** {v}\n"
+                        else:
+                            text += f"\t\t- {k.capitalize()}: {v}\n"
+            else:
+                for item in items:
+                    text += f"\t- **{item['name']}**: {item['description']}\n"
+                    frame_paths += [*item["frame_paths"]]
+
+            contents.append({
+                "id": f"{self.video_id}-subgoal-summary-{subgoal_id}-{parent_k}",
+                "title": summary["title"],
+                "text": text,
+                "frame_paths": frame_paths,
+            })
+        return contents
+
 
     def get_subgoal_contents(self, title, as_parent=False) -> list:
         contents = []
