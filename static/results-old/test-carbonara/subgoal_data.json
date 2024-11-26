@@ -1,0 +1,104 @@
+[
+  {
+    "subgoal_id": "segment-36cede33-0896-4d80-a804-1ff110d88f5b",
+    "title": "Preparation",
+    "description": "Collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. Ensure everything is within reach before starting.",
+    "original_subgoals": [
+      {
+        "id": "segment-36cede33-0896-4d80-a804-1ff110d88f5b",
+        "title": "Preparation",
+        "description": "Collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. Ensure everything is within reach before starting."
+      },
+      {
+        "id": "segment-19df136e-9166-4a6b-9dc1-1370978b6466",
+        "title": "Preparation",
+        "description": "Collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. Ensure everything is within reach before starting."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "segment-6539d75c-0bfa-42aa-a243-0a0fff6502f2",
+    "title": "Cooking Meat",
+    "description": "In a pan, cook pancetta or bacon over medium heat until crispy. Remove from heat and set aside, leaving the rendered fat in the pan.",
+    "original_subgoals": [
+      {
+        "id": "segment-6539d75c-0bfa-42aa-a243-0a0fff6502f2",
+        "title": "Cooking Meat",
+        "description": "In a pan, cook pancetta or bacon over medium heat until crispy. Remove from heat and set aside, leaving the rendered fat in the pan."
+      },
+      {
+        "id": "segment-438cd12d-618b-42fc-94a1-a5e7173a88f8",
+        "title": "Cooking Meat",
+        "description": "In a pan, cook pancetta or bacon over medium heat until crispy. Remove from heat and set aside, leaving the rendered fat in the pan."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "segment-decfd565-07fe-4d3a-ab08-7d1a88cca27d",
+    "title": "Cooking Pasta",
+    "description": "Boil water in a pot and add a pinch of salt. Cook the pasta according to package instructions until al dente. Reserve some pasta water before draining.",
+    "original_subgoals": [
+      {
+        "id": "segment-decfd565-07fe-4d3a-ab08-7d1a88cca27d",
+        "title": "Cooking Pasta",
+        "description": "Boil water in a pot and add a pinch of salt. Cook the pasta according to package instructions until al dente. Reserve some pasta water before draining."
+      },
+      {
+        "id": "segment-cb9f8c65-6345-411e-b74d-c2d31159645a",
+        "title": "Cooking Pasta",
+        "description": "Boil water in a pot and add a pinch of salt. Cook the pasta according to package instructions until al dente. Reserve some pasta water before draining."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "segment-84cebdd9-fc11-4132-b7bf-d3772af05ba3",
+    "title": "Making Sauce",
+    "description": "In a bowl, whisk together eggs and grated cheese until smooth. Season with black pepper. This mixture will form the sauce for the pasta.",
+    "original_subgoals": [
+      {
+        "id": "segment-84cebdd9-fc11-4132-b7bf-d3772af05ba3",
+        "title": "Making Sauce",
+        "description": "In a bowl, whisk together eggs and grated cheese until smooth. Season with black pepper. This mixture will form the sauce for the pasta."
+      },
+      {
+        "id": "segment-3c9395a1-f461-4303-ab09-f84374f5f3e7",
+        "title": "Making Sauce",
+        "description": "In a bowl, whisk together eggs and grated cheese until smooth. Season with black pepper. This mixture will form the sauce for the pasta."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "segment-cf2a0f25-b6a3-4773-8f6b-57a8aedceecc",
+    "title": "Combining Ingredients",
+    "description": "Add the cooked pasta to the pan with the rendered fat. Remove from heat and quickly mix in the egg and cheese mixture, stirring constantly to create a creamy sauce. Add reserved pasta water if needed to adjust consistency.",
+    "original_subgoals": [
+      {
+        "id": "segment-cf2a0f25-b6a3-4773-8f6b-57a8aedceecc",
+        "title": "Combining Ingredients",
+        "description": "Add the cooked pasta to the pan with the rendered fat. Remove from heat and quickly mix in the egg and cheese mixture, stirring constantly to create a creamy sauce. Add reserved pasta water if needed to adjust consistency."
+      },
+      {
+        "id": "segment-f38d6d77-a500-4586-9764-f100614f049a",
+        "title": "Combining Ingredients",
+        "description": "Add the cooked pasta to the pan with the rendered fat. Remove from heat and quickly mix in the egg and cheese mixture, stirring constantly to create a creamy sauce. Add reserved pasta water if needed to adjust consistency."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "segment-91bf3c05-0e0c-47da-8296-19dc7150df87",
+    "title": "Finishing Touches",
+    "description": "Season with additional black pepper and sprinkle more cheese on top if desired. Serve immediately for best taste and texture.",
+    "original_subgoals": [
+      {
+        "id": "segment-91bf3c05-0e0c-47da-8296-19dc7150df87",
+        "title": "Finishing Touches",
+        "description": "Season with additional black pepper and sprinkle more cheese on top if desired. Serve immediately for best taste and texture."
+      },
+      {
+        "id": "segment-fa9beb1f-dc8d-435c-958d-1f7c37317b4f",
+        "title": "Finishing Touches",
+        "description": "Season with additional black pepper and sprinkle more cheese on top if desired. Serve immediately for best taste and texture."
+      }
+    ]
+  }
+]

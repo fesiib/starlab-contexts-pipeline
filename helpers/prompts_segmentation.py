@@ -1,4 +1,6 @@
-from helpers import get_response_pydantic, extend_contents, random_uid
+from typing import Tuple
+
+from helpers import get_response_pydantic, get_response_pydantic_with_message, extend_contents, random_uid
 
 from pydantic_models.segmentation import StepsSchema, AggStepsSchema, TranscriptAssignmentsSchema, get_segmentation_schema_v4, AggSubgoalsSchema
 
@@ -120,9 +122,63 @@ def segment_video_v4(contents, steps, task):
             })
     return segments
 
+SYSTEM_PROMPT_DEFINE_STEPS_V4 = """
+You are helpful assistant specializing in analyzing how-to videos for procedural tasks.
+
+Extract step-by-step instructions from the tutorial video narration in the choronological order based on the template: `[Action] [Materials] with [Tools] to produce [Outcomes]`
+
+Extraction Rules:
+
+	1.	Identify the `Action` as the main verb describing how materials are being used or transformed.
+	2.	Identify the `Materials and Tools` as the list of `objects, entities, or their states` being acted upon or modified by the action. If the materials are not explicitly mentioned, try to imply the materials as much as possible. Make sure that each material is represented separately.
+	3.	Identify the `Tools` as the list of `objects, entities, or utilities` enabling the action. If the tools are not explicitly mentioned, try to imply the tools as much as possible. Make sure that each tool is represented separately.
+	4.	Identify the `Outcomes` as the list of `objects, entities, or their states` (similar to `Materials`) resulting in applying the action to the materials with the tools. If the outcomes are not explicitly mentioned, try to imply the outcomes as much as possible. Make sure that each outcome is represented separately.
+
+Use this framework to extract clear, actionable steps from the tutorial narration while maintaining logical consistency in the classification of actions, materials, tools, and outcomes.
+"""
+
+def __steps_compiler(steps: StepsSchema) -> Tuple[str, bool]:
+    compliation_output = ""
+    has_error = False
+    ### Check if there are dangling objects
+    appeared_objects = {}
+    is_outcome = {}
+    for step in steps:
+        index = step["index"]
+        for obj in step["inputs"]:
+            name = obj["name"]
+            last_step = obj["last_step"]
+            if name not in appeared_objects:
+                appeared_objects[name] = []
+            if last_step > 0:
+                if last_step not in appeared_objects[name]:
+                    compliation_output += f"ERROR: Object {name} did not appear in the step {last_step}, so `last_step` seems incorrect!\n"
+            else:
+                if len(appeared_objects[name]) > 0 and name in is_outcome:
+                    compliation_output += f"ERROR: Object {name} appeared as outcome in one of the step(s) {appeared_objects[name]}, so `last_step` must be fixed!\n"
+            appeared_objects[name].append(index)
+
+        for name in step["outcomes"]:
+            if name in appeared_objects:
+                compliation_output += f"ERROR: Object {name} appeared in steps {appeared_objects[name]}, but it is also outcome of the current step {index}! Since it is a new outcome, it should not have appeared before.\n"
+            if name not in appeared_objects:
+                appeared_objects[name] = []
+            appeared_objects[name].append(index)
+            is_outcome[name] = True
+    if len(compliation_output) > 0:
+        has_error = True
+    ### Used only once
+    for name, appeared_steps in appeared_objects.items():
+        if len(appeared_steps) == 1 and name in is_outcome:
+            compliation_output += f"WARNING: Object {name} appeared as outcome in step {appeared_steps[0]}, but was never used! If it is a final outcome of the tutorial skip this. Otherwise, find in which step it should have been used!\n"
+    return compliation_output, has_error
+
 def define_steps_v4(contents, task):
     messages = [
-        {"role": "system", "content": "You are a helpful assistant specializing in analyzing tutorial video content. Given a narration of a tutorial video for the task `{task}`, analyze it and generate a comprehensive list of steps presented in the video. Focus on the essence of the steps and avoid including unnecessary details. Ensure that the steps are clear, concise, and cover all the critical procedural information.".format(task=task)},
+        {
+            "role": "system",
+            "content": SYSTEM_PROMPT_DEFINE_STEPS_V4.format(task=task)
+        },
         {
             "role": "user",
             "content": [{
@@ -131,10 +187,39 @@ def define_steps_v4(contents, task):
             }] + extend_contents(contents),
         },
     ]
-    
-    response = get_response_pydantic(messages, StepsSchema)
-    steps = response["steps"]
+    total_tries = 0
+    only_warnings = False
+    steps = []
+    while total_tries < 5:
+        total_tries += 1
+        response, message = get_response_pydantic_with_message(messages, StepsSchema)
+        steps = response["steps"]
+        compliation_output, has_error = __steps_compiler(steps)
+        if not has_error:
+            if only_warnings or len(compliation_output) == 0:
+                break
+            only_warnings = True
+        messages.append({
+            "role": "assistant",
+            "content": message,
+        })
+        messages.append({
+            "role": "user",
+            "content": f"Please correct the following issues and try again:\n{compliation_output}."
+        })
+    if total_tries == 5:
+        print("!!!!!!Run out of tries!")
+    print(total_tries, __steps_compiler(steps))
+    ## flatten objects
+    def __flatten_objects(objs):
+        if not objs:
+            return []
+        return [obj["name"] for obj in objs]
+    for step in steps:
+        step["inputs"] = __flatten_objects(step["inputs"])
+        # step["outcomes"] = __flatten_objects(step["outcomes"])
     return steps
+
 
 def align_steps_v4(sequence1, sequence2, task):
     sequence1_str = "\n".join([f"{i}. {step}" for i, step in enumerate(sequence1)])
@@ -260,25 +345,17 @@ def define_initial_subgoals_v5(task):
 SYSTEM_PROMPT_EXTRACT_SUBGOAL_SEGMENTS_V5 = """
 You specialize in analyzing tutorials for procedural tasks.
 
-Given a narration of a tutorial video and a set of `subgoals` for the task `{task}`, segment the narration based on the given `subgoals`.
+Given a sequence of steps performed in a tutorial and a set of `subgoals` for the task `{task}`, segment the steps based on the given `subgoals`.
 
-Step 1: Analyze the narration and identify meaningful segments. There are 3 types of segments:
-    a) A segment that directly or roughly corresponds to one of the provided `subgoals`.
-    b) A segment that contains procedural information, but does not correspond to any of the provided `subgoals`.
-    c) A segment that does not contain procedural information. Usually, at the beginning or end of the video.
+Step 1: Analyze the steps and identify meaningful segments.
 
-Step 2-a: If a segment is of type (a), assign the corresponding `subgoal` to it and, if necessary, update the description of the `subgoal` so that it also covers the content of the segment.
-Step 2-b: If a segment is of type (b), define a new `subgoal` that follows these requirements:
-    a) Goal-Oriented: Represents an overarching objective or subtask that structures the process into meaningful phases.
-    b) Procedural: Describes a procedural objective that is essential for progressing in the task.
-    c) Generalizable: Accommodates variations in materials, tools, methods, and outcomes.
-Step 2-c: If a segment is of type (c), ignore it.
+Step 2: Assign each segment to one of the provided `subgoals`. If necessary, update the description of the `subgoal` so that it captures the essence of the segment as well (e.g., the intial definition of the `subgoal` and the objective of the current segment).
 
 Output the segmented narration based on the `subgoals`.
 """
 
 
-def extract_subgoal_segments_v5(contents, subgoals, task):
+def extract_subgoal_segments_v5(steps, subgoals, task):
     messages = [
         {   "role": "system",
             "content": SYSTEM_PROMPT_EXTRACT_SUBGOAL_SEGMENTS_V5.format(task=task),
@@ -294,61 +371,45 @@ def extract_subgoal_segments_v5(contents, subgoals, task):
             "role": "user",
             "content": [{
                 "type": "text",
-                "text": f"## Narration:\n"
-            }] + extend_contents(contents, include_ids=True),
+                "text": f"## Steps:\n"
+            }] + extend_contents(steps, include_ids=True),
         },
     ]
 
     response = get_response_pydantic(messages, SubgoalSegmentationSchema)
 
-    contents_coverage = [""] * len(contents)
+    steps_coverage = [""] * len(steps)
     response["segments"] = sorted(response["segments"], key=lambda x: x["start_index"])
 
     mapping = {
-        "": {
-            "title": "",
-            "description": ""
-        }
+        "": "",
     }
 
     for segment in response["segments"]:
         start = segment["start_index"]
         finish = segment["end_index"] + 1
-        id = f"segment-{random_uid()}"
-        mapping[id] = {
-            "title": segment["title"],
-            "description": segment["description"],
-        }
+        mapping[segment["title"]] = segment["description"]
         for i in range(start, finish):
-            if contents_coverage[i] != "":
-                prev_id = contents_coverage[i]                
-                print("Potential ERROR: Overlapping segments", mapping[prev_id], mapping[id])
-            contents_coverage[i] = id
+            if steps_coverage[i] != "":
+                prev_title = steps_coverage[i]                
+                print("Potential ERROR: Overlapping segments", prev_title, segment["title"])
+            steps_coverage[i] = segment["title"]
     segments = []
-    for index, content in enumerate(contents):
-        id = contents_coverage[index]
-        if len(segments) > 0 and segments[-1]["id"] == id:
+    for index, step in enumerate(steps):
+        title = steps_coverage[index]
+        if len(segments) > 0 and segments[-1]["title"] == title:
             ### Extend the current segment
-            segments[-1]["finish"] = content["finish"]
-            segments[-1]["text"] += " " + content["text"]
-            segments[-1]["frame_paths"] += [*content["frame_paths"]]
-            segments[-1]["content_ids"].append(content["id"])
+            segments[-1]["finish_index"] = index + 1
+            segments[-1]["text"] += "\n" + step["text"]
+            segments[-1]["frame_paths"] += [*step["frame_paths"]]
         else:
-            ### Start a new segment
-            if len(segments) > 0:
-                new_start = (content["start"] + segments[-1]["finish"]) / 2
-                segments[-1]["finish"] = new_start
-            else:
-                new_start = content["start"]
             segments.append({
-                "id": id,
-                "start": new_start,
-                "finish": content["finish"],
-                "title": mapping[id]["title"],
-                "description": mapping[id]["description"],
-                "text": content["text"],
-                "frame_paths": [*content["frame_paths"]],
-                "content_ids": [content["id"]],
+                "start_index": index,
+                "finish_index": index + 1,
+                "title": title,
+                "description": mapping[title],
+                "text": step["text"],
+                "frame_paths": [*step["frame_paths"]],
             })
     return segments
 

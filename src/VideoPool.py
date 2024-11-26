@@ -38,8 +38,8 @@ class VideoPool:
         return None
 
     def process_videos(self):
-        # self.__process_videos_v4()
-        self.__process_videos_v5()
+        self.__process_videos_v4()
+        # self.__process_videos_v5()
 
     def __process_videos_v5(self):
         ### Directly extract subgoals and segments. Do more explicit clustering
@@ -136,198 +136,208 @@ class VideoPool:
                     }
                     video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
 
-    # def __process_videos_v4(self):
-    #     ### Extract steps per video
-    #     for video in self.videos:
-    #         if len(video.steps) == 0:
-    #             video.steps = define_steps_v4(video.get_all_contents(), self.task)
+    def __process_videos_v4(self):
+        def __subgoal_to_text(subgoal):
+            return f"Title: {subgoal['title']}\nDescription: {subgoal['description']}"
 
-    #     ### Cluster steps ands define subgoals
-    #     if len(self.subgoals) == 0:
-    #         sequences = []
-    #         for video in self.videos:
-    #             sequences.append(video.steps)
+        ### Extract steps per video
+        for video in self.videos:
+            if len(video.steps) == 0:
+                video.steps = define_steps_v4(video.get_all_contents(), self.task)
+
+        ### Extract subgoals by clustering steps
+        if len(self.subgoals) == 0:
+            self.subgoals = define_initial_subgoals_v5(self.task)
+            for subgoal in self.subgoals:
+                subgoal["original_subgoals"] = [{
+                    "id": "default",
+                    "title": subgoal["title"],
+                    "description": subgoal["description"],
+                }]
+
+            ### Incrementally update subgoals and their definitions!
+            for video in self.videos:
+                subgoal_contents = [
+                    {
+                        "text": __subgoal_to_text(subgoal),
+                        "frame_paths": [],
+                    }
+                    for subgoal in self.subgoals
+                ]
+                step_contents = [
+                    {
+                        # "text": f"{step['index']}. {step['step']}",
+                        "text": step['step'],
+                        "frame_paths": [],
+                    }
+                    for step in video.steps
+                ]
+                video.subgoals = extract_subgoal_segments_v5(step_contents, subgoal_contents, self.task)
+                ### combine with the global subgoals
+                new_subgoals = [*self.subgoals]
+                for subgoal in video.subgoals:
+                    id = f"segment-{video.video_id}-{random_uid()}"
+                    subgoal["id"] = id
+                    if subgoal["title"] == "":
+                        continue
+                    is_new = True
+                    for new_subgoal in new_subgoals:
+                        if new_subgoal["title"] == subgoal["title"]:
+                            is_new = False
+                            new_subgoal["description"] = subgoal["description"]
+                            new_subgoal["original_subgoals"].append({
+                                "id": subgoal["id"],
+                                "title": subgoal["title"],
+                                "description": subgoal["description"],
+                            })
+                            break
+                    if is_new:
+                        new_subgoals.append({
+                            "title": subgoal["title"],
+                            "description": subgoal["description"],
+                            "original_subgoals": [{
+                                "id": subgoal["id"],
+                                "title": subgoal["title"],
+                                "description": subgoal["description"],
+                            }],
+                        })
+                self.subgoals = new_subgoals
+        # ### Cluster steps ands define subgoals
+        # if len(self.subgoals) == 0:
+        #     sequences = []
+        #     for video in self.videos:
+        #         sequences.append(video.steps)
                 
-    #         ## ASSUMPTION: as we go over all videos, the steps will get calibrated
-    #         agg_steps = []
-    #         for step in sequences[0]:
-    #             agg_steps.append({
-    #                 "step": step,
-    #                 "original_steps": [step],
-    #             })
-    #         for new_sequence in sequences[1:]:
-    #             old_sequence = []
-    #             for step in agg_steps:
-    #                 old_sequence.append(step["step"])
+        #     ## ASSUMPTION: as we go over all videos, the steps will get calibrated
+        #     agg_steps = []
+        #     for step in sequences[0]:
+        #         agg_steps.append({
+        #             "step": step,
+        #             "original_steps": [step],
+        #         })
+        #     for new_sequence in sequences[1:]:
+        #         old_sequence = []
+        #         for step in agg_steps:
+        #             old_sequence.append(step["step"])
                 
-    #             agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
+        #         agg_sequence = align_steps_v4(old_sequence, new_sequence, self.task)
                 
-    #             new_agg_steps = []
-    #             for new_agg_step in agg_sequence:
-    #                 original_steps = new_agg_step["original_steps_2"]
+        #         new_agg_steps = []
+        #         for new_agg_step in agg_sequence:
+        #             original_steps = new_agg_step["original_steps_2"]
                     
-    #                 for old_step in new_agg_step["original_steps_1"]:
-    #                     for agg_step in agg_steps:
-    #                         if agg_step["step"] == old_step:
-    #                             original_steps += agg_step["original_steps"]
-    #                             break
-    #                 new_agg_steps.append({
-    #                     "step": new_agg_step["agg_step"],
-    #                     "original_steps": original_steps,
-    #                 })
-    #             agg_steps = new_agg_steps
-    #         ### TODO: Turn the sequence of aggregated steps into subgoals
-    #         subgoals = extract_subgoals_v4([s["step"] for s in agg_steps], self.task)
-    #         self.subgoals = []
-    #         for subgoal in subgoals:
-    #             original_steps = []
-    #             for step in subgoal["original_steps"]:
-    #                 for agg_step in agg_steps:
-    #                     if agg_step["step"] == step:
-    #                         original_steps.extend(agg_step["original_steps"])
-    #                         break
+        #             for old_step in new_agg_step["original_steps_1"]:
+        #                 for agg_step in agg_steps:
+        #                     if agg_step["step"] == old_step:
+        #                         original_steps += agg_step["original_steps"]
+        #                         break
+        #             new_agg_steps.append({
+        #                 "step": new_agg_step["agg_step"],
+        #                 "original_steps": original_steps,
+        #             })
+        #         agg_steps = new_agg_steps
+        #     ### TODO: Turn the sequence of aggregated steps into subgoals
+        #     subgoals = extract_subgoals_v4([s["step"] for s in agg_steps], self.task)
+        #     self.subgoals = []
+        #     for subgoal in subgoals:
+        #         original_steps = []
+        #         for step in subgoal["original_steps"]:
+        #             for agg_step in agg_steps:
+        #                 if agg_step["step"] == step:
+        #                     original_steps.extend(agg_step["original_steps"])
+        #                     break
 
-    #             self.subgoals.append({
-    #                 "title": subgoal["title"],
-    #                 "description": subgoal["description"],
-    #                 "original_steps": original_steps,
-    #             })
+        #         self.subgoals.append({
+        #             "title": subgoal["title"],
+        #             "description": subgoal["description"],
+        #             "original_steps": original_steps,
+        #         })
         
-    #     ### Segment each video based on the appropriate subgoals --> does not work too well...
-    #     for video in self.videos:
-    #         ## initial subgoals
-    #         if len(video.subgoals) == 0:
-    #             segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
-    #             print(json.dumps(segments, indent=2))
-    #             for index, subgoal in enumerate(segments):
-    #                 video.subgoals.append({
-    #                     "id": f"{video.video_id}-subgoal-{index}",
-    #                     "title": subgoal["title"],
-    #                     "start": subgoal["start"],
-    #                     "finish": subgoal["finish"],
-    #                     "text": subgoal["text"],
-    #                     "frame_paths": subgoal["frame_paths"],
-    #                     "content_ids": subgoal["content_ids"],
-    #                 })
-    #             ## re-segment based on the new subgoals
-    #             subgoal_assignment = [""] * len(video.subgoals)
-    #             for index, step in enumerate(video.subgoals):
-    #                 for subgoal in self.subgoals:
-    #                     if step["title"] in subgoal["original_steps"]:
-    #                         if subgoal_assignment[index] != "":
-    #                             print(f"Warning: {video.video_id} - {step['title']} is assigned to {subgoal_assignment[index]} and {subgoal['title']}")
-    #                         subgoal_assignment[index] = subgoal["title"]
-    #             new_video_subgoals = []
-    #             for index, step in enumerate(video.subgoals):
-    #                 if len(new_video_subgoals) > 0 and (new_video_subgoals[-1]["title"] == subgoal_assignment[index] or subgoal_assignment[index] == ""):
-    #                     new_video_subgoals[-1]["finish"] = step["finish"]
-    #                     new_video_subgoals[-1]["text"] += " " + step["text"]
-    #                     new_video_subgoals[-1]["frame_paths"] += step["frame_paths"]
-    #                     new_video_subgoals[-1]["content_ids"] += step["content_ids"]
-    #                     new_video_subgoals[-1]["original_steps"].append(step["title"])
-    #                 else:
-    #                     new_video_subgoals.append({
-    #                         "id": step["id"],
-    #                         "title": subgoal_assignment[index],
-    #                         "start": step["start"],
-    #                         "finish": step["finish"],
-    #                         "text": step["text"],
-    #                         "frame_paths": step["frame_paths"],
-    #                         "content_ids": step["content_ids"],
-    #                         "original_steps": [step["title"]],
-    #                     })
-    #             video.subgoals = new_video_subgoals
+        # ### Segment each video based on the appropriate subgoals --> does not work too well...
+        # for video in self.videos:
+        #     ## initial subgoals
+        #     if len(video.subgoals) == 0:
+        #         segments = segment_video_v4(video.get_all_contents(), video.steps, self.task)
 
-    #         # ### extract useful information for each step
-    #         # TODO: remove this
-    #         # if len(video.subgoal_summaries) == 0:
-    #         video.subgoal_summaries = {}
+        #         video_segments = []
+        #         for index, segment in enumerate(segments):
+        #             video_segments.append({
+        #                 "id": f"{video.video_id}-subgoal-{index}",
+        #                 "title": segment["title"],
+        #                 "start": segment["start"],
+        #                 "finish": segment["finish"],
+        #                 "text": segment["text"],
+        #                 "frame_paths": segment["frame_paths"],
+        #                 "content_ids": segment["content_ids"],
+        #             })
+        #         ## re-segment based on the new subgoals
+        #         subgoal_assignment = [""] * len(video_segments)
+        #         for index, segment in enumerate(video_segments):
+        #             for subgoal in self.subgoals:
+        #                 if segment["title"] in subgoal["original_steps"]:
+        #                     if subgoal_assignment[index] != "":
+        #                         print(f"Warning: {video.video_id} - {segment['title']} is assigned to {subgoal_assignment[index]} and {subgoal['title']}")
+        #                     subgoal_assignment[index] = subgoal["title"]
+        #         video_subgoals = []
+        #         for index, segment in enumerate(video_segments):
+        #             if len(video_subgoals) > 0 and (video_subgoals[-1]["title"] == subgoal_assignment[index] or subgoal_assignment[index] == ""):
+        #                 video_subgoals[-1]["finish"] = segment["finish"]
+        #                 video_subgoals[-1]["text"] += " " + segment["text"]
+        #                 video_subgoals[-1]["frame_paths"] += segment["frame_paths"]
+        #                 video_subgoals[-1]["content_ids"] += segment["content_ids"]
+        #                 video_subgoals[-1]["original_steps"].append(segment["title"])
+        #             else:
+        #                 video_subgoals.append({
+        #                     "id": segment["id"],
+        #                     "title": subgoal_assignment[index],
+        #                     "start": segment["start"],
+        #                     "finish": segment["finish"],
+        #                     "text": segment["text"],
+        #                     "frame_paths": segment["frame_paths"],
+        #                     "content_ids": segment["content_ids"],
+        #                     "original_steps": [segment["title"]],
+        #                 })
+        #         video.subgoals = video_subgoals
             
-    #         clip_model = ClipModel([frame["path"] for frame in video.frames.values()])
+        #     full_video_frame_paths = [frame["path"] for frame in video.frames.values()]
+        #     full_video_clip = ClipModel(full_video_frame_paths)
+            
+        #     if video.subgoal_summaries == {}:
+        #         for subgoal_def in self.subgoals:
+        #             subgoal_frame_paths = []
+        #             ### Extract per steps
+        #             video_subgoals = []
+        #             for video_subgoal in video.subgoals:
+        #                 if video_subgoal["subgoal_id"] == subgoal_def["subgoal_id"]:
+        #                     video_subgoals.append(video_subgoal)
+        #                     subgoal_frame_paths += [*video_subgoal["frame_paths"]]
+                    
+        #             if len(video_subgoals) == 0 or len(subgoal_frame_paths) == 0:
+        #                 print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
+        #                 continue
 
-    #         for subgoal in self.subgoals:
-    #             title = subgoal["title"]
-    #             ### Extract per steps
-    #             cur_steps = []
-    #             for video_subgoal in video.subgoals:
-    #                 if video_subgoal["title"] == title:
-    #                     for step in video_subgoal["original_steps"]:
-    #                         if step != "":
-    #                             cur_steps.append(step)
-    #             summary = get_step_summary_v4(video.get_all_contents(), title, cur_steps, self.task)
+        #             subgoal_clip = ClipModel(subgoal_frame_paths)
 
-    #             if summary is None:
-    #                 print(f"Warning: {video.video_id} has no subgoal {title}")
-    #                 continue
+        #             summary = get_subgoal_summary_v4(video.get_all_contents(), __subgoal_to_text(subgoal_def), self.task)
 
-    #             ## Extract per step & combine
-
-    #             ### Extract per subgoal
-    #             # subgoal_desc = title + ": " + subgoal["description"]
-    #             # if subgoal_desc == "":
-    #             #     continue
-    #             # summary = get_subgoal_summary_v4(video.get_all_contents(),
-    #             #     subgoal_desc, self.task)
-                
-    #             for parent_key in summary:
-    #                 for obj in summary[parent_key]:
-    #                     for key in obj:
-    #                         if not key.endswith("_content_ids"):
-    #                             continue
-    #                         new_content_ids = []
-    #                         for id in obj:
-    #                             new_content_ids.append(f"{video.video_id}-{id}")
-    #                         obj[key] = new_content_ids
-    #             for parent_key in summary:
-    #                 if parent_key not in ["outcomes", "materials", "tools"]:
-    #                     continue
-    #                 if len(summary[parent_key]) > 0:
-    #                     for obj in summary[parent_key]:
-    #                         obj["frame_paths"] = clip_model.find_similar_per_text([
-    #                             obj["caption"]
-    #                             ])
-                
-    #             ### Check non-empty
-    #             cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
-    #             for obj in summary["steps"]:
-    #                 for key in cannot_be_empty:
-    #                     if key + "_content_ids" not in obj:
-    #                         continue
-    #                     if len(obj[key + "_content_ids"]) == 0:
-    #                         obj[key] = ""
-    #             summary = {
-    #                 "title": title,
-    #                 **summary,
-    #             }
-
-    #             ### OLD
-    #             # for key in summary:
-    #             #     if not key.endswith("_content_ids"):
-    #             #         continue
-    #             #     new_content_ids = []
-    #             #     for id in summary[key]:
-    #             #         new_content_ids.append(f"{video.video_id}-{id}")
-    #             #     summary[key] = new_content_ids
-    #             # summary = {
-    #             #     "title": title,
-    #             #     **summary,
-    #             #     "outcomes_frame_paths": [],
-    #             #     "materials_frame_paths": [],
-    #             #     "tools_frame_paths": [],
-    #             # }
-    #             # if len(summary["outcomes"]) > 0:
-    #             #     summary["outcomes_frame_paths"] = clip_similar_per_text([*summary["outcomes"]], summary["frame_paths"])
-    #             # if len(summary["materials"]) > 0:
-    #             #     summary["materials_frame_paths"] = clip_similar_per_text([*summary["materials"]], summary["frame_paths"])
-    #             # if len(summary["tools"]) > 0:
-    #             #     summary["tools_frame_paths"] = clip_similar_per_text([*summary["tools"]], summary["frame_paths"])
-
-    #             # cannot_be_empty = ["instructions", "explanations", "tips", "warnings"]
-    #             # for key in cannot_be_empty:
-    #             #     if len(summary[key + "_content_ids"]) == 0:
-    #             #         summary[key] = ""
-
-    #             video.subgoal_summaries[title] = summary
+        #             if summary is None:
+        #                 print(f"Warning: {video.video_id} has no subgoal {subgoal_def['title']}")
+        #                 continue
+                    
+        #             for parent_key in summary:
+        #                 for obj in summary[parent_key]:
+        #                     if "frame_paths" not in obj:
+        #                         continue
+        #                     texts = obj["frame_paths"]
+        #                     if parent_key == "outcomes":
+        #                         obj["frame_paths"] = subgoal_clip.find_similar_per_text(texts)
+        #                     else:
+        #                         obj["frame_paths"] = full_video_clip.find_similar_per_text(texts)
+        #             summary = {
+        #                 "title": subgoal_def["title"],
+        #                 **summary,
+        #             }
+        #             video.subgoal_summaries[subgoal_def["subgoal_id"]] = summary
 
     def __reformat_alignments_v2(self, alignments, video1, video2):
         for alignment in alignments:

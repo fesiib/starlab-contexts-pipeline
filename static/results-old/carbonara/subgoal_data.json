@@ -1,0 +1,239 @@
+[
+  {
+    "explanation": "Gathering all necessary ingredients and tools ensures that the cooking process is smooth and uninterrupted.",
+    "title": "Preparation",
+    "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon and preparing cheese and eggs.",
+    "subgoal_id": "subgoal-9fc7f703-939f-458d-bf7d-705b90f26165",
+    "original_subgoals": [
+      {
+        "id": "segment-e693f73d-0eb2-4543-882f-57569ed90577",
+        "title": "Preparation",
+        "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon."
+      },
+      {
+        "id": "segment-14253dcd-97ee-4873-9760-546f383a2427",
+        "title": "Preparation",
+        "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon."
+      },
+      {
+        "id": "segment-b39959c7-776c-4065-81a8-51125bbf060e",
+        "title": "Preparation",
+        "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon."
+      },
+      {
+        "id": "segment-5282b59d-0ff4-457b-a910-4b0986670e5a",
+        "title": "Preparation",
+        "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon."
+      },
+      {
+        "id": "segment-dae3a749-dad6-48e3-a60e-edc707db29d3",
+        "title": "Preparation",
+        "description": "Identify and collect all necessary ingredients such as pasta, eggs, cheese, pancetta or bacon, and black pepper. Gather tools like a pot, pan, whisk, and grater. This step involves ensuring all materials are ready and accessible before starting the cooking process. It also includes initial preparation steps like chopping bacon and preparing cheese and eggs."
+      }
+    ]
+  },
+  {
+    "explanation": "Cooking the pasta correctly is crucial as it forms the base of the dish.",
+    "title": "Cook Pasta",
+    "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking.",
+    "subgoal_id": "subgoal-e2852941-da9c-466d-b726-5da84023828a",
+    "original_subgoals": [
+      {
+        "id": "segment-8b70f4b5-a46b-40c5-bfed-79fef553b9bd",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      },
+      {
+        "id": "segment-171a57ce-e7c1-42ef-877e-3efd7940ffca",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      },
+      {
+        "id": "segment-e111d8c7-ec98-45a2-bc81-e75cf949b1e7",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      },
+      {
+        "id": "segment-a9698cd3-753b-4024-bbb2-5d692dfdb343",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      },
+      {
+        "id": "segment-d82a017f-524a-4e45-b49b-88c7b071fe0e",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      },
+      {
+        "id": "segment-9084e05f-a4cc-4168-ae7d-74481bcf2c5e",
+        "title": "Cook Pasta",
+        "description": "Boil water in a pot and cook the pasta according to package instructions until al dente. This step includes draining the pasta and reserving some pasta water for later use. It also involves stirring the pasta initially to prevent sticking."
+      }
+    ]
+  },
+  {
+    "explanation": "Cooking the pancetta or bacon adds flavor and texture to the dish.",
+    "title": "Cook Meat",
+    "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce.",
+    "subgoal_id": "subgoal-545332ba-ae5e-4b29-988d-38c98ad02f73",
+    "original_subgoals": [
+      {
+        "id": "segment-091ed816-a577-4eda-9f84-3e9e32195858",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      },
+      {
+        "id": "segment-2ce40b63-dda7-4b05-8087-3d7c8814cae7",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      },
+      {
+        "id": "segment-f4eca183-0a85-4bec-86f7-a8ebadf81253",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      },
+      {
+        "id": "segment-c9d04706-9767-4691-9986-8f17f9b78dc7",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      },
+      {
+        "id": "segment-86af7f12-5f67-43ac-b940-bb9b623dd270",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      },
+      {
+        "id": "segment-a5b859d7-920e-4ff3-8fa1-a4da2cd70081",
+        "title": "Cook Meat",
+        "description": "In a pan, cook the pancetta or bacon until crispy. This step involves rendering the fat and ensuring the meat is cooked to the desired texture. It includes turning off the heat and letting it cool to avoid overcooking the sauce."
+      }
+    ]
+  },
+  {
+    "explanation": "Creating the sauce is essential for the creamy texture of Carbonara.",
+    "title": "Make Sauce",
+    "description": "Whisk together eggs and cheese in a bowl to create a creamy sauce. This step involves ensuring the mixture is smooth and well combined. It includes grating cheese and mixing it with egg yolks.",
+    "subgoal_id": "subgoal-0afc9b0d-bcd5-45c3-bb1e-ea777962f35c",
+    "original_subgoals": [
+      {
+        "id": "segment-d7559d61-c2c1-4a57-be60-71a6b6ace822",
+        "title": "Make Sauce",
+        "description": "Whisk together eggs and cheese in a bowl to create a creamy sauce. This step involves ensuring the mixture is smooth and well combined. It includes grating cheese and mixing it with egg yolks."
+      },
+      {
+        "id": "segment-3ce0f390-3c25-461a-ae72-27af58883305",
+        "title": "Make Sauce",
+        "description": "Whisk together eggs and cheese in a bowl to create a creamy sauce. This step involves ensuring the mixture is smooth and well combined. It includes grating cheese and mixing it with egg yolks."
+      },
+      {
+        "id": "segment-8c7a1abd-a369-4e99-932e-7c239c3320aa",
+        "title": "Make Sauce",
+        "description": "Whisk together eggs and cheese in a bowl to create a creamy sauce. This step involves ensuring the mixture is smooth and well combined. It includes grating cheese and mixing it with egg yolks."
+      },
+      {
+        "id": "segment-1b5253fd-0d39-40d3-ae1a-bc2c6a62a405",
+        "title": "Make Sauce",
+        "description": "Whisk together eggs and cheese in a bowl to create a creamy sauce. This step involves ensuring the mixture is smooth and well combined. It includes grating cheese and mixing it with egg yolks."
+      }
+    ]
+  },
+  {
+    "explanation": "Combining all elements ensures the flavors meld together properly.",
+    "title": "Combine Ingredients",
+    "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon.",
+    "subgoal_id": "subgoal-ad5bcfc4-8392-41b3-b02b-931dcda8a197",
+    "original_subgoals": [
+      {
+        "id": "segment-61aee751-7ec0-4df0-a882-b8894b559504",
+        "title": "Combine Ingredients",
+        "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon."
+      },
+      {
+        "id": "segment-71f1e0a5-9128-4c6a-8717-c31030a478a3",
+        "title": "Combine Ingredients",
+        "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon."
+      },
+      {
+        "id": "segment-b3716113-bf81-4f0a-b371-d865a6745a4e",
+        "title": "Combine Ingredients",
+        "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon."
+      },
+      {
+        "id": "segment-58b2bfcb-8a45-44ec-ab4c-cf369b6db4b4",
+        "title": "Combine Ingredients",
+        "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon."
+      },
+      {
+        "id": "segment-9ef7af7d-d5bc-466e-a1d9-3816221570ac",
+        "title": "Combine Ingredients",
+        "description": "Mix the cooked pasta with the pancetta or bacon, and then add the egg and cheese mixture. This step involves tossing everything together while adding reserved pasta water as needed to achieve a creamy consistency. It includes adding pasta water to the sauce and mixing it with the pasta and bacon."
+      }
+    ]
+  },
+  {
+    "explanation": "Finishing touches enhance the flavor and presentation of the dish.",
+    "title": "Finish Dish",
+    "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches.",
+    "subgoal_id": "subgoal-6c44eb5e-f99e-4f98-994f-9fe4981043b4",
+    "original_subgoals": [
+      {
+        "id": "segment-82fc332c-b965-433b-be8e-719ed568b3b6",
+        "title": "Finish Dish",
+        "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches."
+      },
+      {
+        "id": "segment-48b4994b-1f0d-4f39-80c6-74b86db075c1",
+        "title": "Finish Dish",
+        "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches."
+      },
+      {
+        "id": "segment-6bd7534f-15da-4c27-9bc2-627fe1168754",
+        "title": "Finish Dish",
+        "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches."
+      },
+      {
+        "id": "segment-042b4c5d-222b-46c1-ba55-87a54258bda0",
+        "title": "Finish Dish",
+        "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches."
+      },
+      {
+        "id": "segment-4927c3f0-9f50-4476-9b9e-43e132d3efb2",
+        "title": "Finish Dish",
+        "description": "Season with black pepper and additional cheese if desired. This step involves tasting and adjusting the seasoning before serving the dish. It includes adding pepper and cheese as final touches."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "subgoal-ab3e6f2e-ec31-4a37-894e-3f22253ae407",
+    "title": "Prepare Pasta Water",
+    "description": "Boil water in a pot and season it with salt. This step involves preparing the water for cooking pasta, ensuring it is adequately salted to enhance the pasta's flavor.",
+    "original_subgoals": [
+      {
+        "id": "segment-f18411c0-e548-4a37-a3da-c02851051590",
+        "title": "Prepare Pasta Water",
+        "description": "Boil water in a pot and season it with salt. This step involves preparing the water for cooking pasta, ensuring it is adequately salted to enhance the pasta's flavor."
+      },
+      {
+        "id": "segment-d459ace8-617a-4655-a765-4e5e3dba4c6c",
+        "title": "Prepare Pasta Water",
+        "description": "Boil water in a pot and season it with salt. This step involves preparing the water for cooking pasta, ensuring it is adequately salted to enhance the pasta's flavor."
+      },
+      {
+        "id": "segment-3a2f6cfe-c30e-4bbb-9973-1d72273f6ebe",
+        "title": "Prepare Pasta Water",
+        "description": "Boil water in a pot and season it with salt. This step involves preparing the water for cooking pasta, ensuring it is adequately salted to enhance the pasta's flavor."
+      }
+    ]
+  },
+  {
+    "subgoal_id": "subgoal-b08d7633-8f0c-4e22-b97b-4589fc36093b",
+    "title": "Prepare Pepper",
+    "description": "Toast and grind black peppercorns to enhance their flavor. This step involves heating peppercorns until fragrant and then crushing them to the desired texture.",
+    "original_subgoals": [
+      {
+        "id": "segment-4b92ec8d-1534-4b74-8003-bb430f474a80",
+        "title": "Prepare Pepper",
+        "description": "Toast and grind black peppercorns to enhance their flavor. This step involves heating peppercorns until fragrant and then crushing them to the desired texture."
+      }
+    ]
+  }
+]

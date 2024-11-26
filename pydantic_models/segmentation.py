@@ -9,8 +9,36 @@ class TranscriptMappingSchema(BaseModel):
 class TranscriptAssignmentsSchema(BaseModel):
     assignments: list[TranscriptMappingSchema] = Field(..., title="The mapping of sentences in the narration to steps.")
 
+class StepInformationSchema(BaseModel):
+    informationType: Literal["instruction", "explanation", "tip", "note"] = Field(..., title="The type of the information. It can be instruction (i.e., procedural information that guides the user to perform the step), explanation (i.e., the justifications and reasons presented in the tutorial for performing the step), tip (i.e., the tips presented in the tutorial that can help in performing the step(s) easier, faster, or more efficiently), note (i.e., the additional useful information that is relevant to the step).")
+    information: str = Field(..., title="The information about the step that is extracted from the video narration.")
+    reference: list[int] = Field(..., title="The list of indices of sentences in the narration that the information is extracted from.")
+
+class ObjectSchema(BaseModel):
+    last_step: int = Field(..., title="The index of the last step where the object, entity, or its state appeared as either input or output. If the object is not mentioned in any of the previous steps at all, the value should be 0.")
+    name: str = Field(..., title="The name (if applicable state) of the material or tool.")
+
+class StepSchema(BaseModel):
+    """
+    - `Actions`: A single verb describing how the materials are modified or acted upon.
+	- `Materials`: Objects (physical or digital) that are being modified or processed in the current step. Examples include states of physical/digital objects, elements, ingredients, or components.
+	- `Tools`: Objects (physical or digital) or methods used to enable or perform the action on the materials. Examples include software features, physical instruments, or other utilities.
+	- `Outcomes`: Objects (physical or digital) that result from the action. Outcomes from one step often become the materials for the next step, unless they are final outcomes.
+    """
+    step: str = Field(..., title="The step that is extracted from the video following the format: [Action] [Materials] with [Tools] to produce [Outcomes].")
+    index: int = Field(..., title="The index of the step in the tutorial. Starts from 1.")
+    action: str = Field(..., title="A single verb describing how the materials are modified or acted upon.")
+    inputs: list[ObjectSchema] = Field(..., title="Materials or tools (in particular state) that are being used in the current step. Split materials and tools one-by-one, so that each element of the list describes a single material or tool.")
+    outcomes: list[str] = Field(..., title="Similar to `materials`, results of the action being applied on materials with tools. Split outcomes one-by-one, so that each element of the list describes a single outcome.")
+
+class StepWithInformationSchema(StepSchema):
+    information: list[StepInformationSchema] = Field(..., title="The comprehensive list of information about the step found in the video narration. ")
+
 class StepsSchema(BaseModel):
-    steps: list[str] = Field(..., title="A comprehensive list of steps to achieve the task.")
+    steps: list[StepSchema] = Field(..., title="A comprehensive list of steps in the tutorial for achieving the task.")
+
+class StepsWithInformationSchema(BaseModel):
+    steps: list[StepWithInformationSchema] = Field(..., title="A comprehensive list of steps in the tutorial for achieving the task with their information.")
 
 # class AggStepMappingSchema(BaseModel):
 #     original_step: str = Field(..., title="The original step from one of the lists.")
