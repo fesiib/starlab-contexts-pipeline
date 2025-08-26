@@ -4,8 +4,6 @@ import json
 
 from argparse import ArgumentParser
 
-from helpers import APPROACHES, BASELINES
-
 from src import PATH
 
 from src.Video import Video
