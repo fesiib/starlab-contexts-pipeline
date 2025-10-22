@@ -1,15 +1,13 @@
 import json
 from helpers import get_response_pydantic
 
-from pydantic_models.experiment_3 import SegmentationSchema
-
 from pydantic_models.experiment_3 import InformationPiecesSchema
 
-from pydantic_models.experiment_3 import AnswerListSchema
+from pydantic_models.experiment_3 import VocabularySchema
 
 from pydantic_models.experiment_3 import LabeledPiecesSchema
 
-from pydantic_models.experiment_3 import CandidateFacetsSchema
+from pydantic_models.experiment_3 import CandidateSegmentationFacetsSchema
 
 TAXONOMY = {
     "opening": "Starting remarks and instructor/channel introductions",
@@ -54,10 +52,10 @@ From a tutorial-style transcript (recipe, SOP, repair guide, etc.) produce a str
 Examples:
 - `Whisk the eggs for 30 s, then fold in the flour.` -> `Whisk the eggs for 30 seconds.` `Fold in the flour.`
 - `Let the paint dry so it won't smudge.` -> `Let the paint dry.` (method) `This prevents smudging.` (explanation)
-- `Add the beaten eggs to the mixture and mix well.` -> `Add the beaten eggs to the mixture.` `Mix well.`
-- `Add 1 cup of white chocolate chips and stir until thoroughly combined.` -> `Add 1 cup of white chocolate chips.` `Stir the mixture until thoroughly combined.`
+- `Add the beaten eggs to the mixture and mix well.` -> `Add the beaten eggs to the mixture.` `Mix beaten eggs well.`
+- `Add 1 cup of white chocolate chips and stir until thoroughly combined.` -> `Add 1 cup of white chocolate chips.` `Stir white chocolate chips until thoroughly combined.`
 
-2. Assign `content_type` to each piece: `Greeting`, `Overview`, `Method`, `Supplementary`, `Explanation`, `Description`, `Conclusion`, and `Miscellaneous`. Do not add sub category!
+2. Assign `content_type` to each piece: `Greeting`, `Overview`, `Method`, `Supplementary`, `Explanation`, `Description`, `Conclusion`, and `Miscellaneous`. Do not add subcategories!
 - Greeting
 Opening: Starting remarks and instructor/channel introductions.
 Example: "Hey, what's up you guys, Chef [...] here."
@@ -153,57 +151,56 @@ def form_information_units(task, transcript):
     return pieces
 
 USER_PROMPT_FORM_CONTEXT_CODEBOOK = """
-You are updating a codebook for the {facet} facet of {task}. 
-A "{facet}" is defined as a canonical answer to the question: "{question}".
+You are discovering segment labels for temporal segmentation of a tutorial for a task {task} based on {facet_plural} (i.e., {definition}).
 
 ### INPUTS
-- Existing canonical {facet_plural}:
-{answers}
+- Existing segment labels:
+{vocabulary}
 - Tutorial-style transcript with timestamps (in seconds):
 {transcript}    
 
 ### GOAL
-Return an updated list of canonical {facet_plural} (including existing and any new ones needed to cover the given transcript), each with 1-2 concrete examples grounded in the given transcript (or reused from the existing list if not found in the transcript).
+Return an updated list of segment labels for temporal segmentation of the tutorial based on {facet_plural} (including existing and any new ones needed to cover the given transcript), each with 1-2 concrete examples grounded in the given transcript (or reused from the existing labels).
 
-### GUIDELINES FOR CANONICAL ANSWERS:
-{answer_guidelines}
+### GUIDELINES FOR SEGMENTATION:
+{guidelines}
 
 ### GENERAL NORMALIZATION RULES (apply in addition to the above):
-- Merge synonyms/variants into one canonical value; keep the existing value as the canonical form when applicable.
+- Merge synonyms/variants into one segment label; keep the existing labels as the canonical form when applicable.
 - Use concise, unambiguous phrasing; avoid brand-specific or overly narrow wording unless essential to task fidelity.
-- Only add a new {facet} if the transcript clearly contains an answer to "{question}" that is not covered by any existing canonical value.
+- Only add a new segment label if the transcript contains a segment that is not covered by any existing segment label.
 
 ### PROCEDURE
-1) Scan the transcript for spans that directly answer "{question}".
-2) For each span:
-    - Map it to an existing canonical {facet} if it's the same concept (consider synonyms, pluralization, formatting).
-    - If no existing value fits, propose a new canonical {facet} that follows the guidelines.
-3) For every canonical {facet} in the final list (existing or new):
+1) Segment the transcript temporally following the segmentation guidelines.
+2) For each segment:
+    - Try to map it to an existing segment label.
+    - If no existing segment label fits, propose a new segment label following the guidelines.
+3) For every segment label in the final list (existing or new):
     - Provide 1-2 representative examples.
     - Each example must include:
-        - content (the exact minimal excerpt that supports the answer)
+        - content (the exact minimal excerpt that would be labeled as the segment label)
         - context (around 10-20 words surrounding the content and the content itself)
-    - If a canonical {facet} is not evidenced in the given transcript, reuse one example from the existing list if available.
+    - If a segment label is not evidenced in the given transcript, reuse one example from the existing list if available.
 
 ### OUTPUT
-Return a list of canonical answers. Each answer should have the following fields:
-- id: id of the canonical {facet}
-- answer: short representative value less than 2-3 words
-- definition: elaboration of what the answer means
-- examples: 1-2 short representative content and context that would be labeled as the answer
+Return a list of segment labels. Each segment label should have the following fields:
+- id: id of the segment label
+- label: short text less than 2-3 words
+- definition: elaboration of what the segment label means
+- examples: 1-2 short representative content and context that would be labeled as the segment label
 
 NOTES
 - Ground everything in the provided inputs; no external knowledge or speculation.
-- Do not create duplicate or overlapping canonical values.
+- Do not create duplicate or overlapping segment labels.
 - Keep examples short and specific; avoid paraphrasing for the 'content' field."""
 
-ANSWER_FORMAT = """[{answer_id}] {answer_title}
-Definition: {answer_definition}
+LABEL_FORMAT = """[{label_id}] {label}
+Definition: {definition}
 Examples (Contents and Context): ```
 {examples}
 ```"""
 
-ANSWER_EXAMPLE_FORMAT = """\t- Content {example_idx}: {example_content}
+LABEL_EXAMPLE_FORMAT = """\t- Content {example_idx}: {example_content}
 \t- Context {example_idx}: {example_context}"""
 
 def examples_to_str(examples):
@@ -212,21 +209,21 @@ def examples_to_str(examples):
     
     example_strs = []
     for example_idx, example in enumerate(examples):
-        example_strs.append(ANSWER_EXAMPLE_FORMAT.format(example_context=example["context"], example_content=example["content"], example_idx=example_idx + 1))
+        example_strs.append(LABEL_EXAMPLE_FORMAT.format(example_context=example["context"], example_content=example["content"], example_idx=example_idx + 1))
     example_str = "\n".join(example_strs)
     return example_str
 
-def answers_to_str(answers):
-    if len(answers) == 0:
-        return "No facet values (i.e., canonical answers) are available."
+def vocabulary_to_str(vocabulary):
+    if len(vocabulary) == 0:
+        return "No labels are available."
 
-    answer_strs = []
-    for answer_idx, answer in enumerate(answers):
-        answer_id = f"A{answer_idx + 1}"
-        answer_strs.append(ANSWER_FORMAT.format(answer_id=answer_id, answer_title=answer["answer"], answer_definition=answer["definition"], examples=examples_to_str(answer["examples"])))
+    labels_strs = []
+    for label_idx, label in enumerate(vocabulary):
+        label_id = f"S{label_idx + 1}"
+        labels_strs.append(LABEL_FORMAT.format(label_id=label_id, label=label["label"], definition=label["definition"], examples=examples_to_str(label["examples"])))
 
-    answer_str = "\n".join(answer_strs)
-    return answer_str
+    vocabulary_str = "\n".join(labels_strs)
+    return vocabulary_str
 
 def guidelines_to_str(guidelines):
     if len(guidelines) == 0:
@@ -242,9 +239,9 @@ def guidelines_to_str(guidelines):
 def form_codebook(task, transcript, facet):
     transcript_str = transcript_to_str(transcript)
 
-    answer_guidelines_str = guidelines_to_str(facet["answer_guidelines"])
+    guidelines_str = guidelines_to_str(facet["guidelines"])
 
-    answers_str = answers_to_str(facet["answers"])
+    vocabulary_str = vocabulary_to_str(facet["vocabulary"])
 
     messages = [
         {
@@ -253,47 +250,42 @@ def form_codebook(task, transcript, facet):
         },
         {
             "role": "user",
-            "content": USER_PROMPT_FORM_CONTEXT_CODEBOOK.format(task=task, facet_plural=facet["title_plural"], facet=facet["title"], question=facet["question"], answer_guidelines=answer_guidelines_str, answers=answers_str, transcript=transcript_str)
+            "content": USER_PROMPT_FORM_CONTEXT_CODEBOOK.format(task=task, facet_plural=facet["title_plural"], facet=facet["title"], 
+            definition=facet["definition"], guidelines=guidelines_str, vocabulary=vocabulary_str, transcript=transcript_str)
         },
     ]
 
-    response = get_response_pydantic(messages, AnswerListSchema)
+    response = get_response_pydantic(messages, VocabularySchema)
 
-    answers = response["answers"]
-    for answer in answers:
-        del answer["id"]
-    return answers
+    vocabulary = response["vocabulary"]
+    for label in vocabulary:
+        del label["id"]
+    return vocabulary
 
 
 USER_PROMPT_LABEL_TRANSCRIPT_PIECES = """
-You are labeling a tutorial video for {task}.
-
-### DEFINITION
-- A "{facet}" is defined as a canonical answer to the question: "{question}".
-- "{facet_plural}" refers to the full set of canonical answers provided below. You must choose only from this set.
+You are performing temporal segmentation of a tutorial video for {task} based on {facet_plural} (i.e., {definition}).
 
 ### INPUTS
-- Canonical {facet_plural} (codebook) (each starts with an ID in square brackets, e.g., "[A1] ..."):
-{answers}
+- Canonical segment labels (each starts with an ID in square brackets, e.g., "[S1] ..."):
+{vocabulary}
 - Pieces of information (each starts with an ID in square brackets, e.g., "[p12] ..."):
 {pieces}
 
 ### GOAL
-For each piece, assign exactly one {facet} from the codebook when the content or context clearly answers the question "{question}". 
-If no {facet} is clearly supported, assign the empty string "".
+For each piece, assign exactly one segment label from the provided labels.
+If no segment label clearly apply, assign the empty string "".
 
 ### MATCHING RULES
-- Choose only from the provided canonical {facet_plural}; output the canonical string exactly as given.
-- Treat synonyms/variants in the piece as mapping to the relevant canonical value; do not invent new values.
-- Ignore negations, hypotheticals, and uncertain mentions (e.g., "maybe", "could", "if needed")—return "" in those cases.
-- If multiple {facet_plural} seem plausible, pick the single best answer that is most specific to the piece's content.
+- Choose only from the provided segment labels; output the segment label exactly as given.
+- If multiple segment labels seem plausible, pick the single best segment label that is most specific to the information piece's content.
 - Do not use external knowledge. Ground decisions strictly in the provided transcript.
 
 ### OUTPUT
 Return a list of labeled pieces. Each piece should have the following fields:
 - piece_id: id of the piece
-- answer_id: id of the canonical {facet} from the codebook or ""
-- answer: canonical {facet} string or ""
+- label_id: id of the segment label or ""
+- label: segment label or ""
 
 ### NOTES
 - Preserve the original order of pieces.
@@ -310,10 +302,10 @@ def pieces_to_str(pieces):
 def label_transcript_pieces(task, pieces, facet):
     pieces_str = pieces_to_str(pieces)
 
-    answers_str = answers_to_str(facet["answers"])
+    vocabulary_str = vocabulary_to_str(facet["vocabulary"])
     
-    if len(facet["answers"]) == 0:
-        print("STRONG WARNING: No canonical answers found in the facet.")
+    if len(facet["vocabulary"]) == 0:
+        print("STRONG WARNING: No labels found for the facet.")
         return []
 
     messages = [
@@ -323,7 +315,7 @@ def label_transcript_pieces(task, pieces, facet):
         },
         {
             "role": "user",
-            "content": USER_PROMPT_LABEL_TRANSCRIPT_PIECES.format(task=task, pieces=pieces_str, facet_plural=facet["title_plural"], facet=facet["title"], question=facet["question"], answers=answers_str),
+            "content": USER_PROMPT_LABEL_TRANSCRIPT_PIECES.format(task=task, pieces=pieces_str, facet_plural=facet["title_plural"], definition=facet["definition"], vocabulary=vocabulary_str),
         },
     ]
     response = get_response_pydantic(messages, LabeledPiecesSchema)
@@ -334,7 +326,7 @@ def label_transcript_pieces(task, pieces, facet):
         cur_piece_id = pieces[int(labeled_piece["piece_id"])-1]["piece_id"]
         if cur_piece_id in piece_to_label:
             print("STRONG WARNING: Multiple labels found for the same piece ID.", cur_piece_id)
-        piece_to_label[cur_piece_id] = labeled_piece["answer"]
+        piece_to_label[cur_piece_id] = labeled_piece["label"]
 
     formatted_pieces = []
     for piece in pieces:
@@ -348,113 +340,98 @@ def label_transcript_pieces(task, pieces, facet):
     return formatted_pieces
 
 
-SYSTEM_PROMPT_FORM_FACET_CANDIDATES = """You are a helpful assistant who identifies/refines `applicability facets` that define why/when/where pieces of information about a procedural task apply."""
 
-USER_PROMPT_FORM_FACET_CANDIDATES = """
-You are analyzing tutorial-style information (recipe, SOP, repair guide, etc.) for {task}.
+
+SYSTEM_PROMPT_FORM_FACET_CANDIDATES = """You are a helpful assistant who can reliably and precisely describe task contexts where pieces of information about a task apply."""
+
+USER_PROMPT_FORM_SEGMENTATION_FACET_CANDIDATES = """
+You are given two excerpts from tutorial videos about {task}. Each excerpt incldues a highlighted piece of information. Identify at least one aspect of the task context (a particular temporal segmentation) that would assign DIFFERENT segment labels to the highlighted pieces of information.
 
 ### INPUTS
-- Information items:
-{pieces}
+[Information 1]: ```
+{piece_1_before}
+*{piece_1}*
+{piece_1_after}```
 
-### GOAL
-You are given a list of information items. Provide a smallest list of applicability facets that can be used to differentiate all the provided information items (i.e., each semantically distinct item can be given a unique applicability signature across the facets). The facets should be:
-- based on a single, concrete question about applicability of the information (why/when/where the information applies).
-- orthogonal (the answer to one facet does not deterministically fix the answer to another).
-- single-slot (the answer is one short phrase less than 3 words).
+[Information 2]: ```
+{piece_2_before}
+*{piece_2}*
+{piece_2_after}```
 
-### PROCEDURE (iterate until stable)
-1) Go over all the pairs of information items and check:
-    a) if they are semantically similar, skip.
-    b) if they are semantically distinct, try the following methods and pick the one that satisfy the main goal:
-        - REUSE/EXTEND: See if the pair can be distinguished by at least one of the existing facets or by extending one of the existing facets; if necessary, refine the question to cover the distinction of the new pair.
-        - ADD: Introduce exactly one new applicability facet (short facet title, question with less than 20 words, guidelines for the answer). The question should be about applicability of the information (why/when/where the information applies). The question should be single-slot (answerable with a short phrase less than 3 words) and orthogonal to others.
-2) Check for orthogonality, single-slot, and "about applicability":
-    - Check for orthogonality:
-        - Redefine or replace non-orthogonal pairs with independent facets.  
-        - Example (WRONG: not independent):  
-            - [F3] In what place would this information be useful?  
-            - [F4] What tools does this information apply to?
-            - Tool applicability is deterministically tied to physical setting, so can focus on one of the two.
-        - Example (CORRECT: independent redesign):  
-            - [F4] What tools does this information apply to?
-    - Check for single-slot:
-        - Rephrase questions so answers fit in less than 3 words.
-        - Example (WRONG: open-ended):  
-            - [F5] Why does this information apply in this situation?  
-        - Example (CORRECT: single-slot):  
-            - [F5] What result/effect is this information trying to help achieve?
-    - Check for "about applicability":
-        - Ensure the question is about applicability of the information, not its description.
-        - Example (WRONG: descriptive):  
-                - [F6] Why pressing the button?
-        - Example (CORRECT: applicability):  
-                - [F6] What result/effect is this information trying to help achieve when pressing the button?
+### POSSIBLE TYPES OF ASPECTS:
+| Type | Example Titles | Example Labels | Example Distinction |
+|------|----------------|----------------|----------------------|
+| When | Stage of process | Setup / Execution | Different steps in time |
+| Why | Purpose / Subgoal | Collect Data / Analyze Data | Different goals or intentions |
+| Where | Environment | Field / Lab | Different physical or digital settings |
+| What | Object of focus | Hardware / Software | Working on different components |
+| How | Method / Tool used | Manual / Automated | Using different approaches or tools |
 
-### OUTPUT
-The list of APPLICABILITY FACETS, where each facet has the following fields:
-- ID
-- Type: Why | When | Where
-- Title (less than 2-3 words)
-- Plural title
-- Question (less than 20 words)
-- Guidelines on how to extract the answer from the information item/context (e.g., what to look for, what to ignore, format of the answer: length, how to canonize the answer)
-- Example answers (1-2): short representative values 1-2 words
+### PROCEDURE
+1. Identify at least one aspect of a task context that would assign DIFFERENT segment labels to highlighted pieces of information. You can list multiple aspects if you can, but make sure they are orthogonal (i.e., do not overlap with respect to type).
+2. Classify which type of aspect it belongs to ("when", "why", "where", "what", or "how").
+3. Briefly justify the choice of the aspect and the type of segmentation.
+4. Describe how the task can be segmented or divided along this aspect.  
+5. Provide brief "guidelines" that explain how to identify segment boundaries or assign labels based on the transcript of a tutorial. 
+6. Provide "segment labels" (≤3 words) for each of the two highlighted pieces.
 
-### NOTES
-- Use domain-canonical labels/units. Try to ensure consistency in the format of the answers.
-- Example answers are illustrative only, do not attempt completeness or invent unsupported values.
+### ANNOTATION GUIDELINES
+- Use only the transcript text to infer the distinction.
+- Keep aspect titles short and interpretable (≤2-3 words).
+- Keep segment labels short and interpretable (≤3 words).
 """
 
-CANDIDATE_FACET_FORMAT = """[{facet_id}] ({facet_type}) {facet_title} (Plural: {facet_title_plural})
-Question formulation: {question} 
-Answer guidelines: ```
-{answer_guidelines}
+CANDIDATE_FACET_FORMAT = """[{id}] ({type}) {title} (Plural: {title_plural}) -- {definition}
+Guidelines for defining labels: ```
+{guidelines}
 ```
-Example answers: ```
-{answers}
+Example labels: ```
+{vocabulary}
 ```"""
 
-
-def candidates_gen_to_struct(gen_candidates):
+def segmentation_candidates_gen_to_struct(gen_candidates):
     struct_candidates = []
     for candidate in gen_candidates:
-        answers = []
-        for answer in candidate["examples"]:
-            answers.append({
-                "answer": answer["answer"],
-                "definition": answer["definition"],
+        segment_labels = []
+        for label in candidate["segment_labels"]:
+            segment_labels.append({
+                "label": label["label"],
+                "definition": label["definition"],
                 "examples": [],
             })
         struct_candidates.append({
             "type": candidate["type"],
-            "title": candidate["title"],
-            "title_plural": candidate["title_plural"],
-            "question": candidate["question"],
-            "answer_guidelines": candidate["answer_guidelines"],
-            "answers": answers,
+            "title": candidate["aspect"],
+            "title_plural": candidate["aspect_plural"],
+            "definition": candidate["segmentation"],
+            "guidelines": candidate["segmentation_guidelines"],
+            "vocabulary": segment_labels,
         })
     return struct_candidates
 
 def candidates_to_str(candidates):
     candidates_strs = []
     for idx, candidate in enumerate(candidates):
-        guideliens_str = guidelines_to_str(candidate["answer_guidelines"])
-        answers_str = answers_to_str(candidate["answers"])
+        guidelines_str = guidelines_to_str(candidate["guidelines"])
+        vocabulary_str = vocabulary_to_str(candidate["vocabulary"])
         candidates_strs.append(CANDIDATE_FACET_FORMAT.format(
-            facet_id=f"F{idx+1}",
-            facet_type=candidate["type"],
-            facet_title=candidate["title"],
-            facet_title_plural=candidate["title_plural"],
-            question=candidate["question"],
-            answer_guidelines=guideliens_str,
-            answers=answers_str,
+            id=f"F{idx+1}",
+            type=candidate["type"],
+            title=candidate["title"],
+            title_plural=candidate["title_plural"],
+            definition=candidate["definition"],
+            guidelines=guidelines_str,
+            vocabulary=vocabulary_str,
         ))
     candidates_str = "\n".join(candidates_strs)
     return candidates_str
 
-def form_facet_candidates(task, pieces):
-    pieces_str = pieces_to_str(pieces)
+def form_segmentation_facet_candidates(task, pieces):
+    x = 0
+    y = 1
+    ### TODO: pick 2 pieces
+    piece_1 = (pieces[x]["context_before"], pieces[x]["content"], pieces[x]["context_after"])
+    piece_2 = (pieces[y]["context_before"], pieces[y]["content"], pieces[y]["context_after"])
 
     messages = [
         {
@@ -463,10 +440,12 @@ def form_facet_candidates(task, pieces):
         },
         {
             "role": "user",
-            "content": USER_PROMPT_FORM_FACET_CANDIDATES.format(task=task, pieces=pieces_str),
+            "content": USER_PROMPT_FORM_SEGMENTATION_FACET_CANDIDATES.format(task=task, 
+            piece_1_before=piece_1[0], piece_1=piece_1[1], piece_1_after=piece_1[2], 
+            piece_2_before=piece_2[0], piece_2=piece_2[1], piece_2_after=piece_2[2]),
         },
     ]
-    response = get_response_pydantic(messages, CandidateFacetsSchema)
+    response = get_response_pydantic(messages, CandidateSegmentationFacetsSchema)
 
     # merged_candidates = combine_facet_candidates(
     #     task,
@@ -475,78 +454,57 @@ def form_facet_candidates(task, pieces):
     # )
 
     # return merged_candidates
-    return candidates_gen_to_struct(response["candidates"])
+    return segmentation_candidates_gen_to_struct(response["candidates"])
 
 
-SYSTEM_PROMPT_COMBINE_FACET_CANDIDATES = """
-You are a helpful assistant who can understand and analyze procedural knowledge and its applicability.
-"""
+SYSTEM_PROMPT_COMBINE_FACET_CANDIDATES = """You are a helpful assistant who can reliably and precisely describe task contexts where pieces of information about a task apply."""
 
-USER_PROMPT_COMBINE_FACET_CANDIDATES = """
-You are analyzing applicability facets (a single concrete question) that describe where knowledge about {task} applies. There are three general types of facets: Why (e.g., why this information applies), When (e.g., when this information applies), Where (e.g., where this information applies).
+USER_PROMPT_COMBINE_SEGMENTATION_FACET_CANDIDATES = """
+You are analyzing aspects of a task context (a particular temporal segmentation) for tutorials for {task}.
 
 ### INPUTS
-- Applicability facets, each labeled with an ID in square brackets (e.g., "[F1] ..."):  
+- Aspects of a task context, each labeled with an ID in square brackets (e.g., "[F1] ..."):  
 {candidates}
 
 ### GOAL
-Combine the given facets to get a set of facets that:
-- Cover all initial facets.
-- Are orthogonal (the answer to one facet does not deterministically fix the answer to another).
-- Are about applicability (the question concerns when/where/why a piece of information about the task applies).
-- Are single-slot (the answer is one short phrase <3 words).
+Combine the given aspects of a task context to get a set of aspects of a task context that:
+- Are orthogonal (the segmentation wrt one aspect does not deterministically fix the segmentation wrt another aspect).
+- Are single-slot (the segmentation title and labels are one short phrase <3 words).
+- Cover all initial aspects of a task context.
+
+### POSSIBLE TYPES OF ASPECTS:
+| Type | Example Titles | Example Labels | Example Distinction |
+|------|----------------|----------------|----------------------|
+| When | Stage of process | Setup / Execution | Different steps in time |
+| Why | Purpose / Subgoal | Collect Data / Analyze Data | Different goals or intentions |
+| Where | Environment | Field / Lab | Different physical or digital settings |
+| What | Object of focus | Hardware / Software | Working on different components |
+| How | Method / Tool used | Manual / Automated | Using different approaches or tools |
 
 ### PROCEDURE
 Iterate until stable:
-1) Check for duplicates:
-    - Merge semantically equivalent facets.  
-    - Example (WRONG: treated separately):  
-        - [F1] What phase does this information apply?  
-        - [F2] What time in the process does this information apply?  
-    - Example (CORRECT: merged):  
-        - [F1] What phase does this information apply?  
-2) Check for orthogonality:
-    - Redefine or replace non-orthogonal pairs with independent facets.  
+1) Check for orthogonality:
+    - Redefine or replace non-orthogonal pairs with independent aspects of a task context.  
     - Example (WRONG: not independent):  
-        - [F3] In what place would this information be useful?  
-        - [F4] What tools does this information apply to?
-        - Tool applicability is deterministically tied to physical setting, so can focus on one of the two.
+        - [F3] Physical settings
+        - [F4] Settings
+        - Settings are more general than physical settings, so can focus on one of the two.
     - Example (CORRECT: independent redesign):  
-        - [F4] What tools does this information apply to?
-3) Check for single-slot:
-    - Rephrase questions so answers fit in less than 3 words.
-    - Example (WRONG: open-ended):  
-        - [F5] Why does this information apply in this situation?  
+        - [F4] Settings
+2) Check for single-slot:
+    - Rephrase aspects of a task context so that segmentation title and labels fit in less than 3 words.
+    - Example (WRONG: too long):  
+        - [F5] Task phase segmentation
     - Example (CORRECT: single-slot):  
-        - [F5] What result/effect is this information trying to help achieve?
-4) Check for "about applicability":
-   - Ensure the question is about applicability of the information, not its description.
-   - Example (WRONG: descriptive):  
-        - [F6] Why pressing the button?
-   - Example (CORRECT: applicability):  
-        - [F6] What result/effect is this information trying to help achieve when pressing the button?
-5) Check for coverage:
-    - Ensure the new set preserves all the meaning of the original facets.
+        - [F5] Phases
+4) Check for coverage:
+    - Ensure the new set preserves all the meaning of the original aspects of a task context.
 
 ### EXIT CONDITION
-The final facet set is smallest, orthogonal, single-slot, and fully covers the initial set. The facets should be about applicability of the information.
-
-### OUTPUT
-The list of APPLICABILITY FACETS, where each facet has the following fields:
-- ID
-- Type: Why | When | Where
-- Title (less than 2-3 words)
-- Plural title
-- Question (less than 20 words)
-- Guidelines on how to extract the answer from the information item/context (e.g., what to look for, what to ignore, format of the answer: length, how to canonize the answer)
-- Example answers (1-2): short representative values 1-2 words
-
-### NOTES
-- Use domain-canonical labels/units.
-- Example answers are illustrative, not exhaustive.
+The final aspect set is smallest, orthogonal, single-slot, and fully covers the initial set.
 """
 
-def combine_facet_candidates(task, all_candidates):
+def combine_segmentation_facet_candidates(task, all_candidates):
     all_candidates_str = candidates_to_str(all_candidates)
 
     messages = [
@@ -557,9 +515,9 @@ def combine_facet_candidates(task, all_candidates):
         },
         {
             "role": "user",
-            "content": USER_PROMPT_COMBINE_FACET_CANDIDATES.format(task=task, candidates=all_candidates_str),
+            "content": USER_PROMPT_COMBINE_SEGMENTATION_FACET_CANDIDATES.format(task=task, candidates=all_candidates_str),
         },
     ]
-    response = get_response_pydantic(messages, CandidateFacetsSchema)
+    response = get_response_pydantic(messages, CandidateSegmentationFacetsSchema)
 
-    return candidates_gen_to_struct(response["candidates"])
+    return segmentation_candidates_gen_to_struct(response["candidates"])

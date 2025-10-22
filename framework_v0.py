@@ -323,32 +323,35 @@ def preprocess_custom_dataset(task, dummy=""):
     with open(dataset_filepath, "w") as f:
         json.dump(dataset, f, indent=4)
     return dataset    
+
+
+
 ### Describing Scope (attempt 1)
 structs_summary = """
-    {answer_structure} = {
-        "answer": {answer},
-        "definition": {definition of the answer},
+    {label_structure} = {
+        "label": {title of the label},
+        "definition": {definition of the label},
         "examples": [
             {
-                "context": {text surrounding the content + content that would lead to the answer},
-                "content": {the content that would lead to the answer},
+                "context": {text surrounding the content + content that would be labeled as the label},
+                "content": {the content that would be labeled as the label},
             }
         ]
     }
-    {schema_structure} = {
-        "type": {facet type},
-        "title": {facet title},
-        "title_plural": {facet plural},
-        "question": {question that represents the facet},
+    {facet_structure} = {
+        "type": {type of the facet: `why`, `when`, `where`},
+        "title": {title of the facet}, 
+        "title_plural": {plural form of the title},
+        "definintion": {description of the facet},
         
-        "answer_guidelines": [
-            {guideline for the LLM to extract the answer},
+        "guidelines": [
+            {guideline for the LLM to extract the labels from the content},
             ...
         ],
         
         ### for labeling
-        "answers": [
-            {answer_structure}
+        "vocabulary": [
+            {label_structure}
             ...
         ]
     }
@@ -375,7 +378,7 @@ structs_summary = """
                 "start": {start of the content},
                 "end": {end of the content},
                 "labels": {
-                    {facet title}: [{facet value}, ...], ### number of runs
+                    {facet name}: [{facet value}, ...], ### number of runs
                     ...
                 }
             },
@@ -393,11 +396,11 @@ structs_summary = """
             }
         },
         "context_schema": {
-            {schema_name}: {schema_structure},
+            {facet_name}: {facet_structure},
             ...
         },
         "facet_candidates": {
-            {schema_name}: {schema_structure},
+            {facet_name}: {facet_structure},
             ...
         },
         "labeled_dataset": [
@@ -437,17 +440,20 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
             cell_to_units[cell_id][piece["unit_id"]].append(piece)
             relevant_units.add(piece["unit_id"])
 
+    ### TODO: remove sparsity check later
     sparsity = len(important_piece_types)
     for facet in context_schema:
-        sparsity *= len(facet["answers"]) + 1
+        sparsity *= len(facet["vocabulary"]) + 1
     sparsity = len(cell_to_units) / sparsity * 100
     print("Sparsity %: ", sparsity)
     
     return cell_to_units, len(relevant_units)
-from helpers.bert import bert_embedding, clustering_custom
+
+
+from helpers.bert import bert_embedding, clustering_custom, find_most_distant_pair
 from prompts.stupid_experiment_3 import form_information_units
 
-def build_information_units_v0(task, dataset, information_unit_similarity_threshold, dummy=""):
+def build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, dummy=""):
     
     taskname = task.replace(" ", "_").lower()
     parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
@@ -472,7 +478,28 @@ def build_information_units_v0(task, dataset, information_unit_similarity_thresh
                     "piece_id": f"piece_{video_idx}_{i}",
                     **piece,
                     "labels": {},
+                    "context_before": "",
+                    "context_after": "",
                 })
+
+    ### add context before and after to each piece
+    for video_idx, video in enumerate(dataset):
+        for i, piece in enumerate(video['pieces']):
+            context_before = ""
+            context_after = ""
+            if i - context_length < 0:
+                context_before = "[Tutorial start]"
+            l = max(0, i-context_length)
+            r = min(len(video['pieces']), i+context_length+1)
+            if i + context_length >= len(video['pieces']):
+                context_after = "[Tutorial end]"
+            for piece_ in video['pieces'][l:i]:
+                context_before += piece_["content"] + " "
+            for piece_ in video['pieces'][i+1:r]:
+                context_after += piece_["content"] + " "
+            piece["context_before"] = context_before
+            piece["context_after"] = context_after
+
 
     ### TODO: maybe cluster for each type of information separately?
     all_pieces = []
@@ -525,8 +552,8 @@ def build_codebook_v0(task, dataset, facet):
 
     ### iteratively build the context schema
     for video in dataset:
-        new_answers = form_codebook(task, video["transcript"], facet)
-        facet["answers"] = new_answers
+        vocabulary = form_codebook(task, video["transcript"], facet)
+        facet["vocabulary"] = vocabulary
 
     # with open(path, "w") as f:
     #     json.dump(schema, f, indent=4)
@@ -578,7 +605,7 @@ def label_based_on_codebook_v0(task, dataset, facet):
 
     return dataset
 
-from prompts.stupid_experiment_3 import form_facet_candidates, combine_facet_candidates
+from prompts.stupid_experiment_3 import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
 
 def build_facet_candidates_v0(task, cell_to_units, prev_facet_candidates, include_cells):
 
@@ -596,17 +623,21 @@ def build_facet_candidates_v0(task, cell_to_units, prev_facet_candidates, includ
     for cell_id in cell_ids:
         if len(cell_to_units[cell_id]) <= 1:
             break
-
         combined_pieces = []
         for unit_id in cell_to_units[cell_id]:
             combined_pieces.extend(cell_to_units[cell_id][unit_id])
+
+        piece_texts = [(piece["context_before"] + " " + piece["content"] + " " + piece["context_after"]).lower() for piece in combined_pieces]
+        p1, p2 = find_most_distant_pair(piece_texts)
         
-        new_facet_candidates = form_facet_candidates(task, combined_pieces)
+        new_facet_candidates = form_segmentation_facet_candidates(task, [combined_pieces[p1], combined_pieces[p2]])
         all_candidates.extend(new_facet_candidates)
 
-    all_candidates = combine_facet_candidates(task, all_candidates)
+    all_candidates = combine_segmentation_facet_candidates(task, all_candidates)
     
     return all_candidates
+
+
 import math
 
 def calc_discriminativeness(cell_to_units, relevant_units_count):
@@ -649,7 +680,7 @@ def calc_compactness(context_schema, initial_labels):
     ### need to blend the information types into context_schema
     total_labels = initial_labels-1
     for facet in context_schema:
-        total_labels += len(facet["answers"]) ### because there is "empty" label
+        total_labels += len(facet["vocabulary"]) ### because there is "empty" label
 
     return total_labels
 
@@ -770,11 +801,12 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
     stopping_delta_threshold = 0.1
     include_cells = 10
     information_unit_similarity_threshold=0.8
+    context_length = 5
 
     app1_dummy = "app1_" + dummy
 
     ### build the `information units`
-    labeled_dataset = build_information_units_v0(task, dataset, information_unit_similarity_threshold, app1_dummy)
+    labeled_dataset = build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, app1_dummy)
 
     ### Greedy Algorithm for constructing the schema:
 
@@ -964,8 +996,8 @@ def get_dataset(task):
 import os
 
 def main():
-    # task = MUFFIN_TASK
-    task = CUSTOM_TASKS[14]
+    task = MUFFIN_TASK
+    # task = CUSTOM_TASKS[14]
     # task = CROSS_TASK_TASKS[0]
     # task = CROSS_TASK_TASKS[1]
     # task = CUSTOM_TASKS[13]
@@ -977,9 +1009,24 @@ def main():
 
     dataset = get_dataset(task)
 
-    result = process_videos_approach_1(task, dataset, important_types, "question_v1")
+    result = process_videos_approach_1(task, dataset, important_types, "segmentation_v1")
+
+def count_tokens(tasks):
+    import tiktoken
+    import numpy as np
+    for task in tasks:
+        tokens_per_tutorial = []
+        dataset = get_dataset(task)
+        for tutorial in dataset:
+            content = tutorial["content"]
+            encoding = tiktoken.encoding_for_model("gpt-4")
+            n_tokens = len(encoding.encode(content))
+            tokens_per_tutorial.append(n_tokens)
+    
+        print(task)
+        print(np.average(tokens_per_tutorial))
+        print(np.sum(tokens_per_tutorial))
 
 if __name__ == "__main__":
-    main()
-
-#### Fix the inofrmation_units building, clip, and bert.
+    # main()
+    count_tokens(CUSTOM_TASKS)

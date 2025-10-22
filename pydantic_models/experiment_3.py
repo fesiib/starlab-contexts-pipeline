@@ -27,45 +27,46 @@ class InformationPiecesSchema(BaseModel):
 
 
 
-### codebook
+### segment labels
 
-class AnswerExampleSchema(BaseModel):
-    content: str = Field(..., title="The content that would lead to the answer.")
+class LabelExampleSchema(BaseModel):
+    content: str = Field(..., title="The content that would be labeled as the segment label.")
     context: str = Field(..., title="The context of the content. The context should include some text (around 10-20 words) surrounding the content as well as the content itself.")
 
-class AnswerSchema(BaseModel):
-    id: str = Field(..., title="The id of the answer.")
-    answer: str = Field(..., title="The answer to the question. Less than 2-3 words.")
-    definition: str = Field(..., title="The elaboration of what the answer means.")
-    examples: list[AnswerExampleSchema] = Field(..., title="1-2 contents that would lead to the answer.")
+class LabelSchema(BaseModel):
+    id: str = Field(..., title="The id of the segment label.")
+    label: str = Field(..., title="Text representing the segment label. Less than 2-3 words.")
+    definition: str = Field(..., title="The elaboration of what the segment label means.")
+    examples: list[LabelExampleSchema] = Field(..., title="1-2 short representative content and context that would be labeled as the segment label.")
 
-class AnswerListSchema(BaseModel):
-    answers: list[AnswerSchema] = Field(..., title="The list of canonical answers to the question.")
+class VocabularySchema(BaseModel):
+    vocabulary: list[LabelSchema] = Field(..., title="The list of canonical segment labels (i.e., vocabulary for temporal segmentation).")
 
 
 ### labeled pieces
 class LabeledPieceSchema(BaseModel):
     piece_id: int = Field(..., title="The provided id of the piece.")
-    answer_id: str = Field(..., title="The id of the answer.")
-    answer: str = Field(..., title="The answer to the question.")
+    label_id: str = Field(..., title="The id of the segment label.")
+    label: str = Field(..., title="The segment label (without the id).")
 
 class LabeledPiecesSchema(BaseModel):
-    labeled_pieces: list[LabeledPieceSchema] = Field(..., title="The list of pieces with corresponding answers.")
+    labeled_pieces: list[LabeledPieceSchema] = Field(..., title="The list of pieces with corresponding segment labels.")
 
 ### facet candidates
 class FacetValueSchema(BaseModel):
-    answer: str = Field(..., title="An example answer to the question-facet. Less than 2 words.")
-    definition: str = Field(..., title="The elaboration of what the answer means.")
+    label: str = Field(..., title="An example segment label. Less than 2-3 words.")
+    definition: str = Field(..., title="The elaboration of what the segment label means.")
 
-class CandidateFacetSchema(BaseModel):
-    id: str = Field(..., title="The id of the facet.")
-    type: Literal["why", "when", "where"] = Field(..., title="The type of the applicability facet.")
-    title: str = Field(..., title="The title of the facet. Less than 2-3 words.")
-    title_plural: str = Field(..., title="The plural of the facet.")
-    question: str = Field(..., title="The question that represents the facet. Less than 20 words")
-    # answer_format_guidelines: list[str] = Field(..., title="The format guidelines for the LLM when answering the question (i.e., extracting the facet values).")
-    answer_guidelines: list[str] = Field(..., title="The guidelines for the LLM to extract the facet value (i.e., answer) from the tutorial-style transcript.")
-    examples: list[FacetValueSchema] = Field(..., title="1-2 short example answers to the question. Less than 2 words each.")
+class CandidateSegmentationFacetSchema(BaseModel):
+    id: str = Field(..., title="The id of the aspect of a task context.")
+    aspect: str = Field(..., title="The title of the aspect. Less than 2-3 words.")
+    aspect_plural: str = Field(..., title="The plural form of the aspect.")
+    type: Literal["when", "why", "where", "what", "how"] = Field(..., 
+    title="The type of the aspect of a task context.")
+    justification: str = Field(..., title="A brief justification of the choice of the aspect and the type of segmentation")
+    segmentation: str = Field(..., title="The description of how the task can be segmented along this aspect.")
+    segmentation_guidelines: list[str] = Field(..., title="The guidelines for the LLM to extract the segment labels from the tutorial-style transcript.")
+    segment_labels: list[FacetValueSchema] = Field(..., title="The list of segment labels.")
 
-class CandidateFacetsSchema(BaseModel):
-    candidates: list[CandidateFacetSchema] = Field(..., title="The list of candidate applicability facets.")
+class CandidateSegmentationFacetsSchema(BaseModel):
+    candidates: list[CandidateSegmentationFacetSchema] = Field(..., title="The list of candidate aspects of a task context.")

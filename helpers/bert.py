@@ -147,3 +147,18 @@ def hierarchical_clustering(
         print(f"\tMin dist: {min_dist}")
 
     return clusters.tolist()
+
+def find_most_distant_pair(texts, embedding_method="bert"):
+    if len(texts) <= 1:
+        return None
+    
+    if embedding_method == "tfidf":
+        embeddings = tfidf_embedding(texts)
+    else:
+        embeddings = bert_embedding(texts)
+    similarities = np.dot(embeddings, embeddings.T)
+    np.fill_diagonal(similarities, -float("inf"))
+    max_distance_pair = np.unravel_index(np.argmax(similarities), similarities.shape)
+    idx_1 = max_distance_pair[0]
+    idx_2 = max_distance_pair[1]
+    return idx_1, idx_2
