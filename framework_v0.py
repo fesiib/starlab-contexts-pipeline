@@ -1028,5 +1028,4 @@ def count_tokens(tasks):
         print(np.sum(tokens_per_tutorial))
 
 if __name__ == "__main__":
-    # main()
-    count_tokens(CUSTOM_TASKS)
+    main()
