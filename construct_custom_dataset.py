@@ -3,12 +3,9 @@ import os
 import random
 import gzip
 import numpy as np
-import requests
 
 import webvtt
 import textwrap
-
-from bs4 import BeautifulSoup
 
 from helpers.bert import bert_embedding, tfidf_embedding
 
@@ -37,42 +34,6 @@ def get_full_wikihow_corpus():
                 data = json.load(f)
                 data_json.append(data)
     return data_json
-
-def crawl_articles(links):
-    """
-    crawl article content from links with bs4
-    """
-    articles = {}
-    for link in links:
-        if link.startswith("http"):
-            clean_link = link.split('?')[0]
-            if clean_link not in articles:
-                articles[clean_link] = []
-    for link in articles.keys():
-        try:
-            response = requests.get(link)
-            soup = BeautifulSoup(response.text, 'html.parser')
-            articles[link] = soup.get_text()
-        except Exception as e:
-            print(f"Error crawling {link}: {e}")
-            articles[link] = ""
-    return articles
-
-def crawl_youtube_videos(task):        
-    pass
-
-def crawl_youtube_comments(video_id):
-    pass
-
-def crawl_articles_comments(article_url):
-    pass
-
-
-def process_videos(task, source=[]):
-    pass
-
-def process_articles(task):
-    pass
 
 def load_yt_temporal_dataset(skip=0, until=10000000):
 
@@ -316,34 +277,6 @@ def sample_n_tasks(sample_size=100):
         json.dump(sampled_tasks_per_category, f, indent=4)
     return sampled_tasks_per_category
 
-def pick_tasks_per_category(sampled_tasks, sample_size=2):
-    """
-    pick `sample_size` tasks per category
-    """
-    tasks_per_category_path = CUSTOM_DATASET_PATH + f"tasks_per_category_{sample_size}.json"
-    if os.path.exists(tasks_per_category_path):
-        with open(tasks_per_category_path, "r") as f:
-            tasks_per_category = json.load(f)
-            return tasks_per_category
-
-    tasks_per_category = {}
-    for category, tasks in sampled_tasks.items():
-        suitable_tasks = []
-        for task in tasks:
-            if task["is_goal_driven"] == 1:
-                suitable_tasks.append(task)
-        if len(suitable_tasks) > 0:
-            sampled_idxs = random.sample(range(len(suitable_tasks)), min(sample_size, len(suitable_tasks)))
-            tasks_per_category[category] = []
-            for idx in sampled_idxs:
-                tasks_per_category[category].append(suitable_tasks[idx])
-    
-    ### save
-    with open(tasks_per_category_path, "w") as f:
-        json.dump(tasks_per_category, f, indent=4)
-
-    return tasks_per_category
-
 def get_dataset():
     
     dataset_path = CUSTOM_DATASET_PATH + f"videos_tasks_per_category.json"
@@ -356,7 +289,6 @@ def get_dataset():
     for category, tasks in sampled_tasks.items():
         for task in tasks:
             if task["is_goal_driven"] == 1:
-                # articles = crawl_articles(task["refs"])
                 all_tasks.append(task)
     
     videos_per_task = get_videos_per_tasks(all_tasks)

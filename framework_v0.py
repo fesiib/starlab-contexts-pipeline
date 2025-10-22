@@ -9,7 +9,7 @@ from preprocess import pre_process_videos
 
 def get_muffin_video_transcripts():
     library_metadata = {}
-    with open("./metadata.json") as f:
+    with open("./static/datasets/custom-dataset/metadata.json") as f:
         library_metadata = json.load(f)
 
     task_metadata = library_metadata["muffins"]
