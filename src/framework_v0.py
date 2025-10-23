@@ -1,11 +1,23 @@
-### Video Processing
-FRAMEWORK_PATH = "./static/results/framework/"
-MIN_VIDEOS = 20
-
 import json
 import os
 
-from preprocess import pre_process_videos
+from src import FRAMEWORK_PATH, MIN_VIDEOS
+from src import MUFFIN_TASK, CUSTOM_TASKS, CROSS_TASK_TASKS
+
+from helpers.video_obj import Video
+
+def pre_process_videos(video_links):
+    videos = []
+    for video_link in video_links:
+        video = Video(video_link)
+        try:
+            video.process()
+            videos.append(video)
+        except Exception as e:
+            print(f"Error processing video: {video_link}")
+            print(e)
+            continue
+    return videos
 
 def get_muffin_video_transcripts():
     library_metadata = {}
@@ -451,7 +463,7 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
 
 
 from helpers.bert import bert_embedding, clustering_custom, find_most_distant_pair
-from prompts.stupid_experiment_3 import form_information_units
+from prompts.framework import form_information_units
 
 def build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, dummy=""):
     
@@ -530,7 +542,7 @@ def build_information_units_v0(task, dataset, context_length, information_unit_s
 
     return dataset
 
-from prompts.stupid_experiment_3 import form_codebook, label_transcript_pieces
+from prompts.framework import form_codebook, label_transcript_pieces
 
 def build_codebook_v0(task, dataset, facet):
     """
@@ -605,7 +617,7 @@ def label_based_on_codebook_v0(task, dataset, facet):
 
     return dataset
 
-from prompts.stupid_experiment_3 import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
+from prompts.framework import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
 
 def build_facet_candidates_v0(task, cell_to_units, prev_facet_candidates, include_cells):
 
@@ -941,49 +953,6 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
 
     return approach_1_results
 
-MUFFIN_TASK = "Making Muffins"
-
-"""
-Make French Toast			10 steps / 272 videos
-Make Irish Coffee			5 steps / 248 videos
-Change a Tire				11 steps / 119 videos
-Build (sim.) Floating Shelves		5 steps / 173 videos
-"""
-CROSS_TASK_TASKS = [
-    "Change a Tire",
-    "Build (sim.) Floating Shelves",
-    "Make French Toast",
-    "Make Irish Coffee",
-]
-
-CUSTOM_TASKS = [
-    ### Food and Entertaining
-    "How to Make a Sushi Roll",
-    "How to Make Caramel Apples",
-    "How to Make a Milkshake Without Ice Cream",
-    "How to Grill Steak",
-    "How to Make Scrambled Eggs in a Microwave",
-
-    ### Home and Garden
-    "How to Grow Hydrangea from Cuttings",
-    "How to Grow a Pumpkin",
-    "How to Clean Bathroom Tile",
-    "How to Polish Stainless Steel",
-    "How to Clean a Glass Top Stove",
-    "How to Get Rid of a Wasp's Nest",
-
-    # Holidays and Traditions
-    "How to Plant a Living Christmas Tree",
-
-    # Sports and Fitness
-    "How to Wrap Your Hands for Boxing",
-    "How to Catch Trout",
-
-    # Arts and Entertainment
-    "How to Make a Paper Hat",
-]
-
-
 def get_dataset(task):
     if task == MUFFIN_TASK:
         return get_dataset_muffins(task, "framework_raw")
@@ -995,25 +964,15 @@ def get_dataset(task):
 ### OUTPUT
 import os
 
-def main():
-    task = MUFFIN_TASK
-    # task = CUSTOM_TASKS[14]
-    # task = CROSS_TASK_TASKS[0]
-    # task = CROSS_TASK_TASKS[1]
-    # task = CUSTOM_TASKS[13]
-
-    print("TASK: ", task)
-
-    ### `Greeting`, `Overview`, `Method`, `Supplementary`, `Explanation`, `Description`, `Conclusion`, and `Miscellaneous`
-    important_types = ["Method", "Supplementary", "Explanation", "Description"]
-
+def construct_cim(task, important_types, dummy):
     dataset = get_dataset(task)
 
-    result = process_videos_approach_1(task, dataset, important_types, "segmentation_v1")
+    return process_videos_approach_1(task, dataset, important_types, dummy)
+
+import tiktoken
+import numpy as np    
 
 def count_tokens(tasks):
-    import tiktoken
-    import numpy as np
     for task in tasks:
         tokens_per_tutorial = []
         dataset = get_dataset(task)
@@ -1026,6 +985,3 @@ def count_tokens(tasks):
         print(task)
         print(np.average(tokens_per_tutorial))
         print(np.sum(tokens_per_tutorial))
-
-if __name__ == "__main__":
-    main()

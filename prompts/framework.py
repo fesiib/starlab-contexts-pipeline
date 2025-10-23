@@ -1,13 +1,13 @@
 import json
 from helpers import get_response_pydantic
 
-from pydantic_models.experiment_3 import InformationPiecesSchema
+from pydantic_models.framework import InformationPiecesSchema
 
-from pydantic_models.experiment_3 import VocabularySchema
+from pydantic_models.framework import VocabularySchema
 
-from pydantic_models.experiment_3 import LabeledPiecesSchema
+from pydantic_models.framework import LabeledPiecesSchema
 
-from pydantic_models.experiment_3 import CandidateSegmentationFacetsSchema
+from pydantic_models.framework import CandidateSegmentationFacetsSchema
 
 TAXONOMY = {
     "opening": "Starting remarks and instructor/channel introductions",

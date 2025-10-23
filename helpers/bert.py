@@ -48,15 +48,18 @@ def find_most_similar(embeddings, query_embeddings):
     embeddings: List of embeddings (Tensor)
     query_embeddings: Query embeddings (Tensor)
     """
+    top_k_indices_per_query, scores = mccs(embeddings, query_embeddings, top_k=1)
+    return top_k_indices_per_query.flatten(), scores.flatten()
 
-    ## Calculate cosine similarity between query_embeddings and embeddings
-    cos_scores = np.dot(query_embeddings, embeddings.T)
-    top_results_per_query = cos_scores.argsort()[:,-1].tolist()
-    scores = cos_scores[
-        np.arange(len(query_embeddings)),
-        top_results_per_query
-    ].tolist()
-    return top_results_per_query, scores
+def mccs(embeddings, query_embeddings, top_k=10):
+    """
+    Maximum Cosine Similarity Search for each query
+    Return N x K matrix (N: number of queries, K: top_k) where each cell is the index of the j-th similar embedding.
+    """
+    mccs_scores = np.dot(query_embeddings, embeddings.T)
+    top_k_indices_per_query = mccs_scores.argsort()[:,::-1][:,:top_k].tolist()
+    scores = np.take_along_axis(mccs_scores, top_k_indices_per_query, axis=-1)
+    return top_k_indices_per_query, scores
 
 def clustering_custom(texts, similarity_threshold, embedding_method="bert"):
     """

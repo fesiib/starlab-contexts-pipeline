@@ -336,5 +336,6 @@ def main():
             print(cur_task_videos["task_details"]["title"])
             print(f"total videos: {len(cur_task_videos['videos'])}")
         print()
+
 if __name__ == "__main__":
     main()
