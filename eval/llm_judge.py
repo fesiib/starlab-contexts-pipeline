@@ -5,6 +5,18 @@ A streamlined framework for evaluating responses using LLM judges with support f
 - Binary decisions (pass/fail, relevant/irrelevant)
 - Likert scale ratings (1-7, 1-5)
 - Head-to-head comparisons (which is better)
+
+References:
+@inproceedings{10.1145/3626772.3657707,
+author = {Thomas, Paul and Spielman, Seth and Craswell, Nick and Mitra, Bhaskar},
+title = {Large Language Models can Accurately Predict Searcher Preferences},
+year = {2024},
+}
+@article{Sebastian2025ValidatingLR,
+  title={Validating LLM-Generated Relevance Labels for Educational Resource Search},
+  author={Ratan J. Sebastian and Anett Hoppe},
+  year={2025},
+}
 """
 
 import json
