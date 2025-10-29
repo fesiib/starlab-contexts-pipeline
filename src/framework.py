@@ -1,8 +1,9 @@
 import json
 import os
+from collections import defaultdict
 
 from helpers.dataset import MUFFIN_TASK, CUSTOM_TASKS, CROSS_TASK_TASKS
-from helpers.dataset import IMPORTANT_TYPES
+from helpers.dataset import IMPORTANT_TYPES_FINE
 
 from helpers.dataset import get_dataset
 
@@ -102,7 +103,7 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
         ### TODO: return the last label for now, later need to be adjusted
         return piece["labels"][facet_name][-1]
 
-    cell_to_units = {}
+    cell_to_units = defaultdict(lambda: defaultdict(list))
     relevant_units = set()
     for video in dataset:
         for piece in video["pieces"]:
@@ -111,12 +112,7 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
             cell_id = f"<{piece['content_type']}>"
             for facet in context_schema:
                 cell_id += f"<{get_label(piece, get_facet_name(facet))}>"
-            
-            if cell_id not in cell_to_units:
-                cell_to_units[cell_id] = {}
-            
-            if piece["unit_id"] not in cell_to_units[cell_id]:
-                cell_to_units[cell_id][piece["unit_id"]] = []
+            ### add the piece contexts
             cell_to_units[cell_id][piece["unit_id"]].append(piece)
             relevant_units.add(piece["unit_id"])
 
@@ -130,8 +126,49 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
     return cell_to_units, len(relevant_units)
 
 
-from helpers.nlp import clustering_custom, find_most_distant_pair
-from prompts.framework import form_information_units
+from helpers.nlp import clustering_custom, find_most_distant_items
+from prompts.framework import extract_pieces_from_transcript
+from helpers.video_scripts import get_transcript_segment
+
+def extract_pieces(task, dataset, context_length, dummy=""):
+    taskname = task.replace(" ", "_").lower()
+    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
+    if not os.path.exists(parent_path):
+        os.makedirs(parent_path)
+
+    # Paths for split outputs
+    pieces_path = os.path.join(parent_path, f"extracted_pieces_{dummy}.json")
+
+    # If extracted pieces exist, load and skip extraction; otherwise, extract and save
+    if os.path.exists(pieces_path):
+        with open(pieces_path) as f:
+            return json.load(f)
+    
+    for video_idx, video in enumerate(dataset):
+        ### forming the information units (conceptually should be easily redefinable)
+        pieces = extract_pieces_from_transcript(task, video['transcript'])
+        video['pieces'] = []
+        for i, piece in enumerate(pieces):
+            video['pieces'].append({
+                "piece_id": f"piece_{video_idx}_{i}",
+                **piece,
+                "content_type": piece["type"] + " - " + piece["subtype"],
+                # "type": piece["type"],
+                # "subtype": piece["subtype"],
+                "labels": {},
+                "raw_context": "",
+            })
+
+    for video in dataset:
+        for piece in video['pieces']:
+            l = max(0, piece["start"]-context_length//2)
+            r = piece["end"]+context_length//2
+            piece["raw_context"] = get_transcript_segment(video['transcript'], l, r)
+    # Save extracted pieces snapshot if we just created it (or overwrite to keep consistent)
+    with open(pieces_path, "w") as f:
+        json.dump(dataset, f, indent=4)
+    
+    return dataset
 
 def build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, dummy=""):
     
@@ -140,58 +177,26 @@ def build_information_units_v0(task, dataset, context_length, information_unit_s
     if not os.path.exists(parent_path):
         os.makedirs(parent_path)
 
-    path = os.path.join(parent_path, f"information_units_{dummy}.json")
-    if os.path.exists(path):
-        with open(path) as f:
-            dataset = json.load(f)
-            return dataset
-    
-    for video_idx, video in enumerate(dataset):
-        if "pieces" in video:
-            pieces = video["pieces"]
-        else:
-            ### forming the information units (conceptually should be easily redefinable)
-            pieces = form_information_units(task, video['transcript'])
-            video['pieces'] = []
-            for i, piece in enumerate(pieces):
-                video['pieces'].append({
-                    "piece_id": f"piece_{video_idx}_{i}",
-                    **piece,
-                    "labels": {},
-                    "context_before": "",
-                    "context_after": "",
-                })
+    sim_str = str(information_unit_similarity_threshold)[2:] ## assuming it is a float that starts with `0.`
+    clustered_path = os.path.join(parent_path, f"clustered_pieces_sim_{sim_str}_{dummy}.json")
 
-    ### add context before and after to each piece
-    for video_idx, video in enumerate(dataset):
-        for i, piece in enumerate(video['pieces']):
-            context_before = ""
-            context_after = ""
-            if i - context_length < 0:
-                context_before = "[Tutorial start]"
-            l = max(0, i-context_length)
-            r = min(len(video['pieces']), i+context_length+1)
-            if i + context_length >= len(video['pieces']):
-                context_after = "[Tutorial end]"
-            for piece_ in video['pieces'][l:i]:
-                context_before += piece_["content"] + " "
-            for piece_ in video['pieces'][i+1:r]:
-                context_after += piece_["content"] + " "
-            piece["context_before"] = context_before
-            piece["context_after"] = context_after
+    # If clustered result for this threshold exists, return it directly
+    if os.path.exists(clustered_path):
+        with open(clustered_path) as f:
+            return json.load(f)
 
+    dataset = extract_pieces(task, dataset, context_length, dummy)
 
-    ### TODO: maybe cluster for each type of information separately?
+    ### Reasoning: We cluster all information pieces at once, even the ones that may have different types. This is because we are interested in what different roles the same information pieces may play in different contexts.
     all_pieces = []
-    for video_idx, video in enumerate(dataset):
-        for i, piece in enumerate(video['pieces']):
-            piece["piece_id"] = f"piece_{video_idx}_{i}"
+    for video in dataset:
+        for piece in video['pieces']:
             all_pieces.append(piece)
 
     #### cluster similar pieces in `all_pieces`
     information_units = {}
 
-    unit_labels = clustering_custom([piece["content"] for piece in all_pieces], information_unit_similarity_threshold)
+    unit_labels = clustering_custom([piece["content"] for piece in all_pieces], information_unit_similarity_threshold, embedding_method="openai")
     for i, piece in enumerate(all_pieces):
         cur_unit_id = f"unit_{unit_labels[i]}"
         piece["unit_id"] = cur_unit_id
@@ -205,7 +210,8 @@ def build_information_units_v0(task, dataset, context_length, information_unit_s
         else:
             information_units[cur_unit_id]["instances"].append(piece["piece_id"])
 
-    with open(path, "w") as f:
+    # Save clustered result specific to the similarity threshold
+    with open(clustered_path, "w") as f:
         json.dump(dataset, f, indent=4)
 
     return dataset
@@ -288,32 +294,47 @@ def label_based_on_codebook_v0(task, dataset, facet):
 from prompts.framework import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
 
 def build_facet_candidates_v0(task, cell_to_units, prev_facet_candidates, include_cells):
-
-    cell_ids = list(cell_to_units.keys())
-
-    cell_ids.sort(key=lambda x: len(cell_to_units[x]), reverse=True)
     
-    cell_ids = cell_ids[:include_cells]
-
-    all_candidates = []
-    all_candidates.extend(prev_facet_candidates)
-    for cell_id in cell_ids:
+    chosen_sets_of_pieces = []
+    for cell_id in cell_to_units.keys():
         if len(cell_to_units[cell_id]) <= 1:
-            break
+            continue
         combined_pieces = []
         for unit_id in cell_to_units[cell_id]:
             combined_pieces.extend(cell_to_units[cell_id][unit_id])
 
-        piece_texts = [(piece["context_before"] + " " + piece["content"] + " " + piece["context_after"]).lower() for piece in combined_pieces]
-        p1, p2 = find_most_distant_pair(piece_texts)
-        
-        new_facet_candidates = form_segmentation_facet_candidates(task, [combined_pieces[p1], combined_pieces[p2]])
-        all_candidates.extend(new_facet_candidates)
+        piece_texts = [piece["content"].lower() for piece in combined_pieces]
+        additional_labels = [piece["unit_id"] for piece in combined_pieces]
+        distant_indices = find_most_distant_items(piece_texts, count=3, embedding_method="openai", additional_labels=additional_labels)
 
-    all_candidates = combine_segmentation_facet_candidates(task, all_candidates)
+        chosen_pieces = [combined_pieces[i] for i in distant_indices]
+
+        if len(chosen_pieces) < 2:
+            continue
+
+        print(json.dumps(chosen_pieces, indent=4))
+        chosen_sets_of_pieces.append(chosen_pieces)
+
+    chosen_sets_of_pieces = sorted(chosen_sets_of_pieces, key=lambda x: len(x), reverse=True)
+
+    if include_cells == 0 or len(chosen_sets_of_pieces) == 0:
+        print("LOG: No new candidates will be added")
+        return prev_facet_candidates
+    
+    chosen_sets_of_pieces = chosen_sets_of_pieces[:include_cells]
+
+    all_candidates = prev_facet_candidates[:]
+
+    for chosen_pieces in chosen_sets_of_pieces:
+        new_facet_candidates = form_segmentation_facet_candidates(task, chosen_pieces)
+        for candidate in new_facet_candidates:
+            all_candidates.append(candidate)
+
+    if len(all_candidates) > len(prev_facet_candidates):
+        ### i.e., there are new candidates
+        all_candidates = combine_segmentation_facet_candidates(task, all_candidates)
     
     return all_candidates
-
 
 import math
 
@@ -348,7 +369,12 @@ def calc_discriminativeness(cell_to_units, relevant_units_count):
         p_c = float(n_c) / relevant_units_count
         check_entropy += p_c * math.log(p_c, base)
     
-    # print("Entropy check: ", total_entropy, check_entropy, relevant_units_count, n_c_list)
+    print("Entropy check: ")
+    print(total_entropy)
+    print(check_entropy)
+    print(relevant_units_count)
+    print(n_c_list)
+    print()
 
     return total_entropy
 
@@ -477,8 +503,9 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
     skip_pruning = True
     stopping_delta_threshold = 0.1
     include_cells = 10
+    ### Reasoning: 0.9 --> We set a higher similarity threshold to capture most of the information diversity in the dataset and remove the noise due to phrasing differences.
     information_unit_similarity_threshold=0.9
-    context_length = 5
+    context_length = 30 ### in seconds
 
     app1_dummy = "app1_" + dummy
 
@@ -535,6 +562,7 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
 
         ### update the facet labels
         facet_candidates = update_facet_labels(task, labeled_dataset, facet_candidates, include_cells, app1_dummy)
+        # TODO: remove this later (to search for facets again and again)
         include_cells = 0
 
         labeled_dataset = update_labeled_dataset(task, labeled_dataset, facet_candidates, app1_dummy)
@@ -622,7 +650,7 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
 import os
 
 def construct_cim(task, dataset,dummy):
-    important_types = IMPORTANT_TYPES
+    important_types = IMPORTANT_TYPES_FINE
     return process_videos_approach_1(task, dataset, important_types, dummy)
 
 import tiktoken

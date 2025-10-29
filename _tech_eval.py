@@ -16,7 +16,9 @@ import random
 import os
 import json
 
-from helpers.dataset import IMPORTANT_TYPES, IMPORTANT_TYPE_DESCRIPTIONS
+from collections import defaultdict
+
+from helpers.dataset import IMPORTANT_TYPES_FINE, IMPORTANT_TYPE_DESCRIPTIONS_FINE
 from helpers.dataset import get_dataset
 
 from eval import DatasetConfig, MethodConfig, EvalConfig
@@ -36,8 +38,8 @@ def sample_test_dataset(tasks, sample_per_task, sample_segment_per_tutorial, que
         dataset = get_dataset(task)
         sampled_tutorials = random.sample(dataset, sample_per_task)
         for tutorial in sampled_tutorials:
-            info_type = random.choice(IMPORTANT_TYPES)
-            info_type_description = IMPORTANT_TYPE_DESCRIPTIONS[info_type]
+            info_type = random.choice(IMPORTANT_TYPES_FINE)
+            info_type_description = IMPORTANT_TYPE_DESCRIPTIONS_FINE[info_type]
             info_type_description = info_type_description.strip()
             cur_query = query
             cur_query = cur_query.format(n=n, info_type=info_type)
@@ -98,16 +100,25 @@ def run_method(method_config, test_dataset):
     k = method_config.k
     doc_score_threshold = method_config.doc_score_threshold
     responses = []
-    for test in test_dataset:
-        info_type = test["info_type"]
+
+    ### group tests by task & restore the initial order
+    tests_per_task = defaultdict(list)
+    for idx, test in enumerate(test_dataset):
         task = test["task"]
-        tutorial = test["tutorial"]
-        segment = test["segment"]
-        query = test["query"]
-        n = test["n"]
+        tests_per_task[task].append((idx, test))
+        responses.append(None) ### placeholder for the response
+
+    for task in tests_per_task.keys():
         dataset = get_dataset(task)
-        response = method_func(embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold)
-        responses.append(response)
+        for initial_idx, test in tests_per_task[task]:
+            info_type = test["info_type"]
+            tutorial = test["tutorial"]
+            segment = test["segment"]
+            query = test["query"]
+            n = test["n"]
+            response = method_func(embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold)
+            responses[initial_idx] = response
+        
     return responses
 
 def run_absolute_eval(dataset_config, method_config, eval_config):

@@ -32,8 +32,8 @@ def run_vanilla():
     pass
 
 def main():
-    task = MUFFIN_TASK
-    # task = CUSTOM_TASKS[14]
+    # task = MUFFIN_TASK
+    task = CUSTOM_TASKS[14]
     # task = CROSS_TASK_TASKS[0]
     # task = CROSS_TASK_TASKS[1]
     # task = CUSTOM_TASKS[13]

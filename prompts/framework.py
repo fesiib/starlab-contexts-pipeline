@@ -35,12 +35,10 @@ TAXONOMY = {
 }
 
 
-SYSTEM_PROMPT_PROCESS_TRANSCRIPT = """
-You are a helpful assistant who can understand and analyze tutorial videos."""
+SYSTEM_PROMPT_ANALYSIS = """
+You are a helpful assistant who can understand and analyze tutorial videos about {task}."""
 
-USER_PROMPT_FORM_INFORMATION_UNITS = """
-You are analyzing a tutorial video for {task}.
-
+USER_PROMPT_EXTRACT_PIECES_FROM_TRANSCRIPT = """
 From a tutorial-style transcript (recipe, SOP, repair guide, etc.) produce a structured, machine-readable representation of every atomic information piece. Work strictly in the order below.
 
 1. Detect atomic information pieces
@@ -55,7 +53,7 @@ Examples:
 - `Add the beaten eggs to the mixture and mix well.` -> `Add the beaten eggs to the mixture.` `Mix beaten eggs well.`
 - `Add 1 cup of white chocolate chips and stir until thoroughly combined.` -> `Add 1 cup of white chocolate chips.` `Stir white chocolate chips until thoroughly combined.`
 
-2. Assign `content_type` to each piece: `Greeting`, `Overview`, `Method`, `Supplementary`, `Explanation`, `Description`, `Conclusion`, and `Miscellaneous`. Do not add subcategories!
+2. Assign `type` to each piece: `Greeting`, `Overview`, `Method`, `Supplementary`, `Explanation`, `Description`, `Conclusion`, and `Miscellaneous`. Do not add subcategories!
 - Greeting
 Opening: Starting remarks and instructor/channel introductions.
 Example: "Hey, what's up you guys, Chef [...] here."
@@ -116,6 +114,192 @@ The transcript with time-stamps (in seconds) is as follows: ```
 {transcript}
 ```"""
 
+USER_PROMPT_EXTRACT_PIECES_FROM_TRANSCRIPT_COARSE = """
+From a tutorial-style transcript (recipe, SOP, repair guide, etc.) extract all task-relevant information. Work strictly in the order below.
+
+1. Detect task-relevant information
+- Parse the transcript clause-by-clause.
+- Create one piece for each indivisible action, object, reason, or tip.
+    - Indivisible = removing any word breaks the meaning.
+- If a sentence contains multiple actions (`whisk, then fold`) or multiple rationales, split them.
+- Rewrite each piece so it is understandable standing alone—no dangling `it`,`they`, `this step`, etc.
+Examples:
+- `Whisk the eggs for 30 s, then fold in the flour.` -> `Whisk the eggs for 30 seconds.` `Fold the eggs in the flour.`
+- `Let the paint dry so it won't smudge.` -> `Let the paint dry.` (method) `Drying the paint prevents smudging.` (explanation)
+- `Add the beaten eggs to the mixture and mix well.` -> `Add the beaten eggs to the mixture.` `Mix beaten eggs well.`
+- `Add 1 cup of white chocolate chips and stir until thoroughly combined.` -> `Add 1 cup of white chocolate chips.` `Stir white chocolate chips until thoroughly combined.`
+
+2. Assign `type` and `subtype` to each piece according to below taxonomy:
+<type>
+    <title> Greeting </title>
+    <definition> Opening and closing remarks. </definition>
+    <subtypes>
+        <subtype>
+            <title> Opening </title>
+            <definition> Starting remarks and instructor/channel introductions. </definition>
+            <example> Hey, what's up you guys, Chef [...] here. </example>
+        </subtype>
+        <subtype>
+            <title> Closing </title>
+            <definition> Parting remarks and wrap-up. </definition>
+            <example> Stay tuned, we'll catch you all later. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Overview </title>
+    <definition> Main purpose of the video and its descriptions. </definition>
+    <subtypes>
+        <subtype>
+            <title> Goal </title>
+            <definition> Main purpose of the video and its descriptions. </definition>
+            <example> Today, I'll show you a special technique which is totally special and about image pressing. </example>
+        </subtype>
+        <subtype>
+            <title> Motivation </title>
+            <definition> Reasons or background information on why the video was created. </definition>
+            <example> [...] Someone is making a very special valentine's day meal for another certain special someone. </example>
+        </subtype>
+        <subtype>
+            <title> Briefing </title>
+            <definition> Rundown of how the goal will be achieved. </definition>
+            <example> I'm pretty sure that just taking a pencil and putting it over the front and then putting a bunch of rubber bands around the pencil [...] that's going to do it. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Method </title>
+    <definition> Actions that the instructor performs to complete the task. </definition>
+    <subtypes>
+        <subtype>
+            <title> Subgoal </title>
+            <definition> Objective of a subsection. </definition>
+            <example> Now for the intricate layer that will give me the final webbing look. </example>
+        </subtype>
+        <subtype>
+            <title> Instruction </title>
+            <definition> Actions that the instructor performs to complete the task. </definition>
+            <example> We're going to pour that into our silicone baking cups. </example>
+        </subtype>
+        <subtype>
+            <title> Tool </title>
+            <definition> Introduction of the materials, ingredients, and equipment to be used. </definition>
+            <example> I'm also going to use a pair of scissors, a glue stick, some fancy tape or some regular tape. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Supplementary </title>
+    <definition> Additional instructions or information that makes instructions easier, faster, or more efficient. </definition>
+    <subtypes>
+        <subtype>
+            <title> Tip </title>
+            <definition> Additional instructions or information that makes instructions easier, faster, or more efficient. </definition>
+            <example> I find that it's easier to do just a couple of layers at a time instead of all four layers at a time. </example>
+        </subtype>
+
+        <subtype>
+            <title> Warning </title>
+            <definition> Actions that should be avoided. </definition>
+            <example> I don't know but I would say avoid using bleach if you can. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Explanation </title>
+    <definition> Reasons why the instruction was performed. </definition>
+    <subtypes>
+        <subtype>
+            <title> Justification </title>
+            <definition> Reasons why the instruction was performed. </definition>
+            <example> Because every time we wear our contact lenses, makeup and even dirt particles [...] might harm our eyes directly. </example>
+        </subtype>
+        <subtype>
+            <title> Effect </title>
+            <definition> Consequences of the instruction. </definition>
+            <example> And these will overhang a little to help hide the gap. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Description </title>
+    <definition> Descriptions of the current state of the target object. </definition>
+    <subtypes>
+        <subtype>
+            <title> Status </title>
+            <definition> Descriptions of the current state of the target object. </definition>
+            <example> Something sticky and dirty all through the back seat. </example>
+        </subtype>
+        <subtype>
+            <title> Context </title>
+            <definition> Descriptions of the method or the setting. </definition>
+            <example> [...] The process of putting on a tip by hand [...] takes a lot of patience but it can be done if you're in a pinch. </example>
+        </subtype>
+        <subtype>
+            <title> Tool Specification </title>
+            <definition> Descriptions of the tools and equipment. </definition>
+            <example> These are awesome beans, creamy texture, slightly nutty loaded with flavor. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Conclusion </title>
+    <definition> Descriptions of the final results of the procedure. </definition>
+    <subtypes>
+        <subtype> 
+            <title> Outcome </title>
+            <definition> Descriptions of the final results of the procedure. </definition>
+            <example> And now we have a dinosaur taggy blanket that wrinkles, so a fun gift for any baby on your gift giving list. </example>
+        </subtype>
+        <subtype>
+            <title> Reflection </title>
+            <definition> Summary, evaluation, and suggestions for the future about the overall procedure. </definition>
+            <example> However, I am still concerned about how safe rubbing alcohol actually is to use so maybe next time, I will give vodka a try. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+<type>
+    <title> Miscellaneous </title>
+    <definition> Personal stories, jokes, user engagement, and advertisements. </definition>
+    <subtypes>
+        <subtype>
+            <title> Side Note </title>
+            <definition> Personal stories, jokes, user engagement, and advertisements. </definition>
+            <example> Tristan is back from basketball - He made it on the team so it's pretty exciting. </example>
+        </subtype>
+        <subtype>
+            <title> Self-promotion </title>
+            <definition> Promotion of the instructor of the channel (i.e. likes, subscription, notification, or donations). </definition>
+            <example> So if you like this video, please give it a thumbs up and remember to subscribe. </example>
+        </subtype>
+        <subtype>
+            <title> Bridge </title>
+            <definition> Meaningless phrases or expressions that connect different sections. </definition>
+            <example> And we're going to go ahead and get started. </example>
+        </subtype>
+        <subtype>
+            <title> Filler </title>
+            <definition> Conventional filler words. </definition>
+            <example> Whoops. </example>
+        </subtype>
+    </subtypes>
+</type>
+
+3. Time-stamps
+- For video/audio transcripts, copy the exact start_time and end_time (in seconds) that bracket the source text of the item.
+- If no timing metadata exists, output null for both.
+
+The transcript with time-stamps (in seconds) is as follows: ```
+{transcript}
+```"""
+
 def transcript_to_str(transcript, with_timestamps=True):
     if len(transcript) == 0:
         return "No transcript provided."
@@ -130,18 +314,18 @@ def transcript_to_str(transcript, with_timestamps=True):
             transcript_strs.append(subtitle['text'])
     return "\n".join(transcript_strs)
 
-def form_information_units(task, transcript):
+def extract_pieces_from_transcript(task, transcript):
 
     transcript_str = transcript_to_str(transcript)
 
     messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT_PROCESS_TRANSCRIPT,
+            "content": SYSTEM_PROMPT_ANALYSIS.format(task=task),
         },
         {
             "role": "user",
-            "content": USER_PROMPT_FORM_INFORMATION_UNITS.format(task=task, transcript=transcript_str),
+            "content": USER_PROMPT_EXTRACT_PIECES_FROM_TRANSCRIPT_COARSE.format(transcript=transcript_str),
         },
     ]
 
@@ -151,7 +335,7 @@ def form_information_units(task, transcript):
     return pieces
 
 USER_PROMPT_FORM_CONTEXT_CODEBOOK = """
-You are discovering segment labels for temporal segmentation of a tutorial for a task {task} based on {facet_plural} (i.e., {definition}).
+You are discovering segment labels for temporal segmentation of a tutorial based on {facet_plural} (i.e., {definition}).
 
 ### INPUTS
 - Existing segment labels:
@@ -246,11 +430,11 @@ def form_codebook(task, transcript, facet):
     messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT_PROCESS_TRANSCRIPT,
+            "content": SYSTEM_PROMPT_ANALYSIS.format(task=task),
         },
         {
             "role": "user",
-            "content": USER_PROMPT_FORM_CONTEXT_CODEBOOK.format(task=task, facet_plural=facet["title_plural"], facet=facet["title"], 
+            "content": USER_PROMPT_FORM_CONTEXT_CODEBOOK.format(facet_plural=facet["title_plural"], facet=facet["title"], 
             definition=facet["definition"], guidelines=guidelines_str, vocabulary=vocabulary_str, transcript=transcript_str)
         },
     ]
@@ -264,7 +448,7 @@ def form_codebook(task, transcript, facet):
 
 
 USER_PROMPT_LABEL_TRANSCRIPT_PIECES = """
-You are performing temporal segmentation of a tutorial video for {task} based on {facet_plural} (i.e., {definition}).
+You are performing temporal segmentation of a tutorial based on {facet_plural} (i.e., {definition}).
 
 ### INPUTS
 - Canonical segment labels (each starts with an ID in square brackets, e.g., "[S1] ..."):
@@ -311,11 +495,11 @@ def label_transcript_pieces(task, pieces, facet):
     messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT_PROCESS_TRANSCRIPT,
+            "content": SYSTEM_PROMPT_ANALYSIS.format(task=task),
         },
         {
             "role": "user",
-            "content": USER_PROMPT_LABEL_TRANSCRIPT_PIECES.format(task=task, pieces=pieces_str, facet_plural=facet["title_plural"], definition=facet["definition"], vocabulary=vocabulary_str),
+            "content": USER_PROMPT_LABEL_TRANSCRIPT_PIECES.format(pieces=pieces_str, facet_plural=facet["title_plural"], definition=facet["definition"], vocabulary=vocabulary_str),
         },
     ]
     response = get_response_pydantic(messages, LabeledPiecesSchema)
@@ -342,21 +526,13 @@ def label_transcript_pieces(task, pieces, facet):
 
 
 
-SYSTEM_PROMPT_FORM_FACET_CANDIDATES = """You are a helpful assistant who can reliably and precisely describe task contexts where pieces of information about a task apply."""
+SYSTEM_PROMPT_DESCRIBE_CONTEXTS = """You are a helpful assistant who can reliably and precisely describe task contexts where pieces of information apply."""
 
 USER_PROMPT_FORM_SEGMENTATION_FACET_CANDIDATES = """
-You are given two excerpts from tutorial videos about {task}. Each excerpt incldues a highlighted piece of information. Identify at least one aspect of the task context (a particular temporal segmentation) that would assign DIFFERENT segment labels to the highlighted pieces of information.
+You are given information pieces from tutorial videos about {task}. Identify a set of aspects of a task context (a particular temporal segmentation) that would assign DIFFERENT segment labels to the pieces.
 
 ### INPUTS
-[Information 1]: ```
-{piece_1_before}
-*{piece_1}*
-{piece_1_after}```
-
-[Information 2]: ```
-{piece_2_before}
-*{piece_2}*
-{piece_2_after}```
+{pieces}
 
 ### POSSIBLE TYPES OF ASPECTS:
 | Type | Example Titles | Example Labels | Example Distinction |
@@ -368,17 +544,17 @@ You are given two excerpts from tutorial videos about {task}. Each excerpt incld
 | How | Method / Tool used | Manual / Automated | Using different approaches or tools |
 
 ### PROCEDURE
-1. Identify at least one aspect of a task context that would assign DIFFERENT segment labels to highlighted pieces of information. You can list multiple aspects if you can, but make sure they are orthogonal (i.e., do not overlap with respect to type).
+1. Identify at least one aspect of a task context that would assign DIFFERENT segment labels to the pieces. You can list multiple aspects if you can, but make sure they are orthogonal (i.e., do not overlap with respect to type).
 2. Classify which type of aspect it belongs to ("when", "why", "where", "what", or "how").
 3. Briefly justify the choice of the aspect and the type of segmentation.
 4. Describe how the task can be segmented or divided along this aspect.  
 5. Provide brief "guidelines" that explain how to identify segment boundaries or assign labels based on the transcript of a tutorial. 
-6. Provide "segment labels" (≤3 words) for each of the two highlighted pieces.
+6. Provide a few examples of "segment labels".
 
 ### ANNOTATION GUIDELINES
 - Use only the transcript text to infer the distinction.
-- Keep aspect titles short and interpretable (≤2-3 words).
-- Keep segment labels short and interpretable (≤3 words).
+- Keep aspect titles short, but easily interpretable (max. 2-3 words).
+- Keep example segment labels short, but easily interpretable (max. 2-3 words).
 """
 
 CANDIDATE_FACET_FORMAT = """[{id}] ({type}) {title} (Plural: {title_plural}) -- {definition}
@@ -388,6 +564,9 @@ Guidelines for defining labels: ```
 Example labels: ```
 {vocabulary}
 ```"""
+
+PIECE_FORMAT = """Information {idx}: {content}
+Surrounding context (tutorial excerpt): ```{context}```"""
 
 def segmentation_candidates_gen_to_struct(gen_candidates):
     struct_candidates = []
@@ -427,22 +606,20 @@ def candidates_to_str(candidates):
     return candidates_str
 
 def form_segmentation_facet_candidates(task, pieces):
-    x = 0
-    y = 1
-    ### TODO: pick 2 pieces
-    piece_1 = (pieces[x]["context_before"], pieces[x]["content"], pieces[x]["context_after"])
-    piece_2 = (pieces[y]["context_before"], pieces[y]["content"], pieces[y]["context_after"])
+
+    pieces_str = ""
+    for piece_idx,piece in enumerate(pieces):
+        pieces_str += PIECE_FORMAT.format(idx=piece_idx+1, content=piece["content"], context=piece["raw_context"]) + "\n"
 
     messages = [
         {
             "role": "system",
-            "content": SYSTEM_PROMPT_FORM_FACET_CANDIDATES,
+            "content": SYSTEM_PROMPT_DESCRIBE_CONTEXTS,
         },
         {
             "role": "user",
             "content": USER_PROMPT_FORM_SEGMENTATION_FACET_CANDIDATES.format(task=task, 
-            piece_1_before=piece_1[0], piece_1=piece_1[1], piece_1_after=piece_1[2], 
-            piece_2_before=piece_2[0], piece_2=piece_2[1], piece_2_after=piece_2[2]),
+            pieces=pieces_str),
         },
     ]
     response = get_response_pydantic(messages, CandidateSegmentationFacetsSchema)
@@ -456,21 +633,14 @@ def form_segmentation_facet_candidates(task, pieces):
     # return merged_candidates
     return segmentation_candidates_gen_to_struct(response["candidates"])
 
-
-SYSTEM_PROMPT_COMBINE_FACET_CANDIDATES = """You are a helpful assistant who can reliably and precisely describe task contexts where pieces of information about a task apply."""
-
 USER_PROMPT_COMBINE_SEGMENTATION_FACET_CANDIDATES = """
-You are analyzing aspects of a task context (a particular temporal segmentation) for tutorials for {task}.
+You are analyzing aspects of a task context (a particular temporal segmentation) for `{task}`/
 
 ### INPUTS
-- Aspects of a task context, each labeled with an ID in square brackets (e.g., "[F1] ..."):  
-{candidates}
+- Aspects of a task context, each labeled with an ID in square brackets (e.g., "[F1] ..."): {candidates}
 
 ### GOAL
-Combine the given aspects of a task context to get a set of aspects of a task context that:
-- Are orthogonal (the segmentation wrt one aspect does not deterministically fix the segmentation wrt another aspect).
-- Are single-slot (the segmentation title and labels are one short phrase <3 words).
-- Cover all initial aspects of a task context.
+Combine the given aspects of a task context to get a set of aspects of a task context that are orthogonal (the segmentation wrt one aspect does not determine the segmentation wrt another aspect), single-slot (the segmentation title and labels are short and easily interpretable), and cover all initial aspects of a task context.
 
 ### POSSIBLE TYPES OF ASPECTS:
 | Type | Example Titles | Example Labels | Example Distinction |
@@ -492,7 +662,7 @@ Iterate until stable:
     - Example (CORRECT: independent redesign):  
         - [F4] Settings
 2) Check for single-slot:
-    - Rephrase aspects of a task context so that segmentation title and labels fit in less than 3 words.
+    - Rephrase aspects of a task context so that segmentation title and labels fit in max. 3 words, but are easily interpretable.
     - Example (WRONG: too long):  
         - [F5] Task phase segmentation
     - Example (CORRECT: single-slot):  
@@ -501,7 +671,7 @@ Iterate until stable:
     - Ensure the new set preserves all the meaning of the original aspects of a task context.
 
 ### EXIT CONDITION
-The final aspect set is smallest, orthogonal, single-slot, and fully covers the initial set.
+The final aspect set is smallest (i.e., has the fewest number of aspects), orthogonal, single-slot, and fully covers the initial aspects.
 """
 
 def combine_segmentation_facet_candidates(task, all_candidates):
@@ -511,7 +681,7 @@ def combine_segmentation_facet_candidates(task, all_candidates):
 
         {
             "role": "system",
-            "content": SYSTEM_PROMPT_COMBINE_FACET_CANDIDATES,
+            "content": SYSTEM_PROMPT_DESCRIBE_CONTEXTS,
         },
         {
             "role": "user",

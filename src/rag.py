@@ -89,4 +89,6 @@ def respond_to_query_rag(embedding_method, task, dataset, tutorial, segment, que
     else:
         return get_rag_response_tutorial_segment(task, filtered_documents, tutorial, segment, query)
 
+def run_rag(embedding_method, task, dataset, tutorial, segment, query, k, doc_score_threshold):
+
 generic_call_rag = lambda embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold: respond_to_query_rag(embedding_method, task, dataset, tutorial, segment, query, k, doc_score_threshold)
