@@ -110,15 +110,11 @@ def run_method(method_config, test_dataset):
 
     for task in tests_per_task.keys():
         dataset = get_dataset(task)
-        for initial_idx, test in tests_per_task[task]:
-            info_type = test["info_type"]
-            tutorial = test["tutorial"]
-            segment = test["segment"]
-            query = test["query"]
-            n = test["n"]
-            response = method_func(embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold)
-            responses[initial_idx] = response
-        
+        cur_tests = [test for _, test in tests_per_task[task]]
+        task_responses = method_func(embedding_method, task, dataset, cur_tests, k, doc_score_threshold)
+        initial_idxs = [initial_idx for initial_idx, _ in tests_per_task[task]]
+        for idx, response in zip(initial_idxs, task_responses):
+            responses[idx] = response
     return responses
 
 def run_absolute_eval(dataset_config, method_config, eval_config):
@@ -247,14 +243,14 @@ DATASETS = [
 METHODS = [
     MethodConfig(
         label="RAG-bert-10-0.7",
-        embedding_method="bert",
-        k=10,
+        embedding_method="openai",
+        k=8,
         doc_score_threshold=0.7,
         func=generic_call_rag,
     ),
     MethodConfig(
         label="vanilla-bert",
-        embedding_method="bert",
+        embedding_method="openai",
         k=None,
         doc_score_threshold=None,
         func=generic_call_rag,
@@ -302,8 +298,6 @@ EVALS = [
         metric=MetricScale.COMPARISON,
     ),
 ]
-
-
 
 if __name__ == "__main__":
     main()

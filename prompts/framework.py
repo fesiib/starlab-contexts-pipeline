@@ -404,7 +404,7 @@ def vocabulary_to_str(vocabulary):
     labels_strs = []
     for label_idx, label in enumerate(vocabulary):
         label_id = f"S{label_idx + 1}"
-        labels_strs.append(LABEL_FORMAT.format(label_id=label_id, label=label["label"], definition=label["definition"], examples=examples_to_str(label["examples"])))
+        labels_strs.append(LABEL_FORMAT.format(label_id=label_id, label=label["label"].strip().lower(), definition=label["definition"], examples=examples_to_str(label["examples"])))
 
     vocabulary_str = "\n".join(labels_strs)
     return vocabulary_str
@@ -444,6 +444,7 @@ def form_codebook(task, transcript, facet):
     vocabulary = response["vocabulary"]
     for label in vocabulary:
         del label["id"]
+        label["label"] = label["label"].strip().lower()
     return vocabulary
 
 
@@ -510,7 +511,11 @@ def label_transcript_pieces(task, pieces, facet):
         cur_piece_id = pieces[int(labeled_piece["piece_id"])-1]["piece_id"]
         if cur_piece_id in piece_to_label:
             print("STRONG WARNING: Multiple labels found for the same piece ID.", cur_piece_id)
-        piece_to_label[cur_piece_id] = labeled_piece["label"]
+        clean_label = labeled_piece["label"].strip().lower()
+        if '[' in clean_label and ']' in clean_label:
+            ### remove the id from the label
+            clean_label = clean_label.split(']')[1].strip().lower()
+        piece_to_label[cur_piece_id] = clean_label
 
     formatted_pieces = []
     for piece in pieces:
@@ -574,7 +579,7 @@ def segmentation_candidates_gen_to_struct(gen_candidates):
         segment_labels = []
         for label in candidate["segment_labels"]:
             segment_labels.append({
-                "label": label["label"],
+                "label": label["label"].strip().lower(),
                 "definition": label["definition"],
                 "examples": [],
             })

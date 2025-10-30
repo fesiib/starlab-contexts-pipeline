@@ -1,10 +1,6 @@
 import json
 import os
-import math
-import random
-
 from collections import defaultdict
-from typing import Any
 
 from helpers.dataset import MUFFIN_TASK, CUSTOM_TASKS, CROSS_TASK_TASKS
 from helpers.dataset import IMPORTANT_TYPES_FINE
@@ -12,13 +8,6 @@ from helpers.dataset import IMPORTANT_TYPES_FINE
 from helpers.dataset import get_dataset
 
 from helpers.cim_scripts import get_facet_name
-
-from helpers.nlp import clustering_custom, find_most_distant_items
-from helpers.video_scripts import get_transcript_segment
-
-from prompts.framework import extract_pieces_from_transcript
-from prompts.framework import form_codebook, label_transcript_pieces
-from prompts.framework import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
 
 FRAMEWORK_PATH = "./static/results/framework/"
 
@@ -105,88 +94,6 @@ structs_summary = """
     }
 """
 
-def calc_discriminativeness(cell_to_units, relevant_units_count):
-    ### TODO: adjust by noise
-    base = 2
-
-    if relevant_units_count == 0:
-        return 0
-
-    n_c_list = []
-
-    total_entropy = 0    
-    for cell_id in cell_to_units:
-        n_c = len(cell_to_units[cell_id])
-
-        if n_c == 0:
-            continue
-
-        p_c = float(n_c) / relevant_units_count
-        total_entropy += p_c * math.log(n_c, base)
-
-        n_c_list.append(n_c)
-
-    check_entropy = math.log(relevant_units_count, base)
-    for cell_id in cell_to_units:
-        n_c = len(cell_to_units[cell_id])
-
-        if n_c == 0:
-            continue
-
-        p_c = float(n_c) / relevant_units_count
-        check_entropy += p_c * math.log(p_c, base)
-    
-    print("LOG: Entropy check: ")
-    print(total_entropy)
-    print(check_entropy)
-    print(relevant_units_count)
-    print(n_c_list)
-    print()
-
-    return total_entropy
-
-def calc_compactness(context_schema, initial_labels):
-    ### TODO: check if we prefer fewer facets or not
-    ### need to blend the information types into context_schema
-    total_labels = initial_labels-1
-    for facet in context_schema:
-        total_labels += len(facet["vocabulary"]) ### because there is "empty" label
-
-    return total_labels
-
-def relative_improvement(d1, c1, d2, c2):
-    compactness_weight = 0.001
-    ## TODO: adjust by noise
-    o1 = d1 + c1 * compactness_weight
-    o2 = d2 + c2 * compactness_weight
-    return o1-o2
-
-def macro_pruning(context_schema, labeled_dataset, important_piece_types, threshold):
-    if len(context_schema) <= 1:
-        return context_schema
-    
-    cell_to_units, relevant_units_count = get_cell_to_units(context_schema, labeled_dataset, important_piece_types)
-    ### macroprune the context schema by removing the least discriminative facet
-    d_best = calc_discriminativeness(cell_to_units, relevant_units_count)
-    c_best = calc_compactness(context_schema, len(important_piece_types))
-    
-    o_smallest = float("inf")
-    facet_to_remove = None
-    for i, _ in enumerate(context_schema):
-        cur_context_schema = context_schema[:i] + context_schema[i+1:]
-        cur_cell_to_units, cur_relevant_units_count = get_cell_to_units(cur_context_schema, labeled_dataset, important_piece_types)
-        d = calc_discriminativeness(cur_cell_to_units, cur_relevant_units_count)
-        c = calc_compactness(cur_context_schema, len(important_piece_types))
-        
-        o = relative_improvement(d, c, d_best, c_best)
-        if o_smallest > o:
-            o_smallest = o
-            facet_to_remove = i
-    if facet_to_remove is None or o_smallest > threshold:
-        return context_schema, None
-    removed_facet = context_schema[facet_to_remove]
-    return context_schema[:facet_to_remove] + context_schema[facet_to_remove+1:], removed_facet
-
 def get_cell_to_units(context_schema, dataset, important_piece_types):
     def get_label(piece, facet_name):
         if facet_name not in piece["labels"]:
@@ -217,6 +124,11 @@ def get_cell_to_units(context_schema, dataset, important_piece_types):
     # print("Sparsity %: ", sparsity)
     
     return cell_to_units, len(relevant_units)
+
+
+from helpers.nlp import clustering_custom, find_most_distant_items
+from prompts.framework import extract_pieces_from_transcript
+from helpers.video_scripts import get_transcript_segment
 
 def extract_pieces(task, dataset, context_length, dummy=""):
     taskname = task.replace(" ", "_").lower()
@@ -304,13 +216,52 @@ def build_information_units_v0(task, dataset, context_length, information_unit_s
 
     return dataset
 
-def update_facet_candidates(
-    task, cell_to_units, include_cells, dummy=""
-):
+from prompts.framework import form_codebook, label_transcript_pieces
+
+def build_codebook_v0(task, dataset, facet):
     """
-    Update the facet candidates and the labeled dataset.
+    similar to VideoMix --> iteratively build the codebook
+    TODO: may need to restrict the number of videos considered
     """
 
+    ### iteratively build the context schema
+    for video in dataset:
+        vocabulary = form_codebook(task, video["transcript"], facet)
+        facet["vocabulary"] = vocabulary
+
+    return facet
+
+def label_based_on_codebook_v0(task, dataset, facet):
+    """
+    label the dataset based on the codebook
+    TODO: label multiple times per video
+    """
+    
+    facet_name = get_facet_name(facet)
+
+    for video in dataset:
+        if "pieces" in video:
+            if len(video["pieces"]) == 0:
+                continue
+            if facet_name in video["pieces"][0]["labels"]:
+                ### skip if already labeled across `schema`
+                continue
+
+        labeled_pieces = label_transcript_pieces(task, video["pieces"], facet)
+
+        if len(labeled_pieces) != len(video["pieces"]):
+            print(f"STRONG WARNING: {len(labeled_pieces)} != {len(video['pieces'])}")
+        for piece_idx, piece in enumerate(video["pieces"]):
+            if facet_name not in piece["labels"]:
+                piece["labels"][facet_name] = []
+            piece["labels"][facet_name].append(labeled_pieces[piece_idx])
+
+    return dataset
+
+from prompts.framework import form_segmentation_facet_candidates, combine_segmentation_facet_candidates
+
+def build_facet_candidates_v0(task, cell_to_units, include_cells):
+    
     chosen_sets_of_pieces = []
     for cell_id in cell_to_units.keys():
         if len(cell_to_units[cell_id]) <= 1:
@@ -338,66 +289,176 @@ def update_facet_candidates(
     
     chosen_sets_of_pieces = chosen_sets_of_pieces[:include_cells]
 
-    new_facet_candidates = []
+    all_candidates = []
 
     for chosen_pieces in chosen_sets_of_pieces:
-        retrieved_candidates = form_segmentation_facet_candidates(task, chosen_pieces)
-        for candidate in retrieved_candidates:
-            new_facet_candidates.append(candidate)
+        new_facet_candidates = form_segmentation_facet_candidates(task, chosen_pieces)
+        for candidate in new_facet_candidates:
+            all_candidates.append(candidate)
 
-    if len(chosen_sets_of_pieces) > 1:
-        ### i.e., there are potentially overlapping candidates
-        new_facet_candidates = combine_segmentation_facet_candidates(task, new_facet_candidates)
+    if len(all_candidates) > 1:
+        ### i.e., there are multiple new candidates
+        all_candidates = combine_segmentation_facet_candidates(task, all_candidates)
+    
+    return all_candidates
+
+import math
+
+def calc_discriminativeness(cell_to_units, relevant_units_count):
+    ### TODO: adjust by noise
+    base = 2
+
+    if relevant_units_count == 0:
+        return 0
+
+    n_c_list = []
+
+    total_entropy = 0    
+    for cell_id in cell_to_units:
+        n_c = len(cell_to_units[cell_id])
+
+        if n_c == 0:
+            continue
+
+        p_c = float(n_c) / relevant_units_count
+        total_entropy += p_c * math.log(n_c, base)
+
+        n_c_list.append(n_c)
+
+    check_entropy = math.log(relevant_units_count, base)
+    for cell_id in cell_to_units:
+        n_c = len(cell_to_units[cell_id])
+
+        if n_c == 0:
+            continue
+
+        p_c = float(n_c) / relevant_units_count
+        check_entropy += p_c * math.log(p_c, base)
+    
+    print("LOG: Entropy check: ")
+    print(total_entropy)
+    print(check_entropy)
+    print(relevant_units_count)
+    print(n_c_list)
+    print()
+
+    return total_entropy
+
+def calc_compactness(context_schema, initial_labels):
+    ### TODO: check if we prefer fewer facets or not
+    ### need to blend the information types into context_schema
+    total_labels = initial_labels-1
+    for facet in context_schema:
+        total_labels += len(facet["vocabulary"]) ### because there is "empty" label
+
+    return total_labels
+
+def relative_improvement(d1, c1, d2, c2):
+    compactness_weight = 0.001
+    ## TODO: adjust by noise
+    o1 = d1 + c1 * compactness_weight
+    o2 = d2 + c2 * compactness_weight
+    return o1-o2
+
+def macro_pruning(context_schema, labeled_dataset, important_piece_types, threshold):
+    if len(context_schema) <= 1:
+        return context_schema
+    
+    cell_to_units, relevant_units_count = get_cell_to_units(context_schema, labeled_dataset, important_piece_types)
+    ### macroprune the context schema by removing the least discriminative facet
+    d_best = calc_discriminativeness(cell_to_units, relevant_units_count)
+    c_best = calc_compactness(context_schema, len(important_piece_types))
+    
+    o_smallest = float("inf")
+    facet_to_remove = None
+    for i, _ in enumerate(context_schema):
+        cur_context_schema = context_schema[:i] + context_schema[i+1:]
+        cur_cell_to_units, cur_relevant_units_count = get_cell_to_units(cur_context_schema, labeled_dataset, important_piece_types)
+        d = calc_discriminativeness(cur_cell_to_units, cur_relevant_units_count)
+        c = calc_compactness(cur_context_schema, len(important_piece_types))
+        
+        o = relative_improvement(d, c, d_best, c_best)
+        if o_smallest > o:
+            o_smallest = o
+            facet_to_remove = i
+    if facet_to_remove is None or o_smallest > threshold:
+        return context_schema, None
+    removed_facet = context_schema[facet_to_remove]
+    return context_schema[:facet_to_remove] + context_schema[facet_to_remove+1:], removed_facet
+
+def update_facet_candidates(
+    task, cell_to_units, include_cells, dummy=""
+):
+    """
+    Update the facet candidates and the labeled dataset.
+    """
+    ### TODO: remove saving later
+    taskname = task.replace(" ", "_").lower()
+    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
+    if not os.path.exists(parent_path):
+        os.makedirs(parent_path)
+    
+    path = os.path.join(parent_path, f"facet_candidates_{dummy}.json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+
+    new_facet_candidates = build_facet_candidates_v0(task, cell_to_units, include_cells)
+
+    with open(path, "w") as f:
+        json.dump(new_facet_candidates, f, indent=4)
 
     return new_facet_candidates
 
-def update_facet_labels(task, labeled_dataset, facet_candidates, dummy=""):
-    """
-    similar to VideoMix --> iteratively build the codebook
-    TODO: consider 5 random videos to build the vocabulary
-    """
-    K = 5
+def update_facet_labels(task, labeled_dataset, facet_candidates, include_cells, dummy=""):
+    if include_cells == 0:
+        return facet_candidates
 
-    if len(labeled_dataset) < K:
-        random_indices = range(len(labeled_dataset))
-    else:
-        random_indices = random.sample(range(len(labeled_dataset)), 10)
+    taskname = task.replace(" ", "_").lower()
+    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
+    if not os.path.exists(parent_path):
+        os.makedirs(parent_path)
 
-    for facet in facet_candidates:
-        ### iteratively build the vocabulary
-        for video in [labeled_dataset[i] for i in random_indices]:
-            vocabulary = form_codebook(task, video["transcript"], facet)
-            facet["vocabulary"] = vocabulary
-    return facet_candidates
+    path = os.path.join(parent_path, f"facet_labels_{dummy}.json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+
+    updated_candidates = []
+    for schema in facet_candidates:
+        updated_candidates.append(
+            build_codebook_v0(task, labeled_dataset, schema)
+        )
+
+    with open(path, "w") as f:
+        json.dump(updated_candidates, f, indent=4)
+
+    return updated_candidates
 
 def update_labeled_dataset(task, labeled_dataset, facet_candidates, dummy=""):
-    """
-    label the dataset based on the codebooks
-    TODO: label multiple times per video
-    TODO: may need to update `facet_candidates` if we see same facet again
-    """
+    
+    taskname = task.replace(" ", "_").lower()
+    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
+    if not os.path.exists(parent_path):
+        os.makedirs(parent_path)
+    
+    path = os.path.join(parent_path, f"labeled_dataset_{dummy}.json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+
     ### label according to candidates
-    for facet in facet_candidates:
-        facet_name = get_facet_name(facet)
+    for schema in facet_candidates:
+        ### TODO: maybe explicitly ask to skip the unimportant types?
+        labeled_dataset = label_based_on_codebook_v0(task, labeled_dataset, schema)
 
-        for video in labeled_dataset:
-            if len(video["pieces"]) == 0:
-                continue
-            
-            labeled_pieces = label_transcript_pieces(task, video["pieces"], facet)
+    with open(path, "w") as f:
+        json.dump(labeled_dataset, f, indent=4)
 
-            if len(labeled_pieces) != len(video["pieces"]):
-                print(f"STRONG WARNING: {len(labeled_pieces)} != {len(video['pieces'])}")
-            for piece_idx, piece in enumerate[Any](video["pieces"]):
-                if facet_name not in piece["labels"]:
-                    piece["labels"][facet_name] = []
-                else:
-                    print("STRONG WARNING: found the same facet again?")
-                piece["labels"][facet_name].append(labeled_pieces[piece_idx])
     return labeled_dataset
 
 
-def process_videos_approach_1(task, dataset, important_piece_types, dummy):
+def process_videos(task, dataset, important_piece_types, dummy):
     ### constants
     max_iterations = 100
     pruning_interval = 5
@@ -410,32 +471,23 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
     information_unit_similarity_threshold=0.9
     context_length = 30 ### in seconds
 
-    taskname = task.replace(" ", "_").lower()
-    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
-    if not os.path.exists(parent_path):
-        os.makedirs(parent_path)
-
-    results_path = os.path.join(parent_path, f"approach_1_results_{dummy}.json")
-    if os.path.exists(results_path):
-        with open(results_path) as f:
-            return json.load(f)
-
-    app1_dummy = "app1_" + dummy
+    split_dummy = "split_" + dummy
 
     ### build the `information units`
-    labeled_dataset = build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, app1_dummy)
+    labeled_dataset = build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, split_dummy)
 
-    ### Greedy Algorithm for constructing the schema:
+    ### First, discover sufficient facet candidates
 
     facet_candidates = []
-    context_schema = []
-
-    iteration_insights = []
-    iterations = 0
     
     base_cell_to_units, base_relevant_units_count = get_cell_to_units(context_schema, labeled_dataset, important_piece_types)
     base_d = calc_discriminativeness(base_cell_to_units, base_relevant_units_count)
     base_c = calc_compactness(context_schema, len(important_piece_types))
+
+    context_schema = []
+
+    iteration_insights = []
+    iterations = 0
 
     while True:
 
@@ -448,13 +500,11 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
         if iterations % pruning_interval == 0 and not skip_pruning:
             original_length = len(context_schema)
             while len(context_schema) > 1 and len(context_schema) > original_length - max_macro_pruning_len:
-                new_context_schema, removed_facet = macro_pruning(
+                new_context_schema = macro_pruning(
                     context_schema, labeled_dataset, important_piece_types, pruning_threshold
                 )
                 if len(new_context_schema) < len(context_schema):
                     context_schema = new_context_schema
-                    if removed_facet is not None:
-                        facet_candidates.append(removed_facet)
                     continue
                 else:
                     break   
@@ -463,18 +513,24 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
                 "iteration": iterations,
                 "original_length": original_length,
                 "new_length": len(context_schema),
-                "removed_facet": (None if removed_facet is None else removed_facet["title"]),
             })
 
         cell_to_units, relevant_units_count = get_cell_to_units(context_schema, labeled_dataset, important_piece_types)
+        # iteration_insights.append({
+        #     "type": "get_cell_to_units",
+        #     "iteration": iterations,
+        #     "cell_to_units": cell_to_units,
+        # })
 
-        ### get new facet candidates
-        ### TODO: update the facet candidates list, but tag which ones are new & perform vocabulary building and labeling for the new ones only
-        new_facet_candidates = update_facet_candidates(task, cell_to_units, include_cells, app1_dummy)
-        new_facet_candidates = update_facet_labels(task, labeled_dataset, new_facet_candidates, app1_dummy)
-        labeled_dataset = update_labeled_dataset(task, labeled_dataset, new_facet_candidates, app1_dummy)
+        ### update the facet candidates
+        facet_candidates = update_facet_candidates(task, cell_to_units, facet_candidates, include_cells, app1_dummy)
 
-        facet_candidates.extend(new_facet_candidates)
+        ### update the facet labels
+        facet_candidates = update_facet_labels(task, labeled_dataset, facet_candidates, include_cells, app1_dummy)
+        # TODO: remove this later (to search for facets again and again)
+        include_cells = 0
+
+        labeled_dataset = update_labeled_dataset(task, labeled_dataset, facet_candidates, app1_dummy)
         
         if len(facet_candidates) == 0:
             print("WARNING: No facet candidates left")
@@ -534,7 +590,7 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
 
     print("Completed in {} iterations".format(iterations))
 
-    approach_1_results = {
+    results = {
         "context_schema": context_schema,
         "facet_candidates": facet_candidates,
         "labeled_dataset": labeled_dataset,
@@ -545,12 +601,16 @@ def process_videos_approach_1(task, dataset, important_piece_types, dummy):
     #     print(json.dumps(insight, indent=4))
 
     ### save the results
-    
-    with open(results_path, "w") as f:
-        json.dump(approach_1_results, f, indent=4)
+    taskname = task.replace(" ", "_").lower()
+    parent_path = os.path.join(FRAMEWORK_PATH, f'{taskname}')
+    if not os.path.exists(parent_path):
+        os.makedirs(parent_path)
 
-    return approach_1_results
+    with open(os.path.join(parent_path, f"split_results_{dummy}.json"), "w") as f:
+        json.dump(results, f, indent=4)
 
-def construct_cim(task, dataset,dummy):
+    return results
+
+def construct_cim(task, dataset, dummy):
     important_types = IMPORTANT_TYPES_FINE
-    return process_videos_approach_1(task, dataset, important_types, dummy)
+    return process_videos(task, dataset, important_types, dummy)

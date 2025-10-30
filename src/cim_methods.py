@@ -85,16 +85,10 @@ def score_context_similarity(a_context, b_context, facet_value_embeddings, hard_
             score += float(np.dot(facet_value_embeddings[key][value_a], facet_value_embeddings[key][value_b]))
     return score / float(len(facet_value_embeddings))
 
-def context_similarity_retrieval(embedding_method, task, dataset, tutorial, segment, info_type, n):
+def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment, info_type, n):
+    facet_keys = set(facet_value_embeddings.keys())
+
     ### segment can be None and n can be None
-    construction_results = construct_cim(task, dataset, "final")
-
-    facet_value_embeddings = build_facet_value_embeddings(embedding_method, construction_results["context_schema"])
-
-    facet_keys = set(facet_value_embeddings)
-
-    cim = normalize_context_values(construction_results["labeled_dataset"], facet_keys)
-
     labeled_tutorial = next(t for t in cim if t["url"] == tutorial["url"])
 
     covered_context_signatures = {
@@ -160,14 +154,39 @@ def context_similarity_retrieval(embedding_method, task, dataset, tutorial, segm
         for c in context_candidates[:n]
     ] ### list of responses: {"content": "...", "source_doc_idx": "..."}
 
-generic_call_context_similarity = lambda embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold: context_similarity_retrieval(embedding_method, task, dataset, tutorial, segment, info_type, n)
 
-def shortest_path_retrieval(embedding_method, task, dataset, tutorial, segment, info_type, n):
+def shortest_path_retrieval(cim, facet_value_embeddings, tutorial, segment, info_type, n):
     ### segment can be None and n can be None
-    dataset = get_dataset(task)
-    cim = construct_cim(task, "final")
+    facet_keys = set(facet_value_embeddings.keys())
+
+    labeled_tutorial = next(t for t in cim if t["url"] == tutorial["url"])
+
+    ### do a bfs on the cim to find the shortest paths + some significance score; return top n shortest paths with the highest significance score
 
     ### single response: {"content": "...", "source_doc_idx": "..."}
     pass
 
-generic_call_shortest_path = lambda embedding_method, task, dataset, tutorial, segment, query, info_type, n, k, doc_score_threshold: shortest_path_retrieval(embedding_method, task, dataset, tutorial, segment, info_type, n)
+def run_cim_method(embedding_method, task, dataset, tests, func):
+    construction_results = construct_cim(task, dataset, "final")
+
+    facet_value_embeddings = build_facet_value_embeddings(embedding_method, construction_results["context_schema"])
+    
+    facet_keys = set(facet_value_embeddings.keys())
+
+    cim = normalize_context_values(construction_results["labeled_dataset"], facet_keys)
+
+    responses = []
+
+    for test in tests:
+        tutorial = test["tutorial"]
+        segment = test["segment"]
+        info_type = test["info_type"]
+        n = test["n"]
+
+        response = func(cim, facet_value_embeddings, tutorial, segment, info_type, n)
+        responses.append(response)
+    return responses
+
+generic_call_context_similarity = lambda embedding_method, task, dataset, tests, k, doc_score_threshold: run_cim_method(embedding_method, task, dataset, tests, context_similarity_retrieval)
+
+generic_call_shortest_path = lambda embedding_method, task, dataset, tests, k, doc_score_threshold: run_cim_method(embedding_method, task, dataset, tests, shortest_path_retrieval)

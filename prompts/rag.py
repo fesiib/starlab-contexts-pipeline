@@ -27,9 +27,9 @@ def tutorials_to_str(tutorials):
         text += TUTORIAL_FORMAT.format(idx=idx+1, title=tutorial['title'], content=tutorial['content']) + "\n"
     return text
 
-def get_rag_response_full_tutorial(task, documents, tutorial, query):
+def get_rag_response_full_tutorial(task, tutorials, tutorial, query):
     
-    library_str = tutorials_to_str(documents)
+    library_str = tutorials_to_str(tutorials)
     context_tutorial_str = tutorial["content"]
 
     messages = [
@@ -64,9 +64,9 @@ You are given a context tutorial and its highlighted segment. Please answer the 
 </highlighted_segment>
 """
 
-def get_rag_response_tutorial_segment(task, documents, tutorial, segment, query):
+def get_rag_response_tutorial_segment(task, tutorials, tutorial, segment, query):
     
-    library_str = tutorials_to_str(documents)
+    library_str = tutorials_to_str(tutorials)
     context_tutorial_str = tutorial["content"]
 
     messages = [
