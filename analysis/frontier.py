@@ -10,6 +10,23 @@ from src.framework_split import construct_cim_split_conservative
 from src.framework_split import compute_frontier_knapsack
 from helpers.nlp import clustering_custom
 
+from analysis.display import count_dataset_stats
+
+Y_TITLES = {
+    "discriminativeness": "Discriminativeness",
+    "explained_norm": "Explained Variance",
+}
+X_TITLES = {
+    "units": "Number of Units in the Corpus",
+    "facets": "Number of Facets",
+    "vocabulary_labels": "Number of Vocabulary Labels",
+}
+
+Y_DESIRED = {
+    "discriminativeness": 0.8,
+    "explained_norm": 0.9,
+}
+
 def find_piece_by_unit(dataset, unit_id, info_types):
     for tutorial in dataset:
         for piece in tutorial['pieces']:
@@ -81,43 +98,83 @@ def show_frontier_item(item, facet_candidates):
 def get_colors(n):
     colors = plt.cm.rainbow(np.linspace(0, 1, n))
     ### make the color 50% transparent
-    colors = [(color[0], color[1], color[2], 0.5) for color in colors]
+    # colors = [(color[0], color[1], color[2], 0.5) for color in colors]
     return colors
 
-def plot_frontier(plt, x, y, label, color, linestyle, axvlines=[]):
+def plot_frontier(plt, x, y, label, color, linestyle, marker, markersize, axvlines=[]):
     # for _x, _y, _label in axvlines:
     #     plt.axvline(x=_x, color=color, linestyle=':')
         ## plt.text(_x, _y, _label)
-    plt.plot(x, y, label=label, color=color, linestyle=linestyle)
+    plt.plot(x, y, label=label, color=color, linestyle=linestyle, marker=marker, markersize=markersize)
 
-def interpolate_frontier(x, y, y_new):
+def interpolate_frontier_precise(x, y, y_new):
     """
     Interpolate the frontier. Assumes x is non-decreasing.
     """
+    precision = 1e-9
     for i in range(len(x)):
-        if abs(y[i] - y_new) < 1e-6:
+        if math.fabs(y[i] - y_new) < precision:
             return x[i]
     
     for i in range(len(x) - 1):
-        y_l = y[i]
-        y_h = y[i + 1]
-        if y_l > y_h:
-            y_l, y_h = y_h, y_l
-        if y_l - y_new < 1e-6 and y_h - y_new > 1e-6:
-            return x[i] + (x[i + 1] - x[i]) * (y_new - y[i]) / (y[i + 1] - y[i])
-    return x[-1] + 1.0
+        p1 = i
+        p2 = i + 1
+        if y[p2] < y[p1]:
+            p1, p2 = p2, p1
+        if y_new > y[p1] and y[p2] > y_new:
+            return x[i] + (x[i + 1] - x[i]) * (y_new - y[p1]) / (y[p2] - y[p1])
+    return None
+
+def extrapolate_frontier_precise(x, y, y_new):
+    """
+    Extrapolate the frontier. Assumes x is a non-decreasing list.
+    Fit the data to y = a + b/x and return the value of x when y = y_new.
+    """
+    if len(x) < 2:
+        return None ### not enough data to fit a line
+    
+    ### fit the data to y = a + b/x
+    x = np.array(x, dtype=float)
+    y = np.array(y, dtype=float)
+    mask = x > 0
+    x, y = x[mask], y[mask] ### remove zeros
+    A = np.column_stack([np.ones(len(x)), 1/x]) ### [1, 1/x]
+    coef, residuals, rank, s = np.linalg.lstsq(A, y, rcond=None)
+    a, b = coef
+
+    ### Diagnostics
+    n = len(y)
+    p = 2
+    rss = residuals[0] if residuals.size else np.sum((y - A @ coef)**2)
+    sigma2 = rss / max(n-p, 1)
+    cov = sigma2 * np.linalg.inv(A.T @ A) ### covariance matrix of the coefficients
+    se_a, se_b = np.sqrt(np.diag(cov))
+    print(f"a: {a:.2f} (se: {se_a:.2f}), b: {b:.2f} (se: {se_b:.2f}) rss: {rss:.2f}, n: {n:.2f}")
+    return b/(y_new - a) ### return the value of x when y = y_new
+
+def interpolate_frontier_approx(x, y, y_new):
+    best_x = -1
+    best_dist = float("inf")
+    for xx, yy in zip(x, y):
+        cur_dist = abs(yy - y_new)
+        if cur_dist < best_dist:
+            best_x = xx
+            best_dist = cur_dist
+    if best_dist > 1e-1:
+        return None
+    return best_x
 
 def plot_frontiers(
-    frontiers, y_axis, cutoff_x, output_path
+    frontiers, x_axis, y_axis, x_lims, y_lims, output_path
 ):
     plt.figure(figsize=(10, 10))
-    y_titles = {
-        "discriminativeness": "Discriminativeness",
-        "explained_norm": "Explained Variance",
-    }
-    best_cs = []
 
     colors = get_colors(len(frontiers))
+
+    cur_y_title = Y_TITLES[y_axis]
+    cur_y_desired = Y_DESIRED[y_axis]
+
+    cur_x_title = X_TITLES[x_axis]
 
     for info, color in zip(frontiers, colors):
         frontier = info["frontier"]
@@ -126,45 +183,35 @@ def plot_frontiers(
 
         x = [item["compactness"] for item in frontier]
         y = [item[y_axis] for item in frontier]
-        if cutoff_x is not None:
-            x = [x for x in x if x <= cutoff_x]
-            y = y[:len(x)]
         
-        best_c = -1
-        prev_dist = float("inf")
-        
-        for item in frontier:
-            cur_dist = float("inf")
-            if y_axis == "explained_norm":
-                cur_dist = abs(item["explained_norm"] - 0.9)
-            if y_axis == "discriminativeness":
-                cur_dist = abs(item["discriminativeness"] - 1)
-            if cur_dist < prev_dist:
-                best_c = item["compactness"]
-                prev_dist = cur_dist
-        
-        best_cs.append(best_c)
+        best_c = interpolate_frontier_approx(x, y, cur_y_desired)
+        if best_c is None:
+            best_c = 100 ### TODO: extrapolate the data later if needed
         axvlines = []
-        if prev_dist < 1e-1:
-            axvlines.append((best_c, 1, f"d~{1:.2f}"))
+        axvlines.append((best_c, cur_y_desired, f"{cur_y_desired:.2f}"))
         for elbow, w_d in elbows:
             axvlines.append((elbow["compactness"], elbow[y_axis], f"{w_d:.2f}"))
 
         linestyle = "-"
+        marker = "o"
+        markersize = 3
         if label.startswith("common_"):
-            linestyle = "--"
-        plot_frontier(plt, x, y, label, color, linestyle, axvlines=axvlines)
+            linestyle = ":"
+            marker = "D" ## diamond
+        plot_frontier(plt, x, y, label, color, linestyle, marker, markersize, axvlines=axvlines)
 
-    avg_best_c = np.average(best_cs)
-    std_best_c = np.std(best_cs)
-    print(f"Average optimal compactness: {avg_best_c:.2f} (std: {std_best_c:.2f})")
+    plt.axhline(y=cur_y_desired, color='r', linestyle='--')
 
     plt.legend()
-    plt.xlabel("Schema Complexity")
-    plt.ylabel(y_titles[y_axis])
-    plt.title("Pareto Frontier")
-    plt.xlim(right=(cutoff_x if cutoff_x is not None else 100))
-    plt.ylim(bottom=0)
+    plt.xlabel(cur_x_title)
+    plt.ylabel(cur_y_title)
+    plt.title(f"{cur_x_title} vs {cur_y_title} Frontier")
+    if x_lims is not None:
+        plt.xlim(left=x_lims[0], right=x_lims[1])
+        plt.xticks(np.arange(x_lims[0], x_lims[1] + 1, x_lims[2]))
+    if y_lims is not None:
+        plt.ylim(bottom=y_lims[0], top=y_lims[1])
+        plt.yticks(np.arange(y_lims[0], y_lims[1] + 1, y_lims[2]))
     plt.savefig(output_path)
     plt.close()
 
@@ -194,48 +241,50 @@ def find_elbows(frontier, base_d, inc=0.01):
         w_d += inc
     return cur_elbows
 
-def get_frontiers(results, cur_types, w_d, max_label_count=None, over_values=True):
-    frontiers = []
-    print("Found", len(results), "tasks")
+def get_info_for_results(results, cur_types, w_d, max_label_count=None, over_values=True):
+    info_per_results = []
     for task, result in results.items():
         dataset = result["labeled_dataset"]
         facet_candidates = result["facet_candidates"]
         frontier = compute_frontier_knapsack(dataset, cur_types, facet_candidates, max_label_count, over_values)
-
+        elbows = []
+        dataset_stats = count_dataset_stats(dataset, cur_types)
         if w_d is not None:
             elbow_item = find_elbow(frontier, w_d)
-            frontiers.append({
-                "task": task,
-                "frontier": frontier,
-                "elbows": [(elbow_item, w_d)],
-            })
-        else:
-            frontiers.append({
-                "task": task,
-                "frontier": frontier,
-                "elbows": [],
-            })
-    return frontiers
+            if elbow_item is not None:
+                elbows.append((elbow_item, w_d))
+
+        info_per_results.append({
+            "task": task,
+            "frontier": frontier,
+            "elbows": elbows,
+            "dataset_stats": dataset_stats,
+        })
+    return info_per_results
 
 def plot_frontiers_facets(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = False
-    cutoff_x = 50
+    x_axis = "facets"
+    x_lims = (0, 20, 1)
+    y_lims = (0, 4, 0.5)
     
-    frontiers = get_frontiers(results, piece_types, elbow_d, max_label_count, over_values)
+    info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
     
-    output_path = os.path.join(output_folder, "frontier_facets.png")
-    plot_frontiers(frontiers, y_axis, cutoff_x, output_path)
+    output_path = os.path.join(output_folder, f"frontier_facets_{y_axis}_{str(elbow_d)}_{len(results)}.png")
+    plot_frontiers(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
 
 def plot_frontiers_labels(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = True
-    cutoff_x = None
+    x_axis = "vocabulary_labels"
+    x_lims = (10, 100, 5)
+    y_lims = (0, 10, 0.5)
     
-    frontiers = get_frontiers(results, piece_types, elbow_d, max_label_count, over_values)
+    info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
 
-    output_path = os.path.join(output_folder, "frontier_labels.png")
-    plot_frontiers(frontiers, y_axis, cutoff_x, output_path)
+    output_path = os.path.join(output_folder, f"frontier_labels_{y_axis}_{str(elbow_d)}_{len(results)}.png")
+    plot_frontiers(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
 
 def get_available_results(tasks, dummies):
     results = {}
@@ -247,7 +296,7 @@ def get_available_results(tasks, dummies):
         results[task_name] = result
     return results
 
-def classify_facet_candidates(results, similarity_threshold, embedding_method):
+def classify_facet_candidates(results, similarity_threshold, common_threshold, embedding_method):
     """
     Classify the facet candidates into common vs unique to the task.
     """
@@ -273,6 +322,8 @@ def classify_facet_candidates(results, similarity_threshold, embedding_method):
     for facet_id, cluster in zip(facet_texts_per_id.keys(), clusters):
         cluster_sizes[cluster].append(facet_id)
     
+
+    print("To be classified common, need", common_threshold * len(all_unique_tasks), "tasks")
     unique_tasks_cluster_count = defaultdict(int)
     for cluster, facet_ids in cluster_sizes.items():
         unique_tasks = set()
@@ -283,7 +334,8 @@ def classify_facet_candidates(results, similarity_threshold, embedding_method):
         # if len(unique_tasks) == 1:
         #     cur_class = "unique"
         cur_class = "unique"
-        if len(unique_tasks) >= len(all_unique_tasks) // 2 + 1:
+        ratio = len(unique_tasks) / len(all_unique_tasks)
+        if ratio > (common_threshold - 1e-9): ### Reasoning: the facet is common if it is present in at least half of the tasks
             cur_class = "common"
         
         for facet_id in facet_ids:
@@ -294,7 +346,7 @@ def classify_facet_candidates(results, similarity_threshold, embedding_method):
 
     for task, result in results.items():
         task_common = f"common_{task}"
-        task_unique = f"unique_{task}"
+        task_unique = f"unique+common_{task}"
         facet_candidates = result["facet_candidates"]
 
         candidates_common = []
@@ -304,10 +356,10 @@ def classify_facet_candidates(results, similarity_threshold, embedding_method):
                 ### add the common to unique as well
                 candidates_common.append(facet)
                 candidates_unique.append(facet)
-                print("common", task, facet['title'], facet['definition'])
+                print("common", facet['title'], facet['definition'], task)
             else:
                 candidates_unique.append(facet)
-                print("unique", task, facet['title'], facet['definition'])
+                print("unique+common", facet['title'], facet['definition'], task)
 
         updated_results[task_common] = {
             **result,
@@ -318,3 +370,64 @@ def classify_facet_candidates(results, similarity_threshold, embedding_method):
             "facet_candidates": candidates_unique,
         }
     return updated_results
+
+def plot_size_vs_complexity(results, piece_types, elbow_d, output_folder):
+    max_label_count = None
+    over_values = True
+    y_axis = "discriminativeness"
+    
+    info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
+
+    output_path = os.path.join(output_folder, f"size_vs_complexity_{str(elbow_d)}_{len(results)}.png")
+
+    sizes = []
+    complexities = []
+
+    desired_y = Y_DESIRED[y_axis]
+
+    for info in info_per_results:
+        x = [item["compactness"] for item in info["frontier"]]
+        y = [item["discriminativeness"] for item in info["frontier"]]
+        best_c = interpolate_frontier_precise(x, y, desired_y)
+        if best_c is None:
+            continue ### TODO: later extrapolate the data based on the sizes x compactness
+        complexities.append((best_c, info["task"]))
+        sizes.append(info["dataset_stats"]["count_pieces"])
+    
+    if len(sizes) == 0:
+        print("No data points found")
+        return
+
+    scatters = defaultdict(lambda: {"x": [], "y": []})
+    for i, (best_c, task) in enumerate(complexities):
+        kind = task[:6] ### common_ or unique+common_
+        scatters[kind]["x"].append(sizes[i])
+        scatters[kind]["y"].append(best_c)
+
+    colors = get_colors(len(scatters))
+    x_lims = (0, 0, 500)
+    y_lims = (0, 0, 5)
+
+    plt.figure(figsize=(10, 10))
+    markers = ["o", "D", "s", "v", "^", "x", "P", "H", "8", "p", "d", "|", "_"]
+    markersize = 10
+
+    for i, (kind, scatter) in enumerate(scatters.items()):
+        color = colors[i]
+        marker = markers[i]
+        print(f"Optimal Avg. Compactness for d={elbow_d}: {np.average(scatter['y']):.2f}")
+        print(f"Optimal Std. Compactness for d={elbow_d}: {np.std(scatter['y']):.2f}")
+        x = scatter['x']
+        y = scatter['y']
+        x_lims = (min(x_lims[0], np.min(x)), max(x_lims[1], np.max(scatter['x'])), x_lims[2])
+        y_lims = (min(y_lims[0], np.min(y)), max(y_lims[1], np.max(scatter['y'])), y_lims[2])
+
+        plt.scatter(x, y, label=f"{kind}(d={elbow_d:.2f})", marker=marker, s=markersize, color=color)
+    plt.legend()
+    plt.xlabel("#units in the corpus")
+    plt.xticks(np.arange(x_lims[0], x_lims[1] + 1, x_lims[2]))
+    plt.ylabel("#vocabulary labels (d=1)")
+    plt.yticks(np.arange(y_lims[0], y_lims[1] + 1, y_lims[2]))
+    plt.title("Trends wrt Size of the Corpus")
+    plt.savefig(output_path)
+    plt.close()

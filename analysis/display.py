@@ -5,8 +5,7 @@ import numpy as np
 from helpers import count_tokens
 from helpers.cim_scripts import get_cell_to_units, calc_discriminativeness, calc_explained_norm
 
-def show_task_stats(task, result, relevant_types):
-    dataset = result["labeled_dataset"]
+def count_dataset_stats(dataset, relevant_types):
     units = defaultdict(int)
     relevant_units = defaultdict(int)
     tokens_per_tutorial = []
@@ -34,22 +33,40 @@ def show_task_stats(task, result, relevant_types):
     count_units = len(units)
     count_relevant_units = len(relevant_units)
 
+    return {
+        "count_units": count_units,
+        "count_pieces": count_pieces,
+        "count_relevant_units": count_relevant_units,
+        "count_relevant_pieces": count_relevant_pieces,
+        "count_tutorials": count_tutorials,
+        "tokens_per_tutorial": tokens_per_tutorial,
+        "relevant_tokens_per_tutorial": relevant_tokens_per_tutorial,
+    }
+
+def show_task_stats(task, result, relevant_types):
+    dataset = result["labeled_dataset"]
+    
+    dataset_stats = count_dataset_stats(dataset, relevant_types)
+
     print(f"Task: {task}")
-    print(f"Total units: {count_units}")
-    print(f"Total pieces: {count_pieces}")
-    print(f"Total relevant units: {count_relevant_units}")
-    print(f"Total relevant pieces: {count_relevant_pieces}")
-    print(f"Total tutorials: {count_tutorials}")
+    print(f"Total units: {dataset_stats['count_units']}")
+    print(f"Total pieces: {dataset_stats['count_pieces']}")
+    print(f"Total relevant units: {dataset_stats['count_relevant_units']}")
+    print(f"Total relevant pieces: {dataset_stats['count_relevant_pieces']}")
+    print(f"Total tutorials: {dataset_stats['count_tutorials']}")
     unit_relevance_ratio = -1
-    if count_units > 0:
-        unit_relevance_ratio = round(count_relevant_units / (count_units), 2)
+    if dataset_stats['count_units'] > 0:
+        unit_relevance_ratio = round(dataset_stats['count_relevant_units'] / (dataset_stats['count_units']), 2)
     print(f"Unit relevance ratio: {unit_relevance_ratio}")
 
     piece_relevance_ratio = -1
-    if count_pieces > 0:
-        piece_relevance_ratio = round(count_relevant_pieces / (count_pieces), 2)
+    if dataset_stats['count_pieces'] > 0:
+        piece_relevance_ratio = round(dataset_stats['count_relevant_pieces'] / (dataset_stats['count_pieces']), 2)
     print(f"Piece relevance ratio: {piece_relevance_ratio}")
     
+    tokens_per_tutorial = dataset_stats['tokens_per_tutorial']
+    relevant_tokens_per_tutorial = dataset_stats['relevant_tokens_per_tutorial']
+
     print(f"Total & Average & Std tokens per tutorial: {np.sum(tokens_per_tutorial)}, {np.average(tokens_per_tutorial)}, {np.std(tokens_per_tutorial)}")
     print(f"Total & Average & Std relevant tokens per tutorial: {np.sum(relevant_tokens_per_tutorial)}, {np.average(relevant_tokens_per_tutorial)}, {np.std(relevant_tokens_per_tutorial)}")
 
