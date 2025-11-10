@@ -1,4 +1,4 @@
-from helpers.cim_scripts import build_information_units_v0
+from helpers.cim_scripts import build_information_units
 from helpers.cim_scripts import relative_improvement, calc_discriminativeness, calc_compactness, macro_pruning, get_cell_to_units
 from helpers.cim_scripts import update_facet_candidates, update_facet_labels, update_labeled_dataset
 
@@ -36,7 +36,7 @@ def process_videos_iter(task, dataset, piece_types, version):
             return json.load(f)
 
     ### build the `information units`
-    labeled_dataset = build_information_units_v0(task, dataset, context_length, information_unit_similarity_threshold, embedding_method)
+    labeled_dataset = build_information_units(task, dataset, context_length, information_unit_similarity_threshold, embedding_method)
 
     ### Greedy Algorithm for constructing the schema:
 

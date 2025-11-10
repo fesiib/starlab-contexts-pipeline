@@ -266,8 +266,8 @@ def plot_frontiers_facets(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = False
     x_axis = "facets"
-    x_lims = (0, 20, 1)
-    y_lims = (0, 4, 0.5)
+    x_lims = (0, 50, 5)
+    y_lims = (0, 20, 1)
     
     info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
     
@@ -278,8 +278,8 @@ def plot_frontiers_labels(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = True
     x_axis = "vocabulary_labels"
-    x_lims = (10, 100, 5)
-    y_lims = (0, 10, 0.5)
+    x_lims = (0, 150, 10)
+    y_lims = (0, 20, 1)
     
     info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
 
@@ -431,3 +431,14 @@ def plot_size_vs_complexity(results, piece_types, elbow_d, output_folder):
     plt.title("Trends wrt Size of the Corpus")
     plt.savefig(output_path)
     plt.close()
+
+
+def compare_unit_thresholds(results, piece_types, elbow_d, output_folder):
+    ### show the frontier but with differen similarity thresholds for constructing the units.
+    similarity_thresholds = [0.95, 0.9, 0.85, 0.8, 0.75, 0.7]
+    
+    pass
+
+def information_fragmentation(results, piece_types, elbow_d, output_folder):
+    ### plot frontiers but without the `information role` dimension in the schema.
+    pass

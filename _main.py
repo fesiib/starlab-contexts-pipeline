@@ -11,83 +11,40 @@ from helpers.dataset import get_dataset
 
 from helpers.cim_scripts import FRAMEWORK_PATH
 
-import multiprocessing as mp
 from contextlib import redirect_stdout, redirect_stderr
 
-def run_framework(args):
-    """
-    Runs one task, writing that task's stdout+stderr to a task-specific file.
-    Returns a small, picklable status dict (never raises).
-    """
-    task = args["task"]
-    version = args["version"]
-
+def run_framework(task, version):
     output_dir = os.path.join(FRAMEWORK_PATH, version)
     os.makedirs(output_dir, exist_ok=True)
 
     output_file = f"split_{task.replace(' ', '_').lower()}.txt"
     output_path = os.path.join(output_dir, output_file)
 
-    status = {"task": task, "version": version, "ok": True, "error": None}
+    # open once per task; capture BOTH stdout and stderr
+    with open(output_path, "w", buffering=1) as f, redirect_stdout(f), redirect_stderr(f):
+        dataset = get_dataset(task)  # your function
+        _ = construct_cim_split(task, dataset, version)  # your function
+        print("COMPLETED", task)
 
-    try:
-        # open once per task; capture BOTH stdout and stderr
-        with open(output_path, "w", buffering=1) as f, redirect_stdout(f), redirect_stderr(f):
-            dataset = get_dataset(task)  # your function
-            _ = construct_cim_split(task, dataset, version)  # your function
-            print("COMPLETED", task, flush=True)
-    except Exception as e:
-        # Never let third-party exceptions cross the process boundary
-        status["ok"] = False
-        status["error"] = {
-            "etype": type(e).__name__,
-            "msg": str(e),
-            "trace": traceback.format_exc(),
-            "log_file": output_path,
-        }
-        # Also write the traceback into the task's log file
-        try:
-            with open(output_path, "a") as f:
-                f.write("\n[EXCEPTION]\n")
-                f.write(status["error"]["trace"])
-                f.flush()
-        except Exception:
-            # best-effort; ignore logging failures
-            pass
-
-    return status
-
-def parallelize(func, args, num_workers=10):
-    """
-    Stream results to avoid buffer backpressure; never raise from workers.
-    """
-    results = []
-    # maxtasksperchild is handy if tasks are heavy and may leak memory
-    with mp.Pool(processes=num_workers, maxtasksperchild=100) as pool:
-        for res in pool.imap_unordered(func, args, chunksize=1):
-            results.append(res)
-    return results
-
-def run_framework_parallel(args):
-    results = parallelize(run_framework, args, num_workers=5)
-
-    # Surface any failures immediately and point to their log files
-    failures = [r for r in results if not r["ok"]]
-    if failures:
-        print(f"[SUMMARY] {len(failures)} task(s) failed:")
-        for r in failures:
-            err = r["error"]
-            print(f" - {r['task']}: {err['etype']}: {err['msg']}\n    see: {err['log_file']}")
-    else:
-        print("COMPLETED FULL RUN!")
+def run_framework_small_custom_tasks(version):
+    SMALL_CUSTOM_TASKS = []
+    for task in CUSTOM_TASKS:
+        if task in BIG_CUSTOM_TASKS:
+            continue
+        SMALL_CUSTOM_TASKS.append(task)
+    for task in SMALL_CUSTOM_TASKS:
+        run_framework(task, version)
+    print("COMPLETED FULL RUN SMALL CUSTOM TASKS!")
 
 def run_framework_big_custom_tasks(version):
-    args = [{"task": task, "version": version} for task in BIG_CUSTOM_TASKS]
-    run_framework_parallel(args)
+    for task in BIG_CUSTOM_TASKS:
+        run_framework(task, version)
+    print("COMPLETED FULL RUN BIG CUSTOM TASKS!")
 
 def run_framework_cross_tasks(version):
-    args = [{"task": task, "version": version} for task in CROSS_TASK_TASKS]
-    run_framework_parallel(args)
+    for task in CROSS_TASK_TASKS:
+        run_framework(task, version)
+    print("COMPLETED FULL RUN CROSS TASK TASKS!")
 
 def run_context_similarity(task):
     dataset = get_dataset(task)
@@ -120,9 +77,11 @@ def main():
     run_framework(task, version)
 
 if __name__ == "__main__":
-    mp.set_start_method("spawn", force=True)
-    # run_framework_custom_tasks("full_run_2")
+    # run_framework(MUFFIN_TASK, "full_run_0")
+    
+    run_framework_small_custom_tasks("full_run_0")
+    
     # run_framework_big_custom_tasks("full_run_4")
     # run_framework({"task": BIG_CUSTOM_TASKS[0], "version": "full_run_2"})
-    run_framework_cross_tasks("full_run_5")
+    # run_framework_cross_tasks("full_run_4")
     # run_framework({"task": CROSS_TASK_TASKS[0], "version": "full_run_3"})
