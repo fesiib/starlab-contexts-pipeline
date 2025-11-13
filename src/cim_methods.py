@@ -125,6 +125,7 @@ def select_top_n_candidates(candidates, n):
     response = [
         {
             "content": c["content"], 
+            "raw_context": c["raw_context"],
             "source_doc_idx": c["source_doc_idx"],
             "significance": c["significance"],
         }
@@ -162,6 +163,7 @@ def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment,
                     "score": final_score,
                     "source_doc_idx": other['url'],
                     "content": piece["content"],
+                    "raw_context": piece["raw_context"],
                 })
     
     candidates = []
@@ -175,8 +177,9 @@ def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment,
         candidates.append({
             "score": top_unit["score"],
             "significance": info["length"] / total_augmentable_length,
-            "content": top_unit["content"],
             "source_doc_idx": top_unit["source_doc_idx"],
+            "content": top_unit["content"],
+            "raw_context": top_unit["raw_context"],
         })
         
     return select_top_n_candidates(candidates, n)
@@ -239,6 +242,7 @@ def shortest_path_retrieval(cim, facet_value_embeddings, tutorial, segment, info
             candidates.append({
                 "score": min_distance,
                 "content": p["content"],
+                "raw_context": p["raw_context"],
                 "source_doc_idx": t["url"],
                 "significance": max_min_weight,
             })

@@ -1,36 +1,26 @@
-from helpers import get_response_pydantic
 from pydantic_models.rag import InformationListSchema
+from prompts import tutorials_to_str
 
 SYSTEM_PROMPT_RAG = """You are a helpful assistant that can retrieve information from a library of tutorials for a procedural task. You only consider the provided information (no external knowledge) when answering the query."""
 
 ### e.g., query: "Given a tutorial, retrieve all missing, but relevant explanations for the tutorial."
 USER_PROMPT_FULL_TUTORIAL = """
-Here are the available tutorials for the task `{task}`:
-<library>
-{library}
-</library>
+Given available tutorials for the task `{task}` and a tutorial that the user is currently in, please respond to the query.
 
-You are given a context tutorial and a query. Please answer the query.
-<query>
+Available tutorials:
+{tutorials}
+
+Current tutorial:
+{cur_tutorial}
+
+Query:
 {query}
-</query>
-
-<context tutorial>
-{context_tutorial}
-</context tutorial>
 """
 
-def tutorials_to_str(tutorials):
-    TUTORIAL_FORMAT = "<tutorial idx={idx} title={title}>\n{content}\n</tutorial>"
-    text = ""
-    for idx, tutorial in enumerate(tutorials):
-        text += TUTORIAL_FORMAT.format(idx=idx+1, title=tutorial['title'], content=tutorial['content']) + "\n"
-    return text
-
-def get_rag_response_full_tutorial(task, tutorials, tutorial, query, gen_model):
+def get_rag_response_full_tutorial_request(task, tutorials, tutorial, query, gen_model):
     
-    library_str = tutorials_to_str(tutorials)
-    context_tutorial_str = tutorial["content"]
+    tutorials_str = tutorials_to_str(tutorials)
+    cur_tutorial_str = tutorial["content"]
 
     messages = [
 
@@ -40,35 +30,37 @@ def get_rag_response_full_tutorial(task, tutorials, tutorial, query, gen_model):
         },
         {
             "role": "user",
-            "content": USER_PROMPT_FULL_TUTORIAL.format(task=task, library=library_str, context_tutorial=context_tutorial_str, query=query),
+            "content": USER_PROMPT_FULL_TUTORIAL.format(task=task, tutorials=tutorials_str, cur_tutorial=cur_tutorial_str, query=query),
         },
     ]
-    response = get_response_pydantic(messages, InformationListSchema, model=gen_model)
-    return response["information_list"]
+    return {
+        "messages": messages,
+        "model": gen_model,
+        "response_format": InformationListSchema,
+    }
 
 ### e.g., query: "Given a tutorial with the highlighted segment, retrieve top-{N} missing, but relevant explanations for the segment"
 USER_PROMPT_TUTORIAL_SEGMENT = """
-Here are the available tutorials for the task `{task}`:
-<library>
-{library}
-</library>
+Given available tutorials for the task `{task}`, a tutorial that the user is currently in, and the specific segment that the user is interested in, please respond to the query.
 
-You are given a context tutorial and its highlighted segment. Please answer the query.
+Available tutorials:
+{tutorials}
 
-<context tutorial>
-{context_tutorial}
-</context tutorial>
+Current tutorial:
+{cur_tutorial}
 
-<highlighted_segment>
-{highlighted_segment}
-</highlighted_segment>
+Current segment:
+{cur_segment}
+
+Query:
+{query}
 """
 
-def get_rag_response_tutorial_segment(task, tutorials, tutorial, segment, query, gen_model):
+def get_rag_response_tutorial_segment_request(task, tutorials, tutorial, segment, query, gen_model):
     
-    library_str = tutorials_to_str(tutorials)
-    highlighted_segment_str = segment["content"]
-    context_tutorial_str = tutorial["content"]
+    tutorials_str = tutorials_to_str(tutorials)
+    cur_tutorial_str = tutorial["content"]
+    cur_segment_str = segment["content"]
 
     messages = [
 
@@ -78,8 +70,21 @@ def get_rag_response_tutorial_segment(task, tutorials, tutorial, segment, query,
         },
         {
             "role": "user",
-            "content": USER_PROMPT_TUTORIAL_SEGMENT.format(task=task, library=library_str, context_tutorial=context_tutorial_str, highlighted_segment=highlighted_segment_str, query=query),
+            "content": USER_PROMPT_TUTORIAL_SEGMENT.format(task=task, tutorials=tutorials_str, cur_tutorial=cur_tutorial_str, cur_segment=cur_segment_str, query=query),
         },
     ]
-    response = get_response_pydantic(messages, InformationListSchema, model=gen_model)
+    
+    return {
+        "messages": messages,
+        "model": gen_model,
+        "response_format": InformationListSchema,
+    }
+
+def get_rag_response_request(task, tutorials, tutorial, segment, query, gen_model):
+    if segment is None:
+        return get_rag_response_full_tutorial_request(task, tutorials, tutorial, query, gen_model)
+    else:
+        return get_rag_response_tutorial_segment_request(task, tutorials, tutorial, segment, query, gen_model)
+
+def get_rag_response_response(response, **kwargs):
     return response["information_list"]

@@ -101,11 +101,11 @@ def get_colors(n):
     # colors = [(color[0], color[1], color[2], 0.5) for color in colors]
     return colors
 
-def plot_frontier(plt, x, y, label, color, linestyle, marker, markersize, axvlines=[]):
+def plot_frontier(ax, x, y, label, color, linestyle, marker, markersize, axvlines=[]):
     # for _x, _y, _label in axvlines:
-    #     plt.axvline(x=_x, color=color, linestyle=':')
-        ## plt.text(_x, _y, _label)
-    plt.plot(x, y, label=label, color=color, linestyle=linestyle, marker=marker, markersize=markersize)
+    #     ax.axvline(x=_x, color=color, linestyle=':')
+        ## ax.text(_x, _y, _label)
+    ax.plot(x, y, label=label, color=color, linestyle=linestyle, marker=marker, markersize=markersize)
 
 def interpolate_frontier_precise(x, y, y_new):
     """
@@ -165,18 +165,24 @@ def interpolate_frontier_approx(x, y, y_new):
     return best_x
 
 def plot_frontiers(
-    frontiers, x_axis, y_axis, x_lims, y_lims, output_path
+    frontiers, x_axis, y_axis, x_lims, y_lims, ax,
+    kind=None,
 ):
-    plt.figure(figsize=(10, 10))
-
-    colors = get_colors(len(frontiers))
 
     cur_y_title = Y_TITLES[y_axis]
     cur_y_desired = Y_DESIRED[y_axis]
 
     cur_x_title = X_TITLES[x_axis]
 
-    for info, color in zip(frontiers, colors):
+    colors = plt.cm.tab10(range(10))
+    markers = ["o", "D", "s", "v", "^", "x", "P", "H", "8", "p", "d", "|", "_"]
+    color_marker_combinations = []
+    for marker in markers:
+        for color in colors:    
+            color_marker_combinations.append((color, marker))
+    color_marker_combinations = color_marker_combinations[:len(frontiers)]
+
+    for info, (color, marker) in zip(frontiers, color_marker_combinations):
         frontier = info["frontier"]
         elbows = info["elbows"]
         label = info["task"]
@@ -193,27 +199,15 @@ def plot_frontiers(
             axvlines.append((elbow["compactness"], elbow[y_axis], f"{w_d:.2f}"))
 
         linestyle = "-"
-        marker = "o"
-        markersize = 3
+        markersize = 6
         if label.startswith("common_"):
             linestyle = ":"
-            marker = "D" ## diamond
-        plot_frontier(plt, x, y, label, color, linestyle, marker, markersize, axvlines=axvlines)
+        plot_frontier(ax, x, y, label, color, linestyle, marker, markersize, axvlines=axvlines)
 
-    plt.axhline(y=cur_y_desired, color='r', linestyle='--')
-
-    plt.legend()
-    plt.xlabel(cur_x_title)
-    plt.ylabel(cur_y_title)
-    plt.title(f"{cur_x_title} vs {cur_y_title} Frontier")
-    if x_lims is not None:
-        plt.xlim(left=x_lims[0], right=x_lims[1])
-        plt.xticks(np.arange(x_lims[0], x_lims[1] + 1, x_lims[2]))
-    if y_lims is not None:
-        plt.ylim(bottom=y_lims[0], top=y_lims[1])
-        plt.yticks(np.arange(y_lims[0], y_lims[1] + 1, y_lims[2]))
-    plt.savefig(output_path)
-    plt.close()
+    ax.axhline(y=cur_y_desired, color='r', linestyle='--')
+    ax.set_xlabel(cur_x_title)
+    ax.set_ylabel(cur_y_title)
+    ax.set_title(f"{kind} tasks")
 
 def find_elbow(frontier, w_d):
     if len(frontier) == 0:
@@ -262,29 +256,55 @@ def get_info_for_results(results, cur_types, w_d, max_label_count=None, over_val
         })
     return info_per_results
 
+def plot_frontiers_kinds(frontiers, x_axis, y_axis, x_lims, y_lims, output_path):
+    frontier_kinds = defaultdict(list)
+    for info in frontiers:
+        kind = info["task"][:3] ### common_ or unique+common_ or raw_
+        frontier_kinds[kind].append(info)
+
+    kinds_count = len(frontier_kinds)
+
+    fig, axs = plt.subplots(1, kinds_count, figsize=(10 * kinds_count, 10), sharex=True, sharey=True)
+    for i, (kind, frontiers) in enumerate(frontier_kinds.items()):
+        cur_ax = axs[i] if kinds_count > 1 else axs
+        plot_frontiers(frontiers, x_axis, y_axis, x_lims, y_lims, cur_ax, kind=kind)
+        cur_ax.label_outer()
+        cur_ax.legend(loc="upper right", bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+        cur_ax.set_xlim(x_lims[0], x_lims[1])
+        cur_ax.set_ylim(y_lims[0], y_lims[1])
+        cur_ax.set_xticks(np.arange(x_lims[0], x_lims[1] + 1, x_lims[2]))
+        cur_ax.set_yticks(np.arange(y_lims[0], y_lims[1] + 1, y_lims[2]))
+
+    title = f"{X_TITLES[x_axis]} vs {Y_TITLES[y_axis]} Frontier ({kinds_count} kinds)"
+    fig.suptitle(title)
+    fig.tight_layout()
+    fig.savefig(output_path)
+    plt.close()
+
 def plot_frontiers_facets(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = False
     x_axis = "facets"
-    x_lims = (0, 50, 5)
-    y_lims = (0, 20, 1)
+    x_lims = (0, 20, 2)
+    y_lims = (0, 4, 0.5)
     
     info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
     
     output_path = os.path.join(output_folder, f"frontier_facets_{y_axis}_{str(elbow_d)}_{len(results)}.png")
-    plot_frontiers(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
+
+    plot_frontiers_kinds(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
 
 def plot_frontiers_labels(results, piece_types, elbow_d, y_axis, output_folder):
     max_label_count = None
     over_values = True
     x_axis = "vocabulary_labels"
-    x_lims = (0, 150, 10)
-    y_lims = (0, 20, 1)
+    x_lims = (0, 700, 50)
+    y_lims = (0, 4, 0.5)
     
     info_per_results = get_info_for_results(results, piece_types, elbow_d, max_label_count, over_values)
 
     output_path = os.path.join(output_folder, f"frontier_labels_{y_axis}_{str(elbow_d)}_{len(results)}.png")
-    plot_frontiers(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
+    plot_frontiers_kinds(info_per_results, x_axis, y_axis, x_lims, y_lims, output_path)
 
 def get_available_results(tasks, dummies):
     results = {}
@@ -292,7 +312,7 @@ def get_available_results(tasks, dummies):
         result = construct_cim_split_conservative(task, version)
         if result is None:
             continue
-        task_name = task.lower().replace(" ", "_") + "_" + version
+        task_name = "raw_" +task.lower().replace(" ", "_") + "_" + version
         results[task_name] = result
     return results
 
@@ -335,7 +355,7 @@ def classify_facet_candidates(results, similarity_threshold, common_threshold, e
         #     cur_class = "unique"
         cur_class = "unique"
         ratio = len(unique_tasks) / len(all_unique_tasks)
-        if ratio > (common_threshold - 1e-9): ### Reasoning: the facet is common if it is present in at least half of the tasks
+        if ratio > common_threshold: ### Reasoning: the facet is common if it is present in at least half of the tasks
             cur_class = "common"
         
         for facet_id in facet_ids:
@@ -400,21 +420,27 @@ def plot_size_vs_complexity(results, piece_types, elbow_d, output_folder):
 
     scatters = defaultdict(lambda: {"x": [], "y": []})
     for i, (best_c, task) in enumerate(complexities):
-        kind = task[:6] ### common_ or unique+common_
+        kind = task[:3] ### common_ or unique+common_
         scatters[kind]["x"].append(sizes[i])
         scatters[kind]["y"].append(best_c)
 
-    colors = get_colors(len(scatters))
+    
+    colors = plt.cm.tab10(range(10))
+    markers = ["o", "D", "s", "v", "^", "x", "P", "H", "8", "p", "d", "|", "_"]
+    color_marker_combinations = []
+    for marker in markers:
+        for color in colors:
+            color_marker_combinations.append((color, marker))
+    color_marker_combinations = color_marker_combinations[:len(scatters)]
     x_lims = (0, 0, 500)
     y_lims = (0, 0, 5)
 
     plt.figure(figsize=(10, 10))
     markers = ["o", "D", "s", "v", "^", "x", "P", "H", "8", "p", "d", "|", "_"]
-    markersize = 10
+    markersize = 15
 
     for i, (kind, scatter) in enumerate(scatters.items()):
-        color = colors[i]
-        marker = markers[i]
+        color, marker = color_marker_combinations[i]
         print(f"Optimal Avg. Compactness for d={elbow_d}: {np.average(scatter['y']):.2f}")
         print(f"Optimal Std. Compactness for d={elbow_d}: {np.std(scatter['y']):.2f}")
         x = scatter['x']

@@ -11,15 +11,17 @@ import numpy as np
 
 from helpers import perform_embedding
 from helpers.nlp import mccs
-from prompts.rag import get_rag_response_full_tutorial, get_rag_response_tutorial_segment
+from prompts.rag import get_rag_response_request, get_rag_response_response
+from prompts.framework_batch import batch_run_lm_calls
 
 EMBEDDINGS_PATH = "./static/results/rag/"
 
-def encode_dataset(embedding_method, task, dataset):
+def encode_dataset(task, dataset):
     """
     Encode the dataset into a vector database.
-    TODO: perform chunking
+    chunks similar to query size
     """
+    embedding_method = "tfidf"
     embeddings_path = EMBEDDINGS_PATH + f"{task}_{embedding_method}_dataset_embeddings.pkl"
     if os.path.exists(embeddings_path):
         result = pickle.load(open(embeddings_path, "rb"))
@@ -31,7 +33,7 @@ def encode_dataset(embedding_method, task, dataset):
             "index": i,
             "title": item["title"],
             "url": item["url"],
-        } for i,item in enumerate(dataset)]
+        } for i, item in enumerate(dataset)]
         embeddings = perform_embedding(embedding_method, texts)
         result = {
             "embeddings": embeddings,
@@ -40,31 +42,36 @@ def encode_dataset(embedding_method, task, dataset):
         pickle.dump(result, open(embeddings_path, "wb"))
     return result["embeddings"], result["metadata"]
 
-def encode_query(embedding_method, tutorial, query, segment):
-    """
-    Encode the query into a vector.
-    """
-    if segment is None:
-        texts = ["Tutorial: " + tutorial["content"]]
-        # texts = ["Tutorial: " + tutorial["content"] + "\n" + "Query: " + query]
-    else:
-        texts = ["Tutorial segment: " + segment["content"]]
-        # texts = ["Tutorial: " + tutorial["content"] + "\n" + "Segment: " + segment + "\n" + "Query: " + query]
-    embeddings = perform_embedding(embedding_method, texts)
-    return embeddings
+# def encode_query(embedding_method, tutorial, query, segment):
+#     """
+#     Encode the query into a vector.
+#     """
+#     if segment is None:
+#         texts = ["Tutorial: " + tutorial["content"]]
+#         # texts = ["Tutorial: " + tutorial["content"] + "\n" + "Query: " + query]
+#     else:
+#         texts = ["Tutorial segment: " + segment["content"]]
+#         # texts = ["Tutorial: " + tutorial["content"] + "\n" + "Segment: " + segment + "\n" + "Query: " + query]
+#     embeddings = perform_embedding(embedding_method, texts)
+#     return embeddings
 
-def perform_retrieval(embedding_method, dataset_embeddings, tutorial, query, segment, k, doc_score_threshold):
+def perform_retrieval(dataset_embeddings, metadata, query_tutorial, k, doc_score_threshold):
     """
-    Perform RAG retrieval on the vector database using the query vector and respond to the query.
+    ### Find most similar based on tfidf
     """
-    query_embeddings = encode_query(embedding_method, tutorial, query, segment)
+    query_tutorial_embeddings = []
+    for item in metadata:
+        dataset_idx = item["index"]
+        if item["url"] == query_tutorial["url"]:
+            query_tutorial_embeddings.append(dataset_embeddings[dataset_idx])
+            break
+    if len(query_tutorial_embeddings) == 0:
+        raise ValueError(f"Query tutorial not found in dataset: {query_tutorial['url']}")
     
-    document_idxs, scores = mccs(dataset_embeddings, query_embeddings, top_k=k)
+    document_idxs, scores = mccs(dataset_embeddings, query_tutorial_embeddings, top_k=k)
     document_idxs = document_idxs.flatten()
     scores = scores.flatten()
     
-    ### return document indices.
-
     filtered_document_idxs = []
     if doc_score_threshold is not None:
         for document_idx, score in zip(document_idxs, scores):
@@ -76,7 +83,7 @@ def perform_retrieval(embedding_method, dataset_embeddings, tutorial, query, seg
 
 def rerank_documents(dataset, document_idxs, metadata, tutorial, query):
     """
-    TODO: Rerank the documents based on the query.
+    TODO: Rerank with BERT (https://github.com/nyu-dl/dl4marco-bert)
     """
     tutorials = []
     for idx in document_idxs:
@@ -91,16 +98,10 @@ def rerank_documents(dataset, document_idxs, metadata, tutorial, query):
         })
     return tutorials
 
-def respond_to_query_rag(task, tutorials, tutorial, segment, query, gen_model):
-    if segment is None:
-        return get_rag_response_full_tutorial(task, tutorials, tutorial, query, gen_model)
-    else:
-        return get_rag_response_tutorial_segment(task, tutorials, tutorial, segment, query, gen_model)
+def run_rag(task, dataset, tests, gen_model, k, doc_score_threshold):
+    doc_embeddings, metadata = encode_dataset(task, dataset)
 
-def run_rag(task, dataset, tests, embedding_method, gen_model, k, doc_score_threshold):
-    doc_embeddings, metadata = encode_dataset(embedding_method, task, dataset)
-
-    responses = []
+    request_args = []
     for test in tests:
         # info_type = test["info_type"]
         # n = test["n"]
@@ -111,10 +112,23 @@ def run_rag(task, dataset, tests, embedding_method, gen_model, k, doc_score_thre
         if k is None or k > len(doc_embeddings):
             k = len(doc_embeddings)-1
 
-        document_idxs = perform_retrieval(embedding_method, doc_embeddings, tutorial, query, segment, k + 1, doc_score_threshold)
+        document_idxs = perform_retrieval(doc_embeddings, metadata, tutorial, k + 1, doc_score_threshold)
         tutorials = rerank_documents(dataset, document_idxs, metadata, tutorial, query)
-        response = respond_to_query_rag(task, tutorials, tutorial, segment, query, gen_model)
-        responses.append(response)
+
+        request_args.append({
+            "task": task,
+            "tutorials": tutorials,
+            "tutorial": tutorial,
+            "segment": segment,
+            "query": query,
+            "gen_model": gen_model,
+        })
+    
+    batch_results = batch_run_lm_calls(request_args, get_rag_response_request, get_rag_response_response)
+
+    responses = []
+    for result in batch_results:
+        responses.append(result)
     return responses
 
-generic_call_rag = lambda task, version, dataset, tests, embedding_method, gen_model, k, doc_score_threshold: run_rag(task, dataset, tests, embedding_method, gen_model, k, doc_score_threshold)
+generic_call_rag = lambda task, version, dataset, tests, embedding_method, gen_model, k, doc_score_threshold: run_rag(task, dataset, tests, gen_model, k, doc_score_threshold)

@@ -79,9 +79,9 @@ def main():
 if __name__ == "__main__":
     # run_framework(MUFFIN_TASK, "full_run_0")
     
-    run_framework_small_custom_tasks("full_run_0")
+    # run_framework_small_custom_tasks("full_run_0")
     
-    # run_framework_big_custom_tasks("full_run_4")
+    run_framework_big_custom_tasks("full_run_5")
     # run_framework({"task": BIG_CUSTOM_TASKS[0], "version": "full_run_2"})
     # run_framework_cross_tasks("full_run_4")
     # run_framework({"task": CROSS_TASK_TASKS[0], "version": "full_run_3"})

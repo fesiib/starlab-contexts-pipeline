@@ -2,11 +2,11 @@
 Evaluation prompts for LLM-as-a-Judge framework
 TODO: evaluate one retrieved information at a time instead of full response
 """
-from helpers import get_response_pydantic
 from pydantic_models.evaluation import MetricScale
 from pydantic_models.evaluation import Likert7EvaluationResponse, Likert5EvaluationResponse, BinaryEvaluationResponse, ComparisonEvaluationResponse, Likert3EvaluationResponse
+from prompts import tutorial_to_str, response_to_str
 
-def get_response_for_metric(messages, metric, judge_model):
+def get_response_for_metric_request(messages, metric, judge_model):
     if metric == MetricScale.LIKERT_7:
         response_format = Likert7EvaluationResponse
     elif metric == MetricScale.LIKERT_5:
@@ -19,7 +19,14 @@ def get_response_for_metric(messages, metric, judge_model):
         response_format = ComparisonEvaluationResponse
     else:
         raise ValueError(f"Unsupported metric: {metric}")
-    response = get_response_pydantic(messages, response_format, model=judge_model)
+
+    return {
+        "messages": messages,
+        "model": judge_model,
+        "response_format": response_format,
+    }
+
+def get_response_for_metric_response(response, **kwargs):
     return {
         **response,
         "confidence": response["confidence"] / 10,
@@ -27,45 +34,29 @@ def get_response_for_metric(messages, metric, judge_model):
     }
 
 SYSTEM_PROMPT_EVAL = """
-You are a response evaluator for a query about a tutorial for a procedural task `{task}`.
+You are a helpful assistant that can comprehensively evaluate the responses to a query about a procedural task `{task}`.
 """
 
 USER_PROMPT_EVAL_FULL_TUTORIAL = """
-You are given a context tutorial, a query, and response.
-
-<query>
-{query}
-</query>
-
-<context tutorial>
-{context_tutorial}
-</context tutorial>
-
-<response>
-{response}
-</response>
-
+You are given a query and a response to the query. The query was originally asked in the context of the current tutorial.
 Evaluate the response based on the following criteria:
 {criteria}
+
+Current tutorial:
+{cur_tutorial}
+
+Original query:
+{query}
+
+Response:
+{response}
 """
 
-def tutorial_to_str(tutorial):
-    TUTORIAL_FORMAT = "<tutorial title={title}>\n{content}\n</tutorial>"
-    return TUTORIAL_FORMAT.format(title=tutorial['title'], content=tutorial['content'])
-
-def response_to_str(response):
-    PIECE_FORMAT = "<piece idx={idx}> {content} </piece>"
-    pieces_str = ""
-    for idx, piece in enumerate(response):
-        pieces_str += PIECE_FORMAT.format(idx=idx+1, content=piece['content']) + "\n"
-    return pieces_str
-
-
-def eval_relevance_absolute_full_tutorial(task, tutorial, query, response, metric, criteria):
+def eval_relevance_absolute_full_tutorial_request(task, tutorial, query, eval_response, metric, criteria, judge_model):
     if metric == MetricScale.COMPARISON:
         raise ValueError("Comparison metrics are not supported for absolute evaluation.")
-    context_tutorial_str = tutorial_to_str(tutorial)
-    response_str = response_to_str(response)
+    cur_tutorial_str = tutorial_to_str(tutorial)
+    response_str = response_to_str(eval_response)
 
     messages = [
         {
@@ -74,42 +65,36 @@ def eval_relevance_absolute_full_tutorial(task, tutorial, query, response, metri
         },
         {
             "role": "user",
-            "content": USER_PROMPT_EVAL_FULL_TUTORIAL.format(query=query, context_tutorial=context_tutorial_str, response=response_str, criteria=criteria),
+            "content": USER_PROMPT_EVAL_FULL_TUTORIAL.format( cur_tutorial=cur_tutorial_str, query=query, response=response_str, criteria=criteria),
         },
     ]
 
-    response = get_response_for_metric(messages, metric, judge_model)
-    return response
+    return get_response_for_metric_request(messages, metric, judge_model)
 
 USER_PROMPT_EVAL_TUTORIAL_SEGMENT = """
-You are given a context tutorial, a highlighted segment, a query, and response.
-
-<query>
-{query}
-</query>
-
-<context tutorial>
-{context_tutorial}
-</context tutorial>
-
-<highlighted_segment>
-{highlighted_segment}
-</highlighted_segment>
-
-<response>
-{response}
-</response>
-
+You are given a query and a response to the query. The query was originally asked in the context of the current tutorial and its segment.
 Evaluate the response based on the following criteria:
 {criteria}
+
+Current tutorial:
+{cur_tutorial}
+
+Current segment:
+{cur_segment}
+
+Original query:
+{query}
+
+Response:
+{response}
 """
 
-def eval_relevance_absolute_tutorial_segment(task, tutorial, query, segment, response, metric, criteria, judge_model):
+def eval_relevance_absolute_tutorial_segment_request(task, tutorial, segment, query, eval_response, metric, criteria, judge_model):
     if metric == MetricScale.COMPARISON:
         raise ValueError("Comparison metrics are not supported for absolute evaluation.")
-    context_tutorial_str = tutorial_to_str(tutorial)
-    highlighted_segment_str = segment["content"]
-    response_str = response_to_str(response)
+    cur_tutorial_str = tutorial_to_str(tutorial)
+    cur_segment_str = segment["content"]
+    response_str = response_to_str(eval_response)
 
     messages = [
         {
@@ -118,25 +103,33 @@ def eval_relevance_absolute_tutorial_segment(task, tutorial, query, segment, res
         },
         {
             "role": "user",
-            "content": USER_PROMPT_EVAL_TUTORIAL_SEGMENT.format(query=query, context_tutorial=context_tutorial_str, highlighted_segment=highlighted_segment_str, response=response_str, criteria=criteria),
+            "content": USER_PROMPT_EVAL_TUTORIAL_SEGMENT.format(cur_tutorial=cur_tutorial_str, cur_segment=cur_segment_str, query=query, response=response_str, criteria=criteria),
         },
     ]
 
-    response = get_response_for_metric(messages, metric, judge_model)
-    return response
+    return get_response_for_metric_request(messages, metric, judge_model)
 
-def eval_relevance_comparison_full_tutorial(metric, criteria, judge_model):
+def eval_relevance_absolute_request(task, tutorial, segment, query, eval_response, metric, criteria, judge_model):
+    if segment is None:
+        return eval_relevance_absolute_full_tutorial_request(task, tutorial, query, eval_response, metric, criteria, judge_model)
+    else:
+        return eval_relevance_absolute_tutorial_segment_request(task, tutorial, segment, query, eval_response, metric, criteria, judge_model)
+
+def eval_relevance_absolute_response(response, **kwargs):
+    return get_response_for_metric_response(response, **kwargs)
+
+def eval_relevance_comparison_full_tutorial_request(metric, criteria, judge_model):
     if metric != MetricScale.COMPARISON:
         raise ValueError("Metric must be comparison for comparison evaluation.")
     ### random shuffle the order of the responses
 
-def eval_relevance_comparison_tutorial_segment(metric, criteria, judge_model):
+def eval_relevance_comparison_tutorial_segment_request(metric, criteria, judge_model):
     if metric != MetricScale.COMPARISON:
         raise ValueError("Metric must be comparison for comparison evaluation.")
     pass
 
-def eval_comprehensiveness_comparison_full_tutorial(metric, criteria, judge_model):
+def eval_comprehensiveness_comparison_full_tutorial_request(metric, criteria, judge_model):
     pass
 
-def eval_comprehensiveness_comparison_tutorial_segment(metric, criteria, judge_model):
+def eval_comprehensiveness_comparison_tutorial_segment_request(metric, criteria, judge_model):
     pass

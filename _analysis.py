@@ -81,9 +81,21 @@ def main():
     tasks_full_run_4 = CROSS_TASK_TASKS
     dummies_full_run_4 = ["full_run_4"] * len(tasks_full_run_4)
 
-    tasks = tasks_full_run_0 + tasks_full_run_4
-    dummies = dummies_full_run_0 + dummies_full_run_4
+    tasks_full_run_5 = CUSTOM_TASKS
+    dummies_full_run_5 = ["full_run_5"] * len(tasks_full_run_5)
+
+    tasks = tasks_full_run_0 + tasks_full_run_5 + tasks_full_run_4
+    dummies = dummies_full_run_0 + dummies_full_run_5 + dummies_full_run_4
+
     results = get_available_results(tasks, dummies)
+    
+    ### for debugging
+    # debug_results = {}
+    # for task, result in results.items():
+    #     debug_results[task] = result
+    #     if len(debug_results) >= 2:
+    #         break
+    # results = debug_results
 
     print("Tasks: ", len(results))
     for task, result in results.items():
@@ -105,7 +117,7 @@ def main():
 
 
     desired_d = 0.5
-    common_threshold = 0.8
+    common_threshold = 0.5
     ## filter out results that have not reached the desired discriminativeness
     filtered_results = {}
     for task, result in results.items():
