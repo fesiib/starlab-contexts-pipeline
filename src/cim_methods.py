@@ -58,14 +58,18 @@ def format_context_signature(context, facet_keys):
 def build_facet_value_embeddings(embedding_method, schema):
     embeddings = {}
     blank = perform_embedding(embedding_method, [" "])[0]
+    ### TODO: blank may not be the best "empty" representative. For example, when calculating similarity between contexts, if "empty" is aligned with "non-empty", it may need to incur a big penalty, but it may end up too small depending on what the other value is. 
     for facet in schema:
         key = facet["id"]
         if key in embeddings:
             raise ValueError(f"Facet {key} already exists")
-        embeddings[key] = {"": blank}
+        embeddings[key] = {
+            "": blank,
+            "na": blank,
+        }
         for v in facet["vocabulary"]:
-            if v["label"] in embeddings[key]:
-                raise ValueError(f"Label {v['label']} already exists")
+            if v["label"] in embeddings[key] and v["label"] != "na":
+                raise ValueError(f"WARNING: Label {v['label']} already exists {key}")
             embeddings[key][v["label"]] = perform_embedding(
                 embedding_method, [f"{v['label']}: {v['definition']}"]
             )[0]
