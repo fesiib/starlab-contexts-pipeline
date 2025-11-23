@@ -118,6 +118,48 @@ def display_tutorial_contexts(tutorial, include_keys=None, include_content_types
     markdown_table += "| " + " | ".join(["---"] * len(columns)) + " |\n"
     print(markdown_table)
 
+def display_tutorial_context_deltas(tutorial, key_to_name, include_content_types=None):
+    """
+    first obtain the sequence of contexts with `include_content_types` (if not None).
+    compute the delta between each pair of consecutive contexts (i.e., which keys are different)
+    """
+    CONTENT_TYPE_KEY = "info_type"
+    key_to_name = {
+        **key_to_name,
+        CONTENT_TYPE_KEY: "Info Type",
+    }
+    contexts = []
+    for piece in tutorial['pieces']:
+        if include_content_types is not None and piece['content_type'] not in include_content_types:
+            continue
+        context = {CONTENT_TYPE_KEY: piece["content_type"]}
+        for key in piece["labels"].keys():
+            if key not in key_to_name:
+                continue
+            context[key] = piece["labels"][key][-1]
+        contexts.append(context)
+    if len(contexts) == 0:
+        return
+    deltas = [contexts[0]]
+    for i in range(1, len(contexts)):
+        prev_context = contexts[i - 1]
+        cur_context = contexts[i]
+        delta = {}
+        for key in cur_context.keys():
+            if key in prev_context and cur_context[key] == prev_context[key]:
+                continue
+            delta[key] = cur_context[key]
+        deltas.append(delta)
+    
+    ### markdown table with all possible keys as columns (if a key is not present in a delta, it is left empty)
+    all_keys = list(key_to_name.keys())
+    markdown_table = "| " + " | ".join([key_to_name[key] for key in all_keys]) + " |\n"
+    markdown_table += "| " + " | ".join(["---"] * len(all_keys)) + " |\n"
+    for delta in deltas:
+        markdown_table += "| " + " | ".join([delta.get(key, "").strip().lower() for key in all_keys]) + " |\n"
+    markdown_table += "| " + " | ".join(["---"] * len(all_keys)) + " |\n"
+    print(markdown_table)
+
 def display_units(dataset, include_keys=None, include_content_types=None):
     import matplotlib.pyplot as plt
     units = defaultdict(list)

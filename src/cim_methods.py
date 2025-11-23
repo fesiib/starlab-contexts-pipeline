@@ -68,8 +68,10 @@ def build_facet_value_embeddings(embedding_method, schema):
             "na": blank,
         }
         for v in facet["vocabulary"]:
-            if v["label"] in embeddings[key] and v["label"] != "na":
-                raise ValueError(f"WARNING: Label {v['label']} already exists {key}")
+            # if v["label"] in embeddings[key] and v["label"] != "na":
+            #     raise ValueError(f"WARNING: Label {v['label']} already exists {key}")
+            if v["label"] in embeddings[key]:
+                continue
             embeddings[key][v["label"]] = perform_embedding(
                 embedding_method, [f"{v['label']}: {v['definition']}"]
             )[0]
@@ -77,23 +79,30 @@ def build_facet_value_embeddings(embedding_method, schema):
 
 def score_context_similarity(a_context, b_context, facet_value_embeddings, hard_matching=False):
     score = 0.0
+    common_keys = 0
     for key in facet_value_embeddings:
         value_a = a_context.get(key)
         value_b = b_context.get(key)
         if value_a is None or value_b is None:
             continue
+        common_keys += 1
         if hard_matching:
             score += 1.0 if value_a == value_b else 0.0
         else:
-            score += float(np.dot(facet_value_embeddings[key][value_a], facet_value_embeddings[key][value_b]))
-    return score / float(len(facet_value_embeddings))
+            # print(key, value_a, value_b)
+            cur_score = float(np.dot(facet_value_embeddings[key][value_a], facet_value_embeddings[key][value_b]))
+            score += cur_score
+            # print(f"Score: {float(cur_score):.4f}")
+    if common_keys == 0:
+        return 0.0
+    return score / float(common_keys)
 
 def get_missing_contexts(labeled_tutorial, segment, info_type, facet_keys):
-    covered_context_signatures = {
+    covered_context_signatures = set([
         format_context_signature(p["labels"], facet_keys)
         for p in labeled_tutorial["pieces"]
         if p["content_type"] == info_type
-    }
+    ])
 
     target_pieces = (
         p for p in labeled_tutorial["pieces"]
@@ -106,7 +115,7 @@ def get_missing_contexts(labeled_tutorial, segment, info_type, facet_keys):
             if p["start"] >= segment["start"] and p["end"] <= segment["end"]
         )
 
-    context_bucket_map = defaultdict(lambda: {"count": 0, "length": 0, "pieces": [], "augmenting_pieces": []})
+    context_bucket_map = defaultdict(lambda: {"count": 0, "length": 0.0, "pieces": [], "augmenting_pieces": []})
 
     for target_piece in target_pieces:
         target_context = target_piece["labels"]
@@ -116,8 +125,8 @@ def get_missing_contexts(labeled_tutorial, segment, info_type, facet_keys):
         bucket = context_bucket_map[context_signature]
         bucket["length"] += target_piece["end"] - target_piece["start"]
         bucket["pieces"].append(target_piece)
+        bucket["count"] += 1
     
-    print(json.dumps(context_bucket_map, indent=4))
     return context_bucket_map
 
 def select_top_n_candidates(candidates, n):
@@ -155,20 +164,23 @@ def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment,
         for piece in other["pieces"]:
             if piece["content_type"] != info_type:
                 continue
-            context_signature = format_context_signature(piece["labels"], facet_keys)
-            if context_signature in context_bucket_map:
-                final_score = 0.0 ### must be the max score
+            final_score = 0.0
+            closest_context_signature = None
+            for context_signature in context_bucket_map.keys():
                 for target_piece in context_bucket_map[context_signature]["pieces"]:
                     score = score_context_similarity(target_piece["labels"], piece["labels"], facet_value_embeddings)
                     if score > final_score:
                         final_score = score
-
-                context_bucket_map[context_signature]["augmenting_pieces"].append({
-                    "score": final_score,
-                    "source_doc_idx": other['url'],
-                    "content": piece["content"],
-                    "raw_context": piece["raw_context"],
-                })
+                        closest_context_signature = context_signature
+            if closest_context_signature is None:
+                print(f"WARNING: No closest context signature found for piece {piece['content_type']} {piece['content']}")
+                continue
+            context_bucket_map[closest_context_signature]["augmenting_pieces"].append({
+                "score": final_score,
+                "source_doc_idx": other['url'],
+                "content": piece["content"],
+                "raw_context": piece["raw_context"],
+            })
     
     candidates = []
     
@@ -250,6 +262,7 @@ def shortest_path_retrieval(cim, facet_value_embeddings, tutorial, segment, info
                 "source_doc_idx": t["url"],
                 "significance": max_min_weight,
             })
+    print("candidates: ", json.dumps(candidates, indent=4))
     return select_top_n_candidates(candidates, n)
 
 def run_cim_method(task, version, dataset, tests, embedding_method, func):
@@ -257,7 +270,7 @@ def run_cim_method(task, version, dataset, tests, embedding_method, func):
     if construction_results is None:
         print(f"Construction results are not available for task {task}")
         return None
-
+    print(construction_results)
     ### use all `facet_candidates` instead of `context_schema`
     facet_value_embeddings = build_facet_value_embeddings(embedding_method, construction_results["facet_candidates"])
     

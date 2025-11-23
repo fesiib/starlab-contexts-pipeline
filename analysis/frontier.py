@@ -337,7 +337,7 @@ def classify_facet_candidates(results, similarity_threshold, common_threshold, e
 
     ## cluster facet_texts into clusters
     ## assign a cluster a class `common` or `unique` depending on the size of the cluster (if cluster size = 1, it is unique, otherwise it is common)
-    clusters = clustering_custom(facet_texts_per_id.values(), similarity_threshold, embedding_method)
+    clusters = clustering_custom(list(facet_texts_per_id.values()), similarity_threshold, embedding_method)
     cluster_sizes = defaultdict(list)
     for facet_id, cluster in zip(facet_texts_per_id.keys(), clusters):
         cluster_sizes[cluster].append(facet_id)
@@ -347,8 +347,10 @@ def classify_facet_candidates(results, similarity_threshold, common_threshold, e
     unique_tasks_cluster_count = defaultdict(int)
     for cluster, facet_ids in cluster_sizes.items():
         unique_tasks = set()
+        unique_facet_texts = set()
         for facet_id in facet_ids:
             unique_tasks.add(facet_id_to_task[facet_id])
+            unique_facet_texts.add(facet_texts_per_id[facet_id])
         unique_tasks_cluster_count[len(unique_tasks)] += len(facet_ids)
         # cur_class = "common"
         # if len(unique_tasks) == 1:
@@ -357,7 +359,7 @@ def classify_facet_candidates(results, similarity_threshold, common_threshold, e
         ratio = len(unique_tasks) / len(all_unique_tasks)
         if ratio > common_threshold: ### Reasoning: the facet is common if it is present in at least half of the tasks
             cur_class = "common"
-        
+            print(f"Common facets: {list(unique_facet_texts)}")
         for facet_id in facet_ids:
             facet_id_to_class[facet_id] = cur_class
 

@@ -6,7 +6,6 @@ class DatasetConfig():
     tasks: list[str]
     sample_per_task: int
     query: int
-    sample_segment_per_tutorial: int
     n: int
 
     def __init__(self, label, tasks, sample_per_task, query, n):
@@ -14,21 +13,28 @@ class DatasetConfig():
         self.tasks = tasks
         self.sample_per_task = sample_per_task
         self.query = query
-        self.sample_segment_per_tutorial = None
         self.n = n
     
     def __str__(self):
-        return f"DatasetConfig(label={self.label}, tasks={self.tasks}, sample_per_task={self.sample_per_task}, query={self.query}, sample_segment_per_tutorial={self.sample_segment_per_tutorial}, n={self.n})"
+        return f"DatasetConfig(label={self.label}, tasks={self.tasks}, sample_per_task={self.sample_per_task}, query={self.query}, n={self.n})"
     
-    def to_json(self):
+    def to_dict(self):
         return {
             "label": self.label,
             "tasks": self.tasks,
             "sample_per_task": self.sample_per_task,
             "query": self.query,
-            "sample_segment_per_tutorial": self.sample_segment_per_tutorial,
             "n": self.n,
         }
+
+    def from_dict(obj):
+        return DatasetConfig(
+            label=obj["label"],
+            tasks=obj["tasks"],
+            sample_per_task=obj["sample_per_task"],
+            query=obj["query"],
+            n=obj["n"],
+        )
 
 class MethodConfig():
     label: str
@@ -51,7 +57,7 @@ class MethodConfig():
     def __str__(self):
         return f"MethodConfig(label={self.label}, embedding_method={self.embedding_method}, k={self.k}, doc_score_threshold={self.doc_score_threshold}, func={self.func.__name__}, version={self.version}, gen_model={self.gen_model})"
 
-    def to_json(self):
+    def to_dict(self):
         return {
             "label": self.label,
             "embedding_method": self.embedding_method,
@@ -61,6 +67,7 @@ class MethodConfig():
             "version": self.version,
             "gen_model": self.gen_model,
         }
+
 
 class EvalConfig():
     label: str
@@ -77,7 +84,7 @@ class EvalConfig():
     def __str__(self):
         return f"EvalConfig(label={self.label}, func={self.func.__name__}, metric={self.metric}, judge_model={self.judge_model})"
 
-    def to_json(self):
+    def to_dict(self):
         return {
             "label": self.label,
             "func": "function",

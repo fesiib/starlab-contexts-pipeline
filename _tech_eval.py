@@ -169,9 +169,9 @@ def run_absolute_eval(dataset_config, method_config, eval_config):
         "evaluation_type": "absolute",
         "results": results,
         "eval_responses": eval_responses,
-        "dataset_config": dataset_config.to_json(),
-        "method_config": method_config.to_json(),
-        "eval_config": eval_config.to_json(),
+        "dataset_config": dataset_config.to_dict(),
+        "method_config": method_config.to_dict(),
+        "eval_config": eval_config.to_dict(),
     }
     
     with open(results_path, "w") as f:
@@ -271,7 +271,20 @@ DATASETS = [
         query=QUERIES[0],
         n=5,
     ),
-    ### TODO: dataset with segments
+    DatasetConfig(
+        label="cross_10_q3_n5",
+        tasks=CROSS_TASK_TASKS,
+        sample_per_task=10,
+        query=QUERIES[2],
+        n=5,
+    ),
+    DatasetConfig(
+        label="cross4_50_q3_n5",
+        tasks=CROSS_TASK_TASKS,
+        sample_per_task=50,
+        query=QUERIES[2],
+        n=5,
+    ),
 ]
 
 METHODS = [
@@ -326,7 +339,7 @@ METHODS = [
         k=None,
         doc_score_threshold=None,
         func=generic_call_context_similarity,
-        version="full_run_5",
+        version="full_run_11",
         gen_model="gpt-4.1-mini-2025-04-14",
     ),
     MethodConfig(
@@ -335,7 +348,7 @@ METHODS = [
         k=None,
         doc_score_threshold=None,
         func=generic_call_shortest_path,
-        version="full_run_5",
+        version="full_run_11",
         gen_model="gpt-4.1-mini-2025-04-14",
     ),
 ]
@@ -379,7 +392,7 @@ EVALS = [
     ),
 ]
 
-def t_test(scores_a, scores_b):
+def t_test(scores_a, scores_b, path):
     
     np_a = np.array(scores_a)
     np_b = np.array(scores_b)
@@ -387,11 +400,6 @@ def t_test(scores_a, scores_b):
     print(np.mean(np_b), np.std(np_b))
 
     ### draw the distribution of score_a-score_b
-    folder_path = os.path.join(TECH_EVAL_PATH, "diff_distribution")
-    file_name = f"{method_1}_{method_2}.png"
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-    path = os.path.join(folder_path, file_name)
     diff = np_a - np_b
     plt.hist(diff)
     plt.savefig(path)
@@ -410,9 +418,10 @@ def t_test(scores_a, scores_b):
         return t_stat, p_value, "wilcoxon"
 
 if __name__ == "__main__":
+    # dataset_idxs = [5, 6]
     dataset_idxs = [3]
-    # method_idxs = [0, 1, 2, 3] ### RAGs
-    method_idxs = [5, 6] ### Context Similarity & Shortest Path
+    # method_idxs = [0, 1, 2, 3] ### RAGs 2 is best
+    method_idxs = [3, 0, 1, 2, 5] ### Context Similarity & Shortest Path
     eval_idxs = [1]
 
     all_combinations = list(itertools.product(dataset_idxs, method_idxs, eval_idxs))
@@ -423,6 +432,8 @@ if __name__ == "__main__":
         dataset_idx, method_idx, eval_idx = combination
         cur_results = main(dataset_idx, method_idx, eval_idx)
         organize_results[method_idx][f"{dataset_idx}_{eval_idx}"] = cur_results
+
+    print(json.dumps(organize_results, indent=4))
 
     # dataset_idx, method_idx, eval_idx = all_combinations[0]
     # main(dataset_idx, method_idx, eval_idx)
@@ -443,6 +454,65 @@ if __name__ == "__main__":
                 cur_scores_2 = get_scores_absolute(cur_results_2["results"])
                 scores_a.extend(cur_scores_1)
                 scores_b.extend(cur_scores_2)
-            stat, p_value, test_type = t_test(scores_a, scores_b)
+            folder_path = os.path.join(TECH_EVAL_PATH, "diff_distribution")
+            file_name = f"{method_1}_{method_2}.png"
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+            path = os.path.join(folder_path, file_name)
+            stat, p_value, test_type = t_test(scores_a, scores_b, path)
             print(f"Method: {method_1}, Method: {method_2}, Stat: {stat}, P-value: {p_value}, Test Type: {test_type}")
             print("-"*20)
+    ### print representative results per score
+    sampled_indexes = range(200)
+    results_per_index = defaultdict(list)
+    for method_idx in organize_results.keys():
+        for eval_idx in organize_results[method_idx].keys():
+            cur_results = organize_results[method_idx][eval_idx]
+            cur_dataset_config = DatasetConfig.from_dict(cur_results["dataset_config"])
+            test_dataset = construct_test_dataset(cur_dataset_config)
+            for idx in sampled_indexes:
+                cur_test = test_dataset[idx]
+                cur_result = cur_results["results"][idx]
+                if cur_result is None:
+                    cur_result = "<none>"
+                else:
+                    cur_result = f"{cur_result['rating']}<br>({cur_result['reasoning']})"
+                cur_response = cur_results["eval_responses"][idx]
+                if cur_response is None:
+                    cur_response = "<none>"
+                else:
+                    cur_response = "<br><br>".join([item["content"] for item in cur_response])
+                results_per_index[idx].append({
+                    "method": method_idx,
+                    "eval": eval_idx,
+                    "task": cur_test["task"],
+                    "tutorial": cur_test["tutorial"]["url"],
+                    "segment": cur_test["segment"]["label"] if cur_test["segment"] is not None else None,
+                    "query": cur_test["query"],
+                    "result": cur_result,
+                    "response": cur_response,
+                })
+    
+    ### print as .md table
+    print("| Index | Task | Tutorial | Segment | Query | RAG(2) | RAG(4) | RAG(8) | RAG(16) | Context Similarity |")
+    print("|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|")
+    for idx, results in results_per_index.items():
+        index = idx + 1
+        task = results[0]["task"]
+        tutorial = results[0]["tutorial"]
+        segment = results[0]["segment"]
+        query = results[0]['query'].replace("\n", "<br>")
+        rag2_result = results[0]["result"]
+        rag4_result = results[1]["result"]
+        rag8_result = results[2]["result"]
+        rag16_result = results[3]["result"]
+        context_similarity_result = results[4]["result"]
+        rag2_response = results[0]["response"]
+        rag4_response = results[1]["response"]
+        rag8_response = results[2]["response"]
+        rag16_response = results[3]["response"]
+        context_similarity_response = results[4]["response"]
+        print(f"| {index} | {task} | {tutorial} | {segment} | {query} | {rag2_result} | {rag4_result} | {rag8_result} | {rag16_result} | {context_similarity_result} |")
+        print(f"| | | | | | {rag2_response} | {rag4_response} | {rag8_response} | {rag16_response} | {context_similarity_response} |")
+            
+    

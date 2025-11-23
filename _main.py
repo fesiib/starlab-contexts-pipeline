@@ -1,17 +1,18 @@
 import json
 import os
-import traceback
-from src.framework_split import construct_cim_split
-from src.framework_iter import construct_cim_iter
+import random
+from contextlib import redirect_stdout, redirect_stderr
+
 from helpers.dataset import MUFFIN_TASK, CUSTOM_TASKS, CROSS_TASK_TASKS, BIG_CUSTOM_TASKS
-
-from src.cim_methods import context_similarity_retrieval
-
 from helpers.dataset import get_dataset
-
 from helpers.cim_scripts import FRAMEWORK_PATH
 
-from contextlib import redirect_stdout, redirect_stderr
+from src.framework_split import construct_cim_split
+from src.framework_iter import construct_cim_iter
+
+from src.cim_methods import context_similarity_retrieval, run_cim_method
+
+from helpers.video_scripts import get_transcript_segment
 
 def run_framework(task, version):
     output_dir = os.path.join(FRAMEWORK_PATH, version)
@@ -46,16 +47,34 @@ def run_framework_cross_tasks(version):
         run_framework(task, version)
     print("COMPLETED FULL RUN CROSS TASK TASKS!")
 
-def run_context_similarity(task):
+def run_context_similarity(task, version):
     dataset = get_dataset(task)
+    embedding_method = "openai"
     
-    embedding_method = "bert"
     tutorial = dataset[0]
     segment = None
-    info_type = "Supplementary"
-    n = 5 ### number of IUs to retrieve
+    if "segments" in tutorial:
+        selected_segment = random.choice(tutorial["segments"])
+        segment = {
+            "label": selected_segment["label"],
+            "content": get_transcript_segment(tutorial["transcript"], selected_segment["start"], selected_segment["end"], include_intersecting=True),
+            "start": selected_segment["start"],
+            "end": selected_segment["end"],
+        }
+        print(json.dumps(tutorial["content"], indent=4))
+        print(json.dumps(tutorial["segments"], indent=4))
+        print(json.dumps(segment, indent=4))
 
-    response = context_similarity_retrieval(embedding_method, task, dataset, tutorial, segment, info_type, n)
+    tests = [{
+        "tutorial": tutorial,
+        "segment": segment,
+        "info_type": "Supplementary - Tip",
+        "n": 5
+    }]
+    func = context_similarity_retrieval
+
+    response = run_cim_method(task, version, dataset, tests, embedding_method, func)
+
     print(json.dumps(response, indent=4))
 
 def run_rag():
@@ -64,24 +83,16 @@ def run_rag():
 def run_vanilla():
     pass
 
-def main():
-    version = "trial_1"
-    task = MUFFIN_TASK
-    # task = CUSTOM_TASKS[14]
-    # task = CROSS_TASK_TASKS[0]
-    # task = CROSS_TASK_TASKS[1]
-    # task = CUSTOM_TASKS[13]
-    print(f"Running for task: {task}")
-
-    #run_context_similarity(task)
-    run_framework(task, version)
-
 if __name__ == "__main__":
+    for task in BIG_CUSTOM_TASKS:
+        run_context_similarity(task, "full_run_11")
     # run_framework(MUFFIN_TASK, "full_run_0")
-    
     # run_framework_small_custom_tasks("full_run_0")
-    run_framework(BIG_CUSTOM_TASKS[0], "full_run_8")
-    # run_framework_big_custom_tasks("full_run_5")
+    # for task in BIG_CUSTOM_TASKS:
+    #     if task == BIG_CUSTOM_TASKS[2]:
+    #         continue
+    #     run_framework(task, "full_run_11")
+    # run_framework_big_custom_tasks("full_run_10")
     # run_framework({"task": BIG_CUSTOM_TASKS[0], "version": "full_run_2"})
     # run_framework_cross_tasks("full_run_4")
     # run_framework({"task": CROSS_TASK_TASKS[0], "version": "full_run_3"})

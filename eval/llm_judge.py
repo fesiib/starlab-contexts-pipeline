@@ -194,8 +194,8 @@ def aggregate_results_absolute(results):
 def get_scores_absolute(results):
     scores = []
     for result in results:
-        if result == None:
-            continue
-        if "rating" in result:
+        if result is None:
+            scores.append(1.0) ## minimum score
+        else:
             scores.append(result["rating"])
     return scores
