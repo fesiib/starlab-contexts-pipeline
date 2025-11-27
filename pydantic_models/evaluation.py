@@ -30,4 +30,4 @@ class Likert3EvaluationResponse(BaseEvaluationResponse):
     rating: int = Field(..., ge=1, le=3, title="Rating on the 3-point scale")
 
 class ComparisonEvaluationResponse(BaseEvaluationResponse):
-    decision: Literal["A", "B"] = Field(..., title="The better option.")
+    decision: Literal["A", "B", "tie"] = Field(..., title="The better option between A and B or tie if they are equally good.")

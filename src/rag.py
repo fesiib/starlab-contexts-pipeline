@@ -93,8 +93,9 @@ def rerank_documents(dataset, document_idxs, metadata, tutorial, query):
             print(f"retrieval works okay, because it can retrieve itself")
             continue
         tutorials.append({
+            "url": dataset[dataset_idx]["url"],
             "title": dataset[dataset_idx]["title"],
-            "content": dataset[dataset_idx]["content"],
+            "pieces": dataset[dataset_idx]["pieces"],
         })
     return tutorials
 

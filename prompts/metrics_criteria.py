@@ -24,7 +24,9 @@ Give a binary decision between yes and no.
 """
 
 RELEVANCE_CRITERIA_COMPARISON = """
-"""
+- A: The information in group A is (1) more relevant to the query, (2) more useful for learning and completing the task, and (3) is missing from the current tutorial than the information from group B.
+- B: The information in group B is (1) more relevant to the query, (2) more useful for learning and completing the task, and (3) is missing from the current tutorial than the information from group A.
+- tie: The information in group A and group B are equally relevant to the query and are missing from the current tutorial.
 
-COMPREHENSIVENESS_CRITERIA_COMPARISON = """
+Give a decision between A, B, or tie.
 """

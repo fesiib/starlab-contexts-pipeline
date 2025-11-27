@@ -27,10 +27,12 @@ from prompts.evaluation import (
     eval_joint_absolute_request,
     eval_apiece_absolute_request,
     eval_absolute_response,
+    eval_joint_comparative_request,
+    eval_comparative_response,
 )
 
 from pydantic_models.evaluation import MetricScale
-from pydantic_models.evaluation import Likert3EvaluationResponse, Likert5EvaluationResponse, BinaryEvaluationResponse
+from pydantic_models.evaluation import Likert3EvaluationResponse, Likert5EvaluationResponse, BinaryEvaluationResponse, ComparisonEvaluationResponse
 
 
 from prompts.framework_batch import batch_run_lm_calls
@@ -39,6 +41,7 @@ from prompts.metrics_criteria import (
     RELEVANCE_CRITERIA_LIKERT_3,
     RELEVANCE_CRITERIA_LIKERT_5,
     RELEVANCE_CRITERIA_BINARY,
+    RELEVANCE_CRITERIA_COMPARISON,
 )
 
 def _apiece_absolute_evaluation(eval_responses, test_dataset, criteria, max_rating, response_format, judge_model):
@@ -51,6 +54,12 @@ def _apiece_absolute_evaluation(eval_responses, test_dataset, criteria, max_rati
         tutorial = test_case["tutorial"]
         segment = test_case["segment"]
         info_type = test_case["info_type"]
+        
+        ### filter out eval_response that is not of the same info_type
+        eval_response = [eval_response_i for eval_response_i in eval_response if eval_response_i["content_type"] == info_type]
+        if len(eval_response) == 0:
+            continue
+        
         for eval_response_i in eval_response:
             request_args.append({
                 "task": task,
@@ -71,6 +80,8 @@ def _apiece_absolute_evaluation(eval_responses, test_dataset, criteria, max_rati
     for i in range(len(test_dataset)):
         results.append([])
     for result, test_idx in zip(batch_results, req_idx_to_source):
+        if result is None:
+            continue
         results[test_idx].append(result)
     return results
 
@@ -84,6 +95,12 @@ def _joint_absolute_evaluation(eval_responses, test_dataset, criteria, max_ratin
         tutorial = test_case["tutorial"]
         segment = test_case["segment"]
         query = test_case["query"]
+        info_type = test_case["info_type"]
+
+        ### filter out eval_response that is not of the same info_type
+        eval_response = [eval_response_i for eval_response_i in eval_response if eval_response_i["content_type"] == info_type]
+        if len(eval_response) == 0:
+            continue
 
         request_args.append({
             "task": task,
@@ -104,6 +121,8 @@ def _joint_absolute_evaluation(eval_responses, test_dataset, criteria, max_ratin
     for i in range(len(test_dataset)):
         results.append([])
     for result, test_idx in zip(batch_results, req_idx_to_source):
+        if result is None:
+            continue
         results[test_idx].append(result)
     return results
 
@@ -132,11 +151,82 @@ def relevance_absolute_evaluation(eval_responses, test_dataset, metric, joint, j
         return _apiece_absolute_evaluation(eval_responses, test_dataset, criteria, max_rating, response_format, judge_model)
 
 
-def get_absolute_scores_average(results):
+def _joint_comparative_evaluation(eval_responses_A, eval_responses_B, test_dataset, criteria, max_rating, response_format, judge_model):
+    request_args = []
+    req_idx_to_source = []
+    for i, (eval_response_A, eval_response_B, test_case) in enumerate(zip(eval_responses_A, eval_responses_B, test_dataset)):
+        task = test_case["task"]
+        tutorial = test_case["tutorial"]
+        segment = test_case["segment"]
+        query = test_case["query"]
+        info_type = test_case["info_type"]
+
+        ### filter out eval_response that is not of the same info_type
+        eval_response_A = [eval_response_i for eval_response_i in eval_response_A if eval_response_i["content_type"] == info_type]
+        eval_response_B = [eval_response_i for eval_response_i in eval_response_B if eval_response_i["content_type"] == info_type]
+
+        request_args.append({
+            "task": task,
+            "tutorial": tutorial,
+            "segment": segment,
+            "query": query,
+            "eval_response_A": eval_response_A,
+            "eval_response_B": eval_response_B,
+            "response_format": response_format,
+            "criteria": criteria,
+            "judge_model": judge_model,
+            "max_rating": max_rating,
+        })
+        req_idx_to_source.append(i)
+
+    batch_results = batch_run_lm_calls(request_args, eval_joint_comparative_request, eval_comparative_response)
+
+    results = []
+    for i in range(len(test_dataset)):
+        results.append([])
+    for result, test_idx in zip(batch_results, req_idx_to_source):
+        if result is None:
+            continue
+        results[test_idx].append(result)
+    return results
+
+
+def relevance_comparative_evaluation(eval_responses_A, eval_responses_B, test_dataset, metric, joint, judge_model):
+    criteria = ""
+    max_rating = 0
+    response_format = None
+    if metric == MetricScale.COMPARISON:
+        criteria = RELEVANCE_CRITERIA_COMPARISON
+        max_rating = 3
+        response_format = ComparisonEvaluationResponse
+    else:
+        raise ValueError(f"Unsupported metric: {metric}")
+
+    if joint:
+        return _joint_comparative_evaluation(eval_responses_A, eval_responses_B, test_dataset, criteria, max_rating, response_format, judge_model)
+    else:
+        raise ValueError(f"Unsupported apiece evaluation yet.")
+
+def get_scores_info_type(responses, test_dataset, k):
+    scores = []
+    for test_case, response in zip(test_dataset, responses):
+        if response is None or len(response) == 0:
+            scores.append(0.0) ## minimum score
+        else:
+            correct_info_type_count = 0
+            for i in range(k):
+                if i >= len(response):
+                    break
+                if response[i]["content_type"] == test_case["info_type"]:
+                    correct_info_type_count += 1
+            scores.append(correct_info_type_count / k)
+    return scores
+
+def get_scores_average(results, default_score=0.0):
     scores = []
     for result in results:
-        if len(result) == 0:
-            scores.append(0.0) ## minimum score
+        if result is None or len(result) == 0:
+            scores.append(default_score)
         else:
             scores.append(np.mean([r["rating"] for r in result]))
     return scores
@@ -144,7 +234,7 @@ def get_absolute_scores_average(results):
 def get_absolute_scores_precision(results, k):
     scores = []
     for result in results:
-        if len(result) == 0:
+        if result is None or len(result) == 0:
             scores.append(0.0) ## minimum score
         else:
             relevant_count = 0
@@ -159,7 +249,7 @@ def get_absolute_scores_precision(results, k):
 def get_absolute_scores_ap(results, k):
     scores = []
     for result in results:
-        if len(result) == 0:
+        if result is None or len(result) == 0:
             scores.append(0.0) ## minimum score
         else:
             average_precision = 0
@@ -170,7 +260,7 @@ def get_absolute_scores_ap(results, k):
                 if result[i]["rating"] > 0.5-1e-6:
                     relevant_count += 1
                     average_precision += relevant_count / (i + 1)
-            scores.append(average_precision / k)
+            scores.append(average_precision / relevant_count if relevant_count > 0 else 0.0)
     return scores
 
 def get_absolute_scores_ndcg(results, k):
@@ -180,7 +270,7 @@ def get_absolute_scores_ndcg(results, k):
 
     scores = []
     for result in results:
-        if len(result) == 0:
+        if result is None or len(result) == 0:
             scores.append(0.0) ## minimum score
         else:
             dcg = 0
@@ -189,4 +279,33 @@ def get_absolute_scores_ndcg(results, k):
                     break
                 dcg += result[i]["rating"] / np.log2(i + 2)
             scores.append(dcg / ideal_dcg)
+    return scores
+
+def get_absolute_scores_precision_length_adjusted(results):
+    scores = []
+    for result in results:
+        if result is None or len(result) == 0:
+            scores.append(0.0) ## minimum score
+        else:
+            relevant_count = 0
+            for i in range(len(result)):
+                if result[i]["rating"] > 0.5-1e-6:
+                    relevant_count += 1  
+            scores.append(relevant_count / len(result))
+    return scores
+
+def get_absolute_scores_rr(results, k):
+    scores = []
+    for result in results:
+        if result is None or len(result) == 0:
+            scores.append(0.0) ## minimum score
+        else:
+            rr = 0
+            for i in range(k):
+                if i >= len(result):
+                    break
+                if result[i]["rating"] > 0.5-1e-6:
+                    rr = 1 / (i + 1)
+                    break
+            scores.append(rr)
     return scores

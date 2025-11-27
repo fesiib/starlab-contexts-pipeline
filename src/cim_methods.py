@@ -131,19 +131,29 @@ def get_missing_contexts(labeled_tutorial, segment, info_type, facet_keys):
 
 def select_top_n_candidates(candidates, n):
     candidates = sorted(candidates, key=lambda x: x["score"], reverse=True)
-
+    score_threshold = 0.5
     if n is None:
         n = len(candidates)
 
-    response = [
-        {
+
+    response = []
+
+    for c in candidates[:n]:
+        if c["score"] < score_threshold:
+            break
+        response.append({
+            "significance": c["significance"],
             "content": c["content"], 
             "raw_context": c["raw_context"],
+            "content_type": c["content_type"],
             "source_doc_idx": c["source_doc_idx"],
-            "significance": c["significance"],
-        }
-        for c in candidates[:n]
-    ]
+            "source_piece_idx": c["source_piece_idx"],
+        })
+    if len(response) == 0:
+        print("WARNING: No candidates found with score >= ", score_threshold)
+        return []
+    else:
+        print (f"Found {len(response)} candidates with score >= {score_threshold}", f"The worst score is {candidates[len(response)-1]['score']:.4f}")
 
     response = sorted(response, key=lambda x: x["significance"], reverse=True)
     for c in response:
@@ -178,8 +188,10 @@ def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment,
             context_bucket_map[closest_context_signature]["augmenting_pieces"].append({
                 "score": final_score,
                 "source_doc_idx": other['url'],
+                "source_piece_idx": piece["piece_id"],
                 "content": piece["content"],
                 "raw_context": piece["raw_context"],
+                "content_type": piece["content_type"],
             })
     
     candidates = []
@@ -194,8 +206,10 @@ def context_similarity_retrieval(cim, facet_value_embeddings, tutorial, segment,
             "score": top_unit["score"],
             "significance": info["length"] / total_augmentable_length,
             "source_doc_idx": top_unit["source_doc_idx"],
+            "source_piece_idx": top_unit["source_piece_idx"],
             "content": top_unit["content"],
             "raw_context": top_unit["raw_context"],
+            "content_type": top_unit["content_type"],
         })
         
     return select_top_n_candidates(candidates, n)
@@ -262,15 +276,27 @@ def shortest_path_retrieval(cim, facet_value_embeddings, tutorial, segment, info
                 "source_doc_idx": t["url"],
                 "significance": max_min_weight,
             })
-    print("candidates: ", json.dumps(candidates, indent=4))
     return select_top_n_candidates(candidates, n)
 
 def run_cim_method(task, version, dataset, tests, embedding_method, func):
-    construction_results = construct_cim_split_conservative(task, version)
+    construction_results = None
+    if version is None:
+        ### use the latest version (e.g., `full_run_X`)
+        for idx in range(0, 100):
+            cur_version = f"full_run_{idx}"
+            cur = construct_cim_split_conservative(task, cur_version)
+            if cur is not None:
+                construction_results = cur
+                version = cur_version
+    else:
+        construction_results = construct_cim_split_conservative(task, version)
+
+    print(f"Using version {version} for task {task}")
+    
     if construction_results is None:
         print(f"Construction results are not available for task {task}")
-        return None
-    print(construction_results)
+        return []
+
     ### use all `facet_candidates` instead of `context_schema`
     facet_value_embeddings = build_facet_value_embeddings(embedding_method, construction_results["facet_candidates"])
     

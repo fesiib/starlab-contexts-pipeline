@@ -1,11 +1,11 @@
 from pydantic_models.rag import InformationListSchema
-from prompts import tutorials_to_str
+from prompts import tutorials_to_str, tutorial_to_str
 
-SYSTEM_PROMPT_RAG = """You are a helpful assistant that can retrieve information from a library of tutorials for a procedural task. You only consider the provided information (no external knowledge) when answering the query."""
+SYSTEM_PROMPT_RAG = """You are a helpful assistant that can answer to queries by retrieving information pieces from a library of tutorials for a procedural task. You only consider the provided information (no external knowledge) when answering the query."""
 
 ### e.g., query: "Given a tutorial, retrieve all missing, but relevant explanations for the tutorial."
 USER_PROMPT_FULL_TUTORIAL = """
-Given available tutorials for the task `{task}` and a tutorial that the user is currently in, please respond to the query.
+Given available tutorials for the task `{task}` and a tutorial that the user is currently in, please answer the query.
 
 Available tutorials:
 {tutorials}
@@ -20,7 +20,7 @@ Query:
 def get_rag_response_full_tutorial_request(task, tutorials, tutorial, query, gen_model):
     
     tutorials_str = tutorials_to_str(tutorials)
-    cur_tutorial_str = tutorial["content"]
+    cur_tutorial_str = tutorial_to_str(tutorial)
 
     messages = [
 
@@ -41,7 +41,7 @@ def get_rag_response_full_tutorial_request(task, tutorials, tutorial, query, gen
 
 ### e.g., query: "Given a tutorial with the highlighted segment, retrieve top-{N} missing, but relevant explanations for the segment"
 USER_PROMPT_TUTORIAL_SEGMENT = """
-Given available tutorials for the task `{task}`, a tutorial that the user is currently in, and the specific segment that the user is interested in, please respond to the query.
+Given available tutorials for the task `{task}`, a tutorial that the user is currently in, and the specific segment that the user is interested in, please answer the query.
 
 Available tutorials:
 {tutorials}
@@ -59,7 +59,8 @@ Query:
 def get_rag_response_tutorial_segment_request(task, tutorials, tutorial, segment, query, gen_model):
     
     tutorials_str = tutorials_to_str(tutorials)
-    cur_tutorial_str = tutorial["content"]
+    cur_tutorial_str = tutorial_to_str(tutorial)
+    ### TODO: may need to adjust the way we highlight the segment...
     cur_segment_str = segment["content"]
 
     messages = [
@@ -86,5 +87,25 @@ def get_rag_response_request(task, tutorials, tutorial, segment, query, gen_mode
     else:
         return get_rag_response_tutorial_segment_request(task, tutorials, tutorial, segment, query, gen_model)
 
-def get_rag_response_response(response, **kwargs):
-    return response["information_list"]
+def get_rag_response_response(response, tutorials, **kwargs):
+    result = []
+    for info in response["information_list"]:
+        piece_id = info["source_piece_id"]
+        cur_tutorial = None
+        cur_piece = None
+        for tutorial in tutorials:
+            for piece in tutorial["pieces"]:
+                if piece["piece_id"] == piece_id:
+                    cur_tutorial = tutorial
+                    cur_piece = piece
+                    break
+        if cur_tutorial is None or cur_piece is None:
+            continue
+        result.append({
+            "source_doc_idx": cur_tutorial["url"],
+            "source_piece_idx": cur_piece["piece_id"],
+            "content": cur_piece["content"],
+            "raw_context": cur_piece["raw_context"],
+            "content_type": cur_piece["content_type"],
+        })
+    return result
