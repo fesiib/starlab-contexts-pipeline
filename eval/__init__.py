@@ -332,7 +332,7 @@ METHODS = {
 ### naming convention: {criteria}_{joint/apiece}_{metric type}_{judge_model}_{scale}
 EVALS = {
     "relevance_absolute_gpt-5-mini_binary_n": EvalConfig(
-        label="relevance_absolute_gpt-5-mini_binary_n",
+        label="faithful_relevance_absolute_gpt-5-mini_binary_n",
         func=relevance_absolute_evaluation,
         metric=MetricScale.BINARY,
         judge_model="gpt-5-mini-2025-08-07",
@@ -360,7 +360,7 @@ EVALS = {
         n=5,
     ),
     "relevance_comparative_gpt-5-mini_comparison_n5": EvalConfig(
-        label="relevance_comparative_gpt-5-mini_comparison_n5",
+        label="faithful_relevance_comparative_gpt-5-mini_comparison_n5",
         func=relevance_comparative_evaluation,
         metric=MetricScale.COMPARISON,
         judge_model="gpt-5-mini-2025-08-07",

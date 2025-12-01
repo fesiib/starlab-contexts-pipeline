@@ -184,6 +184,8 @@ def run_absolute_eval(dataset_config, method_config, eval_config):
 
     print("Response lengths: ", [len(eval_response_i) for eval_response_i in eval_responses])
     for i in range(len(eval_responses)):
+        test = test_dataset[i]
+        eval_responses[i] = [eval_response_i for eval_response_i in eval_responses[i] if eval_response_i["content_type"] == test["info_type"]]
         eval_responses[i] = eval_responses[i][:RESPONSE_ITEMS_CAP]
 
     print("Running eval...")
@@ -237,6 +239,8 @@ def run_comparative_eval(dataset_config, method_config_A, method_config_B, eval_
 
     print("Response lengths A: ", [len(eval_response_i) for eval_response_i in eval_responses_A])
     for i in range(len(eval_responses_A)):
+        test = test_dataset[i]
+        eval_responses_A[i] = [eval_response_i for eval_response_i in eval_responses_A[i] if eval_response_i["content_type"] == test["info_type"]]
         eval_responses_A[i] = eval_responses_A[i][:RESPONSE_ITEMS_CAP]
 
     print("Running method B...")
@@ -247,6 +251,8 @@ def run_comparative_eval(dataset_config, method_config_A, method_config_B, eval_
     
     print("Response lengths B: ", [len(eval_response_i) for eval_response_i in eval_responses_B])
     for i in range(len(eval_responses_B)):
+        test = test_dataset[i]
+        eval_responses_B[i] = [eval_response_i for eval_response_i in eval_responses_B[i] if eval_response_i["content_type"] == test["info_type"]]
         eval_responses_B[i] = eval_responses_B[i][:RESPONSE_ITEMS_CAP]
 
     print("Running eval...")
@@ -310,8 +316,6 @@ def output_representative_examples(combined_results, sampled_indexes):
                 if idx >= len(cur_combined_results["test_dataset"]):
                     continue
                 cur_test = cur_combined_results["test_dataset"][idx]
-                if cur_test["info_type"] != "Method - Instruction":
-                    continue
                 results_across_methods[f"{idx+1}_{eval_key}"]["task"] = cur_test["task"]
                 results_across_methods[f"{idx+1}_{eval_key}"]["tutorial"] = cur_test["tutorial"]["url"]
                 results_across_methods[f"{idx+1}_{eval_key}"]["segment"] = cur_test["segment"]["label"] if cur_test["segment"] is not None else "-"
@@ -367,10 +371,11 @@ def output_representative_examples(combined_results, sampled_indexes):
     print("</md>")
 
 def output_results(combined_results, score_types):
+    individual_results = defaultdict(lambda: defaultdict(dict))
     for method in combined_results.keys():
         for evaluation in combined_results[method].keys():
             cur_combined_results = combined_results[method][evaluation]
-            print(f"Method: {method}, Evaluation: {evaluation}")
+            individual_results[evaluation][method] = {}
             for score_type in score_types.keys():
                 func = score_types[score_type]
                 cur_scores = func(
@@ -378,23 +383,45 @@ def output_results(combined_results, score_types):
                     cur_combined_results["eval_responses"],
                     cur_combined_results["test_dataset"],
                 )
-                print(f"\t{np.mean(cur_scores):.2f} ({np.std(cur_scores):.2f}) ({score_type})")
-
                 cur_scores_per_info_type = defaultdict(list)
+                for info_type in IMPORTANT_TYPES_FINE:
+                    cur_scores_per_info_type[info_type] = []
                 for idx in range(len(cur_combined_results["test_dataset"])):
                     cur_info_type = cur_combined_results["test_dataset"][idx]["info_type"]
                     cur_scores_per_info_type[cur_info_type].append(cur_scores[idx])
+                individual_results[evaluation][method][score_type] = {
+                    "all": cur_scores,
+                    "per_info_type": cur_scores_per_info_type,
+                }
 
-                for info_type, scores in cur_scores_per_info_type.items():
-                    print(f"\t\t{np.mean(scores):.2f} ({np.std(scores):.2f}) ({info_type})")
+    ### print a table of results per evaluation
+    print("<md>")
+    for evaluation in individual_results.keys():
+        print(f"## {evaluation}")
+        column_keys = ["method"] + [f"`{score_type}`" for score_type in score_types.keys()]
+        print("| " + " | ".join(column_keys) + " |")
+        print("| " + " | ".join(["---"] * len(column_keys)) + " |")
+        for method in individual_results[evaluation].keys():
+            row_values = {
+                "method": f"`{method}`",
+            }
+            for score_type in score_types.keys():
+                all_scores = individual_results[evaluation][method][score_type]['all']
+                scores_per_info_type = individual_results[evaluation][method][score_type]['per_info_type']
+                row_value = f"{np.mean(all_scores):.2f} ({np.std(all_scores):.2f})\n"
+                for info_type, scores in scores_per_info_type.items():
+                    row_value += f"    {np.mean(scores):.2f} ({np.std(scores):.2f}) ({info_type})\n"
+                row_values[score_type] = row_value.replace("\n", "<br>")
+            print("| " + " | ".join([str(row_values[key]) for key in row_values.keys()]) + " |")
+    print("</md>")
 
-    print()
-    print("-"*100)
 
     folder_path = os.path.join(TECH_EVAL_PATH, "diff_distribution")
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
+
+    comparison_results = defaultdict(lambda: defaultdict(dict))
     for method_1 in combined_results.keys():
         for method_2 in combined_results.keys():
             if method_1 == method_2:
@@ -403,13 +430,10 @@ def output_results(combined_results, score_types):
             if len(common_results) == 0:
                 continue
             
-            print(f"Method: {method_1}, Method: {method_2}")
             for score_type in score_types.keys():
                 func = score_types[score_type]
                 scores_a = []
                 scores_b = []
-                scores_a_per_info_type = defaultdict(list)
-                scores_b_per_info_type = defaultdict(list)
                 for common_result_key in common_results:
                     cur_combined_results_1 = combined_results[method_1][common_result_key]
                     cur_combined_results_2 = combined_results[method_2][common_result_key]
@@ -427,31 +451,221 @@ def output_results(combined_results, score_types):
                         cur_combined_results_2["test_dataset"],
                     )
                     scores_b.extend(cur_scores_2)
-                    for idx in range(len(cur_combined_results_2["test_dataset"])):
-                        cur_info_type_1 = cur_combined_results_1["test_dataset"][idx]["info_type"]
-                        cur_info_type_2 = cur_combined_results_2["test_dataset"][idx]["info_type"]
-                        scores_a_per_info_type[cur_info_type_1].append(cur_scores_1[idx])
-                        scores_b_per_info_type[cur_info_type_2].append(cur_scores_2[idx])
-                print(f"\tScore Type: {score_type}")
                 file_name = f"{score_type}_{method_1}_{method_2}.png"            
                 path = os.path.join(folder_path, file_name)
                 stat, p_value, test_type = t_test(scores_a, scores_b, path)
-                print(f"\t\tStat: {stat:.4f}, P-value: {p_value:.4f}, Test Type: {test_type}")
-                print(f"\t\tMean: {np.mean(scores_a):.2f}, Std: {np.std(scores_a):.2f}")
-                print(f"\t\tMean: {np.mean(scores_b):.2f}, Std: {np.std(scores_b):.2f}")
-                # for info_type in IMPORTANT_TYPES_FINE:
-                #     print(f"\t\tInfo Type: {info_type}")
-                #     if info_type not in scores_a_per_info_type:
-                #         print("\t\t\tNo data")
-                #         continue
-                #     print(f"\t\t\tMean: {np.mean(scores_a_per_info_type[info_type]):.4f}, Std: {np.std(scores_a_per_info_type[info_type]):.4f}")
-                #     print("\t\t\tScores: ", [f"{score:.4f}" for score in scores_a_per_info_type[info_type]])
-                #     print(f"\t\t\tMean: {np.mean(scores_b_per_info_type[info_type]):.4f}, Std: {np.std(scores_b_per_info_type[info_type]):.4f}")
-                #     print("\t\t\tScores: ", [f"{score:.4f}" for score in scores_b_per_info_type[info_type]])
-                #     print("-"*20)
-            print("-"*20)
+                comparison_results[method_1][method_2][score_type] = {
+                    "mean_a": np.mean(scores_a),
+                    "mean_b": np.mean(scores_b),
+                    "significant": p_value < 0.05,
+                    "stat": stat,
+                    "p_value": p_value,
+                    "test_type": test_type,
+                }
+
+    ### print a table of comparison results
+    print("<md>")
+    column_keys = ["method_1"] + [f"`{method_2}`" for method_2 in combined_results.keys()]
+    print("| " + " | ".join(column_keys) + " |")
+    print("| " + " | ".join(["---"] * len(column_keys)) + " |")
+    for method_1 in combined_results.keys():
+        row_values = {
+            "method_1": f"`{method_1}`",
+        }
+        for method_2 in combined_results.keys():
+            row_value = "X"
+            if method_1 != method_2:
+                row_value = ""
+                for score_type in comparison_results[method_1][method_2].keys():
+                    cur_comparison_result = comparison_results[method_1][method_2][score_type]
+                    if cur_comparison_result["significant"]:
+                        row_value += "* "
+                    else:
+                        row_value += "  "
+                    row_value += f"{cur_comparison_result['mean_a']:.2f} = {cur_comparison_result['mean_b']:.2f} p={cur_comparison_result['p_value']:.3f} ({cur_comparison_result['test_type']})\n"
+            row_values[method_2] = row_value.replace("\n", "<br>")
+        print("| " + " | ".join([str(row_values[key]) for key in row_values.keys()]) + " |")
+    print("</md>")
+
+def sample_abs_for_human_evaluation(combined_results, sampled_indexes):
+    results_across_methods = defaultdict(lambda: defaultdict(dict))
+
+    for method_key in combined_results.keys():
+        for eval_key in combined_results[method_key].keys():
+            cur_combined_results = combined_results[method_key][eval_key]
+            for idx in sampled_indexes:
+                if idx >= len(cur_combined_results["test_dataset"]):
+                    continue
+                cur_test = cur_combined_results["test_dataset"][idx]
+                cur_across_methods = {
+                    **results_across_methods[eval_key][idx],
+                    "task": cur_test["task"],
+                    "tutorial": cur_test["tutorial"]["url"],
+                    "segment": cur_test["segment"]["label"] if cur_test["segment"] is not None else "-",
+                    "query": cur_test["query"],
+                }
+
+                cur_result = cur_combined_results["results"][idx]
+                cur_response = cur_combined_results["eval_responses"][idx]
+                cur_ratings = []
+                cur_reasonings = []
+                cur_response_contents = []
+                for result_i, response_i in zip(cur_result, cur_response):
+                    cur_ratings.append(result_i["rating"])
+                    cur_reasonings.append(result_i["reasoning"])
+                    cur_response_contents.append(response_i["content"])
+                cur_across_methods[method_key] = {
+                    "ratings": cur_ratings,
+                    "reasonings": cur_reasonings,
+                    "response_contents": cur_response_contents,
+                }
+                results_across_methods[eval_key][idx] = cur_across_methods
     
-    output_representative_examples(combined_results, range(200))
+    ### print as .md table
+    column_keys = ["Response ID", "Eval Type", "Index", "Task", "Tutorial", "Segment", "Query", "Method", "Rank", "Responses", "Ratings", "Justifications"]
+    print("<md>")
+    print("## Absolute Evaluation")
+    print()
+    print("| " + " | ".join(column_keys) + " |")
+    print("| " + " | ".join(["---"] * len(column_keys)) + " |")
+    row_count = 0
+    for eval_key, results_per_eval in results_across_methods.items():
+        for idx, results in results_per_eval.items():
+            row_count += 1
+            evals_values = {
+                "Response ID": f"`{row_count}`",
+                "Eval Type": f"`{eval_key}`",
+                "Index": f"`{idx}`",
+                "Task": f"`{results['task']}`".replace("\n", "<br>"),
+                "Tutorial": f"`{results['tutorial']}`".replace("\n", "<br>"),
+                "Segment": results['segment'].replace("\n", "<br>"),
+                "Query": results['query'].replace("\n", "<br>"),
+
+                "Method": "-",
+                "Rank": "-",
+                "Responses": "-",
+                "Ratings": "-",
+                "Justifications": "-",
+            }
+            print("| " + " | ".join([str(evals_values[key]) for key in column_keys]) + " |")
+            target_value_sets = []
+            for method_key in combined_results.keys():
+                if method_key in results:
+                    for rank in range(len(results[method_key]['response_contents'])):
+                        row_count += 1
+                        target_values = {
+                            "Response ID": f"`{row_count}`",
+                            "Eval Type": "-",
+                            "Index": "-",
+                            "Task": "-",
+                            "Tutorial": "-",
+                            "Segment": "-",
+                            "Query": "-",
+                            "Method": f"`{method_key}`",
+                            "Rank": f"`{rank + 1}`",
+                            "Responses": f"{results[method_key]['response_contents'][rank]}".replace("\n", "<br>"),
+                            "Ratings": f"`{results[method_key]['ratings'][rank]}`",
+                            "Justifications": f"{results[method_key]['reasonings'][rank]}".replace("\n", "<br>"),
+                        }
+                        target_value_sets.append(target_values)
+            random.shuffle(target_value_sets)
+            for target_values in target_value_sets:
+                print("| " + " | ".join([str(target_values[key]) for key in column_keys]) + " |")
+    print("</md>")
+
+def sample_comp_for_human_evaluation(combined_results, sampled_indexes):
+    results_across_methods = defaultdict(lambda: defaultdict(dict))
+
+    for method_key in combined_results.keys():
+        for eval_key in combined_results[method_key].keys():
+            cur_combined_results = combined_results[method_key][eval_key]
+            for idx in sampled_indexes:
+                if idx >= len(cur_combined_results["test_dataset"]):
+                    continue
+                cur_test = cur_combined_results["test_dataset"][idx]
+                cur_across_methods = {
+                    **results_across_methods[eval_key][idx],
+                    "task": cur_test["task"],
+                    "tutorial": cur_test["tutorial"]["url"],
+                    "segment": cur_test["segment"]["label"] if cur_test["segment"] is not None else "-",
+                    "query": cur_test["query"],
+                }
+
+                cur_response = cur_combined_results["eval_responses"][idx]
+                cur_response_other = cur_combined_results["eval_responses_other"][idx]
+                cur_result = cur_combined_results["results"][idx]
+                
+                cur_across_methods[method_key] = {
+                    "ratings": "\n\n".join([str(result_i["rating"]) for result_i in cur_result]),
+                    "reasonings": "\n\n".join([str(result_i["reasoning"]) for result_i in cur_result]),
+                    "response_contents_1": "\n\n".join([f"{idx+1}. {response_i['content']}" for idx, response_i in enumerate(cur_response)]),
+                    "response_contents_2": "\n\n".join([f"{idx+1}. {response_other_i['content']}" for idx, response_other_i in enumerate(cur_response_other)]),
+                }
+                results_across_methods[eval_key][idx] = cur_across_methods
+    
+    ### print as .md table
+    column_keys = ["Eval Type", "Index", "Task", "Tutorial", "Segment", "Query", "Method1vsMethod2", "Reversed", "Responses1", "Responses2", "Ratings", "Justifications"]
+    print("<md>")
+    print("## Comparative Evaluation")
+    print()
+    print("| " + " | ".join(column_keys) + " |")
+    print("| " + " | ".join(["---"] * len(column_keys)) + " |")
+    row_count = 0
+    for eval_key, results_per_eval in results_across_methods.items():
+        for idx, results in results_per_eval.items():
+            row_count += 1
+            evals_values = {
+                "Response ID": f"`{row_count}`",
+                "Eval Type": f"`{eval_key}`",
+                "Index": f"`{idx}`",
+                "Task": f"`{results['task']}`".replace("\n", "<br>"),
+                "Tutorial": f"`{results['tutorial']}`".replace("\n", "<br>"),
+                "Segment": results['segment'].replace("\n", "<br>"),
+                "Query": results['query'].replace("\n", "<br>"),
+
+                "Method1vsMethod2": "-",
+                "Reversed": "-",
+                "Responses1": "-",
+                "Responses2": "-",
+                "Ratings": "-",
+                "Justifications": "-",
+            }
+            print("| " + " | ".join([str(evals_values[key]) for key in column_keys]) + " |")
+            
+            target_value_sets = []
+            for method_key in combined_results.keys():
+                if method_key in results:
+                    row_count += 1
+                    reversed_flag = random.random() < 0.5
+                    responses_1 = results[method_key]['response_contents_1']
+                    responses_2 = results[method_key]['response_contents_2']
+                    ratings = results[method_key]['ratings']
+                    justifications = results[method_key]['reasonings']
+                    if reversed_flag:
+                        responses_1, responses_2 = responses_2, responses_1
+                        
+                    target_values = {
+                        "Response ID": f"`{row_count}`",
+                        "Eval Type": "-",
+                        "Index": "-",
+                        "Task": "-",
+                        "Tutorial": "-",
+                        "Segment": "-",
+                        "Query": "-",
+                        "Method1vsMethod2": f"`{method_key}`",
+                        "Reversed": "Yes" if reversed_flag else "No",
+                        "Responses1": f"{responses_1}".replace("\n", "<br>"),
+                        "Responses2": f"{responses_2}".replace("\n", "<br>"),
+                        "Ratings": f"{ratings}".replace("\n", "<br>"),
+                        "Justifications": f"{justifications}",
+                    }
+                    target_value_sets.append(target_values)
+            random.shuffle(target_value_sets)
+            for target_values in target_value_sets:
+                print("| " + " | ".join([str(target_values[key]) for key in column_keys]) + " |")
+    print("</md>")
+
+
 
 def main():
 
@@ -523,9 +737,12 @@ def main():
         cur_results = run_absolute_eval(dataset_config, method_config, eval_config)
         abs_combined_results[method_key][f"{dataset_key}_{eval_key}"] = cur_results
     
+    indexes_for_human_evaluation = random.sample(range(200), 20)
 
     print("Abs Evaluation Results:")
     output_results(abs_combined_results, score_types_apiece)
+    # output_representative_examples(abs_combined_results, range(200))
+    # sample_abs_for_human_evaluation(abs_combined_results, indexes_for_human_evaluation)
     print("-"*100)
 
     
@@ -540,6 +757,8 @@ def main():
     
     print("Comp Evaluation Results:")
     output_results(comp_combined_results, score_types_joint)
+    # output_representative_examples(comp_combined_results, range(200))
+    # sample_comp_for_human_evaluation(comp_combined_results, indexes_for_human_evaluation)
     print("-"*100)
 
 if __name__ == "__main__":
