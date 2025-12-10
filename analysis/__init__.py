@@ -1,1 +1,0 @@
-ANALYSIS_PATH = "./static/analysis/"
